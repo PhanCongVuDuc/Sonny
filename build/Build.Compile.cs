@@ -14,11 +14,18 @@ sealed partial class Build
             .Executes(() =>
             {
                 foreach (var configuration in GlobBuildConfigurations()) {
-                    DotNetBuild(settings => settings
-                        .SetProjectFile(Solution)
-                        .SetConfiguration(configuration)
-                        .SetVersion(ReleaseVersionNumber)
-                        .SetVerbosity(DotNetVerbosity.minimal)) ;
+                    // Exclude Test projects from build
+                    var projectsToBuild = Solution.AllProjects
+                        .Where(project => ! project.Name.Contains("Tests", StringComparison.OrdinalIgnoreCase))
+                        .ToList() ;
+
+                    foreach (var project in projectsToBuild) {
+                        DotNetBuild(settings => settings
+                            .SetProjectFile(project)
+                            .SetConfiguration(configuration)
+                            .SetVersion(ReleaseVersionNumber)
+                            .SetVerbosity(DotNetVerbosity.minimal)) ;
+                    }
                 }
             }) ;
 }
