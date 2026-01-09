@@ -48,6 +48,21 @@
   <!-- https://github.com/Nice3point/Revit.Build.Tasks -->
   <PropertyGroup>
     <DeployRevitAddin>true</DeployRevitAddin>
+
+    <!-- Only merge in Release builds to avoid test conflicts -->
+    <!-- Debug builds don't merge, allowing tests to reference without type conflicts -->
+    <!-- 
+    Need merge for System.Text.Json:
+    Login functionality (AuthService) uses System.Text.Json version higher than Revit's built-in version.
+    Without merging, Revit will load its older System.Text.Json version, causing runtime conflicts.
+    Merging ensures our newer System.Text.Json is embedded and used instead of Revit's version.
+    -->
+  </PropertyGroup>
+  <PropertyGroup Condition="!$(Configuration.Contains('Debug'))">
+    <IsRepackable>true</IsRepackable>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
+    <IsRepackable>false</IsRepackable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -59,6 +74,9 @@
 
     <!-- IOC -->
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3"/>
+
+    <!-- Build -->
+    <PackageReference Include="ILRepack" Version="2.0.41"/>
   </ItemGroup>
 
   <ItemGroup>
