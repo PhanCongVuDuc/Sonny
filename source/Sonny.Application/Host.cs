@@ -80,7 +80,13 @@ public static class Host
             // UIDocument Provider (Singleton - stores current UIDocument)
             services.AddSingleton<IUIDocumentProvider, UIDocumentProvider>() ;
 
-            // RevitDocument (Singleton - gets UIDocument from provider each time, no caching)
+            // RevitDocument (Transient - stateless passthrough to IUIDocumentProvider above).
+            // Deliberately not a singleton: it owns no data worth sharing, and a fresh instance per
+            // resolve means any per-run state added here later is cleared instead of leaking between runs.
+            // Caveat: that only holds for consumers resolved per run. Singleton consumers
+            // (ColumnDataExtractor, ElementSelector, ColumnCreationStrategyFactory, AutoColumnDimensionInteractor)
+            // resolve this once and keep that instance for the whole Revit session, so RevitDocument itself
+            // must read through the provider on every call and never cache the UIDocument.
             services.AddTransient<IRevitDocument, RevitDocument>() ;
 
             // DisplayUnitProvider (depends on IRevitDocument)
@@ -91,7 +97,7 @@ public static class Host
             // ViewScaleProvider (depends on IRevitDocument)
             services.AddTransient<IViewScaleProvider, ViewScaleProvider>() ;
 
-            // CommonServices (Singleton - gets fresh UIDocument from provider via IRevitDocument)
+            // CommonServices (Transient - plain aggregate of the common services above)
             services.AddTransient<ICommonServices, CommonServices>() ;
 
             // RevitTaskRunner (for async Revit API execution)
