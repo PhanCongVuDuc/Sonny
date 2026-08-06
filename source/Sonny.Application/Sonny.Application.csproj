@@ -96,6 +96,7 @@
     <ProjectReference Include="..\Sonny.Application.Infrastructure\Sonny.Application.Infrastructure.csproj"/>
     <ProjectReference Include="..\Sonny.Application.UIStyle\Sonny.Application.UIStyle.csproj"/>
     <ProjectReference Include="..\Sonny.Application.Presentation\Sonny.Application.Presentation.csproj"/>
+    <ProjectReference Include="..\Sonny.Application.UseCases\Sonny.Application.UseCases.csproj"/>
     <ProjectReference Include="..\Sonny.EasyRibbon\Sonny.EasyRibbon\Sonny.EasyRibbon.csproj"/>
   </ItemGroup>
 </Project>
