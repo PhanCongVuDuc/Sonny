@@ -75,6 +75,12 @@
     <!-- IOC -->
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3"/>
 
+    <!-- Logging: sinks are configured here, in the composition root -->
+    <PackageReference Include="Serilog" Version="4.2.0"/>
+    <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0"/>
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0"/>
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0"/>
+
     <!-- Build -->
     <PackageReference Include="ILRepack" Version="2.0.41"/>
   </ItemGroup>

@@ -35,27 +35,9 @@
     <TargetFramework>net8.0-windows</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!-- Revit References -->
-    <PackageReference Include="Nice3point.Revit.Build.Tasks" Version="3.0.1"/>
-    <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(RevitVersion).*"/>
-
-    <!-- IOC -->
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3"/>
-
-    <!-- Logging -->
-    <PackageReference Include="Serilog" Version="4.2.0"/>
-    <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0"/>
-    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0"/>
-    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0"/>
-
-  </ItemGroup>
-
-  <!-- JSON serialization for net48 (Newtonsoft.Json) -->
-  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="PresentationFramework"/>
-  </ItemGroup>
+  <!--
+    Domain is the innermost layer: entities and interfaces only.
+    It deliberately references no UI, persistence, logging or Revit API packages —
+    implementations of its interfaces live in the outer layers.
+  -->
 </Project>

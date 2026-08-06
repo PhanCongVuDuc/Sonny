@@ -1,7 +1,7 @@
 using System.Windows ;
 using Sonny.Application.Domain.Services ;
 
-namespace Sonny.Application.Domain.Implements ;
+namespace Sonny.Application.Presentation.Implements ;
 
 /// <summary>
 ///     Service for displaying messages to users

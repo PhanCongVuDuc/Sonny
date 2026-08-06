@@ -2,7 +2,7 @@ using System ;
 using System.IO ;
 using NUnit.Framework ;
 using Sonny.Application.Domain.Entities.Settings ;
-using Sonny.Application.Domain.Implements ;
+using Sonny.Application.Infrastructure.Settings.Implements ;
 using Sonny.Application.Tests.Utils ;
 
 namespace Sonny.Application.Tests.Core.UnitTests.Services ;
