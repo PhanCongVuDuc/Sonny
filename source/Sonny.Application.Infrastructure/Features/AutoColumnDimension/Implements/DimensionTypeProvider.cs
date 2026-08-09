@@ -5,9 +5,6 @@ using Sonny.RevitExtensions.Extensions ;
 
 namespace Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements ;
 
-/// <summary>
-///     Provides dimension types from document
-/// </summary>
 public class DimensionTypeProvider(IRevitDocument revitDocument) : IDimensionTypeProvider
 {
     public List<DimensionTypeModel> GetDimensionTypes()

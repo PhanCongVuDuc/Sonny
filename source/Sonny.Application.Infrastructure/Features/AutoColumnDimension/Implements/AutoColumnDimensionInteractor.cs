@@ -9,9 +9,6 @@ using Sonny.RevitExtensions.RevitWrapper ;
 
 namespace Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements ;
 
-/// <summary>
-///     Interactor for executing auto column dimension creation process
-/// </summary>
 public class AutoColumnDimensionInteractor(
     IRevitDocument revitDocument,
     IMessageService messageService,

@@ -36,9 +36,6 @@ public class CircularColumnCreationStrategy(
             ColumnCreationContext.Settings.DiameterParameter!) ;
     }
 
-    /// <summary>
-    ///     Gets or creates a family symbol for circular column with specified diameter
-    /// </summary>
     private FamilySymbol? GetOrCreateCircularFamilySymbol(Family family,
         double diameter,
         string diameterParameter)

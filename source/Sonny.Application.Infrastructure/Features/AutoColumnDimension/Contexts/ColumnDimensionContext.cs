@@ -7,9 +7,6 @@ using Sonny.RevitExtensions.RevitWrapper ;
 
 namespace Sonny.Application.Infrastructure.Features.AutoColumnDimension.Contexts ;
 
-/// <summary>
-///     Immutable context containing information to create dimension for column
-/// </summary>
 public class ColumnDimensionContext(
     List<PlanarFace> planarFaces,
     XYZ maxPoint,
