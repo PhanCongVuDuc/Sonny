@@ -13,11 +13,6 @@ public abstract class BaseViewModel : ObservableObject
 {
     #region Constructor
 
-    /// <summary>
-    ///     Initializes a new instance of BaseViewModel
-    /// </summary>
-    /// <param name="commonServices">Common services container</param>
-    /// <param name="displayUnitProvider">Display unit provider</param>
     protected BaseViewModel(ICommonServices commonServices,
         IDisplayUnitProvider displayUnitProvider)
     {
@@ -34,9 +29,6 @@ public abstract class BaseViewModel : ObservableObject
         SettingsService.DisplayUnitChanged += OnDisplayUnitChanged ;
     }
 
-    /// <summary>
-    ///     Handle display unit changed event
-    /// </summary>
     private void OnDisplayUnitChanged(object? sender,
         AppDisplayUnit newUnit)
     {
@@ -104,24 +96,12 @@ public abstract class BaseViewModel : ObservableObject
 
     #region Common Helper Methods
 
-    /// <summary>
-    ///     Close the window
-    /// </summary>
     protected void CloseWindow() => Window?.Close() ;
 
-    /// <summary>
-    ///     Log information message
-    /// </summary>
     protected void LogInfo(string message) => Logger.Information(message) ;
 
-    /// <summary>
-    ///     Log warning message
-    /// </summary>
     protected void LogWarning(string message) => Logger.Warning(message) ;
 
-    /// <summary>
-    ///     Log error message
-    /// </summary>
     protected void LogError(string message,
         Exception? ex = null)
     {
@@ -134,19 +114,10 @@ public abstract class BaseViewModel : ObservableObject
         }
     }
 
-    /// <summary>
-    ///     Show error message to user
-    /// </summary>
     protected void ShowError(string message) => MessageService.ShowError(message) ;
 
-    /// <summary>
-    ///     Show info message to user
-    /// </summary>
     protected void ShowInfo(string message) => MessageService.ShowInfo(message) ;
 
-    /// <summary>
-    ///     Show warning message to user
-    /// </summary>
     protected void ShowWarning(string message) => MessageService.ShowWarning(message) ;
 
     #endregion

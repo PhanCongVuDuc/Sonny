@@ -9,19 +9,10 @@ namespace Sonny.Application.Presentation.Bases ;
 /// <typeparam name="TSettings">Settings model type</typeparam>
 public abstract class BaseViewModelWithSettings<TSettings> : BaseViewModel where TSettings : class, new()
 {
-    /// <summary>
-    ///     Settings service for loading and saving settings
-    /// </summary>
     private readonly IViewModelSettingsService<TSettings> _settingsService ;
 
     private bool _isLoadingSettings ;
 
-    /// <summary>
-    ///     Initializes a new instance of BaseViewModelWithSettings
-    /// </summary>
-    /// <param name="commonServices">Common services</param>
-    /// <param name="displayUnitProvider">Display unit provider</param>
-    /// <param name="settingsService">Settings service</param>
     protected BaseViewModelWithSettings(ICommonServices commonServices,
         IDisplayUnitProvider displayUnitProvider,
         IViewModelSettingsService<TSettings> settingsService) : base(commonServices,
@@ -58,9 +49,6 @@ public abstract class BaseViewModelWithSettings<TSettings> : BaseViewModel where
         LoadSettings() ;
     }
 
-    /// <summary>
-    ///     Loads settings from storage and applies them to the view model
-    /// </summary>
     private void LoadSettings()
     {
         var settings = _settingsService.LoadSettings() ;

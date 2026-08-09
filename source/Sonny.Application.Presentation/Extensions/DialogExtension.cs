@@ -4,9 +4,6 @@ using Autodesk.Windows ;
 
 namespace Sonny.Application.Presentation.Extensions ;
 
-/// <summary>
-///     Extension methods for Window dialogs
-/// </summary>
 public static class DialogExtension
 {
     public static void SetOwnerByRevit(this Window window)

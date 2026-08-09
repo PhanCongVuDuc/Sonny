@@ -20,9 +20,6 @@ public partial class ProgressView : Window
         ProgressBar.Value = 0 ;
     }
 
-    /// <summary>
-    ///     Updates progress bar
-    /// </summary>
     public void UpdateProgress(int current,
         int total) =>
         Dispatcher.Invoke(() =>
