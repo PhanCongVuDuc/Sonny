@@ -18,9 +18,6 @@ using Sonny.Keygen.Services ;
 
 namespace Sonny.Application.Infrastructure ;
 
-/// <summary>
-///     Service registration for the Infrastructure layer
-/// </summary>
 public static class ServiceRegistration
 {
     /// <summary>

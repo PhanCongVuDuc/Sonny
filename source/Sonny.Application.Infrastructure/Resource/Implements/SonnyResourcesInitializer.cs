@@ -27,9 +27,6 @@ public static class SonnyResourcesInitializer
         s_isInitialized = true ;
     }
 
-    /// <summary>
-    ///     Register all Sonny resources with ResourceDictionaryManager
-    /// </summary>
     private static void RegisterAllResources(LanguageCode languageCode)
     {
         var manager = ResourceDictionaryManager.Instance ;
@@ -50,10 +47,6 @@ public static class SonnyResourcesInitializer
             languageCode) ;
     }
 
-    /// <summary>
-    ///     Load all registered resources
-    /// </summary>
-    /// <param name="languageCode">Language code to load</param>
     public static void LoadAllResources(LanguageCode languageCode = LanguageCode.En)
     {
         var manager = ResourceDictionaryManager.Instance ;

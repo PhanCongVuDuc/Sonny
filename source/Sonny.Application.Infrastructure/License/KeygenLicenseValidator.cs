@@ -7,9 +7,6 @@ using Sonny.Keygen.UI.Views ;
 
 namespace Sonny.Application.Infrastructure.License ;
 
-/// <summary>
-///     License validator implementation using Sonny.Keygen
-/// </summary>
 public class KeygenLicenseValidator(AutoLoginService autoLoginService, UserInfoService userInfoService)
     : ILicenseValidator
 {

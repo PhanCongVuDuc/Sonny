@@ -8,9 +8,6 @@ using Sonny.Application.Domain.Services ;
 
 namespace Sonny.Application.Infrastructure.Settings.Implements ;
 
-/// <summary>
-///     Settings service implementation using JSON file storage
-/// </summary>
 public class SettingsService : ISettingsService
 {
     private const string SettingsFileName = "SonnySettings.json" ;
@@ -18,9 +15,6 @@ public class SettingsService : ISettingsService
     private AppDisplayUnit? _cachedDisplayUnit ;
     private AppLanguageCode? _cachedLanguage ;
 
-    /// <summary>
-    ///     Initializes a new instance of SettingsService
-    /// </summary>
     public SettingsService()
     {
         // Store settings in user's AppData folder
@@ -32,19 +26,10 @@ public class SettingsService : ISettingsService
             SettingsFileName) ;
     }
 
-    /// <summary>
-    ///     Event raised when display unit setting changes
-    /// </summary>
     public event EventHandler<AppDisplayUnit>? DisplayUnitChanged ;
 
-    /// <summary>
-    ///     Event raised when language setting changes
-    /// </summary>
     public event EventHandler<AppLanguageCode>? LanguageChanged ;
 
-    /// <summary>
-    ///     Get the user-selected display unit preference
-    /// </summary>
     public AppDisplayUnit? GetDisplayUnit()
     {
         // Return cached value if available
@@ -72,15 +57,9 @@ public class SettingsService : ISettingsService
         return null ;
     }
 
-    /// <summary>
-    ///     Get the user-selected display unit preference with fallback to default
-    /// </summary>
     public AppDisplayUnit GetDisplayUnitOrDefault(Func<AppDisplayUnit> defaultUnitProvider) =>
         GetDisplayUnit() ?? defaultUnitProvider() ;
 
-    /// <summary>
-    ///     Set the user-selected display unit preference
-    /// </summary>
     public void SetDisplayUnit(AppDisplayUnit displayUnit)
     {
         _cachedDisplayUnit = displayUnit ;
@@ -101,9 +80,6 @@ public class SettingsService : ISettingsService
         }
     }
 
-    /// <summary>
-    ///     Get the user-selected language preference
-    /// </summary>
     public AppLanguageCode GetLanguage()
     {
         // Return cached value if available
@@ -134,9 +110,6 @@ public class SettingsService : ISettingsService
         return defaultLanguage ;
     }
 
-    /// <summary>
-    ///     Set the user-selected language preference
-    /// </summary>
     public void SetLanguage(AppLanguageCode languageCode)
     {
         _cachedLanguage = languageCode ;
@@ -159,9 +132,6 @@ public class SettingsService : ISettingsService
 
     #region Private Methods
 
-    /// <summary>
-    ///     Load settings data from file
-    /// </summary>
     private SettingsData LoadSettingsData()
     {
         if (File.Exists(_settingsFilePath)) {
@@ -181,9 +151,6 @@ public class SettingsService : ISettingsService
         return new SettingsData() ;
     }
 
-    /// <summary>
-    ///     Save settings data to file
-    /// </summary>
     private void SaveSettingsData(SettingsData settings)
     {
 #if NETCOREAPP
@@ -197,9 +164,6 @@ public class SettingsService : ISettingsService
             json) ;
     }
 
-    /// <summary>
-    ///     Settings data structure for JSON serialization
-    /// </summary>
     private class SettingsData
     {
         public string? DisplayUnit { get ; set ; }
