@@ -40,15 +40,9 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
 
     #region Properties for UI Binding
 
-    /// <summary>
-    ///     All available layers from CAD link
-    /// </summary>
     [ObservableProperty]
     private ObservableCollection<string> _allLayerNames = [] ;
 
-    /// <summary>
-    ///     Selected layer name
-    /// </summary>
     [ObservableProperty]
     private string? _selectedLayer ;
 
@@ -58,27 +52,15 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
     [ObservableProperty]
     private bool _isModelByHatch = true ;
 
-    /// <summary>
-    ///     Whether to model by boundary
-    /// </summary>
     [ObservableProperty]
     private bool _isModelByBoundary ;
 
-    /// <summary>
-    ///     All available column families
-    /// </summary>
     [ObservableProperty]
     private ObservableCollection<FamilyModel> _allColumnFamilies = [] ;
 
-    /// <summary>
-    ///     Selected rectangular column family
-    /// </summary>
     [ObservableProperty]
     private FamilyModel? _selectedRectangularColumnFamily ;
 
-    /// <summary>
-    ///     Selected circular column family
-    /// </summary>
     [ObservableProperty]
     private FamilyModel? _selectedCircularColumnFamily ;
 
@@ -94,51 +76,27 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
     [ObservableProperty]
     private ObservableCollection<string> _allCircularColumnTypeParameters = [] ;
 
-    /// <summary>
-    ///     Width parameter name for rectangular columns
-    /// </summary>
     [ObservableProperty]
     private string? _widthParameter ;
 
-    /// <summary>
-    ///     Height parameter name for rectangular columns
-    /// </summary>
     [ObservableProperty]
     private string? _heightParameter ;
 
-    /// <summary>
-    ///     Diameter parameter name for circular columns
-    /// </summary>
     [ObservableProperty]
     private string? _diameterParameter ;
 
-    /// <summary>
-    ///     All available levels
-    /// </summary>
     [ObservableProperty]
     private ObservableCollection<LevelModel> _allLevels = [] ;
 
-    /// <summary>
-    ///     Base level for columns
-    /// </summary>
     [ObservableProperty]
     private LevelModel? _baseLevel ;
 
-    /// <summary>
-    ///     Top level for columns
-    /// </summary>
     [ObservableProperty]
     private LevelModel? _topLevel ;
 
-    /// <summary>
-    ///     Base offset in display unit
-    /// </summary>
     [ObservableProperty]
     private double _baseOffsetDisplay ;
 
-    /// <summary>
-    ///     Top offset in display unit
-    /// </summary>
     [ObservableProperty]
     private double _topOffsetDisplay ;
 
@@ -146,9 +104,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
 
     #region Commands
 
-    /// <summary>
-    ///     Command to execute column creation process
-    /// </summary>
     [RelayCommand]
     public async Task Execute()
     {
@@ -171,9 +126,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
         await _columnFromCadInteractor.Execute(context) ;
     }
 
-    /// <summary>
-    ///     Cancel command
-    /// </summary>
     [RelayCommand]
     private void Cancel() => CloseWindow() ;
 
@@ -240,9 +192,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
 
     #region Settings Management
 
-    /// <summary>
-    ///     Applies loaded settings to the view model
-    /// </summary>
     protected override void ApplySettings(ColumnFromCadSettings settings)
     {
         // Load layer selection
@@ -306,9 +255,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
         TopOffsetDisplay = settings.TopOffsetDisplay ;
     }
 
-    /// <summary>
-    ///     Creates settings object from current ViewModel state
-    /// </summary>
     protected override ColumnFromCadSettings CreateSettings() =>
         new()
         {
@@ -330,9 +276,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
 
     #region Private Methods - Initialization
 
-    /// <summary>
-    ///     Initializes data for the view model
-    /// </summary>
     protected override void OnDataInitialized()
     {
         AllLayerNames = new ObservableCollection<string>(_context.LayerNames) ;
@@ -402,9 +345,6 @@ public partial class ColumnFromCadViewModel : BaseViewModelWithSettings<ColumnFr
 
     #region Validation
 
-    /// <summary>
-    ///     Validates input before execution
-    /// </summary>
     private bool ValidateInput()
     {
         if (string.IsNullOrEmpty(SelectedLayer)) {
