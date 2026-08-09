@@ -8,9 +8,6 @@ namespace Sonny.Application.Commands ;
 [Transaction(TransactionMode.Manual)]
 public class ColumnFromCadCommand : BaseExternalCommand
 {
-    /// <summary>
-    ///     Executes the command logic
-    /// </summary>
     protected override Result ExecuteInternal(ExternalCommandData commandData,
         ref string message,
         ElementSet elements)
