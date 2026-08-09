@@ -8,20 +8,12 @@ using Sonny.Application.UseCases.Settings.Models ;
 
 namespace Sonny.Application.Presentation.Settings.ViewModels ;
 
-/// <summary>
-///     ViewModel for Settings dialog
-/// </summary>
 public partial class SettingsViewModel : BaseViewModel
 {
     #region Constructor
 
     private readonly IDisplayUnitProvider _displayUnitProvider ;
 
-    /// <summary>
-    ///     Initializes a new instance of SettingsViewModel
-    /// </summary>
-    /// <param name="commonServices">Common services container</param>
-    /// <param name="displayUnitProvider">Display unit provider</param>
     public SettingsViewModel(ICommonServices commonServices,
         IDisplayUnitProvider displayUnitProvider) : base(commonServices,
         displayUnitProvider)
@@ -36,25 +28,13 @@ public partial class SettingsViewModel : BaseViewModel
 
     #region Properties for UI Binding
 
-    /// <summary>
-    ///     Available unit options
-    /// </summary>
     public ObservableCollection<UnitOption> UnitOptions { get ; private set ; } = [] ;
 
-    /// <summary>
-    ///     Selected unit option
-    /// </summary>
     [ObservableProperty]
     private UnitOption? selectedUnitOption ;
 
-    /// <summary>
-    ///     Available language options
-    /// </summary>
     public ObservableCollection<LanguageOption> LanguageOptions { get ; private set ; } = [] ;
 
-    /// <summary>
-    ///     Selected language option
-    /// </summary>
     [ObservableProperty]
     private LanguageOption? selectedLanguageOption ;
 
@@ -62,9 +42,6 @@ public partial class SettingsViewModel : BaseViewModel
 
     #region Commands
 
-    /// <summary>
-    ///     Save settings command
-    /// </summary>
     [RelayCommand]
     private void Save()
     {
@@ -87,9 +64,6 @@ public partial class SettingsViewModel : BaseViewModel
         }
     }
 
-    /// <summary>
-    ///     Cancel command
-    /// </summary>
     [RelayCommand]
     private void Cancel() => CloseWindow() ;
 
@@ -97,9 +71,6 @@ public partial class SettingsViewModel : BaseViewModel
 
     #region Private Methods
 
-    /// <summary>
-    ///     Initialize available unit options
-    /// </summary>
     private void InitializeUnitOptions() =>
         UnitOptions = new ObservableCollection<UnitOption>
         {
@@ -115,9 +86,6 @@ public partial class SettingsViewModel : BaseViewModel
                 AppDisplayUnit.Inches)
         } ;
 
-    /// <summary>
-    ///     Initialize available language options
-    /// </summary>
     private void InitializeLanguageOptions() =>
         LanguageOptions =
         [
@@ -127,9 +95,6 @@ public partial class SettingsViewModel : BaseViewModel
                 AppLanguageCode.Vi)
         ] ;
 
-    /// <summary>
-    ///     Load current settings
-    /// </summary>
     private void LoadCurrentSettings()
     {
         var currentUnit = SettingsService.GetDisplayUnitOrDefault(() => _displayUnitProvider.GetDefaultDisplayUnit()) ;

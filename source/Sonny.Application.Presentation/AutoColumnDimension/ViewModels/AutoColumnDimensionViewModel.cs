@@ -50,9 +50,6 @@ public partial class AutoColumnDimensionViewModel : BaseViewModel
 
     public ObservableCollection<DimensionTypeModel> DimensionTypes { get ; set ; } = [] ;
 
-    /// <summary>
-    ///     Snap distance in display unit (mm, cm, m, etc.) for UI binding
-    /// </summary>
     [ObservableProperty]
     private double snapDistanceDisplay ;
 
@@ -95,11 +92,6 @@ public partial class AutoColumnDimensionViewModel : BaseViewModel
 
     partial void OnSelectedDimensionTypeChanged(DimensionTypeModel? value) => UpdateSnapDistanceFromDimensionType() ;
 
-    /// <summary>
-    ///     Handle display unit changed event to convert snap distance value
-    /// </summary>
-    /// <param name="oldUnit">Previous display unit</param>
-    /// <param name="newUnit">New display unit</param>
     protected override void OnDisplayUnitChanged(AppDisplayUnit oldUnit,
         AppDisplayUnit newUnit)
     {
