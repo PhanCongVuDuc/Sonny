@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection ;
+﻿using System.IO ;
+using Microsoft.Extensions.DependencyInjection ;
 using Serilog ;
 using Serilog.Core ;
 using Serilog.Events ;
 
-namespace Sonny.Application.Domain.Config.Logging ;
+namespace Sonny.Application.Config.Logging ;
 
 public static class LoggerConfiguration
 {

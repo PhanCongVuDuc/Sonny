@@ -5,7 +5,6 @@ using NUnit.Framework ;
 using Serilog ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Contexts ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Models ;
-using Sonny.Application.Domain.Implements ;
 using Sonny.Application.Domain.Services ;
 using Sonny.Application.Infrastructure.Revit.Services ;
 using Sonny.Application.Presentation.Implements ;

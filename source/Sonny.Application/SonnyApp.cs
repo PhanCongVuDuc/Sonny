@@ -11,7 +11,6 @@ namespace Sonny.Application ;
 /// <summary>
 ///     Application entry point
 /// </summary>
-[UsedImplicitly]
 public class SonnyApp : ExternalApplication
 {
     private readonly SonnyModule _module = new() ;

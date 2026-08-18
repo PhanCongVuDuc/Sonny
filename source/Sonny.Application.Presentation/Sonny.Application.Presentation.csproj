@@ -47,6 +47,14 @@
 
     <!-- IOC -->
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3"/>
+
+    <!-- Logging -->
+    <PackageReference Include="Serilog" Version="4.2.0"/>
+  </ItemGroup>
+
+  <!-- JSON serialization for net48 (ViewModelSettingsService); net8.0 uses System.Text.Json from the shared framework -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
   </ItemGroup>
 
   <!-- WPF references for net48 (needed for Window, HwndSource, DependencyObject) -->

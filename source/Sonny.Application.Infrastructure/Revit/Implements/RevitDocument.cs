@@ -8,7 +8,7 @@ public class RevitDocument(IUIDocumentProvider uiDocumentProvider) : IRevitDocum
 {
     public Document Document => UIDocument.Document ;
 
-    public UIDocument UIDocument { get ; } = uiDocumentProvider.GetUIDocument() ;
+    public UIDocument UIDocument => uiDocumentProvider.GetUIDocument() ;
 
     public View ActiveView => UIDocument.ActiveView ;
 

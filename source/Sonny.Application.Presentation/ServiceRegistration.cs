@@ -26,6 +26,14 @@ public static class ServiceRegistration
     /// <param name="services">The service collection</param>
     public static void AddPresentationsServices(this IServiceCollection services)
     {
+        // User-facing dialogs and the aggregate the ViewModels take as a single dependency
+        services.AddSingleton<IMessageService, MessageService>() ;
+        services.AddTransient<ICommonServices, CommonServices>() ;
+
+        // Open generic: any ViewModel settings type is served without touching the composition root
+        services.AddTransient(typeof( IViewModelSettingsService<> ),
+            typeof( ViewModelSettingsService<> )) ;
+
         services.AddTransient<ProgressView>() ;
         services.AddTransient<IProgressReporter, ProgressReporter>() ;
 

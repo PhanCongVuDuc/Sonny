@@ -6,7 +6,7 @@ using Newtonsoft.Json ;
 using Sonny.Application.Domain.Entities.Settings ;
 using Sonny.Application.Domain.Services ;
 
-namespace Sonny.Application.Domain.Implements ;
+namespace Sonny.Application.Infrastructure.Settings.Implements ;
 
 /// <summary>
 ///     Settings service implementation using JSON file storage
