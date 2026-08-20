@@ -1,3 +1,4 @@
+using Sonny.Application.Domain.Entities.ColumnFromCad ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Models ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Services ;
 using Sonny.RevitExtensions.Extensions ;
@@ -21,7 +22,7 @@ public class RectangularColumnExtractor(IColumnModelFactory columnModelFactory) 
             .ToList() ;
 
         foreach (var polyLine in polyLines) {
-            if (polyLine.NumberOfCoordinates == 5) {
+            if (ColumnShapeDetector.IsRectanglePolyline(polyLine.NumberOfCoordinates)) {
                 var coordinates = polyLine.GetCoordinates() ;
                 var line1 = Line.CreateBound(coordinates[0],
                     coordinates[1]) ;
@@ -58,7 +59,7 @@ public class RectangularColumnExtractor(IColumnModelFactory columnModelFactory) 
             var curves = curveLoop.GetCurves()
                 .ToList() ;
 
-            if (curves.Count == 4) {
+            if (ColumnShapeDetector.IsRectangleLoop(curves.Count)) {
                 columns.Add(columnModelFactory.CreateRectangular(curves)) ;
             }
         }
