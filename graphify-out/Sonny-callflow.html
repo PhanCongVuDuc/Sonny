@@ -60,7 +60,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
 <div class="container">
 
 <h1>Sonny — Complete Call Flow &amp; Architecture Documentation</h1>
-<p class="subtitle">Generated from graphify knowledge graph: 2356 nodes, 3586 edges, 208 communities. Commit: 3b2495a</p>
+<p class="subtitle">Generated from graphify knowledge graph: 2357 nodes, 3586 edges, 208 communities. Commit: ebf7f10</p>
 
 <div class="nav">
     <a href="#overview">Architecture Overview</a>
@@ -73,9 +73,9 @@ hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
     <a href="#serve-api">Serving API</a>
     <a href="#security-global">Security &amp; Global Graph</a>
     <a href="#tests-fixtures">Tests &amp; Fixtures</a>
+    <a href="#languagecode">LanguageCode</a>
     <a href="#columnfromcadviewmodel">ColumnFromCadViewModel</a>
     <a href="#dimensionprocessor">DimensionProcessor</a>
-    <a href="#baseexternalcommand">BaseExternalCommand</a>
     <a href="#curveextensions">CurveExtensions</a>
     <a href="#circularcolumnmodel">CircularColumnModel</a>
     <a href="#other">Other</a>
@@ -98,38 +98,38 @@ flowchart LR
     class OUTPUTS_DOCS_ED82387C module;
     CLI_SKILLS_9964CBB8("CLI &amp; Skill Installers<br/><small>158 nodes</small>")
     class CLI_SKILLS_9964CBB8 module;
-    INGEST_CACHE_UPDATE_FF457338("Ingestion &amp; Updates<br/><small>11 nodes</small>")
+    INGEST_CACHE_UPDATE_FF457338("Ingestion &amp; Updates<br/><small>27 nodes</small>")
     class INGEST_CACHE_UPDATE_FF457338 module;
     SERVE_API_35EC8E86("Serving API<br/><small>46 nodes</small>")
     class SERVE_API_35EC8E86 module;
     SECURITY_GLOBAL_5B9C6A04("Security &amp; Global Graph<br/><small>2 nodes</small>")
     class SECURITY_GLOBAL_5B9C6A04 module;
-    TESTS_FIXTURES_B84B1DCC("Tests &amp; Fixtures<br/><small>264 nodes</small>")
+    TESTS_FIXTURES_B84B1DCC("Tests &amp; Fixtures<br/><small>262 nodes</small>")
     class TESTS_FIXTURES_B84B1DCC module;
-    COLUMNFROMCADVIEWMODEL_62EA0B9B("ColumnFromCadViewModel<br/><small>53 nodes</small>")
+    LANGUAGECODE_375F522F("LanguageCode<br/><small>60 nodes</small>")
+    class LANGUAGECODE_375F522F module;
+    COLUMNFROMCADVIEWMODEL_62EA0B9B("ColumnFromCadViewModel<br/><small>51 nodes</small>")
     class COLUMNFROMCADVIEWMODEL_62EA0B9B module;
     DIMENSIONPROCESSOR_2A35E0BA("DimensionProcessor<br/><small>51 nodes</small>")
     class DIMENSIONPROCESSOR_2A35E0BA module;
-    BASEEXTERNALCOMMAND_E06B2758("BaseExternalCommand<br/><small>45 nodes</small>")
-    class BASEEXTERNALCOMMAND_E06B2758 module;
     CURVEEXTENSIONS_21FA66F6("CurveExtensions<br/><small>41 nodes</small>")
     class CURVEEXTENSIONS_21FA66F6 module;
     CIRCULARCOLUMNMODEL_30442A35("CircularColumnModel<br/><small>37 nodes</small>")
     class CIRCULARCOLUMNMODEL_30442A35 module;
-    OTHER_D0941E68("Other<br/><small>1573 nodes</small>")
+    OTHER_D0941E68("Other<br/><small>1547 nodes</small>")
     class OTHER_D0941E68 module;
-    OTHER_D0941E68 -->|imports x77| TESTS_FIXTURES_B84B1DCC
-    TESTS_FIXTURES_B84B1DCC -->|contains x70| OTHER_D0941E68
-    COLUMNFROMCADVIEWMODEL_62EA0B9B -->|contains x8| TESTS_FIXTURES_B84B1DCC
-    OTHER_D0941E68 -->|references x6| EXTRACT_PIPELINE_5F350230
+    TESTS_FIXTURES_B84B1DCC -->|imports x79| OTHER_D0941E68
+    OTHER_D0941E68 -->|imports x66| TESTS_FIXTURES_B84B1DCC
+    OTHER_D0941E68 -->|references x7| EXTRACT_PIPELINE_5F350230
     OTHER_D0941E68 -->|contains x6| CIRCULARCOLUMNMODEL_30442A35
-    OTHER_D0941E68 -->|imports x5| BASEEXTERNALCOMMAND_E06B2758
+    COLUMNFROMCADVIEWMODEL_62EA0B9B -->|contains x4| TESTS_FIXTURES_B84B1DCC
+    OTHER_D0941E68 -->|references x4| LANGUAGECODE_375F522F
+    TESTS_FIXTURES_B84B1DCC -->|contains x4| COLUMNFROMCADVIEWMODEL_62EA0B9B
     OTHER_D0941E68 -->|imports x4| BUILD_GRAPH_321CBB04
     BUILD_GRAPH_321CBB04 -->|imports x4| OTHER_D0941E68
     COLUMNFROMCADVIEWMODEL_62EA0B9B -->|inherits x3| OTHER_D0941E68
-    BASEEXTERNALCOMMAND_E06B2758 -->|imports x3| OTHER_D0941E68
+    EXTRACT_PIPELINE_5F350230 -->|references x3| OTHER_D0941E68
     OTHER_D0941E68 -->|imports x3| DIMENSIONPROCESSOR_2A35E0BA
-    BASEEXTERNALCOMMAND_E06B2758 -->|imports x3| TESTS_FIXTURES_B84B1DCC
     classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
     classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
     classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
@@ -146,7 +146,7 @@ flowchart LR
     <h4>Architecture Layers</h4>
     <table style="width:100%;font-size:0.85rem;">
       <tr><th>Layer</th><th>Nodes</th><th>Communities</th></tr>
-      <tr><td>Extraction Pipeline</td><td>9</td><td><code>61</code></td></tr><tr><td>Graph Build</td><td>38</td><td><code>68, 75, 138, 142, 205, 145, 163</code></td></tr><tr><td>Analysis &amp; Clustering</td><td>17</td><td><code>186, 190, 191, 166</code></td></tr><tr><td>Outputs &amp; Docs</td><td>11</td><td><code>106, 144</code></td></tr><tr><td>CLI &amp; Skill Installers</td><td>158</td><td><code>2, 5, 44, 41, 132, 135, 199, 207, 164</code></td></tr><tr><td>Ingestion &amp; Updates</td><td>11</td><td><code>198, 200, 206</code></td></tr><tr><td>Serving API</td><td>46</td><td><code>28, 71, 165</code></td></tr><tr><td>Security &amp; Global Graph</td><td>2</td><td><code>146</code></td></tr><tr><td>Tests &amp; Fixtures</td><td>264</td><td><code>23, 0, 32, 25, 56, 31, 45, 19, 60, 119, 84, 174, 134, 130, 167, 169, 170, 201</code></td></tr><tr><td>ColumnFromCadViewModel</td><td>53</td><td><code>3</code></td></tr><tr><td>DimensionProcessor</td><td>51</td><td><code>4</code></td></tr><tr><td>BaseExternalCommand</td><td>45</td><td><code>103</code></td></tr><tr><td>CurveExtensions</td><td>41</td><td><code>7</code></td></tr><tr><td>CircularColumnModel</td><td>37</td><td><code>9</code></td></tr><tr><td>Other</td><td>1573</td><td><code>11, 69, 1, 14, 51, 12, 85, 18, 21, 36, 27, 29, 34, 37, 35, 24, 39, 13, 42, 22, 30, 47, 53, 67, 15, 26, 10, 100, 16, 33, 38, 48, 50, 52, 54, 55, 80, 20, 43, 58, 59, 6, 62, 63, 112, 17, 64, 65, 73, 96, 177, 57, 66, 70, 72, 74, 77, 78, 90, 101, 104, 107, 113, 40, 46, 76, 79, 82, 83, 86, 87, 88, 89, 124, 133, 140, 91, 92, 94, 95, 97, 98, 102, 105, 171, 175, 81, 93, 99, 108, 109, 110, 111, 114, 115, 116, 118, 173, 179, 180, 182, 183, 117, 120, 121, 122, 123, 125, 126, 127, 128, 176, 178, 184, 187, 188, 49, 129, 131, 136, 172, 181, 189, 192, 193, 196, 202, 8, 137, 139, 141, 143, 185, 195, 203, 194, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 168, 197, 208</code></td></tr>
+      <tr><td>Extraction Pipeline</td><td>9</td><td><code>61</code></td></tr><tr><td>Graph Build</td><td>38</td><td><code>68, 75, 138, 142, 205, 145, 163</code></td></tr><tr><td>Analysis &amp; Clustering</td><td>17</td><td><code>186, 190, 191, 166</code></td></tr><tr><td>Outputs &amp; Docs</td><td>11</td><td><code>106, 144</code></td></tr><tr><td>CLI &amp; Skill Installers</td><td>158</td><td><code>2, 5, 44, 41, 132, 135, 199, 207, 164</code></td></tr><tr><td>Ingestion &amp; Updates</td><td>27</td><td><code>8, 198, 200, 206</code></td></tr><tr><td>Serving API</td><td>46</td><td><code>28, 71, 165</code></td></tr><tr><td>Security &amp; Global Graph</td><td>2</td><td><code>146</code></td></tr><tr><td>Tests &amp; Fixtures</td><td>262</td><td><code>23, 60, 0, 45, 25, 31, 13, 32, 84, 19, 52, 130, 167, 169, 170, 201, 203</code></td></tr><tr><td>LanguageCode</td><td>60</td><td><code>42</code></td></tr><tr><td>ColumnFromCadViewModel</td><td>51</td><td><code>3</code></td></tr><tr><td>DimensionProcessor</td><td>51</td><td><code>4</code></td></tr><tr><td>CurveExtensions</td><td>41</td><td><code>7</code></td></tr><tr><td>CircularColumnModel</td><td>37</td><td><code>9</code></td></tr><tr><td>Other</td><td>1547</td><td><code>12, 14, 39, 11, 50, 36, 18, 21, 22, 27, 16, 24, 29, 34, 37, 51, 140, 35, 56, 1, 69, 124, 30, 33, 47, 85, 15, 26, 53, 100, 133, 48, 54, 55, 63, 80, 183, 20, 58, 59, 64, 96, 103, 17, 43, 62, 65, 67, 73, 77, 112, 57, 66, 70, 72, 74, 78, 101, 40, 46, 76, 79, 82, 83, 86, 87, 88, 89, 10, 127, 175, 91, 92, 94, 95, 97, 98, 99, 102, 105, 113, 171, 38, 90, 93, 104, 107, 108, 109, 110, 111, 114, 115, 116, 119, 177, 179, 180, 182, 188, 117, 118, 120, 121, 122, 123, 125, 126, 128, 173, 178, 184, 187, 49, 81, 129, 131, 136, 172, 174, 176, 181, 189, 192, 193, 195, 196, 202, 137, 139, 141, 143, 185, 194, 6, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 134, 168, 197, 208</code></td></tr>
     </table>
   </div>
   <div class="card">
@@ -158,7 +158,7 @@ flowchart LR
   <div class="card">
     <h4>Graph Report Highlights</h4>
     <ul>
-      <li>2356 nodes · 3586 edges · 208 communities (169 shown, 39 thin omitted)</li>
+      <li>2357 nodes · 3586 edges · 208 communities (173 shown, 35 thin omitted)</li>
       <li>Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 146 edges (avg confidence: 0.8)</li>
       <li>Token cost: 0 input · 0 output</li>
       <li>1. `Sonny.Application.Domain.Services` - 55 edges</li>
@@ -1422,48 +1422,66 @@ flowchart LR
 
 <!-- ====== 7. Ingestion & Updates ====== -->
 <h2 id="ingest-cache-update">7. Ingestion &amp; Updates</h2>
-<p>Ingestion &amp; Updates groups implementation around graphify, claude, skills, references, mostly in graphify/references/add-watch.md, graphify/references/update.md, graphify/references/transcribe.md. This section covers 11 nodes and 8 internal edges; the diagram shows only representative relationships to stay readable.</p>
+<p>Ingestion &amp; Updates groups implementation around source, graphify, claude, skills, mostly in Sonny.Application.Domain/Services/IProgressReporter.cs, Sonny.Application.Presentation/Implements/ProgressReporter.cs, Sonny.Application.Presentation/Views/ProgressView.xaml. This section covers 27 nodes and 23 internal edges; the diagram shows only representative relationships to stay readable.</p>
 
 <div class="mermaid">
 %%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
 flowchart LR
-    %% Section: Ingestion &amp; Updates (11 nodes, 8 edges)
+    %% Section: Ingestion &amp; Updates (27 nodes, 23 edges)
+    subgraph ingest_cache_update_Sonny_Application_Domain_Ser_dad18ab4["Sonny.Application.Domain/Services/IProgressReporter.cs"]
+        source_sonny_application_domain_services_iprogre_51740e8e("IProgressReporter<br/><small>Sonny.Application.Domain/Services/IProgressReporter.cs</small>")
+        source_sonny_application_domain_services_iprogre_550f64bc("Show()<br/><small>Sonny.Application.Domain/Services/IProgressReporter.cs</small>")
+        source_sonny_application_domain_services_iprogre_3fb2eed3("Update()<br/><small>Sonny.Application.Domain/Services/IProgressReporter.cs</small>")
+        source_sonny_application_domain_services_iprogre_d9f7375e("Close()<br/><small>Sonny.Application.Domain/Services/IProgressReporter.cs</small>")
+        source_sonny_application_domain_services_iprogre_382593ef("IProgressReporter.cs")
+    end
+    subgraph ingest_cache_update_Sonny_Application_Presentati_d1e461bf["Sonny.Application.Presentation/Implements/ProgressReporter.cs"]
+        source_sonny_application_presentation_implements_4d77f274("ProgressReporter<br/><small>Sonny.Application.Presentation/Implements/ProgressReporter.cs</small>")
+        source_sonny_application_presentation_implements_ffc21fe0("Show()<br/><small>Sonny.Application.Presentation/Implements/ProgressReporter.cs</small>")
+        source_sonny_application_presentation_implements_b6bd538e("Update()<br/><small>Sonny.Application.Presentation/Implements/ProgressReporter.cs</small>")
+        source_sonny_application_presentation_implements_2e6c968c("Close()<br/><small>Sonny.Application.Presentation/Implements/ProgressReporter.cs</small>")
+    end
+    subgraph ingest_cache_update_Sonny_Application_Presentati_662ae5f8["Sonny.Application.Presentation/Views/ProgressView.xaml"]
+        source_sonny_application_presentation_views_prog_147859d7("ProgressBar<br/><small>Sonny.Application.Presentation/Views/ProgressView.xaml</small>")
+        xaml_progressbar_2f358260("ProgressBar<br/><small>Sonny.Application.Presentation/Views/ProgressView.xaml</small>")
+        source_sonny_application_presentation_views_prog_a6fa64a7("ProgressView.xaml")
+        source_sonny_application_presentation_views_prog_55be99c9("Window<br/><small>Sonny.Application.Presentation/Views/ProgressView.xaml</small>")
+    end
+    subgraph ingest_cache_update_Sonny_Application_Presentati_0095ef4c["Sonny.Application.Presentation/Views/ProgressView.xaml.cs"]
+        source_sonny_application_presentation_views_prog_7dcb3354("ProgressView<br/><small>Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small>")
+        source_sonny_application_presentation_views_prog_d7228ba5("UpdateProgress()<br/><small>Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small>")
+    end
     subgraph ingest_cache_update_graphify_references_add_watc_ad4a876c["graphify/references/add-watch.md"]
-        claude_skills_graphify_references_add_watch_grap_ac379361("graphify reference: add a URL and watch...<br/><small>graphify/references/add-watch.md</small>")
-        claude_skills_graphify_references_add_watch_60b429f0("add-watch.md")
         claude_skills_graphify_references_add_watch_for_8e1733e0("For --watch<br/><small>graphify/references/add-watch.md</small>")
         claude_skills_graphify_references_add_watch_for_6281d150("For /graphify add<br/><small>graphify/references/add-watch.md</small>")
     end
-    subgraph ingest_cache_update_graphify_references_update_m_5902f3df["graphify/references/update.md"]
-        claude_skills_graphify_references_update_graphif_6df7cc39("graphify reference: incremental update...<br/><small>graphify/references/update.md</small>")
-        claude_skills_graphify_references_update_dadd089d("update.md")
-        claude_skills_graphify_references_update_for_clu_0768a155("For --cluster-only<br/><small>graphify/references/update.md</small>")
-        claude_skills_graphify_references_update_for_upd_2c505625("For --update (incremental re-extraction)<br/><small>graphify/references/update.md</small>")
-    end
-    subgraph ingest_cache_update_graphify_references_transcri_94aa8e73["graphify/references/transcribe.md"]
-        claude_skills_graphify_references_transcribe_2534039b("transcribe.md")
-        claude_skills_graphify_references_transcribe_gra_b0576141("graphify reference: transcribe video an...<br/><small>graphify/references/transcribe.md</small>")
-        claude_skills_graphify_references_transcribe_ste_cb032488("Step 2.5 - Transcribe video / audio fil...<br/><small>graphify/references/transcribe.md</small>")
-    end
-    claude_skills_graphify_references_add_watch_60b429f0 -->|contains| claude_skills_graphify_references_add_watch_grap_ac379361
-    claude_skills_graphify_references_add_watch_grap_ac379361 -->|contains| claude_skills_graphify_references_add_watch_for_8e1733e0
-    claude_skills_graphify_references_add_watch_grap_ac379361 -->|contains| claude_skills_graphify_references_add_watch_for_6281d150
-    claude_skills_graphify_references_update_dadd089d -->|contains| claude_skills_graphify_references_update_graphif_6df7cc39
-    claude_skills_graphify_references_update_graphif_6df7cc39 -->|contains| claude_skills_graphify_references_update_for_clu_0768a155
-    claude_skills_graphify_references_update_graphif_6df7cc39 -->|contains| claude_skills_graphify_references_update_for_upd_2c505625
-    claude_skills_graphify_references_transcribe_2534039b -->|contains| claude_skills_graphify_references_transcribe_gra_b0576141
-    claude_skills_graphify_references_transcribe_gra_b0576141 -->|contains| claude_skills_graphify_references_transcribe_ste_cb032488
-    class claude_skills_graphify_references_add_watch_grap_ac379361 concept;
-    class claude_skills_graphify_references_add_watch_60b429f0 concept;
+    source_sonny_application_presentation_views_prog_41deae31("string")
+    source_sonny_application_domain_services_iprogre_51740e8e -->|method| source_sonny_application_domain_services_iprogre_550f64bc
+    source_sonny_application_domain_services_iprogre_51740e8e -->|method| source_sonny_application_domain_services_iprogre_3fb2eed3
+    source_sonny_application_domain_services_iprogre_51740e8e -->|method| source_sonny_application_domain_services_iprogre_d9f7375e
+    source_sonny_application_presentation_implements_4d77f274 -->|method| source_sonny_application_presentation_implements_ffc21fe0
+    source_sonny_application_presentation_implements_4d77f274 -->|method| source_sonny_application_presentation_implements_b6bd538e
+    source_sonny_application_presentation_implements_4d77f274 -->|method| source_sonny_application_presentation_implements_2e6c968c
+    source_sonny_application_presentation_views_prog_7dcb3354 -->|method| source_sonny_application_presentation_views_prog_d7228ba5
+    %% Omitted for readability: 9 nodes, 0 edges
+    class source_sonny_application_domain_services_iprogre_51740e8e klass;
+    class source_sonny_application_domain_services_iprogre_550f64bc function;
+    class source_sonny_application_domain_services_iprogre_3fb2eed3 function;
+    class source_sonny_application_domain_services_iprogre_d9f7375e function;
+    class source_sonny_application_domain_services_iprogre_382593ef klass;
+    class source_sonny_application_presentation_implements_4d77f274 klass;
+    class source_sonny_application_presentation_implements_ffc21fe0 function;
+    class source_sonny_application_presentation_implements_b6bd538e function;
+    class source_sonny_application_presentation_implements_2e6c968c function;
+    class source_sonny_application_presentation_views_prog_147859d7 klass;
+    class xaml_progressbar_2f358260 klass;
+    class source_sonny_application_presentation_views_prog_a6fa64a7 klass;
+    class source_sonny_application_presentation_views_prog_55be99c9 klass;
+    class source_sonny_application_presentation_views_prog_7dcb3354 klass;
+    class source_sonny_application_presentation_views_prog_d7228ba5 function;
     class claude_skills_graphify_references_add_watch_for_8e1733e0 concept;
     class claude_skills_graphify_references_add_watch_for_6281d150 concept;
-    class claude_skills_graphify_references_update_graphif_6df7cc39 concept;
-    class claude_skills_graphify_references_update_dadd089d concept;
-    class claude_skills_graphify_references_update_for_clu_0768a155 concept;
-    class claude_skills_graphify_references_update_for_upd_2c505625 concept;
-    class claude_skills_graphify_references_transcribe_2534039b concept;
-    class claude_skills_graphify_references_transcribe_gra_b0576141 concept;
-    class claude_skills_graphify_references_transcribe_ste_cb032488 concept;
+    class source_sonny_application_presentation_views_prog_41deae31 function;
     classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
     classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
     classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
@@ -1487,6 +1505,134 @@ flowchart LR
 </tr>
 <tr>
   <td>1</td>
+  <td><code>IProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Close()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small><br><code>Show()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small><br><code>Update()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td>IProgressReporter node in Sonny.Application.Domain/Services/IProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>ProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Close()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small><br><code>Show()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small><br><code>Update()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td>ProgressReporter node in Sonny.Application.Presentation/Implements/ProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>ProgressView</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>UpdateProgress()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small></td>
+  <td>ProgressView node in Sonny.Application.Presentation/Views/ProgressView.xaml.cs.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>.Close()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>IProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Close() node in Sonny.Application.Domain/Services/IProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>.Show()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>IProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Show() node in Sonny.Application.Domain/Services/IProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>.Update()</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>IProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Update() node in Sonny.Application.Domain/Services/IProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>.Close()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Close() node in Sonny.Application.Presentation/Implements/ProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>.Show()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Show() node in Sonny.Application.Presentation/Implements/ProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>.Update()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ProgressReporter</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Implements/ProgressReporter.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Update() node in Sonny.Application.Presentation/Implements/ProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>.UpdateProgress()</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ProgressView</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.UpdateProgress() node in Sonny.Application.Presentation/Views/ProgressView.xaml.cs.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>IProgressReporter.cs</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/IProgressReporter.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>IProgressReporter.cs node in Sonny.Application.Domain/Services/IProgressReporter.cs.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>ProgressView.xaml</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ProgressView.xaml node in Sonny.Application.Presentation/Views/ProgressView.xaml.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>ProgressBar</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ProgressBar node in Sonny.Application.Presentation/Views/ProgressView.xaml.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>Window</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Window node in Sonny.Application.Presentation/Views/ProgressView.xaml.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>string</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>string node in project.</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>ProgressBar</code><br><small style="color:var(--muted)">Sonny.Application.Presentation/Views/ProgressView.xaml</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ProgressBar node in Sonny.Application.Presentation/Views/ProgressView.xaml.</td>
+</tr>
+<tr>
+  <td>17</td>
   <td><code>add-watch.md</code><br><small style="color:var(--muted)">graphify/references/add-watch.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1494,7 +1640,7 @@ flowchart LR
   <td>Documentation node describing add-watch.md.</td>
 </tr>
 <tr>
-  <td>2</td>
+  <td>18</td>
   <td><code>For /graphify add</code><br><small style="color:var(--muted)">graphify/references/add-watch.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1502,7 +1648,7 @@ flowchart LR
   <td>Documentation node describing For /graphify add.</td>
 </tr>
 <tr>
-  <td>3</td>
+  <td>19</td>
   <td><code>For --watch</code><br><small style="color:var(--muted)">graphify/references/add-watch.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1510,7 +1656,7 @@ flowchart LR
   <td>Documentation node describing For --watch.</td>
 </tr>
 <tr>
-  <td>4</td>
+  <td>20</td>
   <td><code>graphify reference: add a URL and watch a folder</code><br><small style="color:var(--muted)">graphify/references/add-watch.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1518,7 +1664,7 @@ flowchart LR
   <td>Documentation node describing graphify reference: add a URL and watch a folder.</td>
 </tr>
 <tr>
-  <td>5</td>
+  <td>21</td>
   <td><code>update.md</code><br><small style="color:var(--muted)">graphify/references/update.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1526,7 +1672,7 @@ flowchart LR
   <td>Documentation node describing update.md.</td>
 </tr>
 <tr>
-  <td>6</td>
+  <td>22</td>
   <td><code>For --cluster-only</code><br><small style="color:var(--muted)">graphify/references/update.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1534,7 +1680,7 @@ flowchart LR
   <td>Documentation node describing For --cluster-only.</td>
 </tr>
 <tr>
-  <td>7</td>
+  <td>23</td>
   <td><code>For --update (incremental re-extraction)</code><br><small style="color:var(--muted)">graphify/references/update.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1542,7 +1688,7 @@ flowchart LR
   <td>Documentation node describing For --update (incremental re-extraction).</td>
 </tr>
 <tr>
-  <td>8</td>
+  <td>24</td>
   <td><code>graphify reference: incremental update and cluster-only</code><br><small style="color:var(--muted)">graphify/references/update.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1550,7 +1696,7 @@ flowchart LR
   <td>Documentation node describing graphify reference: incremental update and cluster-only.</td>
 </tr>
 <tr>
-  <td>9</td>
+  <td>25</td>
   <td><code>transcribe.md</code><br><small style="color:var(--muted)">graphify/references/transcribe.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1558,7 +1704,7 @@ flowchart LR
   <td>Documentation node describing transcribe.md.</td>
 </tr>
 <tr>
-  <td>10</td>
+  <td>26</td>
   <td><code>graphify reference: transcribe video and audio</code><br><small style="color:var(--muted)">graphify/references/transcribe.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1566,7 +1712,7 @@ flowchart LR
   <td>Documentation node describing graphify reference: transcribe video and audio.</td>
 </tr>
 <tr>
-  <td>11</td>
+  <td>27</td>
   <td><code>Step 2.5 - Transcribe video / audio files (only if video files detected)</code><br><small style="color:var(--muted)">graphify/references/transcribe.md</small></td>
   <td><span class="tag tag-func">Concept</span></td>
   <td>External entry / no inbound edge</td>
@@ -1580,14 +1726,18 @@ flowchart LR
     <h4>Key Files</h4>
     <table style="width:100%;font-size:0.85rem;">
       <tr><th>File</th><th>Coverage</th></tr>
-      <tr><td><code>graphify/references/add-watch.md</code></td><td>4 nodes</td></tr>
+      <tr><td><code>Sonny.Application.Domain/Services/IProgressReporter.cs</code></td><td>5 nodes</td></tr>
+<tr><td><code>graphify/references/add-watch.md</code></td><td>4 nodes</td></tr>
 <tr><td><code>graphify/references/update.md</code></td><td>4 nodes</td></tr>
+<tr><td><code>Sonny.Application.Presentation/Implements/ProgressReporter.cs</code></td><td>4 nodes</td></tr>
+<tr><td><code>Sonny.Application.Presentation/Views/ProgressView.xaml</code></td><td>4 nodes</td></tr>
 <tr><td><code>graphify/references/transcribe.md</code></td><td>3 nodes</td></tr>
+<tr><td><code>Sonny.Application.Presentation/Views/ProgressView.xaml.cs</code></td><td>2 nodes</td></tr>
     </table>
   </div>
   <div class="card">
     <h4>Design Notes</h4>
-    <p>This section comes from graphify community clustering. Relationship summary: contains x8. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+    <p>This section comes from graphify community clustering. Relationship summary: contains x11, method x7, references x4, implements x1. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
   </div>
 </div>
 <hr>
@@ -2011,64 +2161,66 @@ flowchart LR
 
 <!-- ====== 10. Tests & Fixtures ====== -->
 <h2 id="tests-fixtures">10. Tests &amp; Fixtures</h2>
-<p>Tests &amp; Fixtures groups implementation around source, sonnyapplicationtests, sonnykeygen, unittests, mostly in source/Sonny.Application.Tests/SonnyRevitTestBase.cs, UnitTests/Services/SettingsServiceLanguageTests.cs, ResourceManager/UnitTests/LanguageCodeExtensionsTests.cs. This section covers 264 nodes and 402 internal edges; the diagram shows only representative relationships to stay readable.</p>
+<p>Tests &amp; Fixtures groups implementation around source, sonnyapplicationtests, sonnykeygen, unittests, mostly in source/Sonny.Application.Tests/SonnyRevitTestBase.cs, ResourceManager/UnitTests/LanguageCodeExtensionsTests.cs, UnitTests/Services/SettingsServiceLanguageTests.cs. This section covers 262 nodes and 396 internal edges; the diagram shows only representative relationships to stay readable.</p>
 
 <div class="mermaid">
 %%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
 flowchart LR
-    %% Section: Tests &amp; Fixtures (264 nodes, 402 edges)
-    subgraph tests_fixtures_ResourceManager_UnitTests_Languag_ee75fa8a["ResourceManager/UnitTests/LanguageOptionTests.cs"]
-        source_sonny_application_tests_resourcemanager_u_f83d2b0d("LanguageOptionTests<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_de90dd72("Properties_ShouldBeReadOnly()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_2f59406f("Constructor_ShouldWorkWithAllLanguageCodes()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_8365749c("Constructor_ShouldInitializeProperties()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_d85843ce("Constructor_ShouldHandleEmptyDisplayName()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_e1699f6c("Constructor_ShouldHandleNullDisplayName()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_ead896b8("ToString_ShouldReturnDisplayName()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
-        source_sonny_application_tests_resourcemanager_u_66500e5d("ToString_ShouldReturnEmptyString_WhenDisplayNameIsEmpty()<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
+    %% Section: Tests &amp; Fixtures (262 nodes, 396 edges)
+    subgraph tests_fixtures_AutoColumnDimension_IntegrationTe_45f6c447["AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs"]
+        source_sonny_application_tests_features_autocolu_ad18f691("AutoColumnDimensionIntegrationTest<br/><small>AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small>")
+        source_sonny_application_tests_features_autocolu_6d66a4e8("OnSetup()<br/><small>AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small>")
+        source_sonny_application_tests_features_autocolu_24e7486c("AutoColumnDimension_IntegrationTest_2F()<br/><small>AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small>")
     end
-    subgraph tests_fixtures_Settings_Models_LanguageOption_cs_eb311429["Settings/Models/LanguageOption.cs"]
-        source_sonny_application_usecases_settings_model_39461628("LanguageOption<br/><small>Settings/Models/LanguageOption.cs</small>")
-        source_sonny_application_usecases_settings_model_dd3fef1d("ToString()<br/><small>Settings/Models/LanguageOption.cs</small>")
+    subgraph tests_fixtures_ColumnFromCad_IntegrationTests_Co_737611d3["ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs"]
+        source_sonny_application_tests_features_columnfr_6872a3d4("ColumnFromCadIntegrationTest<br/><small>ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small>")
+        source_sonny_application_tests_features_columnfr_771c6ea4("OnSetup()<br/><small>ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small>")
+        source_sonny_application_tests_features_columnfr_01fd8a1f("ColumnFromCad_CreateColumns_Test()<br/><small>ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small>")
     end
-    subgraph tests_fixtures_Sonny_Application_Tests_Utils_Enu_4fb17641["Sonny.Application.Tests/Utils/EnumHelper.cs"]
-        source_sonny_application_tests_utils_enumhelper_a68c327e("EnumHelper<br/><small>Sonny.Application.Tests/Utils/EnumHelper.cs</small>")
-        source_sonny_application_tests_utils_enumhelper_57937e48("GetValues()<br/><small>Sonny.Application.Tests/Utils/EnumHelper.cs</small>")
+    subgraph tests_fixtures_Sonny_Keygen_Sonny_Keygen_Test_Ap_5750af6e["Sonny.Keygen/Sonny.Keygen.Test/App.xaml.cs"]
+        source_sonny_keygen_sonny_keygen_test_app_xaml_s_8c670cff("App<br/><small>Sonny.Keygen/Sonny.Keygen.Test/App.xaml.cs</small>")
+        source_sonny_keygen_sonny_keygen_test_app_xaml_s_11f8bf17("OnStartup()<br/><small>Sonny.Keygen/Sonny.Keygen.Test/App.xaml.cs</small>")
     end
-    source_sonny_application_presentation_columnfrom_08f8f37e("ColumnFromCadViewModel.cs")
+    subgraph tests_fixtures_source_Sonny_Application_Tests_So_6ce857c9["source/Sonny.Application.Tests/SonnyDocumentTestBase.cs"]
+        source_sonny_application_tests_sonnydocumenttest_ab1ec773("SonnyDocumentTestBase<br/><small>source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small>")
+        source_sonny_application_tests_sonnydocumenttest_f391709e("OnSetup()<br/><small>source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small>")
+    end
+    subgraph tests_fixtures_source_Sonny_Application_UseCases_c56f9ffe["source/Sonny.Application.UseCases/ServiceRegistration.cs"]
+        source_sonny_application_usecases_serviceregistr_cc54e292("ServiceRegistration<br/><small>source/Sonny.Application.UseCases/ServiceRegistration.cs</small>")
+        source_sonny_application_usecases_serviceregistr_7e55aea0("AddUseCaseServices()<br/><small>source/Sonny.Application.UseCases/ServiceRegistration.cs</small>")
+    end
     source_sonny_application_tests_resourcemanager_u_967ee84e("LanguageCodeExtensionsTests<br/><small>ResourceManager/UnitTests/LanguageCodeExtensionsTests.cs</small>")
+    source_sonny_application_tests_resourcemanager_u_f83d2b0d("LanguageOptionTests<br/><small>ResourceManager/UnitTests/LanguageOptionTests.cs</small>")
+    source_sonny_application_infrastructure_settings_300fd329("SettingsService<br/><small>Settings/Implements/SettingsService.cs</small>")
     source_sonny_application_tests_core_unittests_se_cbc8939d("SettingsServiceLanguageTests<br/><small>UnitTests/Services/SettingsServiceLanguageTests.cs</small>")
     source_sonny_application_tests_core_unittests_se_8beb3c6e("UnitConverterTests<br/><small>UnitTests/Services/UnitConverterTests.cs</small>")
     source_sonny_application_tests_sonnyrevittestbas_3f6e7970("SonnyRevitTestBase<br/><small>source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small>")
-    source_sonny_application_unittests_unittest1_son_d5efba48("Tests<br/><small>source/Sonny.Application.UnitTests/UnitTest1.cs</small>")
-    source_sonny_application_tests_utils_enumhelper_a68c327e -->|method| source_sonny_application_tests_utils_enumhelper_57937e48
-    source_sonny_application_usecases_settings_model_39461628 -->|method| source_sonny_application_usecases_settings_model_dd3fef1d
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_de90dd72
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_2f59406f
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_8365749c
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_d85843ce
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_e1699f6c
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_ead896b8
-    source_sonny_application_tests_resourcemanager_u_f83d2b0d -->|method| source_sonny_application_tests_resourcemanager_u_66500e5d
-    %% Omitted for readability: 246 nodes, 0 edges
-    class source_sonny_application_tests_resourcemanager_u_f83d2b0d test;
-    class source_sonny_application_tests_resourcemanager_u_de90dd72 test;
-    class source_sonny_application_tests_resourcemanager_u_2f59406f test;
-    class source_sonny_application_tests_resourcemanager_u_8365749c test;
-    class source_sonny_application_tests_resourcemanager_u_d85843ce test;
-    class source_sonny_application_tests_resourcemanager_u_e1699f6c test;
-    class source_sonny_application_tests_resourcemanager_u_ead896b8 test;
-    class source_sonny_application_tests_resourcemanager_u_66500e5d test;
-    class source_sonny_application_usecases_settings_model_39461628 klass;
-    class source_sonny_application_usecases_settings_model_dd3fef1d function;
-    class source_sonny_application_tests_utils_enumhelper_a68c327e test;
-    class source_sonny_application_tests_utils_enumhelper_57937e48 test;
-    class source_sonny_application_presentation_columnfrom_08f8f37e klass;
+    source_sonny_application_usecases_serviceregistr_cc54e292 -->|method| source_sonny_application_usecases_serviceregistr_7e55aea0
+    source_sonny_keygen_sonny_keygen_test_app_xaml_s_8c670cff -->|method| source_sonny_keygen_sonny_keygen_test_app_xaml_s_11f8bf17
+    source_sonny_application_tests_features_autocolu_ad18f691 -->|method| source_sonny_application_tests_features_autocolu_6d66a4e8
+    source_sonny_application_tests_features_autocolu_ad18f691 -->|method| source_sonny_application_tests_features_autocolu_24e7486c
+    source_sonny_application_tests_features_columnfr_6872a3d4 -->|method| source_sonny_application_tests_features_columnfr_771c6ea4
+    source_sonny_application_tests_features_columnfr_6872a3d4 -->|method| source_sonny_application_tests_features_columnfr_01fd8a1f
+    source_sonny_application_tests_sonnydocumenttest_ab1ec773 -->|method| source_sonny_application_tests_sonnydocumenttest_f391709e
+    %% Omitted for readability: 244 nodes, 0 edges
+    class source_sonny_application_tests_features_autocolu_ad18f691 test;
+    class source_sonny_application_tests_features_autocolu_6d66a4e8 test;
+    class source_sonny_application_tests_features_autocolu_24e7486c test;
+    class source_sonny_application_tests_features_columnfr_6872a3d4 test;
+    class source_sonny_application_tests_features_columnfr_771c6ea4 test;
+    class source_sonny_application_tests_features_columnfr_01fd8a1f test;
+    class source_sonny_keygen_sonny_keygen_test_app_xaml_s_8c670cff test;
+    class source_sonny_keygen_sonny_keygen_test_app_xaml_s_11f8bf17 test;
+    class source_sonny_application_tests_sonnydocumenttest_ab1ec773 test;
+    class source_sonny_application_tests_sonnydocumenttest_f391709e test;
+    class source_sonny_application_usecases_serviceregistr_cc54e292 klass;
+    class source_sonny_application_usecases_serviceregistr_7e55aea0 function;
     class source_sonny_application_tests_resourcemanager_u_967ee84e test;
+    class source_sonny_application_tests_resourcemanager_u_f83d2b0d test;
+    class source_sonny_application_infrastructure_settings_300fd329 async;
     class source_sonny_application_tests_core_unittests_se_cbc8939d test;
     class source_sonny_application_tests_core_unittests_se_8beb3c6e test;
     class source_sonny_application_tests_sonnyrevittestbas_3f6e7970 test;
-    class source_sonny_application_unittests_unittest1_son_d5efba48 test;
     classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
     classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
     classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
@@ -2124,6 +2276,14 @@ flowchart LR
 </tr>
 <tr>
   <td>5</td>
+  <td><code>Tests</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td><span class="tag tag-func">Test</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Setup()</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small><br><code>Test1()</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td>Verifies imports, entry points, or version behavior.</td>
+</tr>
+<tr>
+  <td>6</td>
   <td><code>.AutoColumnDimension_IntegrationTest_2F()</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>AutoColumnDimensionIntegrationTest</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small></td>
@@ -2131,7 +2291,7 @@ flowchart LR
   <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 <tr>
-  <td>6</td>
+  <td>7</td>
   <td><code>.OnSetup()</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>AutoColumnDimensionIntegrationTest</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small></td>
@@ -2139,7 +2299,7 @@ flowchart LR
   <td>.OnSetup() node in AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs.</td>
 </tr>
 <tr>
-  <td>7</td>
+  <td>8</td>
   <td><code>.ColumnFromCad_CreateColumns_Test()</code><br><small style="color:var(--muted)">ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>ColumnFromCadIntegrationTest</code><br><small style="color:var(--muted)">ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small></td>
@@ -2147,7 +2307,7 @@ flowchart LR
   <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 <tr>
-  <td>8</td>
+  <td>9</td>
   <td><code>.OnSetup()</code><br><small style="color:var(--muted)">ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>ColumnFromCadIntegrationTest</code><br><small style="color:var(--muted)">ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small></td>
@@ -2155,7 +2315,7 @@ flowchart LR
   <td>.OnSetup() node in ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs.</td>
 </tr>
 <tr>
-  <td>9</td>
+  <td>10</td>
   <td><code>.OnSetup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>SonnyDocumentTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small></td>
@@ -2163,7 +2323,7 @@ flowchart LR
   <td>.OnSetup() node in source/Sonny.Application.Tests/SonnyDocumentTestBase.cs.</td>
 </tr>
 <tr>
-  <td>10</td>
+  <td>11</td>
   <td><code>.OnTearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>SonnyDocumentTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small></td>
@@ -2171,7 +2331,7 @@ flowchart LR
   <td>.OnTearDown() node in source/Sonny.Application.Tests/SonnyDocumentTestBase.cs.</td>
 </tr>
 <tr>
-  <td>11</td>
+  <td>12</td>
   <td><code>.AssertDocument()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>OnSetup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2179,7 +2339,7 @@ flowchart LR
   <td>.AssertDocument() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>12</td>
+  <td>13</td>
   <td><code>.GetActiveDocument()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2187,7 +2347,7 @@ flowchart LR
   <td>.GetActiveDocument() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>13</td>
+  <td>14</td>
   <td><code>.GetDimensionCount()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>AutoColumnDimension_IntegrationTest_2F()</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2195,7 +2355,7 @@ flowchart LR
   <td>.GetDimensionCount() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>14</td>
+  <td>15</td>
   <td><code>.GetTestRevitFilePath()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>OnTearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2203,7 +2363,7 @@ flowchart LR
   <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 <tr>
-  <td>15</td>
+  <td>16</td>
   <td><code>.Log()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>AutoColumnDimension_IntegrationTest_2F()</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small><br><code>ColumnFromCad_CreateColumns_Test()</code><br><small style="color:var(--muted)">ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs</small><br><code>GetTestRevitFilePath()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small><br>+1 more</td>
@@ -2211,7 +2371,7 @@ flowchart LR
   <td>.Log() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>16</td>
+  <td>17</td>
   <td><code>.OnSetup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>OnSetup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small><br><code>Setup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2219,7 +2379,7 @@ flowchart LR
   <td>.OnSetup() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>17</td>
+  <td>18</td>
   <td><code>.OnTearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>OnTearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small><br><code>TearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2227,7 +2387,7 @@ flowchart LR
   <td>.OnTearDown() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>18</td>
+  <td>19</td>
   <td><code>.OpenDocument()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>OnSetup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2235,7 +2395,7 @@ flowchart LR
   <td>.OpenDocument() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>19</td>
+  <td>20</td>
   <td><code>.OpenView()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>AutoColumnDimension_IntegrationTest_2F()</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small><br><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2243,7 +2403,7 @@ flowchart LR
   <td>.OpenView() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>20</td>
+  <td>21</td>
   <td><code>.Setup()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2251,7 +2411,7 @@ flowchart LR
   <td>.Setup() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>21</td>
+  <td>22</td>
   <td><code>.TearDown()</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
   <td><span class="tag tag-func">Test</span></td>
   <td><code>SonnyRevitTestBase</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyRevitTestBase.cs</small></td>
@@ -2259,7 +2419,23 @@ flowchart LR
   <td>.TearDown() node in source/Sonny.Application.Tests/SonnyRevitTestBase.cs.</td>
 </tr>
 <tr>
-  <td>22</td>
+  <td>23</td>
+  <td><code>.Setup()</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td><span class="tag tag-func">Test</span></td>
+  <td><code>Tests</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.Setup() node in source/Sonny.Application.UnitTests/UnitTest1.cs.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>.Test1()</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td><span class="tag tag-func">Test</span></td>
+  <td><code>Tests</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>Verifies imports, entry points, or version behavior.</td>
+</tr>
+<tr>
+  <td>25</td>
   <td><code>ControlledApplication</code><br><small style="color:var(--muted)"></small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
@@ -2267,7 +2443,7 @@ flowchart LR
   <td>ControlledApplication node in project.</td>
 </tr>
 <tr>
-  <td>23</td>
+  <td>26</td>
   <td><code>Sonny.Application.Tests.Features.AutoColumnDimension.IntegrationTests</code><br><small style="color:var(--muted)">AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs</small></td>
   <td><span class="tag tag-class">Module</span></td>
   <td>External entry / no inbound edge</td>
@@ -2275,7 +2451,7 @@ flowchart LR
   <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 <tr>
-  <td>24</td>
+  <td>27</td>
   <td><code>Sonny.Application.Tests</code><br><small style="color:var(--muted)">source/Sonny.Application.Tests/SonnyDocumentTestBase.cs</small></td>
   <td><span class="tag tag-class">Module</span></td>
   <td>External entry / no inbound edge</td>
@@ -2283,7 +2459,15 @@ flowchart LR
   <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 <tr>
-  <td>25</td>
+  <td>28</td>
+  <td><code>Sonny.Application.UnitTests</code><br><small style="color:var(--muted)">source/Sonny.Application.UnitTests/UnitTest1.cs</small></td>
+  <td><span class="tag tag-class">Module</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Verifies imports, entry points, or version behavior.</td>
+</tr>
+<tr>
+  <td>29</td>
   <td><code>IAutoColumnDimensionInteractor</code><br><small style="color:var(--muted)"></small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
@@ -2291,44 +2475,12 @@ flowchart LR
   <td>IAutoColumnDimensionInteractor node in project.</td>
 </tr>
 <tr>
-  <td>26</td>
+  <td>30</td>
   <td><code>IRevitDocument</code><br><small style="color:var(--muted)"></small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
   <td>IRevitDocument node in project.</td>
-</tr>
-<tr>
-  <td>27</td>
-  <td><code>OneTimeSetUp</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>OneTimeSetUp node in project.</td>
-</tr>
-<tr>
-  <td>28</td>
-  <td><code>OneTimeTearDown</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>OneTimeTearDown node in project.</td>
-</tr>
-<tr>
-  <td>29</td>
-  <td><code>RevitApplication</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>RevitApplication node in project.</td>
-</tr>
-<tr>
-  <td>30</td>
-  <td><code>SonnyDocumentTestBase</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>Verifies imports, entry points, or version behavior.</td>
 </tr>
 </table>
 
@@ -2341,27 +2493,379 @@ flowchart LR
 <tr><td><code>ResourceManager/UnitTests/LanguageCodeExtensionsTests.cs</code></td><td>13 nodes</td></tr>
 <tr><td><code>source/Sonny.Application.Tests/SonnyRevitTestBase.cs</code></td><td>13 nodes</td></tr>
 <tr><td><code>Sonny.Keygen/Sonny.Keygen/Sonny.Keygen.csproj</code></td><td>12 nodes</td></tr>
+<tr><td><code>Settings/Implements/SettingsService.cs</code></td><td>11 nodes</td></tr>
 <tr><td><code>UnitTests/Services/UnitConverterTests.cs</code></td><td>11 nodes</td></tr>
 <tr><td><code>source/Sonny.Application.Tests/Sonny.Application.Tests.csproj</code></td><td>10 nodes</td></tr>
 <tr><td><code>ResourceManager/UnitTests/CultureChangedEventArgsTests.cs</code></td><td>9 nodes</td></tr>
-<tr><td><code>ResourceManager/UnitTests/LanguageOptionTests.cs</code></td><td>9 nodes</td></tr>
     </table>
   </div>
   <div class="card">
     <h4>Design Notes</h4>
-    <p>This section comes from graphify community clustering. Relationship summary: imports x109, references x100, method x72, contains x72. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+    <p>This section comes from graphify community clustering. Relationship summary: references x97, imports x94, method x78, contains x68. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
   </div>
 </div>
 <hr>
 
-<!-- ====== 11. ColumnFromCadViewModel ====== -->
-<h2 id="columnfromcadviewmodel">11. ColumnFromCadViewModel</h2>
-<p>ColumnFromCadViewModel groups implementation around source, sonnyapplicationpresentation, columnfromcad, viewmodels, mostly in ColumnFromCad/ViewModels/ColumnFromCadViewModel.cs, Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs, Sonny.Application.Presentation/Implements/ViewModelSettingsService.cs. This section covers 53 nodes and 79 internal edges; the diagram shows only representative relationships to stay readable.</p>
+<!-- ====== 11. LanguageCode ====== -->
+<h2 id="languagecode">11. LanguageCode</h2>
+<p>LanguageCode groups implementation around source, sonnyresourcemanager, resourcedictionarymanagercs, resourceregistrycs, mostly in source/Sonny.ResourceManager/ResourceDictionaryManager.cs, source/Sonny.ResourceManager/ResourceRegistry.cs, Resource/Implements/SonnyResourcesInitializer.cs. This section covers 60 nodes and 105 internal edges; the diagram shows only representative relationships to stay readable.</p>
 
 <div class="mermaid">
 %%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
 flowchart LR
-    %% Section: ColumnFromCadViewModel (53 nodes, 79 edges)
+    %% Section: LanguageCode (60 nodes, 105 edges)
+    subgraph languagecode_Resource_Implements_SonnyResourcesI_3b5d4d4f["Resource/Implements/SonnyResourcesInitializer.cs"]
+        source_sonny_application_infrastructure_resource_4b6a7886("SonnyResourcesInitializer<br/><small>Resource/Implements/SonnyResourcesInitializer.cs</small>")
+        source_sonny_application_infrastructure_resource_b6122759("Initialize()<br/><small>Resource/Implements/SonnyResourcesInitializer.cs</small>")
+        source_sonny_application_infrastructure_resource_f6b4a827("RegisterAllResources()<br/><small>Resource/Implements/SonnyResourcesInitializer.cs</small>")
+        source_sonny_application_infrastructure_resource_a529974c("LoadAllResources()<br/><small>Resource/Implements/SonnyResourcesInitializer.cs</small>")
+    end
+    subgraph languagecode_source_Sonny_ResourceManager_Cultur_dfa2dff5["source/Sonny.ResourceManager/CultureManager.cs"]
+        source_sonny_resourcemanager_culturemanager_sonn_e73d8dd9("CultureManager<br/><small>source/Sonny.ResourceManager/CultureManager.cs</small>")
+        source_sonny_resourcemanager_culturemanager_sonn_03ffcb42("ChangeLanguage()<br/><small>source/Sonny.ResourceManager/CultureManager.cs</small>")
+        source_sonny_resourcemanager_culturemanager_sonn_534877b4("InitializeLocalizeExtension()<br/><small>source/Sonny.ResourceManager/CultureManager.cs</small>")
+        source_sonny_resourcemanager_culturemanager_sonn_8d9b53e3("UpdateLocalizeExtensionCulture()<br/><small>source/Sonny.ResourceManager/CultureManager.cs</small>")
+    end
+    subgraph languagecode_source_Sonny_ResourceManager_Langua_12129e81["source/Sonny.ResourceManager/LanguageCodeExtensions.cs"]
+        source_sonny_resourcemanager_languagecodeextensi_670f43a4("LanguageCodeExtensions<br/><small>source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small>")
+        source_sonny_resourcemanager_languagecodeextensi_61f81988("ToCodeString()<br/><small>source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small>")
+        source_sonny_resourcemanager_languagecodeextensi_2a1a1d89("ToLanguageCode()<br/><small>source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small>")
+        source_sonny_resourcemanager_languagecodeextensi_2ff42b26("ToCultureInfo()<br/><small>source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small>")
+    end
+    subgraph languagecode_source_Sonny_ResourceManager_Resour_3542c1b6["source/Sonny.ResourceManager/ResourceDictionaryManager.cs"]
+        source_sonny_resourcemanager_resourcedictionarym_a738abff("ResourceDictionaryManager<br/><small>source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small>")
+        source_sonny_resourcemanager_resourcedictionarym_e68b4a45("LoadAllResources()<br/><small>source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small>")
+        source_sonny_resourcemanager_resourcedictionarym_1d3f62d0("UnloadResource()<br/><small>source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small>")
+        source_sonny_resourcemanager_resourcedictionarym_c62a337b("ChangeLanguage()<br/><small>source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small>")
+    end
+    source_sonny_resourcemanager_resourceloader_sonn_d9abe4d1("ResourceLoader<br/><small>source/Sonny.ResourceManager/ResourceLoader.cs</small>")
+    source_sonny_resourcemanager_resourceregistry_so_af27265b("ResourceRegistry<br/><small>source/Sonny.ResourceManager/ResourceRegistry.cs</small>")
+    source_sonny_application_infrastructure_resource_4b6a7886 -->|method| source_sonny_application_infrastructure_resource_b6122759
+    source_sonny_application_infrastructure_resource_4b6a7886 -->|method| source_sonny_application_infrastructure_resource_f6b4a827
+    source_sonny_application_infrastructure_resource_4b6a7886 -->|method| source_sonny_application_infrastructure_resource_a529974c
+    source_sonny_resourcemanager_culturemanager_sonn_e73d8dd9 -->|method| source_sonny_resourcemanager_culturemanager_sonn_03ffcb42
+    source_sonny_resourcemanager_culturemanager_sonn_e73d8dd9 -->|method| source_sonny_resourcemanager_culturemanager_sonn_534877b4
+    source_sonny_resourcemanager_culturemanager_sonn_e73d8dd9 -->|method| source_sonny_resourcemanager_culturemanager_sonn_8d9b53e3
+    source_sonny_resourcemanager_languagecodeextensi_670f43a4 -->|method| source_sonny_resourcemanager_languagecodeextensi_61f81988
+    source_sonny_resourcemanager_languagecodeextensi_670f43a4 -->|method| source_sonny_resourcemanager_languagecodeextensi_2a1a1d89
+    source_sonny_resourcemanager_languagecodeextensi_670f43a4 -->|method| source_sonny_resourcemanager_languagecodeextensi_2ff42b26
+    source_sonny_resourcemanager_resourcedictionarym_a738abff -->|method| source_sonny_resourcemanager_resourcedictionarym_e68b4a45
+    source_sonny_resourcemanager_resourcedictionarym_a738abff -->|method| source_sonny_resourcemanager_resourcedictionarym_1d3f62d0
+    source_sonny_resourcemanager_resourcedictionarym_a738abff -->|method| source_sonny_resourcemanager_resourcedictionarym_c62a337b
+    source_sonny_application_infrastructure_resource_b6122759 -->|calls| source_sonny_application_infrastructure_resource_f6b4a827
+    source_sonny_application_infrastructure_resource_b6122759 -->|calls| source_sonny_application_infrastructure_resource_a529974c
+    %% Omitted for readability: 42 nodes, 0 edges
+    class source_sonny_application_infrastructure_resource_4b6a7886 klass;
+    class source_sonny_application_infrastructure_resource_b6122759 function;
+    class source_sonny_application_infrastructure_resource_f6b4a827 function;
+    class source_sonny_application_infrastructure_resource_a529974c function;
+    class source_sonny_resourcemanager_culturemanager_sonn_e73d8dd9 klass;
+    class source_sonny_resourcemanager_culturemanager_sonn_03ffcb42 function;
+    class source_sonny_resourcemanager_culturemanager_sonn_534877b4 function;
+    class source_sonny_resourcemanager_culturemanager_sonn_8d9b53e3 function;
+    class source_sonny_resourcemanager_languagecodeextensi_670f43a4 klass;
+    class source_sonny_resourcemanager_languagecodeextensi_61f81988 function;
+    class source_sonny_resourcemanager_languagecodeextensi_2a1a1d89 function;
+    class source_sonny_resourcemanager_languagecodeextensi_2ff42b26 function;
+    class source_sonny_resourcemanager_resourcedictionarym_a738abff klass;
+    class source_sonny_resourcemanager_resourcedictionarym_e68b4a45 function;
+    class source_sonny_resourcemanager_resourcedictionarym_1d3f62d0 function;
+    class source_sonny_resourcemanager_resourcedictionarym_c62a337b function;
+    class source_sonny_resourcemanager_resourceloader_sonn_d9abe4d1 klass;
+    class source_sonny_resourcemanager_resourceregistry_so_af27265b klass;
+    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
+    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
+    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
+    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
+    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
+    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
+    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
+    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
+    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
+</div>
+
+<h3>Call Details</h3>
+<table class="call-table">
+<tr>
+  <th style="width:5%">#</th>
+  <th style="width:28%">Node</th>
+  <th style="width:10%">Type</th>
+  <th style="width:17%">Caller</th>
+  <th style="width:20%">Callees</th>
+  <th style="width:20%">Description</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td><code>SonnyResourcesInitializer</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>Initialize()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small><br><code>LoadAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small><br><code>RegisterAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td>SonnyResourcesInitializer node in Resource/Implements/SonnyResourcesInitializer.cs.</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td><code>CultureChangedEventArgs</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureChangedEventArgs.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>CultureChangedEventArgs node in source/Sonny.ResourceManager/CultureChangedEventArgs.cs.</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td><code>CultureManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small><br><code>InitializeLocalizeExtension()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small><br><code>UpdateLocalizeExtensionCulture()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td>CultureManager node in source/Sonny.ResourceManager/CultureManager.cs.</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td><code>LanguageCode</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCode.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>LanguageCode node in source/Sonny.ResourceManager/LanguageCode.cs.</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td><code>LanguageCodeExtensions</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>ToCodeString()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small><br><code>ToCultureInfo()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small><br><code>ToLanguageCode()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td>LanguageCodeExtensions node in source/Sonny.ResourceManager/LanguageCodeExtensions.cs.</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td><code>ResourceConfig</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceConfig.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>Reads, resolves, or persists project configuration.</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>IsRegistered()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>LoadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br>+5 more</td>
+  <td>ResourceDictionaryManager node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td><code>ResourceHelper</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceHelper.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>GetString()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceHelper.cs</small></td>
+  <td>ResourceHelper node in source/Sonny.ResourceManager/ResourceHelper.cs.</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td><code>ResourceLoader</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small><br><code>UnloadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td>ResourceLoader node in source/Sonny.ResourceManager/ResourceLoader.cs.</td>
+</tr>
+<tr>
+  <td>10</td>
+  <td><code>ResourcePathBuilder</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourcePathBuilder.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>BuildPath()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourcePathBuilder.cs</small></td>
+  <td>ResourcePathBuilder node in source/Sonny.ResourceManager/ResourcePathBuilder.cs.</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td><code>ResourceRegistry</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td><code>GetAllConfigs()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br><code>GetConfig()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br><code>GetRegisteredResourceIds()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br>+2 more</td>
+  <td>ResourceRegistry node in source/Sonny.ResourceManager/ResourceRegistry.cs.</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td><code>.Initialize()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>Initialize()</code><br><small style="color:var(--muted)">Resource/Implements/ResourcesInitializer.cs</small><br><code>SonnyResourcesInitializer</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td><code>LoadAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small><br><code>RegisterAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td>.Initialize() node in Resource/Implements/SonnyResourcesInitializer.cs.</td>
+</tr>
+<tr>
+  <td>13</td>
+  <td><code>.LoadAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>Initialize()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small><br><code>SonnyResourcesInitializer</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.LoadAllResources() node in Resource/Implements/SonnyResourcesInitializer.cs.</td>
+</tr>
+<tr>
+  <td>14</td>
+  <td><code>.RegisterAllResources()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>Initialize()</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small><br><code>SonnyResourcesInitializer</code><br><small style="color:var(--muted)">Resource/Implements/SonnyResourcesInitializer.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.RegisterAllResources() node in Resource/Implements/SonnyResourcesInitializer.cs.</td>
+</tr>
+<tr>
+  <td>15</td>
+  <td><code>.ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>CultureManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ChangeLanguage() node in source/Sonny.ResourceManager/CultureManager.cs.</td>
+</tr>
+<tr>
+  <td>16</td>
+  <td><code>.InitializeLocalizeExtension()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>CultureManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.InitializeLocalizeExtension() node in source/Sonny.ResourceManager/CultureManager.cs.</td>
+</tr>
+<tr>
+  <td>17</td>
+  <td><code>.UpdateLocalizeExtensionCulture()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>CultureManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.UpdateLocalizeExtensionCulture() node in source/Sonny.ResourceManager/CultureManager.cs.</td>
+</tr>
+<tr>
+  <td>18</td>
+  <td><code>.ToCodeString()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>LanguageCodeExtensions</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ToCodeString() node in source/Sonny.ResourceManager/LanguageCodeExtensions.cs.</td>
+</tr>
+<tr>
+  <td>19</td>
+  <td><code>.ToCultureInfo()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>LanguageCodeExtensions</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ToCultureInfo() node in source/Sonny.ResourceManager/LanguageCodeExtensions.cs.</td>
+</tr>
+<tr>
+  <td>20</td>
+  <td><code>.ToLanguageCode()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>LanguageCodeExtensions</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/LanguageCodeExtensions.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ToLanguageCode() node in source/Sonny.ResourceManager/LanguageCodeExtensions.cs.</td>
+</tr>
+<tr>
+  <td>21</td>
+  <td><code>.ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/CultureManager.cs</small><br><code>ReloadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td>.ChangeLanguage() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>22</td>
+  <td><code>.IsRegistered()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>IsRegistered()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small></td>
+  <td>.IsRegistered() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>23</td>
+  <td><code>.LoadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>GetAllConfigs()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br><code>LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td>.LoadAllResources() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>24</td>
+  <td><code>.LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ReloadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>GetConfig()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br><code>LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td>.LoadResource() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>25</td>
+  <td><code>.OnCultureChanged()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>ReloadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td>.OnCultureChanged() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>26</td>
+  <td><code>.RegisterResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>RegisterResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small></td>
+  <td>.RegisterResource() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>27</td>
+  <td><code>.ReloadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ChangeLanguage()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>OnCultureChanged()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>GetRegisteredResourceIds()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceRegistry.cs</small><br><code>LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td>.ReloadAllResources() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>28</td>
+  <td><code>.UnloadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceDictionaryManager</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small></td>
+  <td><code>UnloadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td>.UnloadResource() node in source/Sonny.ResourceManager/ResourceDictionaryManager.cs.</td>
+</tr>
+<tr>
+  <td>29</td>
+  <td><code>.GetString()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceHelper.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>ResourceHelper</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceHelper.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.GetString() node in source/Sonny.ResourceManager/ResourceHelper.cs.</td>
+</tr>
+<tr>
+  <td>30</td>
+  <td><code>.LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>LoadAllResources()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>LoadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceDictionaryManager.cs</small><br><code>ResourceLoader</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td><code>BuildPath()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourcePathBuilder.cs</small><br><code>UnloadResource()</code><br><small style="color:var(--muted)">source/Sonny.ResourceManager/ResourceLoader.cs</small></td>
+  <td>.LoadResource() node in source/Sonny.ResourceManager/ResourceLoader.cs.</td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="card">
+    <h4>Key Files</h4>
+    <table style="width:100%;font-size:0.85rem;">
+      <tr><th>File</th><th>Coverage</th></tr>
+      <tr><td><code>source/Sonny.ResourceManager/ResourceDictionaryManager.cs</code></td><td>10 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/ResourceRegistry.cs</code></td><td>7 nodes</td></tr>
+<tr><td><code>Resource/Implements/SonnyResourcesInitializer.cs</code></td><td>5 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/CultureManager.cs</code></td><td>5 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/LanguageCodeExtensions.cs</code></td><td>5 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/ResourceLoader.cs</code></td><td>4 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/CultureChangedEventArgs.cs</code></td><td>3 nodes</td></tr>
+<tr><td><code>source/Sonny.ResourceManager/ResourceHelper.cs</code></td><td>3 nodes</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h4>Design Notes</h4>
+    <p>This section comes from graphify community clustering. Relationship summary: references x40, method x26, contains x21, calls x6. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+  </div>
+</div>
+<hr>
+
+<!-- ====== 12. ColumnFromCadViewModel ====== -->
+<h2 id="columnfromcadviewmodel">12. ColumnFromCadViewModel</h2>
+<p>ColumnFromCadViewModel groups implementation around source, sonnyapplicationpresentation, columnfromcad, viewmodels, mostly in ColumnFromCad/ViewModels/ColumnFromCadViewModel.cs, Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs, Sonny.Application.Presentation/Services/IViewModelSettingsService.cs. This section covers 51 nodes and 77 internal edges; the diagram shows only representative relationships to stay readable.</p>
+
+<div class="mermaid">
+%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
+flowchart LR
+    %% Section: ColumnFromCadViewModel (51 nodes, 77 edges)
     subgraph columnfromcadviewmodel_Sonny_Application_Present_0401cf6b["Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs"]
         source_sonny_application_presentation_bases_base_9dfed120("BaseViewModelWithSettings<br/><small>Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs</small>")
         source_sonny_application_presentation_bases_base_58a6824c("InitializeWithSettings()<br/><small>Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs</small>")
@@ -2404,7 +2908,7 @@ flowchart LR
     source_sonny_application_presentation_bases_base_58a6824c -->|calls| source_sonny_application_presentation_bases_base_e2d8d762
     source_sonny_application_presentation_bases_base_e2d8d762 -->|calls| source_sonny_application_presentation_bases_base_47318d5c
     source_sonny_application_presentation_bases_base_c3f250d3 -->|calls| source_sonny_application_presentation_bases_base_c3be2190
-    %% Omitted for readability: 35 nodes, 0 edges
+    %% Omitted for readability: 33 nodes, 0 edges
     class source_sonny_application_presentation_bases_base_9dfed120 klass;
     class source_sonny_application_presentation_bases_base_58a6824c function;
     class source_sonny_application_presentation_bases_base_7d60eb06 function;
@@ -2693,23 +3197,23 @@ flowchart LR
       <tr><th>File</th><th>Coverage</th></tr>
       <tr><td><code>ColumnFromCad/ViewModels/ColumnFromCadViewModel.cs</code></td><td>13 nodes</td></tr>
 <tr><td><code>Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs</code></td><td>7 nodes</td></tr>
-<tr><td><code>Sonny.Application.Presentation/Implements/ViewModelSettingsService.cs</code></td><td>4 nodes</td></tr>
 <tr><td><code>Sonny.Application.Presentation/Services/IViewModelSettingsService.cs</code></td><td>4 nodes</td></tr>
 <tr><td><code>Settings/Models/FamilyModel.cs</code></td><td>3 nodes</td></tr>
 <tr><td><code>Settings/Models/LevelModel.cs</code></td><td>3 nodes</td></tr>
+<tr><td><code>Sonny.Application.Presentation/Implements/ViewModelSettingsService.cs</code></td><td>3 nodes</td></tr>
 <tr><td><code>ColumnFromCad/Models/ColumnFromCadSettings.cs</code></td><td>2 nodes</td></tr>
-<tr><td><code>ColumnFromCad/Services/IColumnFromCadContext.cs</code></td><td>2 nodes</td></tr>
+<tr><td><code>ColumnFromCad/Implements/ColumnFromCadContext.cs</code></td><td>1 nodes</td></tr>
     </table>
   </div>
   <div class="card">
     <h4>Design Notes</h4>
-    <p>This section comes from graphify community clustering. Relationship summary: references x30, method x24, calls x14, contains x6. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+    <p>This section comes from graphify community clustering. Relationship summary: references x30, method x24, calls x14, contains x4. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
   </div>
 </div>
 <hr>
 
-<!-- ====== 12. DimensionProcessor ====== -->
-<h2 id="dimensionprocessor">12. DimensionProcessor</h2>
+<!-- ====== 13. DimensionProcessor ====== -->
+<h2 id="dimensionprocessor">13. DimensionProcessor</h2>
 <p>DimensionProcessor groups implementation around source, sonnyrevitextensions, dimensionprocessorcs, processors, mostly in Sonny.RevitExtensions/Processors/DimensionProcessor.cs, Extensions/Views/ViewExtensions.cs, Sonny.RevitExtensions/Utilities/CreateElement.cs. This section covers 51 nodes and 64 internal edges; the diagram shows only representative relationships to stay readable.</p>
 
 <div class="mermaid">
@@ -3061,359 +3565,6 @@ flowchart LR
   <div class="card">
     <h4>Design Notes</h4>
     <p>This section comes from graphify community clustering. Relationship summary: references x29, method x12, contains x11, calls x8. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
-  </div>
-</div>
-<hr>
-
-<!-- ====== 13. BaseExternalCommand ====== -->
-<h2 id="baseexternalcommand">13. BaseExternalCommand</h2>
-<p>BaseExternalCommand groups implementation around source, sonnyapplication, commands, baseexternalcommandcs, mostly in Sonny.Application/Bases/BaseExternalCommand.cs, Sonny.Application/Commands/AutoColumnDimensionCommand.cs, Sonny.Application/Commands/LoginCommand.cs. This section covers 45 nodes and 57 internal edges; the diagram shows only representative relationships to stay readable.</p>
-
-<div class="mermaid">
-%%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
-flowchart LR
-    %% Section: BaseExternalCommand (45 nodes, 57 edges)
-    subgraph baseexternalcommand_Sonny_Application_Bases_Base_bd1b1387["Sonny.Application/Bases/BaseExternalCommand.cs"]
-        source_sonny_application_bases_baseexternalcomma_3f2a0127("BaseExternalCommand<br/><small>Sonny.Application/Bases/BaseExternalCommand.cs</small>")
-        source_sonny_application_bases_baseexternalcomma_64c021ed("Execute()<br/><small>Sonny.Application/Bases/BaseExternalCommand.cs</small>")
-        source_sonny_application_bases_baseexternalcomma_eb1e7f4b("BaseExternalCommand.cs")
-        source_sonny_application_bases_baseexternalcomma_a60ce2f2("ShouldCheckLicense()<br/><small>Sonny.Application/Bases/BaseExternalCommand.cs</small>")
-        source_sonny_application_bases_baseexternalcomma_02691b2d("ExecuteInternal()<br/><small>Sonny.Application/Bases/BaseExternalCommand.cs</small>")
-    end
-    subgraph baseexternalcommand_Sonny_Application_Commands_A_353986df["Sonny.Application/Commands/AutoColumnDimensionCommand.cs"]
-        source_sonny_application_commands_autocolumndime_048841b9("AutoColumnDimensionCommand.cs")
-        source_sonny_application_commands_autocolumndime_10da390b("AutoColumnDimensionCommand<br/><small>Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small>")
-        source_sonny_application_commands_autocolumndime_3192fb11("ExecuteInternal()<br/><small>Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small>")
-    end
-    subgraph baseexternalcommand_Sonny_Application_Commands_L_189aaebd["Sonny.Application/Commands/LoginCommand.cs"]
-        source_sonny_application_commands_logincommand_s_58e9848e("LoginCommand<br/><small>Sonny.Application/Commands/LoginCommand.cs</small>")
-        source_sonny_application_commands_logincommand_s_d56ec040("ShouldCheckLicense()<br/><small>Sonny.Application/Commands/LoginCommand.cs</small>")
-        source_sonny_application_commands_logincommand_s_b5c505b2("ExecuteInternal()<br/><small>Sonny.Application/Commands/LoginCommand.cs</small>")
-    end
-    subgraph baseexternalcommand_Sonny_Application_Commands_S_621e3866["Sonny.Application/Commands/SettingsCommand.cs"]
-        source_sonny_application_commands_settingscomman_70a3b277("SettingsCommand.cs")
-        source_sonny_application_commands_settingscomman_a62d6fbe("SettingsCommand<br/><small>Sonny.Application/Commands/SettingsCommand.cs</small>")
-        source_sonny_application_commands_settingscomman_32d4dc2e("ExecuteInternal()<br/><small>Sonny.Application/Commands/SettingsCommand.cs</small>")
-    end
-    subgraph baseexternalcommand_Sonny_Application_UseCases_S_d6329aab["Sonny.Application.UseCases/Services/ILicenseCheckService.cs"]
-        source_sonny_application_usecases_services_ilice_84683bba("ILicenseCheckService<br/><small>Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small>")
-        source_sonny_application_usecases_services_ilice_d831d73a("CheckLicense()<br/><small>Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small>")
-    end
-    subgraph baseexternalcommand_Sonny_Application_Commands_C_d780a7cd["Sonny.Application/Commands/ColumnFromCadCommand.cs"]
-        source_sonny_application_commands_columnfromcadc_f27cc075("ColumnFromCadCommand<br/><small>Sonny.Application/Commands/ColumnFromCadCommand.cs</small>")
-        source_sonny_application_commands_columnfromcadc_7f084ffa("ExecuteInternal()<br/><small>Sonny.Application/Commands/ColumnFromCadCommand.cs</small>")
-    end
-    source_sonny_application_bases_baseexternalcomma_3f2a0127 -->|method| source_sonny_application_bases_baseexternalcomma_a60ce2f2
-    source_sonny_application_bases_baseexternalcomma_3f2a0127 -->|method| source_sonny_application_bases_baseexternalcomma_64c021ed
-    source_sonny_application_bases_baseexternalcomma_3f2a0127 -->|method| source_sonny_application_bases_baseexternalcomma_02691b2d
-    source_sonny_application_commands_autocolumndime_10da390b -->|method| source_sonny_application_commands_autocolumndime_3192fb11
-    source_sonny_application_commands_columnfromcadc_f27cc075 -->|method| source_sonny_application_commands_columnfromcadc_7f084ffa
-    source_sonny_application_commands_logincommand_s_58e9848e -->|method| source_sonny_application_commands_logincommand_s_d56ec040
-    source_sonny_application_commands_logincommand_s_58e9848e -->|method| source_sonny_application_commands_logincommand_s_b5c505b2
-    source_sonny_application_commands_settingscomman_a62d6fbe -->|method| source_sonny_application_commands_settingscomman_32d4dc2e
-    source_sonny_application_usecases_services_ilice_84683bba -->|method| source_sonny_application_usecases_services_ilice_d831d73a
-    source_sonny_application_bases_baseexternalcomma_64c021ed -->|calls| source_sonny_application_bases_baseexternalcomma_a60ce2f2
-    source_sonny_application_bases_baseexternalcomma_64c021ed -->|calls| source_sonny_application_bases_baseexternalcomma_02691b2d
-    %% Omitted for readability: 27 nodes, 0 edges
-    class source_sonny_application_bases_baseexternalcomma_3f2a0127 entry;
-    class source_sonny_application_bases_baseexternalcomma_64c021ed function;
-    class source_sonny_application_bases_baseexternalcomma_eb1e7f4b entry;
-    class source_sonny_application_bases_baseexternalcomma_a60ce2f2 function;
-    class source_sonny_application_bases_baseexternalcomma_02691b2d function;
-    class source_sonny_application_commands_autocolumndime_048841b9 entry;
-    class source_sonny_application_commands_autocolumndime_10da390b entry;
-    class source_sonny_application_commands_autocolumndime_3192fb11 function;
-    class source_sonny_application_commands_logincommand_s_58e9848e entry;
-    class source_sonny_application_commands_logincommand_s_d56ec040 function;
-    class source_sonny_application_commands_logincommand_s_b5c505b2 function;
-    class source_sonny_application_commands_settingscomman_70a3b277 entry;
-    class source_sonny_application_commands_settingscomman_a62d6fbe entry;
-    class source_sonny_application_commands_settingscomman_32d4dc2e function;
-    class source_sonny_application_usecases_services_ilice_84683bba klass;
-    class source_sonny_application_usecases_services_ilice_d831d73a function;
-    class source_sonny_application_commands_columnfromcadc_f27cc075 entry;
-    class source_sonny_application_commands_columnfromcadc_7f084ffa function;
-    classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
-    classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
-    classDef async fill:#2e1065,stroke:#a78bfa,color:#ede9fe,stroke-width:1px;
-    classDef klass fill:#064e3b,stroke:#34d399,color:#d1fae5,stroke-width:1px;
-    classDef ui fill:#831843,stroke:#f472b6,color:#fce7f3,stroke-width:1px;
-    classDef module fill:#172554,stroke:#60a5fa,color:#dbeafe,stroke-width:1px;
-    classDef test fill:#3f3f46,stroke:#a1a1aa,color:#f4f4f5,stroke-width:1px;
-    classDef concept fill:#292524,stroke:#a8a29e,color:#fafaf9,stroke-dasharray:4 3;
-    classDef function fill:#0f172a,stroke:#38bdf8,color:#e0f2fe,stroke-width:1px;
-</div>
-
-<h3>Call Details</h3>
-<table class="call-table">
-<tr>
-  <th style="width:5%">#</th>
-  <th style="width:28%">Node</th>
-  <th style="width:10%">Type</th>
-  <th style="width:17%">Caller</th>
-  <th style="width:20%">Callees</th>
-  <th style="width:20%">Description</th>
-</tr>
-<tr>
-  <td>1</td>
-  <td><code>BaseExternalCommand</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>Execute()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>ShouldCheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td>BaseExternalCommand node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td><code>AutoColumnDimensionCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td>AutoColumnDimensionCommand node in Sonny.Application/Commands/AutoColumnDimensionCommand.cs.</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td><code>ColumnFromCadCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/ColumnFromCadCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/ColumnFromCadCommand.cs</small></td>
-  <td>ColumnFromCadCommand node in Sonny.Application/Commands/ColumnFromCadCommand.cs.</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td><code>LoginCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small><br><code>ShouldCheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td>LoginCommand node in Sonny.Application/Commands/LoginCommand.cs.</td>
-</tr>
-<tr>
-  <td>5</td>
-  <td><code>SettingsCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/SettingsCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/SettingsCommand.cs</small></td>
-  <td>SettingsCommand node in Sonny.Application/Commands/SettingsCommand.cs.</td>
-</tr>
-<tr>
-  <td>6</td>
-  <td><code>ILicenseCheckService</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>CheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td>ILicenseCheckService node in Sonny.Application.UseCases/Services/ILicenseCheckService.cs.</td>
-</tr>
-<tr>
-  <td>7</td>
-  <td><code>LicenseCheckService</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/LicenseCheckService.cs</small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>CheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/LicenseCheckService.cs</small></td>
-  <td>LicenseCheckService node in Sonny.Application.UseCases/Services/LicenseCheckService.cs.</td>
-</tr>
-<tr>
-  <td>8</td>
-  <td><code>.Execute()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>BaseExternalCommand</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><code>ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>ShouldCheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>Start()</code><br><small style="color:var(--muted)">source/Sonny.Application/Host.cs</small></td>
-  <td>.Execute() node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>9</td>
-  <td><code>.ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>BaseExternalCommand</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>Execute()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ExecuteInternal() node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>10</td>
-  <td><code>.ShouldCheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>BaseExternalCommand</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>Execute()</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ShouldCheckLicense() node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>11</td>
-  <td><code>.ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>AutoColumnDimensionCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ExecuteInternal() node in Sonny.Application/Commands/AutoColumnDimensionCommand.cs.</td>
-</tr>
-<tr>
-  <td>12</td>
-  <td><code>.ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/ColumnFromCadCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>ColumnFromCadCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/ColumnFromCadCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ExecuteInternal() node in Sonny.Application/Commands/ColumnFromCadCommand.cs.</td>
-</tr>
-<tr>
-  <td>13</td>
-  <td><code>.ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>LoginCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ExecuteInternal() node in Sonny.Application/Commands/LoginCommand.cs.</td>
-</tr>
-<tr>
-  <td>14</td>
-  <td><code>.ShouldCheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>LoginCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ShouldCheckLicense() node in Sonny.Application/Commands/LoginCommand.cs.</td>
-</tr>
-<tr>
-  <td>15</td>
-  <td><code>.ExecuteInternal()</code><br><small style="color:var(--muted)">Sonny.Application/Commands/SettingsCommand.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>SettingsCommand</code><br><small style="color:var(--muted)">Sonny.Application/Commands/SettingsCommand.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ExecuteInternal() node in Sonny.Application/Commands/SettingsCommand.cs.</td>
-</tr>
-<tr>
-  <td>16</td>
-  <td><code>.CheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>ILicenseCheckService</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.CheckLicense() node in Sonny.Application.UseCases/Services/ILicenseCheckService.cs.</td>
-</tr>
-<tr>
-  <td>17</td>
-  <td><code>.CheckLicense()</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/LicenseCheckService.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseCheckService</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/LicenseCheckService.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.CheckLicense() node in Sonny.Application.UseCases/Services/LicenseCheckService.cs.</td>
-</tr>
-<tr>
-  <td>18</td>
-  <td><code>Sonny.Application.Presentation.AutoColumnDimension.Views</code><br><small style="color:var(--muted)">AutoColumnDimension/Views/AutoColumnDimensionView.xaml.cs</small></td>
-  <td><span class="tag tag-class">Module</span></td>
-  <td><code>AutoColumnDimensionCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small><br><code>Sonny.Application.Presentation/ServiceR...</code><br><small style="color:var(--muted)">source/Sonny.Application.Presentation/ServiceRegistration.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>Sonny.Application.Presentation.AutoColumnDimension.Views node in AutoColumnDimension/Views/AutoColumnDimensionView.xaml.cs.</td>
-</tr>
-<tr>
-  <td>19</td>
-  <td><code>Sonny.Application.Commands</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td><span class="tag tag-class">Module</span></td>
-  <td><code>SonnyTab.cs</code><br><small style="color:var(--muted)">Sonny.Application/Ribbon/SonnyTab.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>Sonny.Application.Commands node in Sonny.Application/Commands/AutoColumnDimensionCommand.cs.</td>
-</tr>
-<tr>
-  <td>20</td>
-  <td><code>Sonny.Application.Presentation.Settings.Views</code><br><small style="color:var(--muted)">Settings/Views/SettingsView.xaml.cs</small></td>
-  <td><span class="tag tag-class">Module</span></td>
-  <td><code>SettingsCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/SettingsCommand.cs</small><br><code>Sonny.Application.Presentation/ServiceR...</code><br><small style="color:var(--muted)">source/Sonny.Application.Presentation/ServiceRegistration.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>Sonny.Application.Presentation.Settings.Views node in Settings/Views/SettingsView.xaml.cs.</td>
-</tr>
-<tr>
-  <td>21</td>
-  <td><code>Sonny.Application.UseCases.Services</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td><span class="tag tag-class">Module</span></td>
-  <td><code>BaseExternalCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>Sonny.Application.UseCases/ServiceRegis...</code><br><small style="color:var(--muted)">source/Sonny.Application.UseCases/ServiceRegistration.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>Sonny.Application.UseCases.Services node in Sonny.Application.UseCases/Services/ILicenseCheckService.cs.</td>
-</tr>
-<tr>
-  <td>22</td>
-  <td><code>Sonny.Application.Bases</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-class">Module</span></td>
-  <td><code>AutoColumnDimensionCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small><br><code>ColumnFromCadCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/ColumnFromCadCommand.cs</small><br><code>LoginCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/LoginCommand.cs</small><br>+1 more</td>
-  <td>No direct outbound edge</td>
-  <td>Sonny.Application.Bases node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>23</td>
-  <td><code>IExternalCommand</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>IExternalCommand node in project.</td>
-</tr>
-<tr>
-  <td>24</td>
-  <td><code>BaseExternalCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>Sonny.Application.Domain.Services</code><br><small style="color:var(--muted)">Sonny.Application.Domain/Services/FailurePreprocessorType.cs</small><br><code>Sonny.Application.Infrastructure.Revit....</code><br><small style="color:var(--muted)">Revit/Services/ICadLinkSelector.cs</small><br><code>Sonny.Application.UseCases.Services</code><br><small style="color:var(--muted)">Sonny.Application.UseCases/Services/ILicenseCheckService.cs</small></td>
-  <td>BaseExternalCommand.cs node in Sonny.Application/Bases/BaseExternalCommand.cs.</td>
-</tr>
-<tr>
-  <td>25</td>
-  <td><code>ElementSet</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>ElementSet node in project.</td>
-</tr>
-<tr>
-  <td>26</td>
-  <td><code>ExternalCommandData</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>ExternalCommandData node in project.</td>
-</tr>
-<tr>
-  <td>27</td>
-  <td><code>Result</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>Result node in project.</td>
-</tr>
-<tr>
-  <td>28</td>
-  <td><code>AutoColumnDimensionCommand.cs</code><br><small style="color:var(--muted)">Sonny.Application/Commands/AutoColumnDimensionCommand.cs</small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>Sonny.Application.Bases</code><br><small style="color:var(--muted)">Sonny.Application/Bases/BaseExternalCommand.cs</small><br><code>Sonny.Application.Presentation.AutoColu...</code><br><small style="color:var(--muted)">AutoColumnDimension/Views/AutoColumnDimensionView.xaml.cs</small></td>
-  <td>AutoColumnDimensionCommand.cs node in Sonny.Application/Commands/AutoColumnDimensionCommand.cs.</td>
-</tr>
-<tr>
-  <td>29</td>
-  <td><code>ElementSet</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>ElementSet node in project.</td>
-</tr>
-<tr>
-  <td>30</td>
-  <td><code>ExternalCommandData</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-cmd">Entry</span></td>
-  <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>ExternalCommandData node in project.</td>
-</tr>
-</table>
-
-<div class="grid">
-  <div class="card">
-    <h4>Key Files</h4>
-    <table style="width:100%;font-size:0.85rem;">
-      <tr><th>File</th><th>Coverage</th></tr>
-      <tr><td><code>Sonny.Application/Bases/BaseExternalCommand.cs</code></td><td>6 nodes</td></tr>
-<tr><td><code>Sonny.Application.UseCases/Services/ILicenseCheckService.cs</code></td><td>4 nodes</td></tr>
-<tr><td><code>Sonny.Application/Commands/AutoColumnDimensionCommand.cs</code></td><td>4 nodes</td></tr>
-<tr><td><code>Sonny.Application/Commands/LoginCommand.cs</code></td><td>4 nodes</td></tr>
-<tr><td><code>Sonny.Application.UseCases/Services/LicenseCheckService.cs</code></td><td>3 nodes</td></tr>
-<tr><td><code>Sonny.Application/Commands/ColumnFromCadCommand.cs</code></td><td>3 nodes</td></tr>
-<tr><td><code>Sonny.Application/Commands/SettingsCommand.cs</code></td><td>3 nodes</td></tr>
-<tr><td><code>AutoColumnDimension/Views/AutoColumnDimensionView.xaml.cs</code></td><td>1 nodes</td></tr>
-    </table>
-  </div>
-  <div class="card">
-    <h4>Design Notes</h4>
-    <p>This section comes from graphify community clustering. Relationship summary: references x18, contains x14, method x10, imports x7. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
   </div>
 </div>
 <hr>
@@ -4120,12 +4271,12 @@ flowchart LR
 
 <!-- ====== 16. Other ====== -->
 <h2 id="other">16. Other</h2>
-<p>Other groups implementation around source, sonnyrevitextensions, sonnykeygen, sonnyeasyribbon, mostly in Sonny.EasyRibbon/Assets/ribbon-demo-alphabim-gen.png, ColumnFromCad/Views/ColumnFromCadView.xaml, Sonny.Keygen/Services/LicenseFileService.cs. This section covers 1573 nodes and 2304 internal edges; the diagram shows only representative relationships to stay readable.</p>
+<p>Other groups implementation around source, sonnyrevitextensions, sonnykeygen, sonnyeasyribbon, mostly in Sonny.EasyRibbon/Assets/ribbon-demo-alphabim-gen.png, ColumnFromCad/Views/ColumnFromCadView.xaml, Sonny.Keygen/Services/LicenseFileService.cs. This section covers 1547 nodes and 2254 internal edges; the diagram shows only representative relationships to stay readable.</p>
 
 <div class="mermaid">
 %%{init: {"theme": "dark", "themeVariables": {"fontSize": "15.0px", "fontFamily": "Segoe UI, system-ui, sans-serif", "primaryColor": "#1e293b", "primaryTextColor": "#e2e8f0", "primaryBorderColor": "#38bdf8", "secondaryColor": "#0f172a", "tertiaryColor": "#334155", "lineColor": "#64748b", "textColor": "#e2e8f0"}, "flowchart": {"htmlLabels": true, "curve": "basis", "nodeSpacing": 48, "rankSpacing": 64, "padding": 14, "diagramPadding": 10, "useMaxWidth": true}}}%%
 flowchart LR
-    %% Section: Other (1573 nodes, 2304 edges)
+    %% Section: Other (1547 nodes, 2254 edges)
     subgraph other_Managers_Transactions_TransactionGroupMana_7fdbca84["Managers/Transactions/TransactionGroupManager.cs"]
         source_sonny_application_infrastructure_revit_ma_43e0d026("TransactionGroupManager<br/><small>Managers/Transactions/TransactionGroupManager.cs</small>")
         source_sonny_application_infrastructure_revit_ma_230db588("Dispose()<br/><small>Managers/Transactions/TransactionGroupManager.cs</small>")
@@ -4135,32 +4286,33 @@ flowchart LR
         source_sonny_application_infrastructure_revit_ma_ed96b262("RollBack()<br/><small>Managers/Transactions/TransactionGroupManager.cs</small>")
         source_sonny_application_infrastructure_revit_ma_d5eaa428("Assimilate()<br/><small>Managers/Transactions/TransactionGroupManager.cs</small>")
     end
-    subgraph other_GeometryObjects_Solids_SolidPointExtension_376cfd5c["GeometryObjects/Solids/SolidPointExtensions.cs"]
-        source_sonny_revitextensions_source_sonny_revite_18600443("SolidPointExtensions<br/><small>GeometryObjects/Solids/SolidPointExtensions.cs</small>")
-        source_sonny_revitextensions_source_sonny_revite_9bd8a0c5("GetXyzes()<br/><small>GeometryObjects/Solids/SolidPointExtensions.cs</small>")
+    subgraph other_Sonny_RevitExtensions_RevitWrapper_Element_4e9f9b4f["Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs"]
+        source_sonny_revitextensions_source_sonny_revite_c4c72eff("ElementWrapperBase<br/><small>Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs</small>")
+        source_sonny_revitextensions_source_sonny_revite_ce703008("GetBoundingBoxXyz()<br/><small>Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs</small>")
+        source_sonny_revitextensions_source_sonny_revite_aa3fd730("GetCenterPoint()<br/><small>Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs</small>")
     end
-    subgraph other_Managers_Transactions_TransactionStatusCon_5ecb475e["Managers/Transactions/TransactionStatusConverter.cs"]
-        source_sonny_application_infrastructure_revit_ma_2c1666e5("TransactionStatusConverter<br/><small>Managers/Transactions/TransactionStatusConverter.cs</small>")
-        source_sonny_application_infrastructure_revit_ma_34c25e44("Convert()<br/><small>Managers/Transactions/TransactionStatusConverter.cs</small>")
+    subgraph other_Sonny_Keygen_Services_CustomWebViewBrowser_7773e1aa["Sonny.Keygen/Services/CustomWebViewBrowser.cs"]
+        source_sonny_keygen_sonny_keygen_services_custom_2d2cba3a("CustomWebViewBrowser<br/><small>Sonny.Keygen/Services/CustomWebViewBrowser.cs</small>")
+        source_sonny_keygen_sonny_keygen_services_custom_c7d42119("InvokeAsync()<br/><small>Sonny.Keygen/Services/CustomWebViewBrowser.cs</small>")
     end
     source_sonny_revitextensions_source_sonny_revite_2869926a("XYZVectorExtensions<br/><small>Extensions/XYZs/XYZVectorExtensions.cs</small>")
+    source_sonny_easyribbon_sonny_easyribbon_createu_7dbc2903("CreateUIApp<br/><small>Sonny.EasyRibbon/Sonny.EasyRibbon/CreateUIApp.cs</small>")
     source_sonny_keygen_sonny_keygen_services_keygen_63d4ff52("KeygenConfigBuilder<br/><small>Sonny.Keygen/Services/KeygenConfigBuilder.cs</small>")
     source_sonny_keygen_sonny_keygen_services_licens_c9f02c2a("LicenseFileService<br/><small>Sonny.Keygen/Services/LicenseFileService.cs</small>")
     source_sonny_revitextensions_source_sonny_revite_0b02cb1a("ElementParameterExtensions<br/><small>Sonny.RevitExtensions/Extensions/ElementParameterExtensions.cs</small>")
-    source_sonny_revitextensions_source_sonny_revite_c4c72eff("ElementWrapperBase<br/><small>Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs</small>")
-    source_sonny_application_infrastructure_servicer_011b79a2("Sonny.Application.Infrastructure/Servic...<br/><small>source/Sonny.Application.Infrastructure/ServiceRegistration.cs</small>")
     source_sonny_application_sonny_application_edf3306b("Sonny.Application<br/><small>source/Sonny.Application/Sonny.Application.csproj</small>")
-    source_sonny_revitextensions_source_sonny_revite_18600443 -->|method| source_sonny_revitextensions_source_sonny_revite_9bd8a0c5
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_230db588
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_9e5a5df0
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_fa1dcc47
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_999df19e
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_ed96b262
     source_sonny_application_infrastructure_revit_ma_43e0d026 -->|method| source_sonny_application_infrastructure_revit_ma_d5eaa428
-    source_sonny_application_infrastructure_revit_ma_2c1666e5 -->|method| source_sonny_application_infrastructure_revit_ma_34c25e44
-    source_sonny_application_infrastructure_revit_ma_fa1dcc47 -->|calls| source_sonny_application_infrastructure_revit_ma_34c25e44
+    source_sonny_revitextensions_source_sonny_revite_c4c72eff -->|method| source_sonny_revitextensions_source_sonny_revite_ce703008
+    source_sonny_revitextensions_source_sonny_revite_c4c72eff -->|method| source_sonny_revitextensions_source_sonny_revite_aa3fd730
+    source_sonny_keygen_sonny_keygen_services_custom_2d2cba3a -->|method| source_sonny_keygen_sonny_keygen_services_custom_c7d42119
     source_sonny_application_infrastructure_revit_ma_999df19e -->|calls| source_sonny_application_infrastructure_revit_ma_fa1dcc47
-    %% Omitted for readability: 1555 nodes, 0 edges
+    source_sonny_revitextensions_source_sonny_revite_aa3fd730 -->|calls| source_sonny_revitextensions_source_sonny_revite_ce703008
+    %% Omitted for readability: 1529 nodes, 0 edges
     class source_sonny_application_infrastructure_revit_ma_43e0d026 klass;
     class source_sonny_application_infrastructure_revit_ma_230db588 function;
     class source_sonny_application_infrastructure_revit_ma_9e5a5df0 function;
@@ -4168,16 +4320,16 @@ flowchart LR
     class source_sonny_application_infrastructure_revit_ma_999df19e function;
     class source_sonny_application_infrastructure_revit_ma_ed96b262 function;
     class source_sonny_application_infrastructure_revit_ma_d5eaa428 function;
-    class source_sonny_revitextensions_source_sonny_revite_18600443 klass;
-    class source_sonny_revitextensions_source_sonny_revite_9bd8a0c5 function;
-    class source_sonny_application_infrastructure_revit_ma_2c1666e5 klass;
-    class source_sonny_application_infrastructure_revit_ma_34c25e44 function;
+    class source_sonny_revitextensions_source_sonny_revite_c4c72eff klass;
+    class source_sonny_revitextensions_source_sonny_revite_ce703008 function;
+    class source_sonny_revitextensions_source_sonny_revite_aa3fd730 function;
+    class source_sonny_keygen_sonny_keygen_services_custom_2d2cba3a klass;
+    class source_sonny_keygen_sonny_keygen_services_custom_c7d42119 async;
     class source_sonny_revitextensions_source_sonny_revite_2869926a klass;
+    class source_sonny_easyribbon_sonny_easyribbon_createu_7dbc2903 klass;
     class source_sonny_keygen_sonny_keygen_services_keygen_63d4ff52 klass;
     class source_sonny_keygen_sonny_keygen_services_licens_c9f02c2a klass;
     class source_sonny_revitextensions_source_sonny_revite_0b02cb1a klass;
-    class source_sonny_revitextensions_source_sonny_revite_c4c72eff klass;
-    class source_sonny_application_infrastructure_servicer_011b79a2 klass;
     class source_sonny_application_sonny_application_edf3306b klass;
     classDef entry fill:#422006,stroke:#fbbf24,color:#fde68a,stroke-width:1px;
     classDef api fill:#450a0a,stroke:#f87171,color:#fee2e2,stroke-width:1px;
@@ -4202,243 +4354,243 @@ flowchart LR
 </tr>
 <tr>
   <td>1</td>
-  <td><code>LicenseValidationResult</code><br><small style="color:var(--muted)">Sonny.Keygen/Models/LicenseValidationResult.cs</small></td>
+  <td><code>UserInfoResult</code><br><small style="color:var(--muted)">Sonny.Keygen/Models/UserInfoResult.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>LicenseValidationResult node in Sonny.Keygen/Models/LicenseValidationResult.cs.</td>
+  <td>UserInfoResult node in Sonny.Keygen/Models/UserInfoResult.cs.</td>
 </tr>
 <tr>
   <td>2</td>
-  <td><code>Certificate</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>IMessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>Certificate node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>ShowError()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small><br><code>ShowInformation()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small><br><code>ShowWarning()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
+  <td>IMessageBoxService node in Sonny.Keygen/Services/IMessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>3</td>
-  <td><code>LicenseData</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>MessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>LicenseData node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>ShowError()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small><br><code>ShowInformation()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small><br><code>ShowWarning()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
+  <td>MessageBoxService node in Sonny.Keygen/Services/MessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>4</td>
-  <td><code>LicenseDataset</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>UserInfoService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>LicenseDataset node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>FormatLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small><br><code>LoadAndFormatUserInfoAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
+  <td>UserInfoService node in Sonny.Keygen/Services/UserInfoService.cs.</td>
 </tr>
 <tr>
   <td>5</td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
-  <td><code>Decrypt()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>DeleteLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>FromHexString()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br>+9 more</td>
-  <td>LicenseFileService node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>CanLoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>ClearLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>DisplayLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br>+4 more</td>
+  <td>LoginViewModel node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>6</td>
-  <td><code>LicenseMeta</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>LoginView</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/Views/LoginView.xaml.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
-  <td>No direct outbound edge</td>
-  <td>LicenseMeta node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>MainWindow_Loaded()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/Views/LoginView.xaml.cs</small></td>
+  <td>LoginView node in Sonny.Keygen.UI/Views/LoginView.xaml.cs.</td>
 </tr>
 <tr>
   <td>7</td>
-  <td><code>ValidationResult</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
+  <td><code>.ShowError()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>IMessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small><br><code>LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>ValidationResult node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.ShowError() node in Sonny.Keygen/Services/IMessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>8</td>
-  <td><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><span class="tag tag-class">Class</span></td>
-  <td>External entry / no inbound edge</td>
-  <td><code>ClearLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>HasLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>IsNetworkAvailable()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br>+4 more</td>
-  <td>OfflineLicenseManager node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>.ShowInformation()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
+  <td><span class="tag tag-func">Function</span></td>
+  <td><code>IMessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small><br><code>LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ShowInformation() node in Sonny.Keygen/Services/IMessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>9</td>
-  <td><code>.Decrypt()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.ShowWarning()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td><code>ParseDataset()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.Decrypt() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>IMessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.ShowWarning() node in Sonny.Keygen/Services/IMessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>10</td>
-  <td><code>.DeleteLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.ShowError()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>ClearLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>MessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.DeleteLicenseFile() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.ShowError() node in Sonny.Keygen/Services/MessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>11</td>
-  <td><code>.FromHexString()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.ShowInformation()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>VerifySignature()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>MessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.FromHexString() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.ShowInformation() node in Sonny.Keygen/Services/MessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>12</td>
-  <td><code>.HasLocalLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.ShowWarning()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>HasLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
+  <td><code>MessageBoxService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.HasLocalLicenseFile() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.ShowWarning() node in Sonny.Keygen/Services/MessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>13</td>
-  <td><code>.LoadLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.IsNetworkAvailable()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br>+1 more</td>
   <td>No direct outbound edge</td>
-  <td>.LoadLicenseFile() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.IsNetworkAvailable() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
 </tr>
 <tr>
   <td>14</td>
-  <td><code>.LoadLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.FormatLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>LoadLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
+  <td><code>InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>UserInfoService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.LoadLicenseKey() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.FormatLicenseInfo() node in Sonny.Keygen/Services/UserInfoService.cs.</td>
 </tr>
 <tr>
   <td>15</td>
-  <td><code>.ParseCertificate()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>No direct outbound edge</td>
-  <td>.ParseCertificate() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>.LoadAndFormatUserInfoAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
+  <td><span class="tag tag-async">Async</span></td>
+  <td><code>InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>UserInfoService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small></td>
+  <td><code>GetUserLicensesByUserIdAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/KeygenAuthService.cs</small><br><code>SaveLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>ValidateOnlineAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
+  <td>.LoadAndFormatUserInfoAsync() node in Sonny.Keygen/Services/UserInfoService.cs.</td>
 </tr>
 <tr>
   <td>16</td>
-  <td><code>.ParseDataset()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>Decrypt()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.CanLoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><span class="tag tag-async">Async</span></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.ParseDataset() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.CanLoginAsync() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>17</td>
-  <td><code>.SaveLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.ClearLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>SaveLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td>No direct outbound edge</td>
-  <td>.SaveLicenseKey() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td>.ClearLicenseInfo() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>18</td>
-  <td><code>.ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.DisplayLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>Decrypt()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>LoadLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ParseCertificate()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br>+1 more</td>
-  <td>.ValidateOffline() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.DisplayLicenseInfo() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>19</td>
-  <td><code>.VerifySignature()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
+  <td><code>.DisplayUserInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LicenseFileService</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td><code>FromHexString()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.VerifySignature() node in Sonny.Keygen/Services/LicenseFileService.cs.</td>
+  <td><code>InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td>No direct outbound edge</td>
+  <td>.DisplayUserInfo() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>20</td>
-  <td><code>.ClearLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>DeleteLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.ClearLocalLicense() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>.InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><span class="tag tag-async">Async</span></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>MainWindow_Loaded()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/Views/LoginView.xaml.cs</small></td>
+  <td><code>DisplayLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>DisplayUserInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>FormatLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small><br>+2 more</td>
+  <td>.InitializeAsync() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>21</td>
-  <td><code>.HasLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>HasLocalLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.HasLocalLicense() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>.LoginAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><span class="tag tag-async">Async</span></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><code>DisplayUserInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>IsNetworkAvailable()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>LoadAndFormatUserInfoAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small><br>+3 more</td>
+  <td>.LoginAsync() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>22</td>
-  <td><code>.LoadLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>LoadLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.LoadLicenseKey() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>.LogoutAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><span class="tag tag-async">Async</span></td>
+  <td><code>LoginViewModel</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td><code>ClearLicenseInfo()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small><br><code>ClearLocalLicense()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br><code>IsNetworkAvailable()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small><br>+3 more</td>
+  <td>.LogoutAsync() node in Sonny.Keygen.UI/ViewModels/LoginViewModel.cs.</td>
 </tr>
 <tr>
   <td>23</td>
-  <td><code>.SaveLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
+  <td><code>.MainWindow_Loaded()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/Views/LoginView.xaml.cs</small></td>
   <td><span class="tag tag-func">Function</span></td>
-  <td><code>LoadAndFormatUserInfoAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/UserInfoService.cs</small><br><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>SaveLicenseKey()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.SaveLicenseKey() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>LoginView</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/Views/LoginView.xaml.cs</small></td>
+  <td><code>InitializeAsync()</code><br><small style="color:var(--muted)">Sonny.Keygen.UI/ViewModels/LoginViewModel.cs</small></td>
+  <td>.MainWindow_Loaded() node in Sonny.Keygen.UI/Views/LoginView.xaml.cs.</td>
 </tr>
 <tr>
   <td>24</td>
-  <td><code>.ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><span class="tag tag-func">Function</span></td>
-  <td><code>OfflineLicenseManager</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/OfflineLicenseManager.cs</small></td>
-  <td><code>HasLocalLicenseFile()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small><br><code>ValidateOffline()</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/LicenseFileService.cs</small></td>
-  <td>.ValidateOffline() node in Sonny.Keygen/Services/OfflineLicenseManager.cs.</td>
+  <td><code>ObservableObject</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-class">Class</span></td>
+  <td>External entry / no inbound edge</td>
+  <td>No direct outbound edge</td>
+  <td>ObservableObject node in project.</td>
 </tr>
 <tr>
   <td>25</td>
-  <td><code>Certificate</code><br><small style="color:var(--muted)"></small></td>
-  <td><span class="tag tag-class">Class</span></td>
+  <td><code>RoutedEventArgs</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-endpoint">API</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>Certificate node in project.</td>
+  <td>RoutedEventArgs node in project.</td>
 </tr>
 <tr>
   <td>26</td>
-  <td><code>JsonElement</code><br><small style="color:var(--muted)"></small></td>
+  <td><code>UserInfoResult.cs</code><br><small style="color:var(--muted)">Sonny.Keygen/Models/UserInfoResult.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>JsonElement node in project.</td>
+  <td>UserInfoResult.cs node in Sonny.Keygen/Models/UserInfoResult.cs.</td>
 </tr>
 <tr>
   <td>27</td>
-  <td><code>LicenseData</code><br><small style="color:var(--muted)"></small></td>
+  <td><code>IMessageBoxService.cs</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/IMessageBoxService.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>LicenseData node in project.</td>
+  <td>IMessageBoxService.cs node in Sonny.Keygen/Services/IMessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>28</td>
-  <td><code>LicenseDataset</code><br><small style="color:var(--muted)"></small></td>
+  <td><code>MessageBoxService.cs</code><br><small style="color:var(--muted)">Sonny.Keygen/Services/MessageBoxService.cs</small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>LicenseDataset node in project.</td>
+  <td>MessageBoxService.cs node in Sonny.Keygen/Services/MessageBoxService.cs.</td>
 </tr>
 <tr>
   <td>29</td>
-  <td><code>LicenseMeta</code><br><small style="color:var(--muted)"></small></td>
+  <td><code>Task</code><br><small style="color:var(--muted)"></small></td>
   <td><span class="tag tag-class">Class</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>LicenseMeta node in project.</td>
+  <td>Task node in project.</td>
 </tr>
 <tr>
   <td>30</td>
-  <td><code>LicenseValidationResult.cs</code><br><small style="color:var(--muted)">Sonny.Keygen/Models/LicenseValidationResult.cs</small></td>
-  <td><span class="tag tag-class">Class</span></td>
+  <td><code>RelayCommand</code><br><small style="color:var(--muted)"></small></td>
+  <td><span class="tag tag-cmd">Entry</span></td>
   <td>External entry / no inbound edge</td>
   <td>No direct outbound edge</td>
-  <td>LicenseValidationResult.cs node in Sonny.Keygen/Models/LicenseValidationResult.cs.</td>
+  <td>RelayCommand node in project.</td>
 </tr>
 </table>
 
@@ -4452,14 +4604,14 @@ flowchart LR
 <tr><td><code>Sonny.Keygen/Services/LicenseFileService.cs</code></td><td>19 nodes</td></tr>
 <tr><td><code>Sonny.EasyRibbon/Assets/ribbon-demo-alphabim-str.png</code></td><td>16 nodes</td></tr>
 <tr><td><code>Sonny.RevitExtensions/Extensions/ElementParameterExtensions.cs</code></td><td>16 nodes</td></tr>
-<tr><td><code>Sonny.Keygen/Services/KeygenConfigBuilder.cs</code></td><td>14 nodes</td></tr>
 <tr><td><code>source/Sonny.Application/Sonny.Application.csproj</code></td><td>13 nodes</td></tr>
+<tr><td><code>Sonny.Keygen/Services/KeygenConfigBuilder.cs</code></td><td>13 nodes</td></tr>
 <tr><td><code>Sonny.EasyRibbon/Sonny.EasyRibbon/CreateUIApp.cs</code></td><td>12 nodes</td></tr>
     </table>
   </div>
   <div class="card">
     <h4>Design Notes</h4>
-    <p>This section comes from graphify community clustering. Relationship summary: references x970, contains x442, method x429, imports x199. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
+    <p>This section comes from graphify community clustering. Relationship summary: references x941, contains x443, method x402, imports x223. The diagram prioritizes high-confidence calls or usage relationships; the table keeps the broader node inventory.</p>
   </div>
 </div>
 <hr>
@@ -4561,7 +4713,7 @@ flowchart LR
   <div class="card">
     <h4>Graph</h4>
     <table style="width:100%;font-size:0.85rem;">
-      <tr><td>Nodes</td><td>2356</td></tr>
+      <tr><td>Nodes</td><td>2357</td></tr>
       <tr><td>Edges</td><td>3586</td></tr>
       <tr><td>Hyperedges</td><td>8</td></tr>
       <tr><td>Communities</td><td>208</td></tr>
@@ -4580,7 +4732,7 @@ flowchart LR
 
 <div style="text-align:center; padding:40px 0; color: var(--muted); font-size:0.9rem;">
   <p>Sonny — Architecture Documentation</p>
-  <p>Generated: 2026-08-20 16:10 UTC · graphify callflow-html</p>
+  <p>Generated: 2026-08-20 16:11 UTC · graphify callflow-html</p>
 </div>
 
 </div><!-- .container -->
