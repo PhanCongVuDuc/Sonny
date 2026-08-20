@@ -1,6 +1,7 @@
 ﻿// Licensed to the.NET Foundation under one or more agreements.
 // The.NET Foundation licenses this file to you under the MIT license.
 
+using Sonny.Application.Domain.Entities.ColumnFromCad ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Contexts ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Models ;
 using Sonny.Application.Domain.Entities.Settings ;
@@ -25,8 +26,8 @@ public class RectangularColumnCreationStrategy(
 {
     protected override FamilySymbol? GetOrCreateFamilySymbol()
     {
-        if (Math.Abs(rectangularColumnModel.ShortSide) < Tolerance
-            || Math.Abs(rectangularColumnModel.LongSide) < Tolerance) {
+        if (ColumnSymbolSizingPolicy.IsNegligibleSize(rectangularColumnModel.ShortSide)
+            || ColumnSymbolSizingPolicy.IsNegligibleSize(rectangularColumnModel.LongSide)) {
             return null ;
         }
 
@@ -87,8 +88,10 @@ public class RectangularColumnCreationStrategy(
             var widthValue = GetDoubleValue(widthParam) ;
             var heightValue = GetDoubleValue(heightParam) ;
 
-            if (Math.Abs(widthValue - width) < Tolerance
-                && Math.Abs(heightValue - height) < Tolerance) {
+            if (ColumnSymbolSizingPolicy.Matches(widthValue,
+                    width)
+                && ColumnSymbolSizingPolicy.Matches(heightValue,
+                    height)) {
                 return familySymbol ;
             }
         }
@@ -104,24 +107,21 @@ public class RectangularColumnCreationStrategy(
             displayUnit) ;
         var heightInDisplayUnit = unitConverter.FromInternalUnit(height,
             displayUnit) ;
-        var widthRounded = Math.Round(widthInDisplayUnit,
-            0) ;
-        var heightRounded = Math.Round(heightInDisplayUnit,
-            0) ;
-
-        // Check minimum size (1mm converted to current display unit)
+        // Minimum size: 1mm converted to the current display unit (mechanism); the
+        // round/minimum/naming decision itself is Domain's (ColumnSymbolSizingPolicy)
         const double minSizeInMm = 1.0 ;
         var minSizeInInternalUnit = unitConverter.ToInternalUnit(minSizeInMm,
             AppDisplayUnit.Millimeters) ;
         var minSize = unitConverter.FromInternalUnit(minSizeInInternalUnit,
             displayUnit) ;
-        if (Math.Abs(widthRounded) < minSize
-            || Math.Abs(heightRounded) < minSize) {
-            return null ;
-        }
 
         var unitName = unitConverter.GetUnitDisplayName(displayUnit) ;
-        var name = $"{widthRounded} x {heightRounded}{unitName}" ;
+        if (ColumnSymbolSizingPolicy.TryBuildRectangularSymbolName(widthInDisplayUnit,
+                heightInDisplayUnit,
+                minSize,
+                unitName) is not { } name) {
+            return null ;
+        }
 
         // Check if symbol with this name already exists
         var existingSymbol = allFamilySymbols.FirstOrDefault(f => f.Name.Equals(name)) ;
