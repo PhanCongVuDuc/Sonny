@@ -86,3 +86,15 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+graphify-out/cost.json        # local only
+# graphify-out/cache/         # optional: commit for speed, skip to keep repo small
+
+#CodeGraph local index (rebuilt from source, never commit)
+.codegraph/
+
+#LoopX local control-plane state (never commit)
+.loopx/
+.codex/goals/
+.local/
+ACTIVE_GOAL_STATE.md
+.mcp.json                     # machine-specific absolute paths to the loopx MCP venv

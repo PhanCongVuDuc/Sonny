@@ -1,7 +1,7 @@
 # Sonny
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![.NET](https://img.shields.io/badge/.NET-9.0-blue.svg)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-4.8%20%7C%208.0--windows-blue.svg)](https://dotnet.microsoft.com/)
 [![Revit](https://img.shields.io/badge/Revit-2021--2026-orange.svg)](https://www.autodesk.com/products/revit)
 [![Clean Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-blueviolet.svg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/PhanCongVuDuc/Sonny/Compile.yml?branch=master)](https://github.com/PhanCongVuDuc/Sonny/actions)
@@ -23,11 +23,14 @@ learn, contribute, and use freely.
 
 <!-- TOC -->
 
+* [Introduction](#introduction)
+* [Features](#features)
 * [Architecture](#architecture)
 * [What You Can Learn](#what-you-can-learn)
 * [Videos](#videos)
 * [Prerequisites](#prerequisites)
 * [Cloning the Repository](#cloning-the-repository)
+* [Build & Test](#build--test)
 * [Solution Structure](#solution-structure)
 * [Learn More](#learn-more)
 * [Dependencies](#dependencies)
@@ -37,6 +40,20 @@ learn, contribute, and use freely.
 * [Acknowledgments](#acknowledgments)
 
 <!-- TOC -->
+
+## Features
+
+Tools the add-in adds to the Revit ribbon:
+
+| Tool | What it does |
+|------|--------------|
+| **AutoColumnDimension** | Creates dimension lines between every structural column in the active view and its nearest grid, in one click |
+| **ColumnFromCad** | Reads column outlines from a linked AutoCAD drawing and creates real Revit structural columns from them |
+| **Settings** | Display unit and interface language (English / Vietnamese) |
+| **Login** | Licence activation and machine registration |
+
+Behaviour documentation for each feature — business rules, edge cases, and what the tests prove — lives in
+[docs/](docs/README.md).
 
 ## Architecture
 
@@ -90,9 +107,16 @@ Dependencies flow inward, ensuring that core business logic remains independent 
 Before you can build this project, you need to install .NET and IDE.
 If you haven't already installed these, you can do so by visiting the following:
 
-- [.NET Framework 4.8](https://dotnet.microsoft.com/download/dotnet-framework/net48)
-- [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet)
+- [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net48) — targeted by Revit
+  2021–2024
+- [.NET SDK 9.0](https://dotnet.microsoft.com/en-us/download/dotnet) — builds the `net8.0-windows` targets used by Revit
+  2025–2026
 - [JetBrains Rider](https://www.jetbrains.com/rider/) or [Visual Studio](https://visualstudio.microsoft.com/)
+
+| Revit version | Configuration suffix | TargetFramework  |
+|---------------|----------------------|------------------|
+| 2021–2024     | `R21`–`R24`          | `net48`          |
+| 2025–2026     | `R25`, `R26`         | `net8.0-windows` |
 
 After installation, clone this repository to your local machine and navigate to the project directory.
 
@@ -126,11 +150,16 @@ To update submodules to their latest commits:
 # Update submodules to latest commits
 git submodule update --remote
 
-# Commit and push the submodule reference update to GitHub
+# Commit the submodule reference update on a feature branch
+git checkout -b chore/update-submodules
 git add source/Revit.Async source/Sonny.EasyRibbon source/Sonny.RevitExtensions source/Sonny.Keygen
-git commit -m "Update submodules to latest version"
-git push origin master
+git commit -m "Update: submodules to latest version"
+git push origin chore/update-submodules
 ```
+
+> [!IMPORTANT]
+> This project follows Git Flow: open the pull request against `develop`, never against `master`. `master` is
+> release-only — tags on it trigger the publish workflow.
 
 ### Working with Submodules
 
@@ -168,6 +197,47 @@ This project includes the following submodules:
 > If you see empty submodule folders after cloning, you need to initialize submodules using
 `git submodule update --init --recursive`
 
+## Build & Test
+
+> [!IMPORTANT]
+> Configuration names contain a **space** — `Debug R25`, `Release R21`. Always quote them on the command line, or the
+> build will fail to resolve the configuration.
+
+```powershell
+# Full pipeline (default target = Compile)
+./.nuke/build.cmd
+
+# Named targets
+./.nuke/build.cmd CreateBundle      # -> output/Sonny.Application.bundle.zip
+./.nuke/build.cmd CreateInstaller   # -> .msi via install/Installer.csproj
+
+# Build a single Revit version directly (faster inner loop)
+dotnet build source/Sonny.Application/Sonny.Application.csproj -c "Debug R25"
+```
+
+A successful build deploys the add-in to your local Revit add-ins folder automatically
+(`Nice3point.Revit.Build.Tasks`), so building is enough to try the tool in Revit.
+
+### Running tests
+
+Tests launch a real Revit process through `ricaun.RevitTest.TestAdapter`, so the matching Revit year must be installed.
+
+```powershell
+dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23"
+
+# A single test
+dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23" `
+  --filter "FullyQualifiedName~ColumnFromCad_CreateColumns_Test"
+```
+
+Integration tests open `.rvt` fixtures from `Resources/RevitFiles` and assert exact element counts against hard-coded
+`UniqueId`s, so they are pinned to those documents. Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests`
+use NUnit + NSubstitute and need no Revit document.
+
+> [!NOTE]
+> CI builds `Release*` configurations only and skips any project whose name contains "Tests" — tests are not run by CI.
+> Run them locally.
+
 ## Solution Structure
 
 | Folder  | Description                                                                |
@@ -175,11 +245,16 @@ This project includes the following submodules:
 | build   | Nuke build system. Used to automate project builds                         |
 | install | Add-in installer, called implicitly by the Nuke build                      |
 | source  | Project source code folder. Contains all solution projects                 |
+| docs    | Behaviour documentation — intent, business rules, edge cases               |
+| assets  | Images used by the documentation                                           |
 | output  | Folder of generated files by the build system, such as bundles, installers |
 
 ## Learn More
 
-For detailed documentation about building, publishing, CI/CD, conditional compilation, and API references, see [RevitTemplates Wiki](https://github.com/Nice3point/RevitTemplates/wiki).
+- [docs/](docs/README.md) — behaviour documentation for this project: how a command reaches its interactor, the
+  UIDocument lifetime rule, and per-feature business rules and edge cases
+- [RevitTemplates Wiki](https://github.com/Nice3point/RevitTemplates/wiki) — publishing, CI/CD, conditional
+  compilation, and API references for the underlying template
 
 ## Dependencies
 
@@ -193,6 +268,8 @@ This project uses the following libraries and tools:
   Revit Ribbon UI
 - **[Sonny.RevitExtensions](https://github.com/PhanCongVuDuc/Sonny.RevitExtensions)** - Revit API extension methods and
   utilities library
+- **[Sonny.Keygen](https://github.com/PhanCongVuDuc/Sonny.Keygen)** - License management library using Keygen API with
+  Auth0 authentication
 
 ## Contributing
 

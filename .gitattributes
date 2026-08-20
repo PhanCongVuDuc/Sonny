@@ -41,3 +41,4 @@
 *.zip binary
 *.7z binary
 *.rar binary
+graphify-out/graph.json merge=graphify

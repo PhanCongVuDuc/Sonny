@@ -94,12 +94,6 @@ public class AutoColumnDimensionIntegrationTest : SonnyDocumentTestBase
             .GetElementCount() ;
         Log($"Structural columns in view: {columnsBefore}") ;
 
-        if (columnsBefore == 80) {
-            Assert.Inconclusive(
-                $"No structural columns found in view '{TargetViewName}'. Cannot test dimension creation.") ;
-            return ;
-        }
-
         // Step 4: RunAutoDimension - Execute auto dimension command
         Log("Step 4: Running AutoColumnDimension command") ;
         Assert.IsNotNull(_handler,
