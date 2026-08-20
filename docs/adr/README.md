@@ -21,8 +21,8 @@ Concrete examples from this codebase that would each earn an ADR:
 
 - `Infrastructure` references `UseCases` so it can implement input ports — a deliberate Clean Architecture
   deviation that a reader would otherwise try to "fix".
-- `AutoColumnDimensionInteractor` lives in `Infrastructure` while `ColumnFromCadInteractor` lives in
-  `UseCases`. Same role, opposite placement, for a reason.
+- Business decisions live in `UseCases`/`Domain` behind a plain-DTO boundary while Revit mechanism stays
+  in `Infrastructure` — recorded as [0001](0001-decision-logic-lives-in-usecases.md).
 - `IsRepackable` on for Release, off for Debug — ILRepack merges dependencies because the add-in's
   `System.Text.Json` is newer than Revit's, but Debug must leave them separate so the test project can
   reference the same types.

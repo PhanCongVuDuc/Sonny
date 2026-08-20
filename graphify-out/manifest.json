@@ -1,2444 +1,2522 @@
 {
   ".claude/settings.json": {
     "mtime": 1787226158.4936454,
-    "seen": 1787242363.4910564,
-    "ast_hash": "20171be5afdc51f3dcd58ab8b3c5798f",
+    "seen": 1787250937.64014,
+    "ast_hash": "",
     "semantic_hash": ""
   },
   ".claude/settings.local.json": {
     "mtime": 1787140107.5862832,
-    "seen": 1787242363.4910612,
-    "ast_hash": "578105546f595b03a42160f1ad9db859",
+    "seen": 1787250937.6401448,
+    "ast_hash": "",
     "semantic_hash": ""
   },
   ".nuke/build.ps1": {
     "mtime": 1763469065.2326703,
-    "seen": 1787242363.4910636,
+    "seen": 1787251174.414514,
     "ast_hash": "4a896c52a5898e7f84399e561a3f91a2",
     "semantic_hash": "4a896c52a5898e7f84399e561a3f91a2"
   },
   ".nuke/parameters.json": {
     "mtime": 1763469065.235674,
-    "seen": 1787242363.491065,
+    "seen": 1787251174.4145188,
     "ast_hash": "1263e863a7210001b3814cc95a7354d6",
     "semantic_hash": "1263e863a7210001b3814cc95a7354d6"
   },
   "Sonny.sln": {
     "mtime": 1787225238.5437498,
-    "seen": 1787242363.4910662,
+    "seen": 1787251174.4145205,
     "ast_hash": "cbf9414bed0b451b53a10c01b7813f5d",
     "semantic_hash": ""
   },
   "global.json": {
     "mtime": 1763469065.2909377,
-    "seen": 1787242363.4910672,
-    "ast_hash": "554a5eb92e20dabe38cd64dc80a6797b",
+    "seen": 1787250937.6401515,
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "install/Installer.Generator.cs": {
     "mtime": 1767978085.0927017,
-    "seen": 1787242363.491068,
+    "seen": 1787251174.4145217,
     "ast_hash": "421cb7071a7a2e274d14a275f351e9ef",
     "semantic_hash": "421cb7071a7a2e274d14a275f351e9ef"
   },
   "install/Installer.cs": {
     "mtime": 1766409879.046671,
-    "seen": 1787242363.4910688,
+    "seen": 1787251174.414523,
     "ast_hash": "d644c862d83875df4dbc6f68b4d8c444",
     "semantic_hash": "d644c862d83875df4dbc6f68b4d8c444"
   },
   "install/Installer.csproj": {
     "mtime": 1766409879.0476685,
-    "seen": 1787242363.4910698,
+    "seen": 1787251174.4145236,
     "ast_hash": "6aa54b1d337639de24f566989161f3d0",
     "semantic_hash": "6aa54b1d337639de24f566989161f3d0"
   },
   "source/Sonny.Application.Domain/Constraint.cs": {
     "mtime": 1767970524.2129629,
-    "seen": 1787242363.4910705,
+    "seen": 1787251174.4145267,
     "ast_hash": "7ebe9f4c78b3738b12057950e661fbd9",
     "semantic_hash": "7ebe9f4c78b3738b12057950e661fbd9"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Contexts/ColumnCreationContext.cs": {
     "mtime": 1786626966.1875744,
-    "seen": 1787242363.4910715,
+    "seen": 1787251174.41453,
     "ast_hash": "945cf276da8411d2f9b708f054d5aafb",
     "semantic_hash": "945cf276da8411d2f9b708f054d5aafb"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Models/CircularColumnModel.cs": {
     "mtime": 1786016273.113532,
-    "seen": 1787242363.4910722,
+    "seen": 1787251174.4145308,
     "ast_hash": "436e47ad0c3db3c7980df7055ae44c54",
     "semantic_hash": "436e47ad0c3db3c7980df7055ae44c54"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Models/ColumnFromCadSettings.cs": {
     "mtime": 1786016273.113532,
-    "seen": 1787242363.4910731,
+    "seen": 1787251174.4145315,
     "ast_hash": "cc2f2f126aea81de74b8ca9f9e072030",
     "semantic_hash": "cc2f2f126aea81de74b8ca9f9e072030"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Models/ColumnModel.cs": {
     "mtime": 1786016273.1145382,
-    "seen": 1787242363.4910743,
+    "seen": 1787251174.4145327,
     "ast_hash": "6b9e2371ced24f709688165f858097fa",
     "semantic_hash": "6b9e2371ced24f709688165f858097fa"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Models/RectangularColumnModel.cs": {
-    "mtime": 1786016273.1145382,
-    "seen": 1787242363.4910748,
-    "ast_hash": "cba3d2566bf6a63a1a72620e1ff4b8c6",
-    "semantic_hash": "cba3d2566bf6a63a1a72620e1ff4b8c6"
+    "mtime": 1787248678.0564313,
+    "seen": 1787251174.4145334,
+    "ast_hash": "133aab8c4455384c12301e246c629c34",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Services/IColumnCreationStrategy.cs": {
     "mtime": 1786016273.1155388,
-    "seen": 1787242363.4910755,
+    "seen": 1787251174.4145339,
     "ast_hash": "f7c31283987a6eba9a2100154a7f1e5d",
     "semantic_hash": "f7c31283987a6eba9a2100154a7f1e5d"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Services/IColumnCreationStrategyFactory.cs": {
     "mtime": 1786016273.1155388,
-    "seen": 1787242363.4910767,
+    "seen": 1787251174.4145348,
     "ast_hash": "b3a9df347eeded07f40f2e1735767cac",
     "semantic_hash": "b3a9df347eeded07f40f2e1735767cac"
   },
   "source/Sonny.Application.Domain/Entities/ColumnFromCad/Services/IColumnDataExtractor.cs": {
     "mtime": 1786016273.1155388,
-    "seen": 1787242363.4910774,
+    "seen": 1787251174.4145358,
     "ast_hash": "d043a364d0a6a248d524a8992f541fd4",
     "semantic_hash": "d043a364d0a6a248d524a8992f541fd4"
   },
   "source/Sonny.Application.Domain/Entities/DomainTransactionStatus.cs": {
     "mtime": 1767970524.219976,
-    "seen": 1787242363.4910781,
+    "seen": 1787251174.4145367,
     "ast_hash": "acff1a7301bc329daf86ff8268b3ffa7",
     "semantic_hash": "acff1a7301bc329daf86ff8268b3ffa7"
   },
   "source/Sonny.Application.Domain/Entities/License/LicenseStatus.cs": {
     "mtime": 1786626966.1885793,
-    "seen": 1787242363.4910915,
+    "seen": 1787251174.4145374,
     "ast_hash": "6ad580f9bf2e90bb5ad227f1cb1806fb",
     "semantic_hash": "6ad580f9bf2e90bb5ad227f1cb1806fb"
   },
   "source/Sonny.Application.Domain/Entities/Point3D.cs": {
     "mtime": 1786626966.189579,
-    "seen": 1787242363.4910924,
+    "seen": 1787251174.4145384,
     "ast_hash": "c288f5bf3c26f49ba1918e7ffd838e91",
     "semantic_hash": "c288f5bf3c26f49ba1918e7ffd838e91"
   },
   "source/Sonny.Application.Domain/Entities/Settings/DisplayUnit.cs": {
     "mtime": 1786626966.1920958,
-    "seen": 1787242363.491093,
+    "seen": 1787251174.4145393,
     "ast_hash": "585ff59a61b9c467cc1e84eb1df9a704",
     "semantic_hash": "585ff59a61b9c467cc1e84eb1df9a704"
   },
   "source/Sonny.Application.Domain/Entities/Settings/LanguageCode.cs": {
     "mtime": 1786626966.193092,
-    "seen": 1787242363.491094,
+    "seen": 1787251174.4145405,
     "ast_hash": "adc76d3b24b16bf552ec0df96d4149a4",
     "semantic_hash": "adc76d3b24b16bf552ec0df96d4149a4"
   },
   "source/Sonny.Application.Domain/Entities/Settings/Models/DimensionTypeModel.cs": {
     "mtime": 1767970524.2229805,
-    "seen": 1787242363.4910948,
+    "seen": 1787251174.4145412,
     "ast_hash": "d94fbea39ca6863e5ca390ed49d28b72",
     "semantic_hash": "d94fbea39ca6863e5ca390ed49d28b72"
   },
   "source/Sonny.Application.Domain/Entities/Settings/Models/FamilyModel.cs": {
     "mtime": 1767970524.2239795,
-    "seen": 1787242363.4910958,
+    "seen": 1787251174.4145422,
     "ast_hash": "89cd2b15a9c8a8d5cd60a6475a891ad8",
     "semantic_hash": "89cd2b15a9c8a8d5cd60a6475a891ad8"
   },
   "source/Sonny.Application.Domain/Entities/Settings/Models/LevelModel.cs": {
     "mtime": 1767970524.2239795,
-    "seen": 1787242363.4910967,
+    "seen": 1787251174.4145427,
     "ast_hash": "249d1f1d7989d8948e00ded71c586511",
     "semantic_hash": "249d1f1d7989d8948e00ded71c586511"
   },
   "source/Sonny.Application.Domain/Entities/Settings/Models/UnitOption.cs": {
     "mtime": 1786626966.194091,
-    "seen": 1787242363.4910977,
+    "seen": 1787251174.4145436,
     "ast_hash": "94b58c3e65979c293f3b001f1d8e833f",
     "semantic_hash": "94b58c3e65979c293f3b001f1d8e833f"
   },
   "source/Sonny.Application.Domain/Exceptions/TransactionCommitFailedException.cs": {
     "mtime": 1767970524.2259815,
-    "seen": 1787242363.4910986,
+    "seen": 1787251174.4145443,
     "ast_hash": "68554cbe7e3c320f2555af2c7b14a374",
     "semantic_hash": "68554cbe7e3c320f2555af2c7b14a374"
   },
   "source/Sonny.Application.Domain/Services/FailurePreprocessorType.cs": {
     "mtime": 1786626966.1950932,
-    "seen": 1787242363.4910994,
+    "seen": 1787251174.4145453,
     "ast_hash": "8a4b42168a4355aa134c83fac909c030",
     "semantic_hash": "8a4b42168a4355aa134c83fac909c030"
   },
   "source/Sonny.Application.Domain/Services/IDimensionTypeProvider.cs": {
     "mtime": 1786016273.1175375,
-    "seen": 1787242363.4911003,
+    "seen": 1787251174.414546,
     "ast_hash": "8d2a3c43ce9808635e0bd3fa93c31caf",
     "semantic_hash": "8d2a3c43ce9808635e0bd3fa93c31caf"
   },
   "source/Sonny.Application.Domain/Services/IDisplayUnitProvider.cs": {
     "mtime": 1767970524.2284846,
-    "seen": 1787242363.491101,
+    "seen": 1787251174.414547,
     "ast_hash": "ec917f101f1bcd220c26a4a7c39d7ed2",
     "semantic_hash": "ec917f101f1bcd220c26a4a7c39d7ed2"
   },
   "source/Sonny.Application.Domain/Services/IElementSelector.cs": {
     "mtime": 1786016273.1175375,
-    "seen": 1787242363.491102,
+    "seen": 1787251174.4145477,
     "ast_hash": "7998d920498a5dd3ac52457e1d4fad81",
     "semantic_hash": "7998d920498a5dd3ac52457e1d4fad81"
   },
   "source/Sonny.Application.Domain/Services/ILicenseValidator.cs": {
     "mtime": 1786016273.1175375,
-    "seen": 1787242363.491103,
+    "seen": 1787251174.4145482,
     "ast_hash": "c2d79a1640b890ca33839bcfc4e76d3d",
     "semantic_hash": "c2d79a1640b890ca33839bcfc4e76d3d"
   },
   "source/Sonny.Application.Domain/Services/IMessageService.cs": {
     "mtime": 1767970524.228989,
-    "seen": 1787242363.4911036,
+    "seen": 1787251174.4145489,
     "ast_hash": "103c45a573744bc81aadf06d5ad62451",
     "semantic_hash": "103c45a573744bc81aadf06d5ad62451"
   },
   "source/Sonny.Application.Domain/Services/IProgressReporter.cs": {
     "mtime": 1767970524.229995,
-    "seen": 1787242363.4911046,
+    "seen": 1787251174.4145498,
     "ast_hash": "912fcecf35e7e513953f873a9192920d",
     "semantic_hash": "912fcecf35e7e513953f873a9192920d"
   },
   "source/Sonny.Application.Domain/Services/IResourceHelper.cs": {
     "mtime": 1767970524.229995,
-    "seen": 1787242363.4911053,
+    "seen": 1787251174.4145505,
     "ast_hash": "a463ad7a4ab47f63aaf78c648ec5e2a0",
     "semantic_hash": "a463ad7a4ab47f63aaf78c648ec5e2a0"
   },
   "source/Sonny.Application.Domain/Services/IRevitTaskRunner.cs": {
     "mtime": 1767970524.229995,
-    "seen": 1787242363.491106,
+    "seen": 1787251174.4145513,
     "ast_hash": "e82975f58bce3e574ec27c0f613eba19",
     "semantic_hash": "e82975f58bce3e574ec27c0f613eba19"
   },
   "source/Sonny.Application.Domain/Services/ISettingsService.cs": {
     "mtime": 1767970524.2310007,
-    "seen": 1787242363.491107,
+    "seen": 1787251174.414552,
     "ast_hash": "e5fbde5ce8e23e662403e62759fa3ff4",
     "semantic_hash": "e5fbde5ce8e23e662403e62759fa3ff4"
   },
   "source/Sonny.Application.Domain/Services/ITransactionGroupManager.cs": {
     "mtime": 1786016273.1185362,
-    "seen": 1787242363.491108,
+    "seen": 1787251174.4145527,
     "ast_hash": "c0ed7f8881b1c61127fbc1c47a139b63",
     "semantic_hash": "c0ed7f8881b1c61127fbc1c47a139b63"
   },
   "source/Sonny.Application.Domain/Services/ITransactionManager.cs": {
     "mtime": 1767970524.2310007,
-    "seen": 1787242363.4911087,
+    "seen": 1787251174.4145534,
     "ast_hash": "82c7f64cea2658645604a1d0d93dc50c",
     "semantic_hash": "82c7f64cea2658645604a1d0d93dc50c"
   },
   "source/Sonny.Application.Domain/Services/ITransactionManagerFactory.cs": {
     "mtime": 1767970524.2320004,
-    "seen": 1787242363.4911094,
+    "seen": 1787251174.414554,
     "ast_hash": "b147354a9b7d5bd1ba4b1fbf8f858216",
     "semantic_hash": "b147354a9b7d5bd1ba4b1fbf8f858216"
   },
   "source/Sonny.Application.Domain/Services/IUnitConverter.cs": {
     "mtime": 1767970524.2320004,
-    "seen": 1787242363.4911103,
+    "seen": 1787251174.4145548,
     "ast_hash": "d82306eb75e60c99048108eca64b8d4a",
     "semantic_hash": "d82306eb75e60c99048108eca64b8d4a"
   },
   "source/Sonny.Application.Domain/Services/IViewScaleProvider.cs": {
     "mtime": 1767970524.2320004,
-    "seen": 1787242363.4911108,
+    "seen": 1787251174.4145553,
     "ast_hash": "67f8aa66af5e3e880412dc9e1fbad9f7",
     "semantic_hash": "67f8aa66af5e3e880412dc9e1fbad9f7"
   },
   "source/Sonny.Application.Domain/Sonny.Application.Domain.csproj": {
     "mtime": 1786020051.9936852,
-    "seen": 1787242363.4911118,
+    "seen": 1787251174.4145563,
     "ast_hash": "6b096ddaae0df42b77da916dbc086b8e",
     "semantic_hash": "6b096ddaae0df42b77da916dbc086b8e"
   },
-  "source/Sonny.Application.Features/ColumnFromCad/Interfaces/ICircularColumnExtractor.cs": {
-    "mtime": 1786023785.0963657,
-    "seen": 1787242363.4911127,
-    "ast_hash": "53d0438300e0bac40a291de0386d3e3c",
-    "semantic_hash": "53d0438300e0bac40a291de0386d3e3c"
-  },
-  "source/Sonny.Application.Features/ColumnFromCad/Interfaces/IRectangularColumnExtractor.cs": {
-    "mtime": 1786023785.0963657,
-    "seen": 1787242363.4911134,
-    "ast_hash": "3e1a5a62a293345029da1e5bb31a4adf",
-    "semantic_hash": "3e1a5a62a293345029da1e5bb31a4adf"
-  },
-  "source/Sonny.Application.Features/ColumnFromCad/Services/CircularColumnExtractor.cs": {
-    "mtime": 1786023660.8606434,
-    "seen": 1787242363.4911141,
-    "ast_hash": "a38c1ea50e430c25e0f0778cd2b5100a",
-    "semantic_hash": "a38c1ea50e430c25e0f0778cd2b5100a"
-  },
-  "source/Sonny.Application.Features/ColumnFromCad/Services/RectangularColumnExtractor.cs": {
-    "mtime": 1786023778.0941625,
-    "seen": 1787242363.491115,
-    "ast_hash": "ec13a11db46b6a1ed18862c0674ee817",
-    "semantic_hash": "ec13a11db46b6a1ed18862c0674ee817"
-  },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Contexts/ColumnDimensionContext.cs": {
-    "mtime": 1786626966.196601,
-    "seen": 1787242363.4911165,
-    "ast_hash": "f63b2db70d53f0f5528e8d5a590efcc4",
-    "semantic_hash": "f63b2db70d53f0f5528e8d5a590efcc4"
-  },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/AutoColumnDimension.cs": {
-    "mtime": 1786016273.122537,
-    "seen": 1787242363.4911172,
-    "ast_hash": "8be0d7d3d53c740e38828edac0368793",
-    "semantic_hash": "8be0d7d3d53c740e38828edac0368793"
-  },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/AutoColumnDimensionInteractor.cs": {
-    "mtime": 1786626966.1991346,
-    "seen": 1787242363.4911182,
-    "ast_hash": "1f843afe430da0c6f3d72de22c416ca3",
-    "semantic_hash": "1f843afe430da0c6f3d72de22c416ca3"
-  },
   "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/DimensionCreator.cs": {
     "mtime": 1786016273.1237628,
-    "seen": 1787242363.4911191,
+    "seen": 1787251174.4145586,
     "ast_hash": "0b6b05ff33357e1025abd9648860e436",
     "semantic_hash": "0b6b05ff33357e1025abd9648860e436"
   },
   "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/DimensionTypeProvider.cs": {
     "mtime": 1786626966.2001333,
-    "seen": 1787242363.4911196,
+    "seen": 1787251174.414561,
     "ast_hash": "2e20b5e6ab10b2e39994e4a529a75e6a",
     "semantic_hash": "2e20b5e6ab10b2e39994e4a529a75e6a"
   },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/GridFinder.cs": {
-    "mtime": 1786016273.1237628,
-    "seen": 1787242363.4911203,
-    "ast_hash": "ddfa297cc0174b50133447ee5c301f7d",
-    "semantic_hash": "ddfa297cc0174b50133447ee5c301f7d"
-  },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Services/IAutoColumnDimension.cs": {
-    "mtime": 1786016273.1247694,
-    "seen": 1787242363.4911213,
-    "ast_hash": "b581c97b64c28335f72ad6931877b9a0",
-    "semantic_hash": "b581c97b64c28335f72ad6931877b9a0"
-  },
   "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Services/IDimensionCreator.cs": {
     "mtime": 1786016273.1257691,
-    "seen": 1787242363.4911222,
+    "seen": 1787251174.4145622,
     "ast_hash": "9f4aca0cb15dcdcb54900f3d2563311d",
     "semantic_hash": "9f4aca0cb15dcdcb54900f3d2563311d"
   },
-  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Services/IGridFinder.cs": {
-    "mtime": 1786016273.1257691,
-    "seen": 1787242363.491123,
-    "ast_hash": "9e653a6657c725b08fbeacdb28a29622",
-    "semantic_hash": "9e653a6657c725b08fbeacdb28a29622"
-  },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Implements/CircularColumnExtractor.cs": {
-    "mtime": 1786016273.1267688,
-    "seen": 1787242363.4911237,
-    "ast_hash": "8517e2be15f467565ffd5ad6e7e7feef",
-    "semantic_hash": "8517e2be15f467565ffd5ad6e7e7feef"
+    "mtime": 1787248874.2567394,
+    "seen": 1787251174.4145632,
+    "ast_hash": "e3d6d79295514fcf8952affb24c7175a",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Implements/ColumnDataExtractor.cs": {
     "mtime": 1786016273.1267688,
-    "seen": 1787242363.4911244,
+    "seen": 1787251174.414564,
     "ast_hash": "1e8388dd0cbbe83a0a4f84d08c919c24",
     "semantic_hash": "1e8388dd0cbbe83a0a4f84d08c919c24"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Implements/ColumnFromCadContext.cs": {
     "mtime": 1786626966.2011364,
-    "seen": 1787242363.4911256,
+    "seen": 1787251174.4145756,
     "ast_hash": "78a72c77138ec0dfcfb600fa4c9ce379",
     "semantic_hash": "78a72c77138ec0dfcfb600fa4c9ce379"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Implements/ColumnModelFactory.cs": {
-    "mtime": 1786016273.127768,
-    "seen": 1787242363.491126,
-    "ast_hash": "576b480cb0b3e0f88fc7130d8d823fce",
-    "semantic_hash": "576b480cb0b3e0f88fc7130d8d823fce"
+    "mtime": 1787248865.1274004,
+    "seen": 1787251174.4145763,
+    "ast_hash": "12e816c2c69f67e2a4fa33fafa8f279d",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Implements/RectangularColumnExtractor.cs": {
-    "mtime": 1786016273.128768,
-    "seen": 1787242363.4911268,
-    "ast_hash": "656b21eebe9e48ff5ef3064b3ceb2479",
-    "semantic_hash": "656b21eebe9e48ff5ef3064b3ceb2479"
+    "mtime": 1787248889.1340992,
+    "seen": 1787251174.414577,
+    "ast_hash": "b35cf4d234e4e505bc1afd5ea31d403e",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Services/ICircularColumnExtractor.cs": {
     "mtime": 1786016273.128768,
-    "seen": 1787242363.4911273,
+    "seen": 1787251174.4145777,
     "ast_hash": "4edf446b75e9007420224e941b05619d",
     "semantic_hash": "4edf446b75e9007420224e941b05619d"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Services/IColumnModelFactory.cs": {
     "mtime": 1786016273.128768,
-    "seen": 1787242363.491128,
+    "seen": 1787251174.4145808,
     "ast_hash": "8516ce7b3b22c143b4c51d7075c8a392",
     "semantic_hash": "8516ce7b3b22c143b4c51d7075c8a392"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Services/IRectangularColumnExtractor.cs": {
     "mtime": 1786016273.1297674,
-    "seen": 1787242363.4911292,
+    "seen": 1787251174.4145815,
     "ast_hash": "2a95ab841feb0f6043775ee4c9349eba",
     "semantic_hash": "2a95ab841feb0f6043775ee4c9349eba"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Strategies/CircularColumnCreationStrategy.cs": {
-    "mtime": 1786626966.2031345,
-    "seen": 1787242363.4911299,
-    "ast_hash": "130cbb0fa9635de7910508d81899aff3",
-    "semantic_hash": "130cbb0fa9635de7910508d81899aff3"
+    "mtime": 1787249231.4725735,
+    "seen": 1787251174.4145823,
+    "ast_hash": "8ef25ebf237356f97d7db7729537b58c",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Strategies/ColumnCreationStrategy.cs": {
-    "mtime": 1786016273.1307983,
-    "seen": 1787242363.4911306,
-    "ast_hash": "81b545abe609f0dd5b33f5bd7e6ff690",
-    "semantic_hash": "81b545abe609f0dd5b33f5bd7e6ff690"
+    "mtime": 1787249243.0555196,
+    "seen": 1787251174.414583,
+    "ast_hash": "f008ab9d56b87c9ae8cc0eda5692ff9f",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Strategies/ColumnCreationStrategyFactory.cs": {
     "mtime": 1786016273.1307983,
-    "seen": 1787242363.491131,
+    "seen": 1787251174.414584,
     "ast_hash": "e95681923751aabf208bea7f871458d1",
     "semantic_hash": "e95681923751aabf208bea7f871458d1"
   },
   "source/Sonny.Application.Infrastructure/Features/ColumnFromCad/Strategies/RectangularColumnCreationStrategy.cs": {
-    "mtime": 1786016273.1307983,
-    "seen": 1787242363.491132,
-    "ast_hash": "00117c113fc1cfb6d0c5b8456e61b361",
-    "semantic_hash": "00117c113fc1cfb6d0c5b8456e61b361"
+    "mtime": 1787249207.8130188,
+    "seen": 1787251174.4145846,
+    "ast_hash": "d5d3b219400c189e1ea6ca2de9dfea0c",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/License/KeygenLicenseValidator.cs": {
     "mtime": 1786626966.2051327,
-    "seen": 1787242363.4911327,
+    "seen": 1787251174.4145854,
     "ast_hash": "d89a08e9d1744237029ceece335a5ee4",
     "semantic_hash": "d89a08e9d1744237029ceece335a5ee4"
   },
   "source/Sonny.Application.Infrastructure/Resource/Implements/ResourceHelper.cs": {
     "mtime": 1767970524.2488072,
-    "seen": 1787242363.4911337,
+    "seen": 1787251174.414586,
     "ast_hash": "b04b3e15582f22212dd073b727de6317",
     "semantic_hash": "b04b3e15582f22212dd073b727de6317"
   },
   "source/Sonny.Application.Infrastructure/Resource/Implements/ResourcesInitializer.cs": {
     "mtime": 1786626966.206136,
-    "seen": 1787242363.4911344,
+    "seen": 1787251174.4145868,
     "ast_hash": "ab3be9e38ed4cbabe55f3fa1a84fc18c",
     "semantic_hash": "ab3be9e38ed4cbabe55f3fa1a84fc18c"
   },
   "source/Sonny.Application.Infrastructure/Resource/Implements/SonnyResourcesInitializer.cs": {
     "mtime": 1786626966.2086504,
-    "seen": 1787242363.491135,
+    "seen": 1787251174.4145877,
     "ast_hash": "826c3f614c06e13657423e933ee2c780",
     "semantic_hash": "826c3f614c06e13657423e933ee2c780"
   },
   "source/Sonny.Application.Infrastructure/Revit/FailuresPreprocessors/SuppressWarningsPreprocessor.cs": {
     "mtime": 1786626966.2096505,
-    "seen": 1787242363.4911366,
+    "seen": 1787251174.4145885,
     "ast_hash": "7295a8cb7b951473bad8cd6ea627d36a",
     "semantic_hash": "7295a8cb7b951473bad8cd6ea627d36a"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/CadLinkSelector.cs": {
     "mtime": 1786016273.1333082,
-    "seen": 1787242363.4911373,
+    "seen": 1787251174.4145892,
     "ast_hash": "aac618419d0feef7636d5a207ac66fe5",
     "semantic_hash": "aac618419d0feef7636d5a207ac66fe5"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/CompositeFailurePreprocessor.cs": {
     "mtime": 1786626966.2116494,
-    "seen": 1787242363.4911377,
+    "seen": 1787251174.41459,
     "ast_hash": "7d6bfb717983335407fa1b1726fffaff",
     "semantic_hash": "7d6bfb717983335407fa1b1726fffaff"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/DisplayUnitProvider.cs": {
     "mtime": 1786626966.21265,
-    "seen": 1787242363.4911385,
+    "seen": 1787251174.4145908,
     "ast_hash": "fe59720c82b487c511fa8741e98d647d",
     "semantic_hash": "fe59720c82b487c511fa8741e98d647d"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/ElementSelector.cs": {
     "mtime": 1786016273.1333082,
-    "seen": 1787242363.4911394,
+    "seen": 1787251174.4145913,
     "ast_hash": "4931f4183aae1d31ba8cf95952dc1791",
     "semantic_hash": "4931f4183aae1d31ba8cf95952dc1791"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/FailurePreprocessorFactory.cs": {
     "mtime": 1767970524.2538133,
-    "seen": 1787242363.4911401,
+    "seen": 1787251174.414592,
     "ast_hash": "26502c50ec84d5acf4ca30f705e2c2bf",
     "semantic_hash": "26502c50ec84d5acf4ca30f705e2c2bf"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/LanguageChangeHandler.cs": {
     "mtime": 1786626966.21265,
-    "seen": 1787242363.4911408,
+    "seen": 1787251174.4145925,
     "ast_hash": "b71961be63112d4c58edeea0443b5a99",
     "semantic_hash": "b71961be63112d4c58edeea0443b5a99"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/LanguageCodeConverter.cs": {
     "mtime": 1767970524.2548125,
-    "seen": 1787242363.4911416,
+    "seen": 1787251174.4145932,
     "ast_hash": "ecf1821448ba3e6dfc1e02efec93eaf2",
     "semantic_hash": "ecf1821448ba3e6dfc1e02efec93eaf2"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/Point3DConverter.cs": {
     "mtime": 1767970524.255812,
-    "seen": 1787242363.4911425,
+    "seen": 1787251174.414594,
     "ast_hash": "9e5743bf4139061940009ee9ffeb963d",
     "semantic_hash": "9e5743bf4139061940009ee9ffeb963d"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/RevitDocument.cs": {
     "mtime": 1786019471.0772028,
-    "seen": 1787242363.4911432,
+    "seen": 1787251174.4145947,
     "ast_hash": "f8da7c72ff8bf3eb654e7551f61847de",
     "semantic_hash": "f8da7c72ff8bf3eb654e7551f61847de"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/RevitTaskRunner.cs": {
     "mtime": 1786626966.2136488,
-    "seen": 1787242363.4911437,
+    "seen": 1787251174.4145954,
     "ast_hash": "dbb80d62c0b178f176e231199001c23d",
     "semantic_hash": "dbb80d62c0b178f176e231199001c23d"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/UIDocumentProvider.cs": {
     "mtime": 1786626966.2156498,
-    "seen": 1787242363.4911447,
+    "seen": 1787251174.414596,
     "ast_hash": "852d9b3b8a3b09d9ca390974c912f4cc",
     "semantic_hash": "852d9b3b8a3b09d9ca390974c912f4cc"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/UnitConverter.cs": {
     "mtime": 1767970524.2568128,
-    "seen": 1787242363.4911454,
+    "seen": 1787251174.4145966,
     "ast_hash": "711fc4e4a858430ec760ff69287da40c",
     "semantic_hash": "711fc4e4a858430ec760ff69287da40c"
   },
   "source/Sonny.Application.Infrastructure/Revit/Implements/ViewScaleProvider.cs": {
     "mtime": 1786626966.216154,
-    "seen": 1787242363.4911466,
+    "seen": 1787251174.4145973,
     "ast_hash": "26ba3ad58539558c349942a443ed7e90",
     "semantic_hash": "26ba3ad58539558c349942a443ed7e90"
   },
   "source/Sonny.Application.Infrastructure/Revit/Managers/Transactions/TransactionGroupManager.cs": {
     "mtime": 1786626966.217678,
-    "seen": 1787242363.4911478,
+    "seen": 1787251174.4145985,
     "ast_hash": "7edc6b5f71bf5c21002841065023db72",
     "semantic_hash": "7edc6b5f71bf5c21002841065023db72"
   },
   "source/Sonny.Application.Infrastructure/Revit/Managers/Transactions/TransactionManager.cs": {
     "mtime": 1767970524.2592123,
-    "seen": 1787242363.4911523,
+    "seen": 1787251174.4145992,
     "ast_hash": "ce0746d3455d17375c19f22e36947103",
     "semantic_hash": "ce0746d3455d17375c19f22e36947103"
   },
   "source/Sonny.Application.Infrastructure/Revit/Managers/Transactions/TransactionManagerFactory.cs": {
     "mtime": 1767970524.2592123,
-    "seen": 1787242363.4911535,
+    "seen": 1787251174.4145997,
     "ast_hash": "e951cd798d7582ef13db336d697d97b6",
     "semantic_hash": "e951cd798d7582ef13db336d697d97b6"
   },
   "source/Sonny.Application.Infrastructure/Revit/Managers/Transactions/TransactionStatusConverter.cs": {
     "mtime": 1786626966.2292118,
-    "seen": 1787242363.491154,
+    "seen": 1787251174.4146004,
     "ast_hash": "baf36a72538f4acc28e60c8c9f21173c",
     "semantic_hash": "baf36a72538f4acc28e60c8c9f21173c"
   },
   "source/Sonny.Application.Infrastructure/Revit/SelectionFilters/TypeSelectionFilter.cs": {
     "mtime": 1767970524.2602162,
-    "seen": 1787242363.4911547,
+    "seen": 1787251174.4146013,
     "ast_hash": "1861c251d7b4fdeeca4fcfb357b1eb91",
     "semantic_hash": "1861c251d7b4fdeeca4fcfb357b1eb91"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/ICadLinkSelector.cs": {
     "mtime": 1786016273.1333082,
-    "seen": 1787242363.4911554,
+    "seen": 1787251174.4146018,
     "ast_hash": "7a7af91ed00c02ad5148cb63ecf312ec",
     "semantic_hash": "7a7af91ed00c02ad5148cb63ecf312ec"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/ICompositeFailurePreprocessor.cs": {
     "mtime": 1767970524.2612157,
-    "seen": 1787242363.4911559,
+    "seen": 1787251174.4146025,
     "ast_hash": "5bdd53d68abc501e0c4e561a25842cf5",
     "semantic_hash": "5bdd53d68abc501e0c4e561a25842cf5"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/IFailurePreprocessorFactory.cs": {
     "mtime": 1767970524.2612157,
-    "seen": 1787242363.4911566,
+    "seen": 1787251174.414603,
     "ast_hash": "2779e8af67a1c052fa62b05f6cd3b534",
     "semantic_hash": "2779e8af67a1c052fa62b05f6cd3b534"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/IPoint3DConverter.cs": {
     "mtime": 1767970524.2622159,
-    "seen": 1787242363.4911573,
+    "seen": 1787251174.4146042,
     "ast_hash": "61ddee6b50a956d4e55747df118584d6",
     "semantic_hash": "61ddee6b50a956d4e55747df118584d6"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/IRevitDocument.cs": {
     "mtime": 1767970524.2622159,
-    "seen": 1787242363.491158,
+    "seen": 1787251174.414605,
     "ast_hash": "ed90bb17f3c47600366b0402d8113284",
     "semantic_hash": "ed90bb17f3c47600366b0402d8113284"
   },
   "source/Sonny.Application.Infrastructure/Revit/Services/IUIDocumentProvider.cs": {
     "mtime": 1767970524.263218,
-    "seen": 1787242363.4911585,
+    "seen": 1787251174.4146054,
     "ast_hash": "013aa895f741df735f2168900fdbf82f",
     "semantic_hash": "013aa895f741df735f2168900fdbf82f"
   },
   "source/Sonny.Application.Infrastructure/ServiceRegistration.cs": {
-    "mtime": 1786626966.2302196,
-    "seen": 1787242363.4911592,
-    "ast_hash": "a12fbaec61c84c0b12d9d3180b4df406",
-    "semantic_hash": "a12fbaec61c84c0b12d9d3180b4df406"
+    "mtime": 1787249664.282745,
+    "seen": 1787251174.414606,
+    "ast_hash": "2bb3742c11de3be8ccb13252ac25c70f",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.Infrastructure/Settings/Implements/SettingsService.cs": {
     "mtime": 1786626966.2322242,
-    "seen": 1787242363.49116,
+    "seen": 1787251174.4146068,
     "ast_hash": "c8b81226487faaaf86d6e97dc4271423",
     "semantic_hash": "c8b81226487faaaf86d6e97dc4271423"
   },
   "source/Sonny.Application.Infrastructure/Sonny.Application.Infrastructure.csproj": {
     "mtime": 1786024638.7905014,
-    "seen": 1787242363.4911606,
+    "seen": 1787251174.4146073,
     "ast_hash": "cd8bd70f574d843df46622fff3401292",
     "semantic_hash": "cd8bd70f574d843df46622fff3401292"
   },
   "source/Sonny.Application.Presentation/AutoColumnDimension/ViewModels/AutoColumnDimensionViewModel.cs": {
     "mtime": 1786626966.2342198,
-    "seen": 1787242363.491161,
+    "seen": 1787251174.4146082,
     "ast_hash": "75edab305bc7c0505b7cbf5e97c02a72",
     "semantic_hash": "75edab305bc7c0505b7cbf5e97c02a72"
   },
   "source/Sonny.Application.Presentation/AutoColumnDimension/Views/AutoColumnDimensionView.xaml": {
     "mtime": 1786016273.1353319,
-    "seen": 1787242363.4911618,
+    "seen": 1787251174.414609,
     "ast_hash": "6de87eeb7298ee2a2439b58e04bb5601",
     "semantic_hash": "6de87eeb7298ee2a2439b58e04bb5601"
   },
   "source/Sonny.Application.Presentation/AutoColumnDimension/Views/AutoColumnDimensionView.xaml.cs": {
     "mtime": 1786626966.235726,
-    "seen": 1787242363.4911625,
+    "seen": 1787251174.4146094,
     "ast_hash": "2ada807e9ad770567aafe7eaf63ab8e4",
     "semantic_hash": "2ada807e9ad770567aafe7eaf63ab8e4"
   },
   "source/Sonny.Application.Presentation/Bases/BaseViewModel.cs": {
     "mtime": 1786626966.23783,
-    "seen": 1787242363.4911635,
+    "seen": 1787251174.41461,
     "ast_hash": "8ca9887a0765cdde11592c0986280999",
     "semantic_hash": "8ca9887a0765cdde11592c0986280999"
   },
   "source/Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs": {
     "mtime": 1786626966.248311,
-    "seen": 1787242363.491164,
+    "seen": 1787251174.4146106,
     "ast_hash": "367e5a423a827e2447a09f31a00d3360",
     "semantic_hash": "367e5a423a827e2447a09f31a00d3360"
   },
   "source/Sonny.Application.Presentation/ColumnFromCad/ViewModels/ColumnFromCadViewModel.cs": {
     "mtime": 1786626966.2493162,
-    "seen": 1787242363.4911647,
+    "seen": 1787251174.4146113,
     "ast_hash": "f105142a488775d731bdf773ce46b096",
     "semantic_hash": "f105142a488775d731bdf773ce46b096"
   },
   "source/Sonny.Application.Presentation/ColumnFromCad/Views/ColumnFromCadView.xaml": {
     "mtime": 1786016273.136332,
-    "seen": 1787242363.4911654,
+    "seen": 1787251174.4146123,
     "ast_hash": "7b89e2c41d0d6439ec319723554b2c44",
     "semantic_hash": "7b89e2c41d0d6439ec319723554b2c44"
   },
   "source/Sonny.Application.Presentation/ColumnFromCad/Views/ColumnFromCadView.xaml.cs": {
     "mtime": 1786016273.137332,
-    "seen": 1787242363.491166,
+    "seen": 1787251174.4146128,
     "ast_hash": "55ba6138eb4e2ccadd5122ac0de6df4b",
     "semantic_hash": "55ba6138eb4e2ccadd5122ac0de6df4b"
   },
   "source/Sonny.Application.Presentation/Extensions/DialogExtension.cs": {
     "mtime": 1786626966.2947059,
-    "seen": 1787242363.4911668,
+    "seen": 1787251174.4146132,
     "ast_hash": "de8d413c927c2ba7dc1db09830f78dd0",
     "semantic_hash": "de8d413c927c2ba7dc1db09830f78dd0"
   },
   "source/Sonny.Application.Presentation/Implements/CommonServices.cs": {
     "mtime": 1767970524.2707956,
-    "seen": 1787242363.4911675,
+    "seen": 1787251174.414614,
     "ast_hash": "437113800c1c9f791faaa147deb7ba1a",
     "semantic_hash": "437113800c1c9f791faaa147deb7ba1a"
   },
   "source/Sonny.Application.Presentation/Implements/MessageService.cs": {
     "mtime": 1786626966.295699,
-    "seen": 1787242363.491168,
+    "seen": 1787251174.4146147,
     "ast_hash": "ed3c10f1dc26e6a442d1b58a39c8066f",
     "semantic_hash": "ed3c10f1dc26e6a442d1b58a39c8066f"
   },
   "source/Sonny.Application.Presentation/Implements/ProgressReporter.cs": {
     "mtime": 1786626966.311152,
-    "seen": 1787242363.4911687,
+    "seen": 1787251174.4146154,
     "ast_hash": "ec038105655768411769544e44275d55",
     "semantic_hash": "ec038105655768411769544e44275d55"
   },
   "source/Sonny.Application.Presentation/Implements/ViewModelSettingsService.cs": {
     "mtime": 1767970524.272792,
-    "seen": 1787242363.4911692,
+    "seen": 1787251174.414616,
     "ast_hash": "5259183c3c6d7470f555a4d3765f55df",
     "semantic_hash": "5259183c3c6d7470f555a4d3765f55df"
   },
   "source/Sonny.Application.Presentation/ServiceRegistration.cs": {
     "mtime": 1786626966.313154,
-    "seen": 1787242363.49117,
+    "seen": 1787251174.4146166,
     "ast_hash": "d65899d8460d85216394669d07516994",
     "semantic_hash": "d65899d8460d85216394669d07516994"
   },
   "source/Sonny.Application.Presentation/Services/ICommonServices.cs": {
     "mtime": 1767970524.2737908,
-    "seen": 1787242363.4911706,
+    "seen": 1787251174.414617,
     "ast_hash": "e2ed76c328eb349ec836dec023d88726",
     "semantic_hash": "e2ed76c328eb349ec836dec023d88726"
   },
   "source/Sonny.Application.Presentation/Services/IViewModelSettingsService.cs": {
     "mtime": 1767970524.2737908,
-    "seen": 1787242363.4911714,
+    "seen": 1787251174.4146178,
     "ast_hash": "5b755728ce5b4afa411bfa7eae0fd52a",
     "semantic_hash": "5b755728ce5b4afa411bfa7eae0fd52a"
   },
   "source/Sonny.Application.Presentation/Settings/ViewModels/SettingsViewModel.cs": {
     "mtime": 1786626966.3146615,
-    "seen": 1787242363.4911718,
+    "seen": 1787251174.4146187,
     "ast_hash": "a6194cde4efe6f122c228f922384757a",
     "semantic_hash": "a6194cde4efe6f122c228f922384757a"
   },
   "source/Sonny.Application.Presentation/Settings/Views/SettingsView.xaml": {
     "mtime": 1767970524.2757907,
-    "seen": 1787242363.4911726,
+    "seen": 1787251174.4146192,
     "ast_hash": "06c9a09eb97b85215b440246571ea58a",
     "semantic_hash": "06c9a09eb97b85215b440246571ea58a"
   },
   "source/Sonny.Application.Presentation/Settings/Views/SettingsView.xaml.cs": {
     "mtime": 1786626966.3525553,
-    "seen": 1787242363.491173,
+    "seen": 1787251174.41462,
     "ast_hash": "c9e392776b42298fe3a7610ee8f2e8c0",
     "semantic_hash": "c9e392776b42298fe3a7610ee8f2e8c0"
   },
   "source/Sonny.Application.Presentation/Sonny.Application.Presentation.csproj": {
     "mtime": 1786019845.0663948,
-    "seen": 1787242363.491174,
+    "seen": 1787251174.4146204,
     "ast_hash": "dcafdc80487809c2e2bc05ebec7f09cf",
     "semantic_hash": "dcafdc80487809c2e2bc05ebec7f09cf"
   },
   "source/Sonny.Application.Presentation/Views/ProgressView.xaml": {
     "mtime": 1767970524.276792,
-    "seen": 1787242363.4911747,
+    "seen": 1787251174.414621,
     "ast_hash": "1079dddf08e395fd3bb608d4e1007e7e",
     "semantic_hash": "1079dddf08e395fd3bb608d4e1007e7e"
   },
   "source/Sonny.Application.Presentation/Views/ProgressView.xaml.cs": {
     "mtime": 1786626966.3535576,
-    "seen": 1787242363.4911754,
+    "seen": 1787251174.4146216,
     "ast_hash": "e05884a789dbb70a008bcd12653eddef",
     "semantic_hash": "e05884a789dbb70a008bcd12653eddef"
   },
   "source/Sonny.Application.Tests/Core/UnitTests/Services/SettingsServiceLanguageTests.cs": {
     "mtime": 1786626966.3690033,
-    "seen": 1787242363.491176,
+    "seen": 1787251174.4146225,
     "ast_hash": "b5b0629cdee23b204858dc2764c6d6bc",
     "semantic_hash": "b5b0629cdee23b204858dc2764c6d6bc"
   },
   "source/Sonny.Application.Tests/Core/UnitTests/Services/UnitConverterTests.cs": {
     "mtime": 1786626966.3750052,
-    "seen": 1787242363.4911766,
+    "seen": 1787251174.414623,
     "ast_hash": "797f4145abadeb7e724a64fa2bbecf8c",
     "semantic_hash": "797f4145abadeb7e724a64fa2bbecf8c"
   },
   "source/Sonny.Application.Tests/Features/AutoColumnDimension/IntegrationTests/AutoColumnDimensionIntegrationTest.cs": {
-    "mtime": 1786852852.0070832,
-    "seen": 1787242363.4911819,
-    "ast_hash": "693acb5e4869571a44cc6bc268bf51cd",
+    "mtime": 1787249775.8068485,
+    "seen": 1787251174.4146235,
+    "ast_hash": "f5ebe17a2f4d73e4fffbdfc739a87100",
     "semantic_hash": ""
   },
   "source/Sonny.Application.Tests/Features/ColumnFromCad/IntegrationTests/ColumnFromCadIntegrationTest.cs": {
     "mtime": 1786626966.3790274,
-    "seen": 1787242363.4911823,
+    "seen": 1787251174.4146245,
     "ast_hash": "b997b6ecf7fdc0d1f7dc393690d3e4a2",
     "semantic_hash": "b997b6ecf7fdc0d1f7dc393690d3e4a2"
   },
   "source/Sonny.Application.Tests/Properties/AssemblyInfo.cs": {
     "mtime": 1765294490.5443141,
-    "seen": 1787242363.491183,
+    "seen": 1787251174.414625,
     "ast_hash": "2dd0254b5b1eb7e8f16b8a4020548d36",
     "semantic_hash": "2dd0254b5b1eb7e8f16b8a4020548d36"
   },
   "source/Sonny.Application.Tests/ResourceManager/UnitTests/CultureChangedEventArgsTests.cs": {
     "mtime": 1786626966.3800273,
-    "seen": 1787242363.4911838,
+    "seen": 1787251174.414626,
     "ast_hash": "cf0c6be302c9c1b880dfe1d03c73586a",
     "semantic_hash": "cf0c6be302c9c1b880dfe1d03c73586a"
   },
   "source/Sonny.Application.Tests/ResourceManager/UnitTests/LanguageCodeExtensionsTests.cs": {
     "mtime": 1786626966.3840249,
-    "seen": 1787242363.4911845,
+    "seen": 1787251174.4146264,
     "ast_hash": "d308a62451c0a17fca01371afefcd0f1",
     "semantic_hash": "d308a62451c0a17fca01371afefcd0f1"
   },
   "source/Sonny.Application.Tests/ResourceManager/UnitTests/LanguageOptionTests.cs": {
     "mtime": 1786626966.3873622,
-    "seen": 1787242363.4911852,
+    "seen": 1787251174.414627,
     "ast_hash": "d51bc1f3d889f864fd61fe0ba0e4579a",
     "semantic_hash": "d51bc1f3d889f864fd61fe0ba0e4579a"
   },
   "source/Sonny.Application.Tests/Sonny.Application.Tests.csproj": {
     "mtime": 1767977970.6443532,
-    "seen": 1787242363.491186,
+    "seen": 1787251174.4146276,
     "ast_hash": "974365ba68c400c39403aa3c0a832953",
     "semantic_hash": "974365ba68c400c39403aa3c0a832953"
   },
   "source/Sonny.Application.Tests/SonnyDocumentTestBase.cs": {
     "mtime": 1786626966.3881476,
-    "seen": 1787242363.4911866,
+    "seen": 1787251174.414628,
     "ast_hash": "595a2d9e7c608fad0cabedb5d59618a5",
     "semantic_hash": "595a2d9e7c608fad0cabedb5d59618a5"
   },
   "source/Sonny.Application.Tests/SonnyRevitTestBase.cs": {
     "mtime": 1786626966.3881476,
-    "seen": 1787242363.491187,
+    "seen": 1787251174.414629,
     "ast_hash": "7ce616ed6dd30ed7b01dc8c2b1f997ff",
     "semantic_hash": "7ce616ed6dd30ed7b01dc8c2b1f997ff"
   },
   "source/Sonny.Application.Tests/Utils/EnumHelper.cs": {
     "mtime": 1786626966.3891532,
-    "seen": 1787242363.491188,
+    "seen": 1787251174.4146295,
     "ast_hash": "fe5e2576268809682e809c1f12100c3f",
     "semantic_hash": "fe5e2576268809682e809c1f12100c3f"
   },
   "source/Sonny.Application.UIStyle/Resources/Colors.xaml": {
     "mtime": 1767970524.2820117,
-    "seen": 1787242363.4911888,
+    "seen": 1787251174.41463,
     "ast_hash": "960ec29e3815c20744522df087ea9ed3",
     "semantic_hash": "960ec29e3815c20744522df087ea9ed3"
   },
   "source/Sonny.Application.UIStyle/Sonny.Application.UIStyle.csproj": {
     "mtime": 1767970524.2820117,
-    "seen": 1787242363.4911892,
+    "seen": 1787251174.4146307,
     "ast_hash": "9033b943b94f124f70f70409fbdd1afc",
     "semantic_hash": "9033b943b94f124f70f70409fbdd1afc"
   },
   "source/Sonny.Application.UIStyle/Styles/ButtonStyles.xaml": {
     "mtime": 1767970524.283015,
-    "seen": 1787242363.49119,
+    "seen": 1787251174.4146314,
     "ast_hash": "179467f201edf2d6fa72d90f389058a9",
     "semantic_hash": "179467f201edf2d6fa72d90f389058a9"
   },
   "source/Sonny.Application.UIStyle/Styles/ComboBoxStyles.xaml": {
     "mtime": 1767970524.2840178,
-    "seen": 1787242363.4911904,
+    "seen": 1787251174.4146318,
     "ast_hash": "97e6ffb01e77f894a7db898b8c301e08",
     "semantic_hash": "97e6ffb01e77f894a7db898b8c301e08"
   },
   "source/Sonny.Application.UIStyle/Styles/GroupBoxStyles.xaml": {
     "mtime": 1767970524.2840178,
-    "seen": 1787242363.4911911,
+    "seen": 1787251174.4146328,
     "ast_hash": "f3d844798f6ded5c78a160d9966e6312",
     "semantic_hash": "f3d844798f6ded5c78a160d9966e6312"
   },
   "source/Sonny.Application.UIStyle/Styles/LabelStyles.xaml": {
     "mtime": 1767970524.2850156,
-    "seen": 1787242363.4911919,
+    "seen": 1787251174.4146333,
     "ast_hash": "467fea3d82a0ad4a0417c9e36f6bb473",
     "semantic_hash": "467fea3d82a0ad4a0417c9e36f6bb473"
   },
   "source/Sonny.Application.UIStyle/Styles/LayoutStyles.xaml": {
     "mtime": 1767970524.2850156,
-    "seen": 1787242363.4911923,
+    "seen": 1787251174.414634,
     "ast_hash": "0283ddd9d751ac5a9563d28582e0de56",
     "semantic_hash": "0283ddd9d751ac5a9563d28582e0de56"
   },
   "source/Sonny.Application.UIStyle/Styles/TextBlockStyles.xaml": {
     "mtime": 1767970524.2850156,
-    "seen": 1787242363.491193,
+    "seen": 1787251174.4146345,
     "ast_hash": "5ddee258a6d4bb6179e01a8a11a44be6",
     "semantic_hash": "5ddee258a6d4bb6179e01a8a11a44be6"
   },
   "source/Sonny.Application.UIStyle/Styles/TextBoxStyles.xaml": {
     "mtime": 1767970524.2860153,
-    "seen": 1787242363.4911935,
+    "seen": 1787251174.4146352,
     "ast_hash": "aa945fbf546e3d1f0de156bc7502c6b0",
     "semantic_hash": "aa945fbf546e3d1f0de156bc7502c6b0"
   },
   "source/Sonny.Application.UIStyle/Themes.xaml": {
     "mtime": 1767970524.2860153,
-    "seen": 1787242363.4911945,
+    "seen": 1787251174.4146357,
     "ast_hash": "00fc19b307b9ac9b0171ead5c06b7be3",
     "semantic_hash": "00fc19b307b9ac9b0171ead5c06b7be3"
   },
   "source/Sonny.Application.UIStyle/UIStyleManager.cs": {
     "mtime": 1786626966.3923137,
-    "seen": 1787242363.4911952,
+    "seen": 1787251174.4146366,
     "ast_hash": "ad57421a49d914f1a2b2b0572f74a7d6",
     "semantic_hash": "ad57421a49d914f1a2b2b0572f74a7d6"
   },
   "source/Sonny.Application.UseCases/AutoColumnDimension/Services/IAutoColumnDimensionInteractor.cs": {
     "mtime": 1786016273.1393313,
-    "seen": 1787242363.4911976,
+    "seen": 1787251174.4146483,
     "ast_hash": "395bfbb15559d40a9a8cbdff37d93fc9",
     "semantic_hash": "395bfbb15559d40a9a8cbdff37d93fc9"
   },
   "source/Sonny.Application.UseCases/ColumnFromCad/Implements/ColumnFromCadInteractor.cs": {
     "mtime": 1786016273.1403325,
-    "seen": 1787242363.4911985,
+    "seen": 1787251174.4146504,
     "ast_hash": "c938bbf5284fea8661648a588b3e2c8c",
     "semantic_hash": "c938bbf5284fea8661648a588b3e2c8c"
   },
   "source/Sonny.Application.UseCases/ColumnFromCad/Services/IColumnFromCadContext.cs": {
     "mtime": 1786016273.1413324,
-    "seen": 1787242363.4911993,
+    "seen": 1787251174.414651,
     "ast_hash": "333729090533ca2740e41faf2a7f61b7",
     "semantic_hash": "333729090533ca2740e41faf2a7f61b7"
   },
   "source/Sonny.Application.UseCases/ColumnFromCad/Services/IColumnFromCadInteractor.cs": {
     "mtime": 1786016273.1413324,
-    "seen": 1787242363.4912,
+    "seen": 1787251174.4146516,
     "ast_hash": "e1559683e888c73ecd67186f19e88056",
     "semantic_hash": "e1559683e888c73ecd67186f19e88056"
   },
   "source/Sonny.Application.UseCases/ServiceRegistration.cs": {
-    "mtime": 1786626966.393317,
-    "seen": 1787242363.491201,
-    "ast_hash": "6256276f52576d68e674816affeac13d",
-    "semantic_hash": "6256276f52576d68e674816affeac13d"
+    "mtime": 1787249637.2047598,
+    "seen": 1787251174.4146562,
+    "ast_hash": "fceadf8d9732556c3dee242577c67cef",
+    "semantic_hash": ""
   },
   "source/Sonny.Application.UseCases/Services/ILicenseCheckService.cs": {
     "mtime": 1786016273.1413324,
-    "seen": 1787242363.4912016,
+    "seen": 1787251174.414657,
     "ast_hash": "991c965c781750c710e0267f2b45e4d1",
     "semantic_hash": "991c965c781750c710e0267f2b45e4d1"
   },
   "source/Sonny.Application.UseCases/Services/LicenseCheckService.cs": {
     "mtime": 1786016273.1423328,
-    "seen": 1787242363.4912024,
+    "seen": 1787251174.4146578,
     "ast_hash": "de28bed125213bfa8f459849eaa71f37",
     "semantic_hash": "de28bed125213bfa8f459849eaa71f37"
   },
   "source/Sonny.Application.UseCases/Settings/Models/LanguageOption.cs": {
     "mtime": 1786626966.3943167,
-    "seen": 1787242363.491203,
+    "seen": 1787251174.4146583,
     "ast_hash": "5fc76b68a5a4633a231c5c6a3abc3a40",
     "semantic_hash": "5fc76b68a5a4633a231c5c6a3abc3a40"
   },
   "source/Sonny.Application.UseCases/Sonny.Application.UseCases.csproj": {
-    "mtime": 1787224645.407473,
-    "seen": 1787242363.4912038,
-    "ast_hash": "839d52c5e48c1e0d04228c1613b75c3e",
+    "mtime": 1787249476.8442788,
+    "seen": 1787251174.414659,
+    "ast_hash": "7846bdf55adefb94ea00b8f0c702a939",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Bases/BaseExternalCommand.cs": {
     "mtime": 1786626966.3998687,
-    "seen": 1787242363.4912045,
+    "seen": 1787251174.4146595,
     "ast_hash": "d9ff6c4165dcc4f498482561dd0c3029",
     "semantic_hash": "d9ff6c4165dcc4f498482561dd0c3029"
   },
   "source/Sonny.Application/Commands/AutoColumnDimensionCommand.cs": {
     "mtime": 1786016273.144153,
-    "seen": 1787242363.4912052,
+    "seen": 1787251174.4146605,
     "ast_hash": "59646ccba2078ad707133770838f61ef",
     "semantic_hash": "59646ccba2078ad707133770838f61ef"
   },
   "source/Sonny.Application/Commands/ColumnFromCadCommand.cs": {
     "mtime": 1786626966.4008677,
-    "seen": 1787242363.491206,
+    "seen": 1787251174.414661,
     "ast_hash": "ec8abde443555691877c62833f63e3bc",
     "semantic_hash": "ec8abde443555691877c62833f63e3bc"
   },
   "source/Sonny.Application/Commands/LoginCommand.cs": {
     "mtime": 1786016273.1451583,
-    "seen": 1787242363.4912064,
+    "seen": 1787251174.4146614,
     "ast_hash": "04e33d0cbca5e0359444732654756581",
     "semantic_hash": "04e33d0cbca5e0359444732654756581"
   },
   "source/Sonny.Application/Commands/SettingsCommand.cs": {
     "mtime": 1786626966.4029703,
-    "seen": 1787242363.4912071,
+    "seen": 1787251174.4146621,
     "ast_hash": "8b5feed4a271d45a00255e6b21cab056",
     "semantic_hash": "8b5feed4a271d45a00255e6b21cab056"
   },
   "source/Sonny.Application/Config/Logging/LoggerConfiguration.cs": {
     "mtime": 1786019805.3973196,
-    "seen": 1787242363.4912076,
+    "seen": 1787251174.4146628,
     "ast_hash": "e25bd72c0e20f3c6e456828183445d2c",
     "semantic_hash": "e25bd72c0e20f3c6e456828183445d2c"
   },
   "source/Sonny.Application/Host.cs": {
     "mtime": 1786626966.4029703,
-    "seen": 1787242363.4912088,
+    "seen": 1787251174.4146633,
     "ast_hash": "7bf53ee29e7ac4fa5f6b69fa720fa3cd",
     "semantic_hash": "7bf53ee29e7ac4fa5f6b69fa720fa3cd"
   },
   "source/Sonny.Application/Modules/SonnyModule.cs": {
     "mtime": 1786626966.4084532,
-    "seen": 1787242363.4912093,
+    "seen": 1787251174.414664,
     "ast_hash": "0adcad4292db80dfc63ddf3c319e3d7a",
     "semantic_hash": "0adcad4292db80dfc63ddf3c319e3d7a"
   },
   "source/Sonny.Application/Resources/Languages/AutoColumnDimension/AutoColumnDimension.en.xaml": {
     "mtime": 1786016273.1551778,
-    "seen": 1787242363.49121,
+    "seen": 1787251174.4146647,
     "ast_hash": "451dca859e45586444de267006b466ed",
     "semantic_hash": "451dca859e45586444de267006b466ed"
   },
   "source/Sonny.Application/Resources/Languages/AutoColumnDimension/AutoColumnDimension.vi.xaml": {
     "mtime": 1786016273.156177,
-    "seen": 1787242363.4912105,
+    "seen": 1787251174.4146652,
     "ast_hash": "dbc5ce1fa8b14b511fbeb4462d1e4688",
     "semantic_hash": "dbc5ce1fa8b14b511fbeb4462d1e4688"
   },
   "source/Sonny.Application/Resources/Languages/ColumnFromCad/ColumnFromCad.en.xaml": {
     "mtime": 1786016273.1571774,
-    "seen": 1787242363.491211,
+    "seen": 1787251174.4146657,
     "ast_hash": "0d4a1e4dde4567b6479177508fb40473",
     "semantic_hash": "0d4a1e4dde4567b6479177508fb40473"
   },
   "source/Sonny.Application/Resources/Languages/ColumnFromCad/ColumnFromCad.vi.xaml": {
     "mtime": 1786016273.1571774,
-    "seen": 1787242363.4912114,
+    "seen": 1787251174.4146662,
     "ast_hash": "131b808e590c815064f8d3e0c34740e2",
     "semantic_hash": "131b808e590c815064f8d3e0c34740e2"
   },
   "source/Sonny.Application/Resources/Languages/Common/Common.en.xaml": {
     "mtime": 1767970524.2967749,
-    "seen": 1787242363.4912124,
+    "seen": 1787251174.414667,
     "ast_hash": "07cb3039a1dbc008d8e1e57b102d0534",
     "semantic_hash": "07cb3039a1dbc008d8e1e57b102d0534"
   },
   "source/Sonny.Application/Resources/Languages/Common/Common.vi.xaml": {
     "mtime": 1767970524.2967749,
-    "seen": 1787242363.4912128,
+    "seen": 1787251174.4146676,
     "ast_hash": "ae5f82c78433a8db75326296b077921a",
     "semantic_hash": "ae5f82c78433a8db75326296b077921a"
   },
   "source/Sonny.Application/Ribbon/SonnyTab.cs": {
     "mtime": 1786626966.4144506,
-    "seen": 1787242363.4912138,
+    "seen": 1787251174.414668,
     "ast_hash": "b06391fb297c739421bf4d2d3b7c6df9",
     "semantic_hash": "b06391fb297c739421bf4d2d3b7c6df9"
   },
   "source/Sonny.Application/Sonny.Application.csproj": {
     "mtime": 1786024071.845973,
-    "seen": 1787242363.4912143,
+    "seen": 1787251174.4146688,
     "ast_hash": "dfc327430b8d0817cc9dac1bc1f0b5d6",
     "semantic_hash": "dfc327430b8d0817cc9dac1bc1f0b5d6"
   },
   "source/Sonny.Application/SonnyApp.cs": {
     "mtime": 1786626966.4182324,
-    "seen": 1787242363.491215,
+    "seen": 1787251174.4146693,
     "ast_hash": "4489c20ad63e55027135f290ca705c04",
     "semantic_hash": "4489c20ad63e55027135f290ca705c04"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Application.cs": {
     "mtime": 1765293588.2829168,
-    "seen": 1787242363.491216,
+    "seen": 1787251174.41467,
     "ast_hash": "52ca9795fc0c903e6b8de7d0fd800049",
     "semantic_hash": "52ca9795fc0c903e6b8de7d0fd800049"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Commands/StartupCommand.cs": {
     "mtime": 1765293588.2829168,
-    "seen": 1787242363.4912164,
+    "seen": 1787251174.4146707,
     "ast_hash": "352aae22115a97a6467b2417d3b42584",
     "semantic_hash": "352aae22115a97a6467b2417d3b42584"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/ExampleModule.cs": {
     "mtime": 1765293588.2839234,
-    "seen": 1787242363.4912171,
+    "seen": 1787251174.4146721,
     "ast_hash": "547e5e1263793cb62fb27a8c82205f27",
     "semantic_hash": "547e5e1263793cb62fb27a8c82205f27"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Resources/Strings.xaml": {
     "mtime": 1765293588.2864263,
-    "seen": 1787242363.4912176,
+    "seen": 1787251174.4146729,
     "ast_hash": "b338f77367043feed016b9c01849df45",
     "semantic_hash": "b338f77367043feed016b9c01849df45"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Sonny.EasyRibbon.Example.csproj": {
     "mtime": 1765293588.2864263,
-    "seen": 1787242363.491218,
+    "seen": 1787251174.4146733,
     "ast_hash": "801986041c6aa31c0f2608d1116dc1dd",
     "semantic_hash": "801986041c6aa31c0f2608d1116dc1dd"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/SonnyTab1.cs": {
     "mtime": 1765293588.2874308,
-    "seen": 1787242363.4912193,
+    "seen": 1787251174.4146743,
     "ast_hash": "c547ac26703ddfa1b80b45a2cb1c2dfc",
     "semantic_hash": "c547ac26703ddfa1b80b45a2cb1c2dfc"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/SonnyTab2.cs": {
     "mtime": 1765293588.2874308,
-    "seen": 1787242363.49122,
+    "seen": 1787251174.4146748,
     "ast_hash": "18f0c4faf1acda4f478fdc541915c434",
     "semantic_hash": "18f0c4faf1acda4f478fdc541915c434"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/SonnyTab3.cs": {
     "mtime": 1765293588.2874308,
-    "seen": 1787242363.4912207,
+    "seen": 1787251174.4146752,
     "ast_hash": "239beb2684c379197ae00af6b680dbd1",
     "semantic_hash": "239beb2684c379197ae00af6b680dbd1"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/SonnyTab4.cs": {
     "mtime": 1765293588.2874308,
-    "seen": 1787242363.4912212,
+    "seen": 1787251174.414676,
     "ast_hash": "7bd4c315962253e3080bf4e2736e12a4",
     "semantic_hash": "7bd4c315962253e3080bf4e2736e12a4"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.MasterExample/Application.cs": {
     "mtime": 1765293588.2884307,
-    "seen": 1787242363.491222,
+    "seen": 1787251174.4146764,
     "ast_hash": "f1df46f0a91709bdda1a46846239115e",
     "semantic_hash": "f1df46f0a91709bdda1a46846239115e"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.MasterExample/Sonny.EasyRibbon.MasterExample.csproj": {
     "mtime": 1765293588.2904315,
-    "seen": 1787242363.4912229,
+    "seen": 1787251174.4146771,
     "ast_hash": "72901aee56fd9afb9f3892133b4f2da2",
     "semantic_hash": "72901aee56fd9afb9f3892133b4f2da2"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.sln": {
     "mtime": 1765293588.2904315,
-    "seen": 1787242363.4912233,
+    "seen": 1787251174.414678,
     "ast_hash": "1d4adc29ebce5c86b4c2835a5012e78d",
     "semantic_hash": "1d4adc29ebce5c86b4c2835a5012e78d"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/CreateUIApp.cs": {
     "mtime": 1766407838.4183376,
-    "seen": 1787242363.491224,
+    "seen": 1787251174.4146786,
     "ast_hash": "5315b6d145dfda5e415bb3d6df6ae147",
     "semantic_hash": "5315b6d145dfda5e415bb3d6df6ae147"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/ImageExtension.cs": {
     "mtime": 1766407844.0895448,
-    "seen": 1787242363.4912248,
+    "seen": 1787251174.414679,
     "ast_hash": "4b5c0db3d02e83183e7d57cdc9ef3450",
     "semantic_hash": "4b5c0db3d02e83183e7d57cdc9ef3450"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/ResourceExtension.cs": {
     "mtime": 1766407839.298888,
-    "seen": 1787242363.4912255,
+    "seen": 1787251174.4146795,
     "ast_hash": "a0de43cef461d74ffa2f0f2629cbd604",
     "semantic_hash": "a0de43cef461d74ffa2f0f2629cbd604"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/RibbonPanelExtension.cs": {
     "mtime": 1766407840.8718333,
-    "seen": 1787242363.4912264,
+    "seen": 1787251174.4146802,
     "ast_hash": "aaac7a9c46bbe9cf14784808923aedfd",
     "semantic_hash": "aaac7a9c46bbe9cf14784808923aedfd"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/StringExtension.cs": {
     "mtime": 1765293588.2929351,
-    "seen": 1787242363.491227,
+    "seen": 1787251174.4146807,
     "ast_hash": "961e95b9ae1239f17e99958c799343d5",
     "semantic_hash": "961e95b9ae1239f17e99958c799343d5"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/TypeExtension.cs": {
     "mtime": 1765293588.2937138,
-    "seen": 1787242363.4912279,
+    "seen": 1787251174.4146817,
     "ast_hash": "4cf4c3a74029e751fe97cfffb797d31c",
     "semantic_hash": "4cf4c3a74029e751fe97cfffb797d31c"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/UIControlledApplicationExtension.cs": {
     "mtime": 1766407843.5343597,
-    "seen": 1787242363.4912283,
+    "seen": 1787251174.4146821,
     "ast_hash": "a80f89f93fadc458dda4c0a40a97c0be",
     "semantic_hash": "a80f89f93fadc458dda4c0a40a97c0be"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Extensions/UriExtension.cs": {
     "mtime": 1766407853.1984801,
-    "seen": 1787242363.4912293,
+    "seen": 1787251174.4146829,
     "ast_hash": "8234bdf3396dda09ed42bb7e87fa8ebf",
     "semantic_hash": "8234bdf3396dda09ed42bb7e87fa8ebf"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Modules/IApplicationModule.cs": {
     "mtime": 1765293588.29472,
-    "seen": 1787242363.4912298,
+    "seen": 1787251174.4146833,
     "ast_hash": "9c4332741d932260ab54a75e5877533d",
     "semantic_hash": "9c4332741d932260ab54a75e5877533d"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Modules/ModuleRegistry.cs": {
     "mtime": 1766407851.8818238,
-    "seen": 1787242363.4912302,
+    "seen": 1787251174.414684,
     "ast_hash": "d666461d536e3e4a59ea6d001ac81802",
     "semantic_hash": "d666461d536e3e4a59ea6d001ac81802"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Sonny.EasyRibbon.csproj": {
     "mtime": 1765293588.2957187,
-    "seen": 1787242363.491231,
+    "seen": 1787251174.4146848,
     "ast_hash": "959c9664afb51e31b127aa59e0bb62a0",
     "semantic_hash": "959c9664afb51e31b127aa59e0bb62a0"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/Base/IRibbonItem.cs": {
     "mtime": 1765293588.296718,
-    "seen": 1787242363.4912314,
+    "seen": 1787251174.4146852,
     "ast_hash": "f598e7b0c0e07b8093d1d81da54447b5",
     "semantic_hash": "f598e7b0c0e07b8093d1d81da54447b5"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/Base/UIAttributeBase.cs": {
     "mtime": 1765293588.296718,
-    "seen": 1787242363.4912322,
+    "seen": 1787251174.414686,
     "ast_hash": "72e5a0ad024328ab646093535c4f090c",
     "semantic_hash": "72e5a0ad024328ab646093535c4f090c"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/ButtonAttribute.cs": {
     "mtime": 1766407841.466449,
-    "seen": 1787242363.4912329,
+    "seen": 1787251174.4146867,
     "ast_hash": "14ff7eeca872bed036c3eae60be8ed65",
     "semantic_hash": "14ff7eeca872bed036c3eae60be8ed65"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/PanelAttribute.cs": {
     "mtime": 1765293588.2977183,
-    "seen": 1787242363.4912336,
+    "seen": 1787251174.4146872,
     "ast_hash": "94939a75fe18618acdf926f8624908a6",
     "semantic_hash": "94939a75fe18618acdf926f8624908a6"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/PulldownButtonDataAttribute.cs": {
     "mtime": 1766407840.640067,
-    "seen": 1787242363.4912343,
+    "seen": 1787251174.414688,
     "ast_hash": "279fe9a03c7564d0e0c5be7939d206b6",
     "semantic_hash": "279fe9a03c7564d0e0c5be7939d206b6"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/StackedButtonAttribute.cs": {
     "mtime": 1765293588.2987175,
-    "seen": 1787242363.4912348,
+    "seen": 1787251174.4146886,
     "ast_hash": "73296ad6cdb99a78ad1010a1045950a8",
     "semantic_hash": "73296ad6cdb99a78ad1010a1045950a8"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/TabAttribute.cs": {
     "mtime": 1765293588.2987175,
-    "seen": 1787242363.4912355,
+    "seen": 1787251174.414689,
     "ast_hash": "6f7582953283e19dcc39c7b66db6ab12",
     "semantic_hash": "6f7582953283e19dcc39c7b66db6ab12"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/App.xaml": {
     "mtime": 1786018730.4075556,
-    "seen": 1787242363.4912362,
+    "seen": 1787251174.4146898,
     "ast_hash": "51df99aacc015fe80fe5b0946f98ad23",
     "semantic_hash": "51df99aacc015fe80fe5b0946f98ad23"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/App.xaml.cs": {
     "mtime": 1786018730.4075556,
-    "seen": 1787242363.491237,
+    "seen": 1787251174.4146903,
     "ast_hash": "da66541b0ec42ce1ab70c141bd5b1b1d",
     "semantic_hash": "da66541b0ec42ce1ab70c141bd5b1b1d"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/MainWindow.xaml": {
     "mtime": 1786018730.4085665,
-    "seen": 1787242363.4912374,
+    "seen": 1787251174.414691,
     "ast_hash": "13a849b80fb79e59f9e89b906b31f6da",
     "semantic_hash": "13a849b80fb79e59f9e89b906b31f6da"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/MainWindow.xaml.cs": {
     "mtime": 1786018730.4085665,
-    "seen": 1787242363.491238,
+    "seen": 1787251174.4146917,
     "ast_hash": "2679523af771f6f49f884e0e910a66b4",
     "semantic_hash": "2679523af771f6f49f884e0e910a66b4"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/Properties/AssemblyInfo.cs": {
     "mtime": 1786018730.4095664,
-    "seen": 1787242363.4912386,
+    "seen": 1787251174.4146922,
     "ast_hash": "55abd4414bdb389b7e96b702dabf9eb2",
     "semantic_hash": "55abd4414bdb389b7e96b702dabf9eb2"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/Properties/Resources.Designer.cs": {
     "mtime": 1786018730.4095664,
-    "seen": 1787242363.4912393,
+    "seen": 1787251174.4146926,
     "ast_hash": "b95592656e090d41691ffbf118efef04",
     "semantic_hash": "b95592656e090d41691ffbf118efef04"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test.Net48/Sonny.Keygen.Test.Net48.csproj": {
     "mtime": 1786018730.410568,
-    "seen": 1787242363.49124,
+    "seen": 1787251174.4146934,
     "ast_hash": "d559ce7329064d585b7a051799a0b430",
     "semantic_hash": "d559ce7329064d585b7a051799a0b430"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/App.xaml": {
     "mtime": 1786018730.4115677,
-    "seen": 1787242363.4912407,
+    "seen": 1787251174.4146938,
     "ast_hash": "6219099d3f6f35319dac296e8446d8e0",
     "semantic_hash": "6219099d3f6f35319dac296e8446d8e0"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/App.xaml.cs": {
     "mtime": 1786018730.4115677,
-    "seen": 1787242363.4912412,
+    "seen": 1787251174.4146945,
     "ast_hash": "206dd3e092265a38a00f391c074ec0eb",
     "semantic_hash": "206dd3e092265a38a00f391c074ec0eb"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/AssemblyInfo.cs": {
     "mtime": 1786018730.4115677,
-    "seen": 1787242363.491242,
+    "seen": 1787251174.4146953,
     "ast_hash": "3de6ac682ba4fec5a8313a56b9b6104e",
     "semantic_hash": "3de6ac682ba4fec5a8313a56b9b6104e"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/MainWindow.xaml": {
     "mtime": 1786018730.4135928,
-    "seen": 1787242363.4912426,
+    "seen": 1787251174.414696,
     "ast_hash": "0efc62480c4ac38d7174a7c397029261",
     "semantic_hash": "0efc62480c4ac38d7174a7c397029261"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/MainWindow.xaml.cs": {
     "mtime": 1786018730.4135928,
-    "seen": 1787242363.4912436,
+    "seen": 1787251174.4146965,
     "ast_hash": "8cfdbac5b7d14256975fc04dd89d975f",
     "semantic_hash": "8cfdbac5b7d14256975fc04dd89d975f"
   },
   "source/Sonny.Keygen/Sonny.Keygen.Test/Sonny.Keygen.Test.csproj": {
     "mtime": 1786018730.4143891,
-    "seen": 1787242363.491244,
+    "seen": 1787251174.4146972,
     "ast_hash": "5fdfb89393d53d068397281df61d069b",
     "semantic_hash": "5fdfb89393d53d068397281df61d069b"
   },
   "source/Sonny.Keygen/Sonny.Keygen.UI/Sonny.Keygen.UI.csproj": {
     "mtime": 1786018730.4143891,
-    "seen": 1787242363.4912448,
+    "seen": 1787251174.4146976,
     "ast_hash": "46db6b3909ff0a99804c978c8f55ab55",
     "semantic_hash": "46db6b3909ff0a99804c978c8f55ab55"
   },
   "source/Sonny.Keygen/Sonny.Keygen.UI/ViewModels/LoginViewModel.cs": {
     "mtime": 1786018730.4158158,
-    "seen": 1787242363.4912453,
+    "seen": 1787251174.4146986,
     "ast_hash": "d6b40da78e43155538c2280835769c4c",
     "semantic_hash": "d6b40da78e43155538c2280835769c4c"
   },
   "source/Sonny.Keygen/Sonny.Keygen.UI/Views/LoginView.xaml": {
     "mtime": 1786018730.4170024,
-    "seen": 1787242363.4912457,
+    "seen": 1787251174.414699,
     "ast_hash": "4f01891d8fa56f892b912985e6dbfe1b",
     "semantic_hash": "4f01891d8fa56f892b912985e6dbfe1b"
   },
   "source/Sonny.Keygen/Sonny.Keygen.UI/Views/LoginView.xaml.cs": {
     "mtime": 1786018730.4170024,
-    "seen": 1787242363.4912467,
+    "seen": 1787251174.4146998,
     "ast_hash": "689a4fd4cc8ad1cec28f2dc479174c82",
     "semantic_hash": "689a4fd4cc8ad1cec28f2dc479174c82"
   },
   "source/Sonny.Keygen/Sonny.Keygen.sln": {
     "mtime": 1786018730.4170024,
-    "seen": 1787242363.4912472,
+    "seen": 1787251174.4147003,
     "ast_hash": "ec2f1c6c53f5b70391688a82293ecf91",
     "semantic_hash": "ec2f1c6c53f5b70391688a82293ecf91"
   },
   "source/Sonny.Keygen/Sonny.Keygen/AppConstants.cs": {
     "mtime": 1786018730.4182453,
-    "seen": 1787242363.4912477,
+    "seen": 1787251174.414701,
     "ast_hash": "08b55063113b5ed5fbeea72cbc9349ca",
     "semantic_hash": "08b55063113b5ed5fbeea72cbc9349ca"
   },
   "source/Sonny.Keygen/Sonny.Keygen/AssemblyInfo.cs": {
     "mtime": 1786018730.4182453,
-    "seen": 1787242363.4912484,
+    "seen": 1787251174.414702,
     "ast_hash": "3de6ac682ba4fec5a8313a56b9b6104e",
     "semantic_hash": "3de6ac682ba4fec5a8313a56b9b6104e"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/ActivateMachineResult.cs": {
     "mtime": 1786018730.421485,
-    "seen": 1787242363.4912488,
+    "seen": 1787251174.4147027,
     "ast_hash": "819f25463154fe5f7cbf64133893148a",
     "semantic_hash": "819f25463154fe5f7cbf64133893148a"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/AutoLoginResult.cs": {
     "mtime": 1786018730.421485,
-    "seen": 1787242363.4912496,
+    "seen": 1787251174.4147031,
     "ast_hash": "622dc75221483b63efb90ccd520f18a0",
     "semantic_hash": "622dc75221483b63efb90ccd520f18a0"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/CreateLicenseResult.cs": {
     "mtime": 1786018730.421485,
-    "seen": 1787242363.4912503,
+    "seen": 1787251174.4147036,
     "ast_hash": "2f1c7ef7f74e4fa173cadc004e422a67",
     "semantic_hash": "2f1c7ef7f74e4fa173cadc004e422a67"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/KeygenModels.cs": {
     "mtime": 1786018730.4235153,
-    "seen": 1787242363.491251,
+    "seen": 1787251174.4147055,
     "ast_hash": "63098820a0e46a39ae316eeb2c063035",
     "semantic_hash": "63098820a0e46a39ae316eeb2c063035"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/KeygenRegisterResult.cs": {
     "mtime": 1786018730.4235153,
-    "seen": 1787242363.4912517,
+    "seen": 1787251174.4147062,
     "ast_hash": "906f839ebf4c70fc1aef3cf691415368",
     "semantic_hash": "906f839ebf4c70fc1aef3cf691415368"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/KeygenUserResult.cs": {
     "mtime": 1786018730.4235153,
-    "seen": 1787242363.4912522,
+    "seen": 1787251174.414707,
     "ast_hash": "6c8345f0def766f2aed5b47de7772569",
     "semantic_hash": "6c8345f0def766f2aed5b47de7772569"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/LicenseInfo.cs": {
     "mtime": 1786018730.4245236,
-    "seen": 1787242363.4912527,
+    "seen": 1787251174.4147077,
     "ast_hash": "9934eb23aa99ab753813801c7101f191",
     "semantic_hash": "9934eb23aa99ab753813801c7101f191"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/LicenseValidationResult.cs": {
     "mtime": 1786018730.4245236,
-    "seen": 1787242363.4912536,
+    "seen": 1787251174.4147081,
     "ast_hash": "d9dbfb353089806d0c891bf13d023dc3",
     "semantic_hash": "d9dbfb353089806d0c891bf13d023dc3"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/LoginOrchestrationResult.cs": {
     "mtime": 1786018730.4255333,
-    "seen": 1787242363.491254,
+    "seen": 1787251174.4147089,
     "ast_hash": "fa1607bfddb39c4e39628494b9e05d43",
     "semantic_hash": "fa1607bfddb39c4e39628494b9e05d43"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/LoginResult.cs": {
     "mtime": 1786018730.4255333,
-    "seen": 1787242363.4912548,
+    "seen": 1787251174.4147096,
     "ast_hash": "97db545a1804978ec4ec699ec9c423f4",
     "semantic_hash": "97db545a1804978ec4ec699ec9c423f4"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/LogoutResult.cs": {
     "mtime": 1786018730.4255333,
-    "seen": 1787242363.4912553,
+    "seen": 1787251174.41471,
     "ast_hash": "a07df12a49bddd6da167b27454b17c0b",
     "semantic_hash": "a07df12a49bddd6da167b27454b17c0b"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/UserInfoResult.cs": {
     "mtime": 1786018730.4265327,
-    "seen": 1787242363.491256,
+    "seen": 1787251174.4147108,
     "ast_hash": "bbdb88bb15575f3678be27f2f94bcaa6",
     "semantic_hash": "bbdb88bb15575f3678be27f2f94bcaa6"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Models/UserLicensesResult.cs": {
     "mtime": 1786018730.4265327,
-    "seen": 1787242363.4912565,
+    "seen": 1787251174.4147112,
     "ast_hash": "8740ea723b4a6974b09887e6799cbc7b",
     "semantic_hash": "8740ea723b4a6974b09887e6799cbc7b"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/AuthService.cs": {
     "mtime": 1786018730.4275303,
-    "seen": 1787242363.4912572,
+    "seen": 1787251174.414712,
     "ast_hash": "0c5ada4bed339ea5f33567d9e79abf01",
     "semantic_hash": "0c5ada4bed339ea5f33567d9e79abf01"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/AutoLoginService.cs": {
     "mtime": 1786018730.4275303,
-    "seen": 1787242363.491258,
+    "seen": 1787251174.4147127,
     "ast_hash": "554acf9ec6ac2cffca153a84e168cd54",
     "semantic_hash": "554acf9ec6ac2cffca153a84e168cd54"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/CustomWebViewBrowser.cs": {
     "mtime": 1786018730.4275303,
-    "seen": 1787242363.4912584,
+    "seen": 1787251174.4147134,
     "ast_hash": "573a7003f2af9479cc50afbf716a2702",
     "semantic_hash": "573a7003f2af9479cc50afbf716a2702"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/IMessageBoxService.cs": {
     "mtime": 1786018730.4289415,
-    "seen": 1787242363.4912589,
+    "seen": 1787251174.414714,
     "ast_hash": "411850cded5a492c58a4c30f070bba7d",
     "semantic_hash": "411850cded5a492c58a4c30f070bba7d"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/KeygenAuthService.cs": {
     "mtime": 1786018730.4289415,
-    "seen": 1787242363.4912596,
+    "seen": 1787251174.4147148,
     "ast_hash": "954d6deebace690f249e5aad73201ef0",
     "semantic_hash": "954d6deebace690f249e5aad73201ef0"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/KeygenConfig.cs": {
     "mtime": 1786018730.430313,
-    "seen": 1787242363.49126,
+    "seen": 1787251174.4147153,
     "ast_hash": "a57198aa7d6f699ee284f0330160ff51",
     "semantic_hash": "a57198aa7d6f699ee284f0330160ff51"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/KeygenConfigBuilder.cs": {
     "mtime": 1786018730.430313,
-    "seen": 1787242363.4912608,
+    "seen": 1787251174.414716,
     "ast_hash": "b3ed13bcb50d45f7adac7347596d204e",
     "semantic_hash": "b3ed13bcb50d45f7adac7347596d204e"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/KeygenConstants.cs": {
     "mtime": 1786018730.430313,
-    "seen": 1787242363.4912615,
+    "seen": 1787251174.4147167,
     "ast_hash": "b2a56a2cd902d9aa479eda3ec1fd7fe6",
     "semantic_hash": "b2a56a2cd902d9aa479eda3ec1fd7fe6"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/LicenseFileService.cs": {
     "mtime": 1786018730.4313192,
-    "seen": 1787242363.491262,
+    "seen": 1787251174.4147172,
     "ast_hash": "a66f7bd20819d5e0146004a3ba74aea4",
     "semantic_hash": "a66f7bd20819d5e0146004a3ba74aea4"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/LicenseService.cs": {
     "mtime": 1786018730.4313192,
-    "seen": 1787242363.4912624,
+    "seen": 1787251174.414718,
     "ast_hash": "e125a00bd23e7844fdf5782a3bc802bf",
     "semantic_hash": "e125a00bd23e7844fdf5782a3bc802bf"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/LoginOrchestrator.cs": {
     "mtime": 1786018730.4313192,
-    "seen": 1787242363.491263,
+    "seen": 1787251174.4147186,
     "ast_hash": "8657935239a6c8ffbd3b3f925fac369e",
     "semantic_hash": "8657935239a6c8ffbd3b3f925fac369e"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/MachineFingerprintService.cs": {
     "mtime": 1786018730.4313192,
-    "seen": 1787242363.491264,
+    "seen": 1787251174.4147198,
     "ast_hash": "53040a1fcb80f698c7cd71c83c4f3d2b",
     "semantic_hash": "53040a1fcb80f698c7cd71c83c4f3d2b"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/MachineService.cs": {
     "mtime": 1786018730.4331183,
-    "seen": 1787242363.4912646,
+    "seen": 1787251174.4147205,
     "ast_hash": "dcc74ac28357579c82d0ead89b227f5a",
     "semantic_hash": "dcc74ac28357579c82d0ead89b227f5a"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/MessageBoxService.cs": {
     "mtime": 1786018730.4331183,
-    "seen": 1787242363.491265,
+    "seen": 1787251174.4147213,
     "ast_hash": "eead8b51ae591eb937454a21587f924c",
     "semantic_hash": "eead8b51ae591eb937454a21587f924c"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/OfflineLicenseManager.cs": {
     "mtime": 1786018730.43364,
-    "seen": 1787242363.4912658,
+    "seen": 1787251174.4147217,
     "ast_hash": "c4906699b38dfb475ad22e34978eeb97",
     "semantic_hash": "c4906699b38dfb475ad22e34978eeb97"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/SerialNumber.cs": {
     "mtime": 1786018730.43364,
-    "seen": 1787242363.4912663,
+    "seen": 1787251174.414723,
     "ast_hash": "b635773bc44f6a1bcda6deb47efe516a",
     "semantic_hash": "b635773bc44f6a1bcda6deb47efe516a"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Services/UserInfoService.cs": {
     "mtime": 1786018730.4343638,
-    "seen": 1787242363.491267,
+    "seen": 1787251174.4147234,
     "ast_hash": "1848acc75f37d371f7ebc86c94c07480",
     "semantic_hash": "1848acc75f37d371f7ebc86c94c07480"
   },
   "source/Sonny.Keygen/Sonny.Keygen/Sonny.Keygen.csproj": {
     "mtime": 1786018730.4343638,
-    "seen": 1787242363.4912677,
+    "seen": 1787251174.414724,
     "ast_hash": "7e28411ce1e644b34f401214a9542ed1",
     "semantic_hash": "7e28411ce1e644b34f401214a9542ed1"
   },
   "source/Sonny.Keygen/global.json": {
     "mtime": 1786018730.4357467,
-    "seen": 1787242363.4912686,
-    "ast_hash": "82f016dbb24f3dc301770b26024cb705",
+    "seen": 1787250937.640356,
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "source/Sonny.ResourceManager/CultureChangedEventArgs.cs": {
     "mtime": 1786626966.419233,
-    "seen": 1787242363.491269,
+    "seen": 1787251174.4147246,
     "ast_hash": "c9cafa4731cfa6779e18aade327884f6",
     "semantic_hash": "c9cafa4731cfa6779e18aade327884f6"
   },
   "source/Sonny.ResourceManager/CultureManager.cs": {
     "mtime": 1786626966.419233,
-    "seen": 1787242363.4912698,
+    "seen": 1787251174.4147253,
     "ast_hash": "ba86917a2378621036a8eb63b1a3f0ab",
     "semantic_hash": "ba86917a2378621036a8eb63b1a3f0ab"
   },
   "source/Sonny.ResourceManager/LanguageCode.cs": {
     "mtime": 1786626966.420231,
-    "seen": 1787242363.4912703,
+    "seen": 1787251174.4147258,
     "ast_hash": "fd263ce5cadb2bb6abe866f1ba5327bc",
     "semantic_hash": "fd263ce5cadb2bb6abe866f1ba5327bc"
   },
   "source/Sonny.ResourceManager/LanguageCodeExtensions.cs": {
     "mtime": 1786626966.4212346,
-    "seen": 1787242363.4912713,
+    "seen": 1787251174.4147265,
     "ast_hash": "fa198fbf349f8954b625847d05b2f2b2",
     "semantic_hash": "fa198fbf349f8954b625847d05b2f2b2"
   },
   "source/Sonny.ResourceManager/ResourceConfig.cs": {
     "mtime": 1786626966.4222336,
-    "seen": 1787242363.491272,
+    "seen": 1787251174.4147272,
     "ast_hash": "7570f364c229d52620d8e6d45976f25d",
     "semantic_hash": "7570f364c229d52620d8e6d45976f25d"
   },
   "source/Sonny.ResourceManager/ResourceDictionaryManager.cs": {
     "mtime": 1786626966.4232316,
-    "seen": 1787242363.4912724,
+    "seen": 1787251174.4147277,
     "ast_hash": "30dcecc669626fa87cfefbf9442b2625",
     "semantic_hash": "30dcecc669626fa87cfefbf9442b2625"
   },
   "source/Sonny.ResourceManager/ResourceHelper.cs": {
     "mtime": 1786626966.4232316,
-    "seen": 1787242363.4912732,
+    "seen": 1787251174.4147284,
     "ast_hash": "c96661cef3def625b6da10dda670e9b8",
     "semantic_hash": "c96661cef3def625b6da10dda670e9b8"
   },
   "source/Sonny.ResourceManager/ResourceLoader.cs": {
     "mtime": 1786626966.42423,
-    "seen": 1787242363.4912736,
+    "seen": 1787251174.414729,
     "ast_hash": "1c5ef3f31692fc8db6e0ff5bf0a97082",
     "semantic_hash": "1c5ef3f31692fc8db6e0ff5bf0a97082"
   },
   "source/Sonny.ResourceManager/ResourcePathBuilder.cs": {
     "mtime": 1786626966.4257348,
-    "seen": 1787242363.4912744,
+    "seen": 1787251174.4147298,
     "ast_hash": "9624ef0fcfeedfa31fac753f4b6da769",
     "semantic_hash": "9624ef0fcfeedfa31fac753f4b6da769"
   },
   "source/Sonny.ResourceManager/ResourceRegistry.cs": {
     "mtime": 1786626966.4267433,
-    "seen": 1787242363.491275,
+    "seen": 1787251174.4147303,
     "ast_hash": "8d8a1a98d7d85cefa60e61f1c12823ed",
     "semantic_hash": "8d8a1a98d7d85cefa60e61f1c12823ed"
   },
   "source/Sonny.ResourceManager/Sonny.ResourceManager.csproj": {
     "mtime": 1787224618.8219967,
-    "seen": 1787242363.4912755,
+    "seen": 1787251174.4147308,
     "ast_hash": "902a3fdd0c244feacd7e1814338fcd7c",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/.nuke/build.ps1": {
     "mtime": 1765293514.5260158,
-    "seen": 1787242363.4912763,
+    "seen": 1787251174.4147315,
     "ast_hash": "4a896c52a5898e7f84399e561a3f91a2",
     "semantic_hash": "4a896c52a5898e7f84399e561a3f91a2"
   },
   "source/Sonny.RevitExtensions/.nuke/parameters.json": {
     "mtime": 1765293514.5260158,
-    "seen": 1787242363.4912767,
+    "seen": 1787251174.414732,
     "ast_hash": "64f10732491e378944c7fb36de73b93c",
     "semantic_hash": "64f10732491e378944c7fb36de73b93c"
   },
   "source/Sonny.RevitExtensions/Sonny.RevitExtensions.sln": {
     "mtime": 1765293514.5271788,
-    "seen": 1787242363.4912772,
+    "seen": 1787251174.4147325,
     "ast_hash": "22d1965d1a96fdc4eb2de4b464a697d1",
     "semantic_hash": "22d1965d1a96fdc4eb2de4b464a697d1"
   },
   "source/Sonny.RevitExtensions/global.json": {
     "mtime": 1765293514.5331886,
-    "seen": 1787242363.4912782,
-    "ast_hash": "554a5eb92e20dabe38cd64dc80a6797b",
+    "seen": 1787250937.6403682,
+    "ast_hash": "",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/install/Installer.Generator.cs": {
     "mtime": 1765293514.5331886,
-    "seen": 1787242363.4912786,
+    "seen": 1787251174.4147334,
     "ast_hash": "2561fe4cc7597db0ed6accaa04c1916b",
     "semantic_hash": "2561fe4cc7597db0ed6accaa04c1916b"
   },
   "source/Sonny.RevitExtensions/install/Installer.cs": {
     "mtime": 1765293514.5331886,
-    "seen": 1787242363.4912794,
+    "seen": 1787251174.414734,
     "ast_hash": "406e672b5f1e4c0f50d080e4b5ca7131",
     "semantic_hash": "406e672b5f1e4c0f50d080e4b5ca7131"
   },
   "source/Sonny.RevitExtensions/install/Installer.csproj": {
     "mtime": 1765293514.5341961,
-    "seen": 1787242363.4912798,
+    "seen": 1787251174.4147344,
     "ast_hash": "1e61c4cf1b99a04f8b840ffdd495134c",
     "semantic_hash": "1e61c4cf1b99a04f8b840ffdd495134c"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/EqualityComparers/ParallelXyzEqualityComparer.cs": {
     "mtime": 1766407841.5237513,
-    "seen": 1787242363.4912803,
+    "seen": 1787251174.414735,
     "ast_hash": "76540b4169505b04b120c289f8840b0c",
     "semantic_hash": "76540b4169505b04b120c289f8840b0c"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/CategoryExtensions.cs": {
     "mtime": 1765293514.5382755,
-    "seen": 1787242363.4912813,
+    "seen": 1787251174.4147356,
     "ast_hash": "c9d30f7cbe62c68d61e71d45918ab189",
     "semantic_hash": "c9d30f7cbe62c68d61e71d45918ab189"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/CurveLoops/CurveLoopExtensions.cs": {
     "mtime": 1766407847.2686584,
-    "seen": 1787242363.491282,
+    "seen": 1787251174.4147363,
     "ast_hash": "80c901b45a35d4d813e4d5d810902bb0",
     "semantic_hash": "80c901b45a35d4d813e4d5d810902bb0"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/DimensionExtension.cs": {
     "mtime": 1765293514.539277,
-    "seen": 1787242363.4912825,
+    "seen": 1787251174.414737,
     "ast_hash": "3a891283f205861b06d7c5f4fa42a45d",
     "semantic_hash": "3a891283f205861b06d7c5f4fa42a45d"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/DocumentExtension.cs": {
     "mtime": 1766407847.0468416,
-    "seen": 1787242363.4912832,
+    "seen": 1787251174.4147377,
     "ast_hash": "d4a5921d6c7b25b1694314189a0d9082",
     "semantic_hash": "d4a5921d6c7b25b1694314189a0d9082"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/ElementIdExtensions.cs": {
     "mtime": 1783958424.94789,
-    "seen": 1787242363.4912837,
+    "seen": 1787251174.4147382,
     "ast_hash": "a87b29ff4ddeed142523b90dbbc2da2f",
     "semantic_hash": "a87b29ff4ddeed142523b90dbbc2da2f"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/ElementParameterExtensions.cs": {
     "mtime": 1766407846.3333602,
-    "seen": 1787242363.4912844,
+    "seen": 1787251174.414739,
     "ast_hash": "5f3fb2346fe86ed6ad22195a07abfa63",
     "semantic_hash": "5f3fb2346fe86ed6ad22195a07abfa63"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/ElementQuery.cs": {
     "mtime": 1766407838.7899592,
-    "seen": 1787242363.491285,
+    "seen": 1787251174.4147396,
     "ast_hash": "7023522185c62cea5c6788231f690237",
     "semantic_hash": "7023522185c62cea5c6788231f690237"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementCurveExtensions.cs": {
     "mtime": 1769746963.8828313,
-    "seen": 1787242363.4912858,
+    "seen": 1787251174.4147403,
     "ast_hash": "bb9c80f5ba9dc70816b71fb08c8e7986",
     "semantic_hash": "bb9c80f5ba9dc70816b71fb08c8e7986"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementExtensions.cs": {
     "mtime": 1765293514.5402749,
-    "seen": 1787242363.4912865,
+    "seen": 1787251174.414741,
     "ast_hash": "762d076593fc36e2579a7fef85fb7356",
     "semantic_hash": "762d076593fc36e2579a7fef85fb7356"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementFaceExtensions.cs": {
     "mtime": 1765293514.5412748,
-    "seen": 1787242363.4912868,
+    "seen": 1787251174.4147415,
     "ast_hash": "7e4b38824da6789d5e307dd4a58389b2",
     "semantic_hash": "7e4b38824da6789d5e307dd4a58389b2"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementIntersectExtensions.cs": {
     "mtime": 1783958364.2425911,
-    "seen": 1787242363.4912875,
+    "seen": 1787251174.4147422,
     "ast_hash": "6970daeda35dee053f61530d91413ac8",
     "semantic_hash": "6970daeda35dee053f61530d91413ac8"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementParameterExtensions.cs": {
     "mtime": 1766407845.4776688,
-    "seen": 1787242363.4912884,
+    "seen": 1787251174.4147427,
     "ast_hash": "7e9abad75f8d442c485de8c61adaedc4",
     "semantic_hash": "7e9abad75f8d442c485de8c61adaedc4"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementPointExtensions.cs": {
     "mtime": 1765293514.5412748,
-    "seen": 1787242363.491289,
+    "seen": 1787251174.4147437,
     "ast_hash": "ecc4d05527ca08754a252dd36213079d",
     "semantic_hash": "ecc4d05527ca08754a252dd36213079d"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Elements/ElementSolidExtensions.cs": {
     "mtime": 1766407846.7663453,
-    "seen": 1787242363.4912896,
+    "seen": 1787251174.4147444,
     "ast_hash": "e7c97686f23b7bbcc00a86d113e54bd6",
     "semantic_hash": "e7c97686f23b7bbcc00a86d113e54bd6"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Families/FamilyExtensions.cs": {
     "mtime": 1766407838.1787853,
-    "seen": 1787242363.4912903,
+    "seen": 1787251174.4147446,
     "ast_hash": "9a85c22aab8a927bce342f0095168b6a",
     "semantic_hash": "9a85c22aab8a927bce342f0095168b6a"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Curves/CurveExtensions.cs": {
     "mtime": 1766407839.7358463,
-    "seen": 1787242363.4912908,
+    "seen": 1787251174.4147453,
     "ast_hash": "442584fbad33f81daf8833f8600fdf7c",
     "semantic_hash": "442584fbad33f81daf8833f8600fdf7c"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Curves/CurvePointExtensions.cs": {
     "mtime": 1765293514.5427768,
-    "seen": 1787242363.4912918,
+    "seen": 1787251174.414746,
     "ast_hash": "2110ce08451d397e797d9602617581f2",
     "semantic_hash": "2110ce08451d397e797d9602617581f2"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Curves/Lines/LineExtensions.cs": {
     "mtime": 1765293514.5436206,
-    "seen": 1787242363.4912925,
+    "seen": 1787251174.4147468,
     "ast_hash": "ed9b7384eb880f1132543961291ecd5e",
     "semantic_hash": "ed9b7384eb880f1132543961291ecd5e"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Faces/CylindricalFaces/CylindricalFaceExtensions.cs": {
     "mtime": 1766407837.4208386,
-    "seen": 1787242363.4912932,
+    "seen": 1787251174.4147475,
     "ast_hash": "775af033a2ece7365c1fe710bdc4a0fd",
     "semantic_hash": "775af033a2ece7365c1fe710bdc4a0fd"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Faces/FaceCurveExtensions.cs": {
     "mtime": 1766407852.2257345,
-    "seen": 1787242363.4912937,
+    "seen": 1787251174.4147482,
     "ast_hash": "c521f8289e8106150b0ee98fc7cc583a",
     "semantic_hash": "c521f8289e8106150b0ee98fc7cc583a"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Faces/FaceExtensions.cs": {
     "mtime": 1766407851.486091,
-    "seen": 1787242363.4912946,
+    "seen": 1787251174.4147487,
     "ast_hash": "a198983d8f1ce8cbd224486de871bcbc",
     "semantic_hash": "a198983d8f1ce8cbd224486de871bcbc"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Faces/FacePointExtensions.cs": {
     "mtime": 1766407837.9479995,
-    "seen": 1787242363.4912953,
+    "seen": 1787251174.4147491,
     "ast_hash": "1286426bd18ba4ce4998df74bdbb222d",
     "semantic_hash": "1286426bd18ba4ce4998df74bdbb222d"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Faces/PlanarFaces/PlanarFaceExtensions.cs": {
     "mtime": 1766407837.484949,
-    "seen": 1787242363.491296,
+    "seen": 1787251174.41475,
     "ast_hash": "92ded3b59f8476510e52414ca8f17946",
     "semantic_hash": "92ded3b59f8476510e52414ca8f17946"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/GeometryElements/GeometryElementUtils.cs": {
     "mtime": 1765293514.5462852,
-    "seen": 1787242363.4912965,
+    "seen": 1787251174.4147508,
     "ast_hash": "43c1ee4a766430031a492886158c94dd",
     "semantic_hash": "43c1ee4a766430031a492886158c94dd"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/GeometryObjectExtensions.cs": {
     "mtime": 1766407853.7100418,
-    "seen": 1787242363.4912972,
+    "seen": 1787251174.4147515,
     "ast_hash": "75db7741e7d3cf3e341a567483583b9b",
     "semantic_hash": "75db7741e7d3cf3e341a567483583b9b"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Solids/SolidCurveExtensions.cs": {
     "mtime": 1765293514.5472865,
-    "seen": 1787242363.491298,
+    "seen": 1787251174.414752,
     "ast_hash": "19d1c20261c7cd697d66d2958caef679",
     "semantic_hash": "19d1c20261c7cd697d66d2958caef679"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Solids/SolidFaceExtensions.cs": {
     "mtime": 1766407837.3722048,
-    "seen": 1787242363.491299,
+    "seen": 1787251174.4147525,
     "ast_hash": "54c5a46762930b9c659cdbde7baa19a1",
     "semantic_hash": "54c5a46762930b9c659cdbde7baa19a1"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Solids/SolidIntersectExtensions.cs": {
     "mtime": 1783958137.5007005,
-    "seen": 1787242363.4912994,
+    "seen": 1787251174.4147532,
     "ast_hash": "3bc195d673fe5142417ede0e69514c54",
     "semantic_hash": "3bc195d673fe5142417ede0e69514c54"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/GeometryObjects/Solids/SolidPointExtensions.cs": {
     "mtime": 1765293514.5472865,
-    "seen": 1787242363.4913,
+    "seen": 1787251174.4147537,
     "ast_hash": "595f9f20dee6b0b3af6be8c5817183f3",
     "semantic_hash": "595f9f20dee6b0b3af6be8c5817183f3"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/ImportInstanceExtensions.cs": {
     "mtime": 1766407843.8387315,
-    "seen": 1787242363.4913006,
+    "seen": 1787251174.4147544,
     "ast_hash": "a7394236cf8d256d6b0cd232cbe3bca4",
     "semantic_hash": "a7394236cf8d256d6b0cd232cbe3bca4"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/LinqExtensions.cs": {
     "mtime": 1766813566.4034274,
-    "seen": 1787242363.4913015,
+    "seen": 1787251174.414755,
     "ast_hash": "8940120247a2d428edc55a55bf29b4c8",
     "semantic_hash": "8940120247a2d428edc55a55bf29b4c8"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/ReferenceExtensions.cs": {
     "mtime": 1766407850.7755475,
-    "seen": 1787242363.4913025,
+    "seen": 1787251174.4147563,
     "ast_hash": "81ed826c01f7af876ed6568855433a7e",
     "semantic_hash": "81ed826c01f7af876ed6568855433a7e"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/Views/ViewExtensions.cs": {
     "mtime": 1765293514.548287,
-    "seen": 1787242363.491303,
+    "seen": 1787251174.414757,
     "ast_hash": "76c214b7a58af74574c0ecde4d56cb9f",
     "semantic_hash": "76c214b7a58af74574c0ecde4d56cb9f"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZComparisonExtensions.cs": {
     "mtime": 1766407843.4577506,
-    "seen": 1787242363.4913037,
+    "seen": 1787251174.4147577,
     "ast_hash": "a659226b9afeebbb765eb00fdf6d717f",
     "semantic_hash": "a659226b9afeebbb765eb00fdf6d717f"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZDistanceExtensions.cs": {
     "mtime": 1765293514.5492857,
-    "seen": 1787242363.4913046,
+    "seen": 1787251174.4147584,
     "ast_hash": "85961b843b7bf354029e664a51a8153b",
     "semantic_hash": "85961b843b7bf354029e664a51a8153b"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZGeometryExtensions.cs": {
     "mtime": 1766407851.2181323,
-    "seen": 1787242363.491305,
+    "seen": 1787251174.414759,
     "ast_hash": "0b390fedf10709f1f7fe14e33fb4193b",
     "semantic_hash": "0b390fedf10709f1f7fe14e33fb4193b"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZTransformExtensions.cs": {
     "mtime": 1765293514.5507915,
-    "seen": 1787242363.4913058,
+    "seen": 1787251174.4147596,
     "ast_hash": "374e86fd592839c9c172db02954d6a4c",
     "semantic_hash": "374e86fd592839c9c172db02954d6a4c"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZUtilityExtensions.cs": {
     "mtime": 1784129528.1170912,
-    "seen": 1787242363.4913065,
+    "seen": 1787251174.41476,
     "ast_hash": "6298d7afd7b3f3364ede2a0a0cc8b7dd",
     "semantic_hash": "6298d7afd7b3f3364ede2a0a0cc8b7dd"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Extensions/XYZs/XYZVectorExtensions.cs": {
     "mtime": 1786267882.2248046,
-    "seen": 1787242363.491307,
+    "seen": 1787251174.4147606,
     "ast_hash": "f81581e86288b1e68ac328e274dba484",
     "semantic_hash": "f81581e86288b1e68ac328e274dba484"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Processors/DimensionProcessor.cs": {
     "mtime": 1766407845.9907792,
-    "seen": 1787242363.4913075,
+    "seen": 1787251174.4147615,
     "ast_hash": "396b8657724c492179dc57cf45746d4b",
     "semantic_hash": "396b8657724c492179dc57cf45746d4b"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/ColumnWrapperBase.cs": {
     "mtime": 1765293514.553838,
-    "seen": 1787242363.4913082,
+    "seen": 1787251174.414762,
     "ast_hash": "fb9f20fc30a225c6a29ad1b405560004",
     "semantic_hash": "fb9f20fc30a225c6a29ad1b405560004"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/DimensionWrapperBase.cs": {
     "mtime": 1765293514.553838,
-    "seen": 1787242363.4913087,
+    "seen": 1787251174.4147627,
     "ast_hash": "d90c76a3909d3c0bac648d5acd78dd3a",
     "semantic_hash": "d90c76a3909d3c0bac648d5acd78dd3a"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/ElementWrapperBase.cs": {
     "mtime": 1766407842.658548,
-    "seen": 1787242363.4913096,
+    "seen": 1787251174.4147632,
     "ast_hash": "21f6fd7d9569191c065560ff568881a2",
     "semantic_hash": "21f6fd7d9569191c065560ff568881a2"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/FamilyInstanceWrapperBase.cs": {
     "mtime": 1783957632.5290463,
-    "seen": 1787242363.4913101,
+    "seen": 1787251174.4147637,
     "ast_hash": "4c245f24c2443d047ce38a26ec07ac6d",
     "semantic_hash": "4c245f24c2443d047ce38a26ec07ac6d"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/GridWrapperBase.cs": {
     "mtime": 1765293514.554838,
-    "seen": 1787242363.4913108,
+    "seen": 1787251174.4147646,
     "ast_hash": "09d58158f601b7e3d6967fb88d2148f8",
     "semantic_hash": "09d58158f601b7e3d6967fb88d2148f8"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/ViewWrapperBase.cs": {
     "mtime": 1786267882.2258053,
-    "seen": 1787242363.4913116,
+    "seen": 1787251174.4147654,
     "ast_hash": "266363baff235679b1e6f026fb3ced44",
     "semantic_hash": "266363baff235679b1e6f026fb3ced44"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/RevitWrapper/WallWrapperBase.cs": {
     "mtime": 1783950973.1210306,
-    "seen": 1787242363.491312,
+    "seen": 1787251174.4147658,
     "ast_hash": "c9e8a29b2c1e8962dc8b3af1921edc12",
     "semantic_hash": "c9e8a29b2c1e8962dc8b3af1921edc12"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Sonny.RevitExtensions.csproj": {
     "mtime": 1783345237.385316,
-    "seen": 1787242363.491313,
+    "seen": 1787251174.4147666,
     "ast_hash": "e017ae15512c94dff3ee538a76402638",
     "semantic_hash": "e017ae15512c94dff3ee538a76402638"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/ToleranceConstants.cs": {
     "mtime": 1765293514.5558407,
-    "seen": 1787242363.4913137,
+    "seen": 1787251174.414767,
     "ast_hash": "06d299ccafddfbdfb3f8a63758383070",
     "semantic_hash": "06d299ccafddfbdfb3f8a63758383070"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Utilities/CreateElement.cs": {
     "mtime": 1766407838.6839027,
-    "seen": 1787242363.4913144,
+    "seen": 1787251174.414768,
     "ast_hash": "ae0fae7c80b208083f8491e3c898a767",
     "semantic_hash": "ae0fae7c80b208083f8491e3c898a767"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Utilities/DimensionOptions.cs": {
     "mtime": 1765293514.556838,
-    "seen": 1787242363.491315,
+    "seen": 1787251174.4147685,
     "ast_hash": "28396a2100324a04553d89df0738ddd3",
     "semantic_hash": "28396a2100324a04553d89df0738ddd3"
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Utilities/GeometryUtils.cs": {
     "mtime": 1783957778.6701775,
-    "seen": 1787242363.4913156,
+    "seen": 1787251174.4147692,
     "ast_hash": "60ac69911d98a988e9f7fa8b7225269d",
     "semantic_hash": "60ac69911d98a988e9f7fa8b7225269d"
   },
   ".claude/CLAUDE.md": {
     "mtime": 1786970053.3529644,
-    "seen": 1787242363.4913166,
+    "seen": 1787251174.41477,
     "ast_hash": "89fa95f55e51c1e72206903121d33124",
     "semantic_hash": ""
   },
   ".claude/agents/revit-architecture-fixer.md": {
     "mtime": 1786276585.2989435,
-    "seen": 1787242363.4913173,
+    "seen": 1787251174.4147704,
     "ast_hash": "30f47a109f8647af23463539b698c46f",
     "semantic_hash": "30f47a109f8647af23463539b698c46f"
   },
   ".claude/agents/revit-architecture-reviewer.md": {
     "mtime": 1786274572.8375647,
-    "seen": 1787242363.4913177,
+    "seen": 1787251174.4147708,
     "ast_hash": "ac423fe5271e75d2063b9814abdf7527",
     "semantic_hash": "ac423fe5271e75d2063b9814abdf7527"
   },
   ".github/ISSUE_TEMPLATE/bug_report.md": {
     "mtime": 1765986667.87884,
-    "seen": 1787242363.4913259,
+    "seen": 1787251174.4147785,
     "ast_hash": "25234e9a6109c2ee8b8eaa2bc853c937",
     "semantic_hash": "25234e9a6109c2ee8b8eaa2bc853c937"
   },
   ".github/ISSUE_TEMPLATE/config.yml": {
     "mtime": 1765987707.113238,
-    "seen": 1787242363.4913268,
+    "seen": 1787251174.414779,
     "ast_hash": "0a7b4e6a528d69e8996ced0e6bf17ed3",
     "semantic_hash": "0a7b4e6a528d69e8996ced0e6bf17ed3"
   },
   ".github/ISSUE_TEMPLATE/feature_request.md": {
     "mtime": 1765986667.8805468,
-    "seen": 1787242363.4913273,
+    "seen": 1787251174.4147797,
     "ast_hash": "632c0def14f3b7b8d12dededcae0f444",
     "semantic_hash": "632c0def14f3b7b8d12dededcae0f444"
   },
   ".github/ISSUE_TEMPLATE/question.md": {
     "mtime": 1765986667.8805468,
-    "seen": 1787242363.4913278,
+    "seen": 1787251174.4147804,
     "ast_hash": "60283f79b44e36f4dc6818af4d3563de",
     "semantic_hash": "60283f79b44e36f4dc6818af4d3563de"
   },
   ".github/PULL_REQUEST_TEMPLATE.md": {
     "mtime": 1767970524.1690285,
-    "seen": 1787242363.4913285,
+    "seen": 1787251174.4147809,
     "ast_hash": "a9ac9d6fd8a5c7121797f1ecb6be3dd7",
     "semantic_hash": "a9ac9d6fd8a5c7121797f1ecb6be3dd7"
   },
   ".github/workflows/Compile.yml": {
     "mtime": 1765982897.9250894,
-    "seen": 1787242363.491329,
+    "seen": 1787251174.4147818,
     "ast_hash": "e06c3464492b4c0f2496209d2428fda3",
     "semantic_hash": "e06c3464492b4c0f2496209d2428fda3"
   },
   ".github/workflows/PublishRelease.yml": {
     "mtime": 1765984818.1579297,
-    "seen": 1787242363.49133,
+    "seen": 1787251174.4147823,
     "ast_hash": "c2f299bcca3eb44367bb5de7173e4d66",
     "semantic_hash": "c2f299bcca3eb44367bb5de7173e4d66"
   },
   "CLAUDE.md": {
-    "mtime": 1787226183.8568397,
-    "seen": 1787242363.4913304,
-    "ast_hash": "2734159d49a3f45dc0356241479fd20b",
+    "mtime": 1787251076.2527788,
+    "seen": 1787251174.4147828,
+    "ast_hash": "96e374de107f228c37e03406d4036111",
     "semantic_hash": ""
   },
   "CODE_OF_CONDUCT.md": {
     "mtime": 1766409878.8264515,
-    "seen": 1787242363.491331,
+    "seen": 1787251174.4147835,
     "ast_hash": "e733cb148d2845cedad95b090d0184ca",
     "semantic_hash": "e733cb148d2845cedad95b090d0184ca"
   },
   "CONTRIBUTING.md": {
     "mtime": 1766409878.8274536,
-    "seen": 1787242363.4913316,
+    "seen": 1787251174.4147847,
     "ast_hash": "edb9d83aadcddb2ca4dfb4bbe64eddde",
     "semantic_hash": "edb9d83aadcddb2ca4dfb4bbe64eddde"
   },
   "Changelog.md": {
     "mtime": 1767970524.1700835,
-    "seen": 1787242363.4913323,
+    "seen": 1787251174.4147856,
     "ast_hash": "82677bbdd95203a0126530f3b2d5da0e",
     "semantic_hash": "82677bbdd95203a0126530f3b2d5da0e"
   },
   "Readme.md": {
     "mtime": 1786866208.6401658,
-    "seen": 1787242363.491333,
+    "seen": 1787251174.4147863,
     "ast_hash": "cc03902be8cb9c52a952ff00045e16d8",
     "semantic_hash": ""
   },
   "SECURITY.md": {
     "mtime": 1766409878.830398,
-    "seen": 1787242363.4913337,
+    "seen": 1787251174.4147868,
     "ast_hash": "7c77f8505ccdbc02cf7afe107d26d58e",
     "semantic_hash": "7c77f8505ccdbc02cf7afe107d26d58e"
   },
   "source/Scripts/README.md": {
     "mtime": 1763998486.9943335,
-    "seen": 1787242363.4913404,
+    "seen": 1787251174.4147928,
     "ast_hash": "be40c8f9ea90fdc6dee8c85fe9430d30",
     "semantic_hash": "be40c8f9ea90fdc6dee8c85fe9430d30"
   },
   "source/Sonny.EasyRibbon/CHANGELOG.md": {
     "mtime": 1765293588.279892,
-    "seen": 1787242363.491341,
+    "seen": 1787251174.4147935,
     "ast_hash": "d7d76281fae191076740356694b42ca9",
     "semantic_hash": "d7d76281fae191076740356694b42ca9"
   },
   "source/Sonny.EasyRibbon/CONTRIBUTING.md": {
     "mtime": 1765293588.2808943,
-    "seen": 1787242363.4913418,
+    "seen": 1787251174.414794,
     "ast_hash": "6d2a3bff3bd08e8b7d0b000ef63a6873",
     "semantic_hash": "6d2a3bff3bd08e8b7d0b000ef63a6873"
   },
   "source/Sonny.EasyRibbon/README.md": {
     "mtime": 1765293588.2808943,
-    "seen": 1787242363.4913423,
+    "seen": 1787251174.4147944,
     "ast_hash": "8b2eb9ed65b29e182da867686deea3f3",
     "semantic_hash": "8b2eb9ed65b29e182da867686deea3f3"
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Modules/README.md": {
     "mtime": 1765293588.2957187,
-    "seen": 1787242363.491343,
+    "seen": 1787251174.4147956,
     "ast_hash": "4654a0ac2ea0db7dceb51fa711d48b0b",
     "semantic_hash": "4654a0ac2ea0db7dceb51fa711d48b0b"
   },
   "source/Sonny.Keygen/README.md": {
     "mtime": 1786018730.406143,
-    "seen": 1787242363.4913435,
+    "seen": 1787251174.414796,
     "ast_hash": "06abf36817c1adccaec1bd5092662c4b",
     "semantic_hash": "06abf36817c1adccaec1bd5092662c4b"
   },
   "source/Sonny.RevitExtensions/.github/workflows/Compile.yml": {
     "mtime": 1765293514.524009,
-    "seen": 1787242363.4913442,
+    "seen": 1787251174.4147968,
     "ast_hash": "161e939eba89a94fc397e05908b756e2",
     "semantic_hash": "161e939eba89a94fc397e05908b756e2"
   },
   "source/Sonny.RevitExtensions/.github/workflows/PublishRelease.yml": {
     "mtime": 1765293514.5250149,
-    "seen": 1787242363.491345,
+    "seen": 1787251174.4147973,
     "ast_hash": "6c630a04b73b9838c152c348b03465b0",
     "semantic_hash": "6c630a04b73b9838c152c348b03465b0"
   },
   "source/Sonny.RevitExtensions/Changelog.md": {
     "mtime": 1765293514.5271788,
-    "seen": 1787242363.4913454,
+    "seen": 1787251174.414798,
     "ast_hash": "12cd64df42c117845e03538840026772",
     "semantic_hash": "12cd64df42c117845e03538840026772"
   },
   "source/Sonny.RevitExtensions/Readme.md": {
     "mtime": 1765293514.5271788,
-    "seen": 1787242363.4913461,
+    "seen": 1787251174.4147985,
     "ast_hash": "1eaafecfe171037255dfbea6fb83aa15",
     "semantic_hash": "1eaafecfe171037255dfbea6fb83aa15"
   },
   "assets/images/clean-architecture.png": {
     "mtime": 1767970524.1720874,
-    "seen": 1787242363.4913466,
+    "seen": 1787251174.4147995,
     "ast_hash": "b87b4b87202439e2e99910e645619f2b",
     "semantic_hash": "b87b4b87202439e2e99910e645619f2b"
   },
   "assets/images/gitflow.png": {
     "mtime": 1766409878.8339639,
-    "seen": 1787242363.4913476,
+    "seen": 1787251174.4148,
     "ast_hash": "56b27aed1eaf2e4c0a793e852e542516",
     "semantic_hash": "56b27aed1eaf2e4c0a793e852e542516"
   },
   "source/Scripts/ColumnDimension.png": {
     "mtime": 1763998352.1597197,
-    "seen": 1787242363.4913504,
+    "seen": 1787251174.4148033,
     "ast_hash": "c2f51f4b62c64479ef3bb59f0a94e074",
     "semantic_hash": "c2f51f4b62c64479ef3bb59f0a94e074"
   },
   "source/Sonny.Application/Resources/Icons/ColumnFromCadCommand.png": {
     "mtime": 1786016273.1516628,
-    "seen": 1787242363.4913526,
+    "seen": 1787251174.414805,
     "ast_hash": "491e81ecb6dbf676f35b5bedd59aea23",
     "semantic_hash": "491e81ecb6dbf676f35b5bedd59aea23"
   },
   "source/Sonny.EasyRibbon/Assets/ribbon-demo-alphabim-gen.png": {
     "mtime": 1765293588.277891,
-    "seen": 1787242363.491358,
+    "seen": 1787251174.414811,
     "ast_hash": "16adf44fbbf2e868160d202df26d121f",
     "semantic_hash": "16adf44fbbf2e868160d202df26d121f"
   },
   "source/Sonny.EasyRibbon/Assets/ribbon-demo-alphabim-str.png": {
     "mtime": 1765293588.2788908,
-    "seen": 1787242363.4913588,
+    "seen": 1787251174.4148114,
     "ast_hash": "bb857c61ced03ac228acfa5e8b127647",
     "semantic_hash": "bb857c61ced03ac228acfa5e8b127647"
   },
   "source/Sonny.EasyRibbon/Assets/ribbon-demo.png": {
     "mtime": 1765293588.279892,
-    "seen": 1787242363.4913595,
+    "seen": 1787251174.414812,
     "ast_hash": "f457256ccb5f28d4955534fa907f33d0",
     "semantic_hash": "f457256ccb5f28d4955534fa907f33d0"
   },
   "assets/videos/AutoColumnDimension demo.mp4": {
     "mtime": 1763999124.796746,
-    "seen": 1787242363.4913666,
+    "seen": 1787251174.4148195,
     "ast_hash": "19c3560f5cf84b9596c8818165417734",
     "semantic_hash": "19c3560f5cf84b9596c8818165417734"
   },
   "assets/videos/ColumnFromCadCommand.mp4": {
     "mtime": 1766409879.0348577,
-    "seen": 1787242363.491367,
+    "seen": 1787251174.4148202,
     "ast_hash": "b160939a4a746eb2811cdd2bec805489",
     "semantic_hash": "b160939a4a746eb2811cdd2bec805489"
   },
   "assets/videos/LoginCommand.mp4": {
     "mtime": 1767970524.2048717,
-    "seen": 1787242363.4913678,
+    "seen": 1787251174.414821,
     "ast_hash": "c3442ab0053f21216bc890fb5d24b71a",
     "semantic_hash": "c3442ab0053f21216bc890fb5d24b71a"
   },
   "assets/videos/UnitTest by console.mp4": {
     "mtime": 1763997611.984094,
-    "seen": 1787242363.4913688,
+    "seen": 1787251174.4148214,
     "ast_hash": "a8667e1b782c25361926b17199d19a17",
     "semantic_hash": "a8667e1b782c25361926b17199d19a17"
   },
   "assets/videos/UnitTest by visual studio.mp4": {
     "mtime": 1763996799.205757,
-    "seen": 1787242363.4913692,
+    "seen": 1787251174.414822,
     "ast_hash": "5e34313068d640f8e9b374b7b05eebc2",
     "semantic_hash": "5e34313068d640f8e9b374b7b05eebc2"
   },
   "assets/videos/Units_Languages.mp4": {
     "mtime": 1765978632.9103906,
-    "seen": 1787242363.4913697,
+    "seen": 1787251174.4148228,
     "ast_hash": "8b38f27fc9affc1d8df1d4f79067fbeb",
     "semantic_hash": "8b38f27fc9affc1d8df1d4f79067fbeb"
   },
   ".claude/commands/loopx.md": {
     "mtime": 1787063982.5546694,
-    "seen": 1787242363.4913187,
+    "seen": 1787251174.414772,
     "ast_hash": "ded3474a8b7bc12ebdb5262f72084daf",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/SKILL.md": {
     "mtime": 1786636149.1567247,
-    "seen": 1787242363.4913197,
+    "seen": 1787251174.4147727,
     "ast_hash": "3953c31b4ef6d89d3b1cb43f0110817d",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/add-watch.md": {
     "mtime": 1786636038.6872637,
-    "seen": 1787242363.4913204,
+    "seen": 1787251174.4147735,
     "ast_hash": "d59d027fe449f06aa03905a01184e779",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/exports.md": {
     "mtime": 1786636038.6872637,
-    "seen": 1787242363.491321,
+    "seen": 1787251174.414774,
     "ast_hash": "9da2a2152e60a22f07f05fed5158f287",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/extraction-spec.md": {
     "mtime": 1786636038.6882617,
-    "seen": 1787242363.4913218,
+    "seen": 1787251174.4147744,
     "ast_hash": "42fef56a01698118f7fd722acdadea34",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/github-and-merge.md": {
     "mtime": 1786636038.6882617,
-    "seen": 1787242363.4913223,
+    "seen": 1787251174.4147754,
     "ast_hash": "cde13df085e4c492aeb7ba298a996d0d",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/hooks.md": {
     "mtime": 1786636038.6892622,
-    "seen": 1787242363.4913232,
+    "seen": 1787251174.4147758,
     "ast_hash": "3f545db6ce646650bb9de588f5512a27",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/query.md": {
     "mtime": 1786636038.6892622,
-    "seen": 1787242363.4913237,
+    "seen": 1787251174.4147766,
     "ast_hash": "3c46f8ad006874260614ed8657d02307",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/transcribe.md": {
     "mtime": 1786636038.6892622,
-    "seen": 1787242363.4913244,
+    "seen": 1787251174.414777,
     "ast_hash": "67b6a5fa6c0974e18f60db9f8932fbd8",
     "semantic_hash": ""
   },
   ".claude/skills/graphify/references/update.md": {
     "mtime": 1786636038.6905131,
-    "seen": 1787242363.491325,
+    "seen": 1787251174.4147775,
     "ast_hash": "9378bd03d56baaf78bd738ab3848f142",
     "semantic_hash": ""
   },
   "docs/README.md": {
-    "mtime": 1787225831.3472054,
-    "seen": 1787242363.4913342,
-    "ast_hash": "20da87067891d98e390236a0f84dd171",
+    "mtime": 1787251156.7825465,
+    "seen": 1787251174.4147875,
+    "ast_hash": "cb7aa437455887b8e935f99750cbaa94",
     "semantic_hash": ""
   },
   "docs/architecture/command-flow.md": {
-    "mtime": 1787225659.4606035,
-    "seen": 1787242363.4913359,
-    "ast_hash": "91fb953e7b712fa9b55f3ae4755ceee0",
+    "mtime": 1787251041.4964743,
+    "seen": 1787251174.4147894,
+    "ast_hash": "87d8f8ee62a2be928d9040b9865de03b",
     "semantic_hash": ""
   },
   "docs/features/AutoColumnDimension.md": {
-    "mtime": 1787225799.2297812,
-    "seen": 1787242363.4913368,
-    "ast_hash": "4c9b2073ca33474027232ddecd075e4b",
+    "mtime": 1787250986.2441308,
+    "seen": 1787251174.41479,
+    "ast_hash": "55b9e789bfb7c7941e8724172f44a067",
     "semantic_hash": ""
   },
   "docs/features/ColumnFromCad.md": {
-    "mtime": 1787225713.6068554,
-    "seen": 1787242363.4913378,
-    "ast_hash": "8d99d0e086a3ba86d9c6249664efe744",
+    "mtime": 1787251021.5179682,
+    "seen": 1787251174.4147906,
+    "ast_hash": "24ac175335ec0c9ce263ce6b6c69b0bf",
     "semantic_hash": ""
   },
   "graphify-out/memory/query_20260815_162520_uidocument_lifetime_va_iuidocumentprovider_hoat_do.md": {
     "mtime": 1786811120.0892186,
-    "seen": 1787242363.4913383,
+    "seen": 1787251174.4147913,
     "ast_hash": "e0c741bd977920fbfae177a2b2b53733",
     "semantic_hash": ""
   },
   "graphify-out/memory/query_20260815_162531_trace_call_flow_cua_autocolumndimensioncommand_tu.md": {
     "mtime": 1786811131.2734122,
-    "seen": 1787242363.4913394,
+    "seen": 1787251174.4147918,
     "ast_hash": "b28cbcd6de6e93de05d6e40966d91e08",
     "semantic_hash": ""
   },
   "install/Resources/Icons/BackgroundImage.png": {
     "mtime": 1763469064.9415102,
-    "seen": 1787242363.491348,
+    "seen": 1787251174.4148004,
     "ast_hash": "05d265a37dddcd3757f6314bed86c8c9",
     "semantic_hash": ""
   },
   "install/Resources/Icons/BannerImage.png": {
     "mtime": 1763469064.944513,
-    "seen": 1787242363.4913485,
+    "seen": 1787251174.4148011,
     "ast_hash": "a613494a75431ab28d04816e2996aae2",
     "semantic_hash": ""
   },
   "source/Scripts/AutoColumnDimension16.png": {
     "mtime": 1763998543.1918015,
-    "seen": 1787242363.4913495,
+    "seen": 1787251174.4148018,
     "ast_hash": "5c77fa4330765156100dbdcb92c1365e",
     "semantic_hash": ""
   },
   "source/Scripts/AutoColumnDimension32.png": {
     "mtime": 1763998543.1988015,
-    "seen": 1787242363.49135,
+    "seen": 1787251174.4148023,
     "ast_hash": "5c85df992755b93093722b181679650e",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/AutoColumnDimensionCommand16.png": {
     "mtime": 1786016273.1461592,
-    "seen": 1787242363.4913514,
+    "seen": 1787251174.4148037,
     "ast_hash": "5c77fa4330765156100dbdcb92c1365e",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/AutoColumnDimensionCommand32.png": {
     "mtime": 1786016273.1461592,
-    "seen": 1787242363.4913518,
+    "seen": 1787251174.4148042,
     "ast_hash": "5c85df992755b93093722b181679650e",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/ColumnFromCadCommand16.png": {
     "mtime": 1786016273.1531718,
-    "seen": 1787242363.491353,
+    "seen": 1787251174.4148057,
     "ast_hash": "d1862a1fe208db24c14c2b30338a0242",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/ColumnFromCadCommand32.png": {
     "mtime": 1786016273.1531718,
-    "seen": 1787242363.4913538,
+    "seen": 1787251174.4148064,
     "ast_hash": "2edd2fd27f434e1762aec8b271ac2c4f",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/LoginCommand16.png": {
     "mtime": 1786016273.1541777,
-    "seen": 1787242363.4913545,
+    "seen": 1787251174.414807,
     "ast_hash": "a5a76340d183d459de038c0f38e4d183",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/LoginCommand32.png": {
     "mtime": 1786016273.1541777,
-    "seen": 1787242363.491355,
+    "seen": 1787251174.4148076,
     "ast_hash": "443b60467417e2df4eb75c68d165dc4a",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/RibbonIcon16.png": {
     "mtime": 1763469124.4915433,
-    "seen": 1787242363.4913557,
+    "seen": 1787251174.4148083,
     "ast_hash": "2b4fc2605ad267c9cc5a73e33fa7c5bf",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/RibbonIcon32.png": {
     "mtime": 1763469124.4925416,
-    "seen": 1787242363.4913561,
+    "seen": 1787251174.4148088,
     "ast_hash": "ed80090e59c9dc74cd70fbf483cf1783",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/SettingsCommand16.png": {
     "mtime": 1766409879.2551324,
-    "seen": 1787242363.4913566,
+    "seen": 1787251174.4148097,
     "ast_hash": "0c08d5de27f6154acdf0eed1af0748f6",
     "semantic_hash": ""
   },
   "source/Sonny.Application/Resources/Icons/SettingsCommand32.png": {
     "mtime": 1766409879.2561345,
-    "seen": 1787242363.4913573,
+    "seen": 1787251174.4148102,
     "ast_hash": "0df0d0314e26aefdf421831ff8821ce3",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Resources/Icons/RibbonIcon16.png": {
     "mtime": 1765293588.2849226,
-    "seen": 1787242363.4913602,
+    "seen": 1787251174.4148126,
     "ast_hash": "2b4fc2605ad267c9cc5a73e33fa7c5bf",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Resources/Icons/RibbonIcon32.png": {
     "mtime": 1765293588.2849226,
-    "seen": 1787242363.4913611,
+    "seen": 1787251174.4148135,
     "ast_hash": "ed80090e59c9dc74cd70fbf483cf1783",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Resources/Images/image-16.png": {
     "mtime": 1765293588.2849226,
-    "seen": 1787242363.4913616,
+    "seen": 1787251174.4148142,
     "ast_hash": "974362181367cd2d2e0a8290113b83a0",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.Example/Resources/Images/image-32.png": {
     "mtime": 1765293588.2849226,
-    "seen": 1787242363.4913623,
+    "seen": 1787251174.414815,
     "ast_hash": "4031c9040c80594b6fbab71fc664ed65",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.MasterExample/Resources/Icons/RibbonIcon16.png": {
     "mtime": 1765293588.2894335,
-    "seen": 1787242363.4913628,
+    "seen": 1787251174.4148154,
     "ast_hash": "2b4fc2605ad267c9cc5a73e33fa7c5bf",
     "semantic_hash": ""
   },
   "source/Sonny.EasyRibbon/Sonny.EasyRibbon.MasterExample/Resources/Icons/RibbonIcon32.png": {
     "mtime": 1765293588.2894335,
-    "seen": 1787242363.4913635,
+    "seen": 1787251174.4148161,
     "ast_hash": "ed80090e59c9dc74cd70fbf483cf1783",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/install/Resources/Icons/BackgroundImage.png": {
     "mtime": 1765293514.5351954,
-    "seen": 1787242363.491364,
+    "seen": 1787251174.414817,
     "ast_hash": "05d265a37dddcd3757f6314bed86c8c9",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/install/Resources/Icons/BannerImage.png": {
     "mtime": 1765293514.5351954,
-    "seen": 1787242363.4913647,
+    "seen": 1787251174.4148176,
     "ast_hash": "a613494a75431ab28d04816e2996aae2",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Resources/Icons/RibbonIcon16.png": {
     "mtime": 1765293514.5528326,
-    "seen": 1787242363.4913654,
+    "seen": 1787251174.4148183,
     "ast_hash": "2b4fc2605ad267c9cc5a73e33fa7c5bf",
     "semantic_hash": ""
   },
   "source/Sonny.RevitExtensions/source/Sonny.RevitExtensions/Resources/Icons/RibbonIcon32.png": {
     "mtime": 1765293514.5528326,
-    "seen": 1787242363.491366,
+    "seen": 1787251174.4148188,
     "ast_hash": "ed80090e59c9dc74cd70fbf483cf1783",
     "semantic_hash": ""
   },
   "source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.csproj": {
-    "mtime": 1787225237.9707727,
-    "seen": 1787242363.491196,
-    "ast_hash": "9453829b69ac3f6770cae328ccc3e633",
-    "semantic_hash": ""
-  },
-  "source/Sonny.Application.UnitTests/UnitTest1.cs": {
-    "mtime": 1787225238.6590118,
-    "seen": 1787242363.491197,
-    "ast_hash": "8f859b3b8913d18fe4b1d618b1d2ad9e",
+    "mtime": 1787245100.4280262,
+    "seen": 1787251174.41464,
+    "ast_hash": "4ddd58c014379c25c5501d0e4423a13c",
     "semantic_hash": ""
   },
   "docs/adr/README.md": {
-    "mtime": 1787226220.8266127,
-    "seen": 1787242363.4913352,
-    "ast_hash": "a82b8c2080a751f7e3881f0b6dc6abcd",
+    "mtime": 1787251079.5840707,
+    "seen": 1787251174.414789,
+    "ast_hash": "62300090e1f3964bd32fb22e142609c9",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/UseCases/ColumnFromCad/ColumnFromCadInteractorTests.cs": {
+    "mtime": 1787247618.1695235,
+    "seen": 1787251174.414642,
+    "ast_hash": "f7f3c8a248b441f73a345c642a87c6eb",
+    "semantic_hash": ""
+  },
+  "CONTEXT.md": {
+    "mtime": 1787247265.2324145,
+    "seen": 1787251174.4147842,
+    "ast_hash": "12fe42436ca1d32ce38c30adea65e4f5",
+    "semantic_hash": ""
+  },
+  "docs/adr/0001-decision-logic-lives-in-usecases.md": {
+    "mtime": 1787251131.524155,
+    "seen": 1787251174.414788,
+    "ast_hash": "14dd653e3b4fb3ffd8ace62e41d031b4",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.Domain/Entities/ColumnFromCad/ColumnShapeDetector.cs": {
+    "mtime": 1787248770.7885714,
+    "seen": 1787251174.4145274,
+    "ast_hash": "b6de4e67850916024004d85d299930c5",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/Domain/ColumnFromCad/ColumnShapeDetectorTests.cs": {
+    "mtime": 1787248795.5275788,
+    "seen": 1787251174.4146373,
+    "ast_hash": "ae976266842aafda69533f5fc645bc9d",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/Domain/ColumnFromCad/RectangularColumnModelFromCornersTests.cs": {
+    "mtime": 1787248723.1714714,
+    "seen": 1787251174.414639,
+    "ast_hash": "4f5129e2884ff856613d06e8761c83bc",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.Domain/Entities/ColumnFromCad/ColumnSymbolSizingPolicy.cs": {
+    "mtime": 1787249172.6487308,
+    "seen": 1787251174.414529,
+    "ast_hash": "c2fe768fa144bfe4cd643102a8da4628",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/Domain/ColumnFromCad/ColumnSymbolSizingPolicyTests.cs": {
+    "mtime": 1787249299.116087,
+    "seen": 1787251174.414638,
+    "ast_hash": "69c065e7f6fcac143eecc6a534ab1a8e",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/UseCases/AutoColumnDimension/AutoColumnDimensionInteractorTests.cs": {
+    "mtime": 1787249517.2744057,
+    "seen": 1787251174.4146407,
+    "ast_hash": "3286c5e2c9a92481acc0a5d24154a17f",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UnitTests/UseCases/AutoColumnDimension/ColumnDimensionPolicyTests.cs": {
+    "mtime": 1787249440.6634986,
+    "seen": 1787251174.4146414,
+    "ast_hash": "22bedac710c05f4cee17752b066a2631",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Implements/AutoColumnDimensionInteractor.cs": {
+    "mtime": 1787249471.5644174,
+    "seen": 1787251174.414643,
+    "ast_hash": "d60384cd33a5788e5f9c0ab9e3d08ebf",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Implements/ColumnDimensionPolicy.cs": {
+    "mtime": 1787249409.7811534,
+    "seen": 1787251174.4146438,
+    "ast_hash": "8badfdd4a0c1ae33d4f45b87f005817e",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/ActiveViewGeometry.cs": {
+    "mtime": 1787249381.586645,
+    "seen": 1787251174.4146442,
+    "ast_hash": "8a1699dd56df3b0802d9579e0be90383",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/ColumnDimensionPlan.cs": {
+    "mtime": 1787249379.2274163,
+    "seen": 1787251174.414645,
+    "ast_hash": "2ece947063b38266adb7efaae35f33f5",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/ColumnGeometryData.cs": {
+    "mtime": 1787249366.521708,
+    "seen": 1787251174.4146457,
+    "ast_hash": "b74e35f0a5ad94810ca822752e51aadb",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/DimensionAxisPlan.cs": {
+    "mtime": 1787249375.6972811,
+    "seen": 1787251174.4146464,
+    "ast_hash": "c084139073467495935fa8cfea77c0a8",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/GridCandidate.cs": {
+    "mtime": 1787249372.900493,
+    "seen": 1787251174.414647,
+    "ast_hash": "92910fb05544ffcb2ed4b9cf478f844d",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Models/ViewGeometryData.cs": {
+    "mtime": 1787249370.0538697,
+    "seen": 1787251174.4146478,
+    "ast_hash": "12e4b3b223097073855c9d20d5e2331e",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Services/IColumnGeometryReader.cs": {
+    "mtime": 1787249453.900725,
+    "seen": 1787251174.414649,
+    "ast_hash": "4b3b452ad15e96f85e627e36ba67cbcc",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.UseCases/AutoColumnDimension/Services/IDimensionPlanExecutor.cs": {
+    "mtime": 1787249458.2260725,
+    "seen": 1787251174.4146495,
+    "ast_hash": "8c48053421bd093129c29d8ffe32fee1",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/ColumnGeometryReader.cs": {
+    "mtime": 1787249609.9928298,
+    "seen": 1787251174.4145577,
+    "ast_hash": "a9d249bad0363e00a9e946d7a0a04f06",
+    "semantic_hash": ""
+  },
+  "source/Sonny.Application.Infrastructure/Features/AutoColumnDimension/Implements/DimensionPlanExecutor.cs": {
+    "mtime": 1787249620.4106917,
+    "seen": 1787251174.41456,
+    "ast_hash": "17c1e42e62d65b30c31211be2dd910c4",
+    "semantic_hash": ""
+  },
+  "scripts/Deploy-SonnyAddin.ps1": {
+    "mtime": 1787250913.617672,
+    "seen": 1787251174.4145246,
+    "ast_hash": "bb3dfd6365960674151ca68e4030d332",
+    "semantic_hash": ""
+  },
+  "scripts/Install-SonnyAddinManifests.ps1": {
+    "mtime": 1787250830.9002132,
+    "seen": 1787251174.4145257,
+    "ast_hash": "04376ad5a20f6cfc3cdc27f95baecf6b",
     "semantic_hash": ""
   }
 }
