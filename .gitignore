@@ -86,8 +86,15 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
-graphify-out/cost.json        # local only
-# graphify-out/cache/         # optional: commit for speed, skip to keep repo small
+
+#graphify: graph.json, wiki/ and manifest.json are committed on purpose (team map).
+# Git already versions the graph, so the dated snapshots and .backup-* dirs graphify
+# leaves behind are redundant, and .graphify_* are pipeline intermediates / local paths.
+graphify-out/cost.json
+graphify-out/20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+graphify-out/.backup-*/
+graphify-out/.graphify_*
+# graphify-out/cache/    -- optional: commit for speed, skip to keep repo small
 
 #CodeGraph local index (rebuilt from source, never commit)
 .codegraph/
@@ -97,4 +104,9 @@ graphify-out/cost.json        # local only
 .codex/goals/
 .local/
 ACTIVE_GOAL_STATE.md
-.mcp.json                     # machine-specific absolute paths to the loopx MCP venv
+
+#Machine-specific absolute paths to the loopx MCP venv
+.mcp.json
+
+#Claude Code agent worktrees (full repo clones, ~1GB)
+.claude/worktrees/
