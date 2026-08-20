@@ -1,5 +1,7 @@
+using Sonny.Application.Domain.Entities.ColumnFromCad ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Models ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Services ;
+using Sonny.Application.Infrastructure.Revit.Services ;
 using Sonny.RevitExtensions.Extensions ;
 using Sonny.RevitExtensions.Extensions.CurveLoops ;
 using Sonny.RevitExtensions.Extensions.Elements ;
@@ -9,10 +11,10 @@ using Sonny.RevitExtensions.Extensions.GeometryObjects.Solids ;
 
 namespace Sonny.Application.Infrastructure.Features.ColumnFromCad.Implements ;
 
-public class CircularColumnExtractor(IColumnModelFactory columnModelFactory) : ICircularColumnExtractor
+public class CircularColumnExtractor(
+    IColumnModelFactory columnModelFactory,
+    IPoint3DConverter point3DConverter) : ICircularColumnExtractor
 {
-    private const double Tolerance = 1e-4 ;
-
     public List<CircularColumnModel> ExtractFromBoundaryLines(ImportInstance cadInstance,
         string selectedLayer)
     {
@@ -49,32 +51,19 @@ public class CircularColumnExtractor(IColumnModelFactory columnModelFactory) : I
             var curves = curveLoop.GetCurves()
                 .ToList() ;
 
-            // Skip rectangular (4 curves)
-            if (curves.Count == 4) {
+            // Skip rectangular loops before tessellating anything
+            if (ColumnShapeDetector.IsRectangleLoop(curves.Count)) {
                 continue ;
             }
 
-            // Try to detect circular column
+            // Mechanism: tessellate the loop to points; the circle decision is Domain's
             var points = curves.GetXYZPoints()
+                .Select(point3DConverter.FromXyz)
                 .ToList() ;
-            if (points.Count >= 3) {
-                var arc = Arc.Create(points[1],
-                    points[3],
-                    points[2]) ;
-                var arcCenter = arc.Center ;
 
-                var first = points.First() ;
-                var distanceTo = first.DistanceTo(arcCenter) ;
-
-                var allPointsSameDistance = points.All(x =>
-                {
-                    var abs = Math.Abs(x.DistanceTo(arcCenter) - distanceTo) ;
-                    return abs < Tolerance ;
-                }) ;
-
-                if (allPointsSameDistance) {
-                    columns.Add(columnModelFactory.CreateCircular(arc)) ;
-                }
+            if (ColumnShapeDetector.TryDetectCircle(curves.Count,
+                    points) is { } circularColumnModel) {
+                columns.Add(circularColumnModel) ;
             }
         }
 
