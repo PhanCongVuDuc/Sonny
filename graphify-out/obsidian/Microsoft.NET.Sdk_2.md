@@ -1,0 +1,13 @@
+---
+source_file: "source/Sonny.RevitExtensions/install/Installer.csproj"
+type: "concept"
+community: "RevitExtensions Installer Project"
+tags:
+  - graphify/concept
+  - graphify/EXTRACTED
+  - community/RevitExtensions_Installer_Project
+---
+
+# Microsoft.NET.Sdk
+
+#graphify/concept #graphify/EXTRACTED #community/RevitExtensions_Installer_Project

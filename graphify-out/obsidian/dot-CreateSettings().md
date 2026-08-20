@@ -1,0 +1,14 @@
+---
+source_file: "source/Sonny.Application.Presentation/Bases/BaseViewModelWithSettings.cs"
+type: "code"
+community: "ColumnFromCad ViewModel & Settings"
+location: "L49"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/ColumnFromCad_ViewModel__Settings
+---
+
+# .CreateSettings()
+
+#graphify/code #graphify/EXTRACTED #community/ColumnFromCad_ViewModel__Settings

@@ -1,0 +1,14 @@
+---
+source_file: "source/Sonny.Application.Tests/Utils/EnumHelper.cs"
+type: "code"
+community: "Language Option Tests"
+location: "L3"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Language_Option_Tests
+---
+
+# Sonny.Application.Tests.Utils
+
+#graphify/code #graphify/EXTRACTED #community/Language_Option_Tests

@@ -1,0 +1,17 @@
+---
+source_file: "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Modules/ModuleRegistry.cs"
+type: "code"
+community: "Application Module System"
+location: "L33"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Application_Module_System
+---
+
+# .InitializeAll()
+
+## Connections
+- [[UIControlledApplication_2]] - `references` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Application_Module_System

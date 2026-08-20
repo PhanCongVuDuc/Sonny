@@ -1,0 +1,13 @@
+---
+source_file: "source/Sonny.EasyRibbon/Sonny.EasyRibbon/Sonny.EasyRibbon.csproj"
+type: "concept"
+community: "EasyRibbon Project Files"
+tags:
+  - graphify/concept
+  - graphify/EXTRACTED
+  - community/EasyRibbon_Project_Files
+---
+
+# Microsoft.NET.Sdk
+
+#graphify/concept #graphify/EXTRACTED #community/EasyRibbon_Project_Files

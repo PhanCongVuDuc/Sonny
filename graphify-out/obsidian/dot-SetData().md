@@ -1,0 +1,14 @@
+---
+source_file: "source/Sonny.EasyRibbon/Sonny.EasyRibbon/UIAttributeBase/PanelAttribute.cs"
+type: "code"
+community: "EasyRibbon UI Attributes"
+location: "L10"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/EasyRibbon_UI_Attributes
+---
+
+# .SetData()
+
+#graphify/code #graphify/EXTRACTED #community/EasyRibbon_UI_Attributes
