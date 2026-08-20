@@ -4,9 +4,8 @@ using NSubstitute ;
 using NUnit.Framework ;
 using Serilog ;
 using Sonny.Application.Domain.Services ;
-using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements ;
-using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Services ;
 using Sonny.Application.Infrastructure.Revit.Services ;
+using Sonny.Application.UseCases.AutoColumnDimension.Implements ;
 using Sonny.Application.UseCases.AutoColumnDimension.Services ;
 
 namespace Sonny.Application.Tests.Features.AutoColumnDimension.IntegrationTests ;
@@ -40,14 +39,15 @@ public class AutoColumnDimensionIntegrationTest : SonnyDocumentTestBase
         // Get Revit Document Service from DI container
         _revitDocumentService = Host.GetService<IRevitDocument>() ;
 
-        // Create interactor with mock MessageService using NSubstitute to avoid showing dialogs in tests
+        // Create interactor with mock MessageService using NSubstitute to avoid showing dialogs in tests.
+        // Wiring only — the interactor moved to UseCases behind IColumnGeometryReader /
+        // IDimensionPlanExecutor (ADR 0001); every assertion below is unchanged.
         var mockMessageService = Substitute.For<IMessageService>() ;
         var logger = Host.GetService<ILogger>() ;
-        var autoColumnDimensionService = Host.GetService<IAutoColumnDimension>() ;
-        _handler = new AutoColumnDimensionInteractor(_revitDocumentService,
+        _handler = new AutoColumnDimensionInteractor(Host.GetService<IColumnGeometryReader>(),
+            Host.GetService<IDimensionPlanExecutor>(),
             mockMessageService,
             logger,
-            autoColumnDimensionService,
             Host.GetService<IResourceHelper>(),
             Host.GetService<ITransactionManagerFactory>()) ;
     }

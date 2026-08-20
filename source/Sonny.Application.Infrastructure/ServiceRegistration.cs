@@ -48,9 +48,10 @@ public static class ServiceRegistration
         // Deliberately not a singleton: it owns no data worth sharing, and a fresh instance per
         // resolve means any per-run state added here later is cleared instead of leaking between runs.
         // Caveat: that only holds for consumers resolved per run. Singleton consumers
-        // (ColumnDataExtractor, ElementSelector, ColumnCreationStrategyFactory, AutoColumnDimensionInteractor)
-        // resolve this once and keep that instance for the whole Revit session, so RevitDocument itself
-        // must read through the provider on every call and never cache the UIDocument.
+        // (ColumnDataExtractor, ElementSelector, ColumnCreationStrategyFactory, ColumnGeometryReader,
+        // DimensionPlanExecutor) resolve this once and keep that instance for the whole Revit session,
+        // so RevitDocument itself must read through the provider on every call and never cache the
+        // UIDocument.
         services.AddTransient<IRevitDocument, RevitDocument>() ;
 
         services.AddSingleton<ITransactionManagerFactory, TransactionManagerFactory>() ;
@@ -107,13 +108,16 @@ public static class ServiceRegistration
     }
 
     /// <summary>
-    ///     Adds the grid and dimension services for the AutoColumnDimension feature
+    ///     Adds the Revit adapters for the AutoColumnDimension feature: the geometry reader and
+    ///     plan executor behind the UseCases ports, and the dimension creator they drive
     /// </summary>
     private static void AddAutoColumnDimensionServices(this IServiceCollection services)
     {
-        services.AddSingleton<IGridFinder, GridFinder>() ;
         services.AddSingleton<IDimensionCreator, DimensionCreator>() ;
-        services.AddSingleton<IAutoColumnDimension, AutoColumnDimension>() ;
-        services.AddSingleton<IAutoColumnDimensionInteractor, AutoColumnDimensionInteractor>() ;
+
+        // Stateless adapters: they read through IRevitDocument on every call and never cache
+        // the view, so they are safe as singletons (see the UIDocument lifetime rule)
+        services.AddSingleton<IColumnGeometryReader, ColumnGeometryReader>() ;
+        services.AddSingleton<IDimensionPlanExecutor, DimensionPlanExecutor>() ;
     }
 }
