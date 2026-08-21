@@ -1,68 +1,68 @@
-# Revit-free unit tests live in `Sonny.Application.UnitTests`, not in `Sonny.Application.Tests`
+# A test project is chosen by what the test needs, not by what it is named
 
-**BẢN NHÁP — refactor đang chạy.** `## Decisions
+`Sonny.Application.Tests` launches a real Revit process for every run. It also held five fixtures filed
+under `Core/UnitTests` and `ResourceManager/UnitTests`, named and foldered as if they were plain unit
+tests. Only three of them actually were, so those three moved to `Sonny.Application.UnitTests`, one was
+deleted, and the last stayed where it was under a folder name that admits what it needs.
 
-Chốt ở vòng grill 1 (người dùng quyết định):
+## What each of the five turned out to be
 
-| # | Quyết định | Lý do |
+| Fixture | What it really depends on | Outcome |
 |---|---|---|
-| D1 | **Chỉ 3 file `ResourceManager/UnitTests` được move.** Không thêm `ProjectReference` nào vào `Sonny.Application.UnitTests` | Giữ nguyên tính chất Revit-free mà comment trong `Sonny.Application.UnitTests.csproj` đang khẳng định. Kéo `Infrastructure` vào là kéo `Nice3point.Revit.Api.RevitAPI` vào |
-| D2 | **`SettingsServiceLanguageTests` bị xoá**, không move | Nó ghi và xoá state toàn cục của máy (`%APPDATA%\Sonny\SonnySettings.json`) vì `SettingsService` hard-code đường dẫn, không có seam để cô lập. Phần lớn assert chỉ kiểm tra getter/setter. Ghi lại thành gap trong `test-safety-net.md` |
-| D3 | **`UnitConverterTests` ở lại `Sonny.Application.Tests`**, chuyển từ `Core/UnitTests/Services/` sang `Core/RevitApiTests/` | `UnitConverter` gọi `ForgeTypeId`/`UnitTypeId`/`UnitUtils` — nó thật sự cần Revit API. Tên thư mục cũ nói sai sự thật. Không đụng vào code sản phẩm |
-| D4 | **Assert viết lại theo constraint model `Assert.That(x, Is.EqualTo(y))`** | `Sonny.Application.UnitTests` dùng NUnit 4.2.2 + `NUnit.Analyzers`; classic assert đã dời sang `NUnit.Framework.Legacy.ClassicAssert`. Constraint model khớp phong cách 6 file test đã có ở đó, không để lại nợ legacy |
-| D5 | **`Tests/Utils/EnumHelper` được copy sang `UnitTests/Utils/`, bản cũ bị xoá** *(quyết định thường lệ, không hỏi)* | Sau D1 + D2 không còn ai trong `Sonny.Application.Tests` dùng nó. `Sonny.Application.UnitTests` build cả net48 (R21–R24) nên vẫn cần `#if NETCOREAPP` của helper, không thay bằng `Enum.GetValues<T>()` được |
+| `CultureChangedEventArgsTests` | `Sonny.ResourceManager` | Moved to `Sonny.Application.UnitTests/ResourceManager/` |
+| `LanguageCodeExtensionsTests` | `Sonny.ResourceManager` | Moved to `Sonny.Application.UnitTests/ResourceManager/` |
+| `LanguageOptionTests` | `Domain.Entities.Settings`, `UseCases.Settings.Models` | Moved to `Sonny.Application.UnitTests/UseCases/Settings/` |
+| `SettingsServiceLanguageTests` | `Infrastructure` — and the real `%APPDATA%\Sonny\SonnySettings.json` | **Deleted** |
+| `UnitConverterTests` | The Revit API: `ForgeTypeId`, `UnitTypeId`, `UnitUtils.Convert` | Stayed; folder renamed `Core/UnitTests/Services` → `Core/RevitApiTests` |
 
-D4 là **retarget wiring, không phải đổi assertion**: mỗi `Assert.AreEqual(a, b)` thành `Assert.That(b, Is.EqualTo(a))`, `Assert.IsTrue(x)` thành `Assert.That(x, Is.True)`, `Assert.IsNull/IsNotNull` thành `Is.Null`/`Is.Not.Null`. Giá trị kỳ vọng không đổi một chữ. Đây đúng loại "test không còn compile vì bám vào chi tiết implementation" mà `test-safety-net.md` cho phép, với điều kiện ghi vào ADR — dòng này là bản ghi đó.
+`UnitConverterTests` is the reason this ADR exists. It tests one small class with no Revit type in its own
+signature, so it looks Revit-free; it passes only because it runs inside a Revit process. Anyone reading
+the folder name would move it and watch it fail.
 
-## Lưới an toàn (baseline — bước 2)
+`SettingsServiceLanguageTests` was deleted rather than moved. `SettingsService` builds its file path in its
+constructor with no seam, so the nine tests drove the developer's real settings file — order-coupled with
+each other and destructive to whatever language the developer had picked — while asserting little beyond
+getter/setter round-tripping. The coverage it never really provided is recorded as a gap in
+[`test-safety-net.md`](../architecture/test-safety-net.md).
 
-Refactor này **không chạm code sản phẩm**. Thứ phải giữ nguyên là: cùng một tập assert, cùng kết quả.
+## Phương án đã loại
 
-| Cái gì | Lưới an toàn | Trạng thái baseline |
-|---|---|---|
-| 6 file test sẵn có trong `Sonny.Application.UnitTests` | Chính chúng | ✅ 46 passed / 0 failed, 530 ms (`dotnet test … -c "Debug R25"`) |
-| 3 file sắp move | Chính chúng, chạy ở nhà cũ trước khi move | ❌ **KHÔNG KIỂM CHỨNG ĐƯỢC** — xem bên dưới |
-| `UnitConverterTests` (chỉ đổi namespace) | Chính nó | ❌ **KHÔNG KIỂM CHỨNG ĐƯỢC** — xem bên dưới |
-| `SettingsServiceLanguageTests` (sắp xoá) | — | Cố tình đi **không có lưới**: đây là xoá, không phải move. Hành vi bị mất là chủ đích của D2 |
-| `AutoColumnDimensionIntegrationTest`, `ColumnFromCadIntegrationTest` | Không bị chạm — refactor không đụng file nào chúng bind vào | Không cần chạy lại |
+**Add a `ProjectReference` to `Infrastructure` and move all five.** `Infrastructure` references
+`Nice3point.Revit.Api.RevitAPI`, so this would pull the Revit API into the project whose entire premise is
+that it has no Revit dependency and finishes in seconds. The comment at the top of
+`Sonny.Application.UnitTests.csproj` states that premise; this option would have made it false.
 
-Không có characterization test nào phải viết mới: mọi thứ bị chạm **đã là** test.
+**Move `SettingsService` itself out of `Infrastructure` first.** It is genuinely misplaced — pure .NET
+sitting in the Revit layer. But that move touches the composition root and `ServiceRegistration`, which is
+a different change with a different blast radius, and it should not ride along inside a test reorganisation.
 
-### Baseline trong Revit host: thất bại
+**Extract the non-Revit part of `UnitConverter`.** `GetUnitDisplayName` is a `switch` over strings, but the
+strings come from `ForgeTypeId.TypeId`. Splitting it means changing product code to suit a test's filing
+location, which is the wrong direction of causation.
 
-```
-dotnet test source/Sonny.Application.Tests/... -c "Debug R25"   --filter "FullyQualifiedName~Sonny.Application.Tests.ResourceManager.UnitTests|FullyQualifiedName~Sonny.Application.Tests.Core.UnitTests"
+## Consequences
 
-Failed! - Failed: 40, Passed: 0, Skipped: 0, Total: 40
-Mỗi test: "RevitTest: Timeout 10 minutes."
-```
+**The two projects speak different assertion dialects.** `Sonny.Application.Tests` is on NUnit 3, where
+`Assert.AreEqual` is fine. `Sonny.Application.UnitTests` is on NUnit 4, where the classic asserts moved to
+`NUnit.Framework.Legacy.ClassicAssert`. Every fixture that crosses this boundary must be rewritten to the
+constraint model — `Assert.That(actual, Is.EqualTo(expected))`. That is a mechanical retarget with the
+expected values untouched, and it is the kind of implementation-detail rebinding that
+[`test-safety-net.md`](../architecture/test-safety-net.md) allows on condition it is recorded here.
 
-Cả 40 test đỏ với **cùng một** lý do: `ricaun.RevitTest.TestAdapter` chờ Revit 2025 khởi động 10 phút rồi
-bỏ cuộc. Không còn process `Revit.exe` nào sau khi chạy. Đây **không phải** hành vi của code — không một
-assert nào được thực thi.
+**NUnit 4's analyzers reject assertions NUnit 3 tolerated.** `LanguageOptionTests.Properties_ShouldBeReadOnly`
+asserted that an `AppLanguageCode` is not null. An enum never is, so the assert could not fail; NUnit 4
+raises `NUnit2023` as an error and refuses to compile. It was dropped rather than replaced — removing an
+always-true assertion cannot change a test's outcome — with a comment in place so it is not re-added.
+Expect more of these when other fixtures cross over.
 
-Hệ quả cho refactor:
+**`UnitConverterTests` could not be verified after its move.** On the machine where this refactor was done,
+`ricaun.RevitTest.TestAdapter` never got a Revit process up: every test failed with
+`RevitTest: Timeout 10 minutes`, and even `--list-tests` returned nothing. That was equally true *before*
+the move, so it is an environment limit rather than a regression, and the change to that file is a
+namespace rename the compiler checks. It still means the gate for this refactor reads **pass for the
+Revit-free project, not-verifiable for the Revit one** — the two are not the same result and should not be
+reported as one.
 
-- Baseline cho 3 file sắp move: **không kiểm chứng được**. Chúng được move dựa trên việc đọc code — cả ba
-  chỉ chạm `Sonny.ResourceManager`, `Domain.Entities.Settings`, `UseCases.Settings.Models`, không có một
-  API Revit nào.
-- Bù lại, đúng nhà mới thì chúng chạy được: `Sonny.Application.UnitTests` xanh trong 530 ms mà không cần
-  Revit. **Kết quả baseline này chính là bằng chứng mạnh nhất cho D1** — ở nhà cũ, ba test Revit-free đang
-  bị bắt làm con tin bởi một lần khởi động Revit, và trên máy này chúng thực tế **không chạy được**.
-- `UnitConverterTests` (task 7, chỉ đổi namespace): cũng không kiểm chứng được ở đây. Đổi namespace là
-  thay đổi mà compiler kiểm hộ; nhưng gate ở bước 8 phải ghi rõ là **không kiểm chứng được**, không được
-  ghi là pass.
-
-## Plan
-
-Một move một commit. Mỗi bước tự đứng được: sau bước nào cả hai project cũng phải build.
-
-- [x] **1 — Thêm `EnumHelper` vào project Revit-free.** Tạo `source/Sonny.Application.UnitTests/Utils/EnumHelper.cs`, namespace `Sonny.Application.UnitTests.Utils`, nội dung y hệt bản trong `Sonny.Application.Tests/Utils/EnumHelper.cs` (giữ nguyên `#if NETCOREAPP`). Chưa xoá bản cũ. Không test mới — helper được 2 test ở bước 3 và 4 dùng. *(D5)*
-- [x] **2 — Move `CultureChangedEventArgsTests`.** `Sonny.Application.Tests/ResourceManager/UnitTests/` → `Sonny.Application.UnitTests/ResourceManager/`, namespace `Sonny.Application.UnitTests.ResourceManager`. Đổi 9 assert sang `Assert.That`. Xoá file cũ trong cùng commit. *(D1, D4)*
-- [x] **3 — Move `LanguageCodeExtensionsTests`.** Cùng thư mục đích, namespace `Sonny.Application.UnitTests.ResourceManager`, `using Sonny.Application.UnitTests.Utils` cho `EnumHelper`. Đổi ~30 assert sang `Assert.That`. Xoá file cũ. *(D1, D4, D5)*
-- [x] **4 — Move `LanguageOptionTests`.** → `Sonny.Application.UnitTests/UseCases/Settings/`, namespace `Sonny.Application.UnitTests.UseCases.Settings` (khớp quy ước thư mục theo layer đang có: `Domain/ColumnFromCad`, `UseCases/AutoColumnDimension`). Đổi ~14 assert. Xoá file cũ. *(D1, D4, D5)*
-- [ ] **5 — Xoá `Core/UnitTests/Services/SettingsServiceLanguageTests.cs`.** Không thay thế. *(D2)*
-- [ ] **6 — Xoá `Sonny.Application.Tests/Utils/EnumHelper.cs`.** Sau bước 3–5 không còn ai trong project đó dùng — kiểm chứng bằng `grep -rn EnumHelper source/Sonny.Application.Tests`. *(D5)*
-- [ ] **7 — Đổi chỗ `UnitConverterTests`.** `Core/UnitTests/Services/` → `Core/RevitApiTests/`, namespace `Sonny.Application.Tests.Core.RevitApiTests`. **Không đổi một assert nào** — file này ở lại NUnit 3, `Assert.AreEqual` vẫn hợp lệ. Thư mục `Core/UnitTests` trống và biến mất. *(D3)*
-- [ ] **8 — Gate (bước 5).** `dotnet test source/Sonny.Application.UnitTests/... -c "Debug R25"` phải ra **46 + 3 file mới**; `dotnet test source/Sonny.Application.Tests/... -c "Debug R25" --filter "FullyQualifiedName~Core.RevitApiTests"` phải xanh. So sánh từng tên test với baseline: tập test chỉ được **mất đúng những test của `SettingsServiceLanguageTests`**, không mất gì khác.
-- [ ] **9 — sync-docs (bước 6).** `CLAUDE.md:47` (câu khẳng định `Core/UnitTests` và `ResourceManager/UnitTests` không cần Revit — sau refactor sai hai lần); `docs/architecture/test-safety-net.md` (thêm dòng inventory cho `UnitConverterTests`, ghi gap do D2 để lại); kiểm identifier bị xoá còn sót trong `docs/**`, `CLAUDE.md`, `CONTEXT.md`; xoá `## Decisions` và `## Plan` khỏi ADR này.
+**The move made the Revit-free three actually runnable.** In their old home they were hostage to a Revit
+launch that does not happen on every machine. In `Sonny.Application.UnitTests` they run in 255 ms with the
+other 46. That, more than tidiness, is what the move bought.
