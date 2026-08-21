@@ -46,6 +46,11 @@ Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
 Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests` use NUnit + NSubstitute and need no Revit document.
 
+Before moving, renaming or deleting a type, read
+[`docs/architecture/test-safety-net.md`](docs/architecture/test-safety-net.md) — it inventories which
+tests bind to implementation details (hand-constructed interactors, direct method pairs, exact-equality
+floats) and the rule for retargeting them. Update it in the same change that moves the type.
+
 Revit-free unit tests live in `source/Sonny.Application.UnitTests` (NUnit 4 + NSubstitute, references
 Domain + UseCases + ResourceManager only, full R21–R26 matrix — net48 for R21–R24, net8.0-windows for
 R25/R26 — finishes in seconds without launching Revit):
