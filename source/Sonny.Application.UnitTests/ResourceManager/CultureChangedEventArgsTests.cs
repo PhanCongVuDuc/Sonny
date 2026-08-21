@@ -1,8 +1,7 @@
 using System.Globalization ;
-using NUnit.Framework ;
 using Sonny.ResourceManager ;
 
-namespace Sonny.Application.Tests.ResourceManager.UnitTests ;
+namespace Sonny.Application.UnitTests.ResourceManager ;
 
 /// <summary>
 ///     Unit tests for CultureChangedEventArgs
@@ -20,8 +19,8 @@ public class CultureChangedEventArgsTests
         var args = new CultureChangedEventArgs(culture) ;
 
         // Assert
-        Assert.AreEqual(culture,
-            args.Culture) ;
+        Assert.That(args.Culture,
+            Is.EqualTo(culture)) ;
     }
 
     [Test]
@@ -34,10 +33,13 @@ public class CultureChangedEventArgsTests
         var args = new CultureChangedEventArgs(culture) ;
 
         // Assert
-        Assert.AreEqual(culture,
-            args.Culture) ;
-        Assert.AreEqual("en",
-            args.Culture.TwoLetterISOLanguageName) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(args.Culture,
+                Is.EqualTo(culture)) ;
+            Assert.That(args.Culture.TwoLetterISOLanguageName,
+                Is.EqualTo("en")) ;
+        }) ;
     }
 
     [Test]
@@ -50,10 +52,13 @@ public class CultureChangedEventArgsTests
         var args = new CultureChangedEventArgs(culture) ;
 
         // Assert
-        Assert.AreEqual(culture,
-            args.Culture) ;
-        Assert.AreEqual("vi",
-            args.Culture.TwoLetterISOLanguageName) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(args.Culture,
+                Is.EqualTo(culture)) ;
+            Assert.That(args.Culture.TwoLetterISOLanguageName,
+                Is.EqualTo("vi")) ;
+        }) ;
     }
 
     [Test]
@@ -66,10 +71,13 @@ public class CultureChangedEventArgsTests
         var args = new CultureChangedEventArgs(culture) ;
 
         // Assert
-        Assert.AreEqual(culture,
-            args.Culture) ;
-        Assert.AreEqual("ja",
-            args.Culture.TwoLetterISOLanguageName) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(args.Culture,
+                Is.EqualTo(culture)) ;
+            Assert.That(args.Culture.TwoLetterISOLanguageName,
+                Is.EqualTo("ja")) ;
+        }) ;
     }
 
     [Test]
@@ -81,9 +89,13 @@ public class CultureChangedEventArgsTests
 
         // Act & Assert
         // Culture property should be get-only
-        Assert.IsNotNull(args.Culture) ;
-        Assert.AreEqual(culture,
-            args.Culture) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(args.Culture,
+                Is.Not.Null) ;
+            Assert.That(args.Culture,
+                Is.EqualTo(culture)) ;
+        }) ;
     }
 
     [Test]
@@ -96,7 +108,7 @@ public class CultureChangedEventArgsTests
         var args = new CultureChangedEventArgs(culture) ;
 
         // Assert
-        Assert.AreEqual(culture,
-            args.Culture) ;
+        Assert.That(args.Culture,
+            Is.EqualTo(culture)) ;
     }
 }
