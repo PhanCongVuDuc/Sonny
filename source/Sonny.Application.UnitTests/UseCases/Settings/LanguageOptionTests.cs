@@ -1,10 +1,8 @@
-using System ;
-using NUnit.Framework ;
 using Sonny.Application.Domain.Entities.Settings ;
-using Sonny.Application.Tests.Utils ;
+using Sonny.Application.UnitTests.Utils ;
 using Sonny.Application.UseCases.Settings.Models ;
 
-namespace Sonny.Application.Tests.ResourceManager.UnitTests ;
+namespace Sonny.Application.UnitTests.UseCases.Settings ;
 
 /// <summary>
 ///     Unit tests for LanguageOption
@@ -24,10 +22,13 @@ public class LanguageOptionTests
             languageCode) ;
 
         // Assert
-        Assert.AreEqual(displayName,
-            option.DisplayName) ;
-        Assert.AreEqual(languageCode,
-            option.LanguageCode) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(option.DisplayName,
+                Is.EqualTo(displayName)) ;
+            Assert.That(option.LanguageCode,
+                Is.EqualTo(languageCode)) ;
+        }) ;
     }
 
     [Test]
@@ -42,10 +43,13 @@ public class LanguageOptionTests
             languageCode) ;
 
         // Assert
-        Assert.AreEqual(string.Empty,
-            option.DisplayName) ;
-        Assert.AreEqual(AppLanguageCode.En,
-            option.LanguageCode) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(option.DisplayName,
+                Is.EqualTo(string.Empty)) ;
+            Assert.That(option.LanguageCode,
+                Is.EqualTo(AppLanguageCode.En)) ;
+        }) ;
     }
 
     [Test]
@@ -60,9 +64,13 @@ public class LanguageOptionTests
             languageCode) ;
 
         // Assert
-        Assert.IsNull(option.DisplayName) ;
-        Assert.AreEqual(AppLanguageCode.Vi,
-            option.LanguageCode) ;
+        Assert.Multiple(() =>
+        {
+            Assert.That(option.DisplayName,
+                Is.Null) ;
+            Assert.That(option.LanguageCode,
+                Is.EqualTo(AppLanguageCode.Vi)) ;
+        }) ;
     }
 
     [Test]
@@ -78,8 +86,8 @@ public class LanguageOptionTests
         var result = option.ToString() ;
 
         // Assert
-        Assert.AreEqual(displayName,
-            result) ;
+        Assert.That(result,
+            Is.EqualTo(displayName)) ;
     }
 
     [Test]
@@ -93,8 +101,8 @@ public class LanguageOptionTests
         var result = option.ToString() ;
 
         // Assert
-        Assert.AreEqual(string.Empty,
-            result) ;
+        Assert.That(result,
+            Is.EqualTo(string.Empty)) ;
     }
 
     [Test]
@@ -106,9 +114,11 @@ public class LanguageOptionTests
 
         // Act & Assert
         // Properties should be get-only, so we can't set them
-        // This test verifies the properties exist and are accessible
-        Assert.IsNotNull(option.DisplayName) ;
-        Assert.IsNotNull(option.LanguageCode) ;
+        // This test verifies the properties exist and are accessible.
+        // The original also asserted LanguageCode is not null; AppLanguageCode is an enum, so that
+        // assert could never fail and NUnit 4's analyzer rejects it (NUnit2023). Dropped, not replaced.
+        Assert.That(option.DisplayName,
+            Is.Not.Null) ;
     }
 
     [Test]
@@ -122,10 +132,10 @@ public class LanguageOptionTests
             var option = new LanguageOption(displayName,
                 code) ;
 
-            Assert.AreEqual(displayName,
-                option.DisplayName) ;
-            Assert.AreEqual(code,
-                option.LanguageCode) ;
+            Assert.That(option.DisplayName,
+                Is.EqualTo(displayName)) ;
+            Assert.That(option.LanguageCode,
+                Is.EqualTo(code)) ;
         }
     }
 }
