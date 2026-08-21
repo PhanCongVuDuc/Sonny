@@ -47,8 +47,8 @@ element counts against hard-coded `UniqueId`s — they are pinned to those speci
 Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests` use NUnit + NSubstitute and need no Revit document.
 
 Revit-free unit tests live in `source/Sonny.Application.UnitTests` (NUnit 4 + NSubstitute, references
-Domain + UseCases + ResourceManager only, R25/R26 configurations, finishes in seconds without launching
-Revit):
+Domain + UseCases + ResourceManager only, full R21–R26 matrix — net48 for R21–R24, net8.0-windows for
+R25/R26 — finishes in seconds without launching Revit):
 
 ```powershell
 dotnet test source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.csproj -c "Debug R25"
