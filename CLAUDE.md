@@ -44,7 +44,9 @@ dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "De
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
-Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests` use NUnit + NSubstitute and need no Revit document.
+Everything left in this project needs the Revit process, including `Core/RevitApiTests` — `UnitConverter`
+maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not Revit-free despite testing one
+plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.
 
 Before moving, renaming or deleting a type, read
 [`docs/architecture/test-safety-net.md`](docs/architecture/test-safety-net.md) — it inventories which
