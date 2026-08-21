@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2455 nodes · 3896 edges · 187 communities (155 shown, 32 thin omitted)
+- 2450 nodes · 3885 edges · 204 communities (163 shown, 41 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 177 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dcdbd503`
+- Built from commit: `0368695d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,7 @@
 - Clean Architecture
 - Sonny.Application.Domain.Services
 - CurveExtensions
-- Sonny.EasyRibbon.Example
+- Sonny.EasyRibbon.Example.Commands
 - ColumnModel
 - ColumnFromCadInteractorTests
 - LicenseFileService
@@ -32,12 +32,12 @@
 - Panel: General
 - ColumnCreationContext
 - ElementCurveExtensions
-- TransactionManager.cs
+- Sonny.Application.Domain.Exceptions
 - XYZVectorExtensions
 - RectangularColumnModel
-- KeygenAuthService
+- Sonny.Keygen.Models
 - ElementParameterExtensions
-- ModuleRegistry
+- IApplicationModule
 - SonnyRevitTestBase
 - Sonny.EasyRibbon.Extensions
 - Sonny.Keygen
@@ -47,7 +47,7 @@
 - Window
 - IElementSelector
 - UnitConverterTests
-- BaseExternalCommand
+- Sonny.ResourceManager
 - BaseViewModel
 - Sonny.EasyRibbon
 - LicenseStatus
@@ -60,45 +60,45 @@
 - LanguageCode
 - SettingsViewModel
 - What You Must Do When Invoked
-- SettingsServiceLanguageTests
+- SettingsService
 - LoginOrchestrator
 - Quantity Survey Panel
 - AuthService
 - Sonny.ResourceManager.csproj
 - .GetSolids
 - .InvokeAsync
-- .TryAutoLoginAsync
+- LanguageCodeExtensionsTests
 - IMessageService
 - .GetAllElements
 - FaceExtensions
 - Sonny.Application.Domain.Entities.ColumnFromCad.Models
-- Sonny.Keygen.Test.Net48/MainWindow.xaml.cs
+- ResourceRegistry
 - Sonny.Application.csproj
-- ColumnFromCadCommand.cs
-- LanguageCodeExtensionsTests
-- Sonny.Application.UseCases.Services
-- SonnyModule
+- AppDisplayUnit
+- LanguageOptionTests
+- Host.cs
+- SonnyApp.cs
 - IViewScaleProvider
 - XYZGeometryExtensions
 - ElementIdExtensions
-- ViewWrapperBase
+- PlanarFaceExtensions
 - .IsBuiltInCategory
 - Sonny.Application.Infrastructure.csproj
 - Point3D
 - ElementQuery
-- Sonny.sln
+- Sonny.RevitExtensions.csproj
 - .GetPlanarFaces
-- Sonny.Application.UnitTests.csproj
+- Sonny.sln
 - .GetAllTypeParameters
 - Sonny.Application.Presentation.csproj
-- Sonny.Application.Domain
+- IRevitDocument
 - .GetCylindricalFaces
-- SonnyTab.cs
-- Window
+- ViewWrapperBase
+- .DimensionByDirection
 - KeygenConfigBuilder
-- SonnyPannel2
+- SonnyTab2.cs
 - TypeSelectionFilter
-- MachineFingerprintService
+- .TryAutoLoginAsync
 - Sonny.Application.Tests.csproj
 - DialogExtension.cs
 - UIDocumentProvider
@@ -111,35 +111,45 @@
 - CircularColumnModel
 - ReferenceExtensions.cs
 - CadLinkSelector
+- .LoadResource
 - Sonny Tab (Revit ribbon tab)
 - ExampleModule
 - XYZDistanceExtensions
+- ElementWrapperBase
+- Host
 - LoggerConfiguration
-- AppDisplayUnit
+- AppLanguageCode
+- .Log
 - ServiceRegistration
 - graphify reference: extra exports and benchmark
+- CultureChangedEventArgsTests
 - .GetSolids
 - Develop branch
 - ParallelXyzEqualityComparer
+- ResourceDictionaryManager
 - IRevitTaskRunner
-- SonnyPannel1
+- UIStyleManager
+- AutoColumnDimensionIntegrationTest
 - .CreateUri
 - .AddStackedItemsMixed
 - .IsBuiltInCategory
 - StringExtension.cs
-- SonnyPulldownButton4
+- SonnyTab4.cs
 - Revit R Gear Processor
 - Sonny.Application.UIStyle.csproj
 - TypeExtension
 - UIControlledApplicationExtension
 - ITransactionManager
 - .GetCurves
+- .DimensionByDirection
+- .AutoColumnDimension_IntegrationTest_2F
 - LinqExtensions
 - Application
 - Resources
 - CylindricalFaceExtensions.cs
 - install/Installer.csproj
 - TransactionGroupManager
+- ActivateMachineResult
 - Sonny.RevitExtensions/install/Installer.csproj
 - .GetFamilySymbols
 - AppConstants.cs
@@ -148,6 +158,7 @@
 - Sonny.RevitExtensions.Extensions
 - Border
 - Sonny.RevitExtensions/.nuke/parameters.json
+- XYZComparisonExtensions
 - Bug Report issue template
 - Security Policy
 - resize_icons.py
@@ -169,9 +180,17 @@
 - graphify skill
 - Feature Request issue template
 - Question issue template
+- App
+- SonnyDocumentTestBase
+- FamilyInstanceWrapperBase
+- CultureManager
 - .GetIntersectingElements
+- .GetXyzes
+- Sonny.Application.Infrastructure.Resource.Implements
+- .CreateColumnData
+- XYZUtilityExtensions
 - ColumnCreationStrategy
-- Sonny.EasyRibbon.Modules
+- Sonny.EasyRibbon.Example
 - FailurePreprocessorType
 - Architecture decision records
 - graphify reference: query, path, explain
@@ -179,8 +198,7 @@
 - .IsOnLayer
 - Q: UIDocument lifetime va IUIDocumentProvider hoat dong the nao
 - Q: Trace call flow cua AutoColumnDimensionCommand tu command den interactor
-- IProgressReporter
-- .GetXyzs
+- Window
 - graphify reference: add a URL and watch a folder
 - graphify reference: commit hook and native CLAUDE.md integration
 - graphify reference: incremental update and cluster-only
@@ -189,22 +207,21 @@
 - graphify reference: transcribe video and audio
 - extraction-spec.md
 - XYZTransformExtensions
-- Sonny.RevitExtensions.Extensions.GeometryObjects.Curves
+- Sonny.RevitExtensions.Extensions.XYZs
 - PulldownButtonData1
-- Sonny.Application.Commands
-- IApplicationModule
+- BaseExternalCommand
 
 ## God Nodes (most connected - your core abstractions)
 1. `Sonny.Application.Domain.Services` - 58 edges
-2. `Sonny.Application.Infrastructure.Revit.Services` - 33 edges
-3. `CurveExtensions` - 33 edges
+2. `CurveExtensions` - 33 edges
+3. `Sonny.Application.Infrastructure.Revit.Services` - 33 edges
 4. `KeygenConfigBuilder` - 26 edges
 5. `Sonny.RevitExtensions.Extensions` - 26 edges
 6. `Sonny.Application.Domain.Entities.ColumnFromCad.Models` - 25 edges
 7. `ColumnFromCadViewModel` - 24 edges
 8. `AppDisplayUnit` - 23 edges
-9. `Sonny.Keygen.Models` - 23 edges
-10. `Sonny.Keygen.Services` - 23 edges
+9. `Sonny.Keygen.Services` - 23 edges
+10. `Sonny.Keygen.Models` - 23 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Dependency Injection (Microsoft.Extensions.DI)` --conceptually_related_to--> `Host composition root`  [INFERRED]
@@ -231,7 +248,7 @@
 - **UIDocument lifetime rule participants** — docs_architecture_command_flow_uidocument_lifetime, docs_architecture_command_flow_iuidocumentprovider, docs_architecture_command_flow_irevitdocument, docs_architecture_command_flow_singleton_consumer_hazard, docs_features_autocolumndimension_autocolumndimensioninteractor [EXTRACTED 1.00]
 - **Documented silent-failure behaviours across features** — docs_readme_feature_document_shape, docs_features_autocolumndimension_column_selection_rule, docs_features_autocolumndimension_per_column_error_isolation, docs_features_autocolumndimension_result_reporting, docs_features_columnfromcad_silent_skip, docs_features_columnfromcad_unit_conversion_boundary [INFERRED 0.85]
 
-## Communities (187 total, 32 thin omitted)
+## Communities (204 total, 41 thin omitted)
 
 ### Community 0 - ".FromCorners"
 Cohesion: 0.32
@@ -258,16 +275,16 @@ Cohesion: 0.06
 Nodes (44): revit-architecture-fixer agent, revit-architecture-reviewer agent, Pull Request template, Compile workflow, Publish Release workflow, AutoColumnDimension feature, ColumnFromCad feature, License Management (Keygen + Auth0) (+36 more)
 
 ### Community 6 - "Sonny.Application.Domain.Services"
-Cohesion: 0.10
-Nodes (15): Sonny.Application.Infrastructure.Revit.Services, Sonny.Application.Infrastructure.Revit.Implements, Sonny.Application.Domain.Entities.Settings, Sonny.Application, Sonny.Application.Infrastructure, Sonny.Application.Domain.Services, Sonny.Application.Infrastructure.Resource.Implements, Sonny.Application.Domain.Entities.Settings.Models (+7 more)
+Cohesion: 0.12
+Nodes (10): Sonny.Application.Infrastructure.Revit.Services, Sonny.Application.Infrastructure.Revit.Implements, Sonny.Application.Domain.Entities.Settings, Sonny.Application.Infrastructure.Revit.Managers.Transactions, Sonny.Application.Domain.Services, Sonny.Application.Tests.Features.AutoColumnDimension.IntegrationTests, Sonny.Application.Infrastructure.Features.ColumnFromCad.Strategies, Sonny.RevitExtensions.Extensions.Families (+2 more)
 
 ### Community 7 - "CurveExtensions"
 Cohesion: 0.13
 Nodes (9): ModelLine, Curve, CurveLoop, Document, IEnumerable, IList, Line, XYZ (+1 more)
 
-### Community 8 - "Sonny.EasyRibbon.Example"
+### Community 8 - "Sonny.EasyRibbon.Example.Commands"
 Cohesion: 0.15
-Nodes (9): Sonny.EasyRibbon.Example, Sonny.EasyRibbon.Example.Commands, ExternalCommand, StartupCommand, SonnyTab1, SonnyPannel1, SonnyTab3, SonnyPannel4 (+1 more)
+Nodes (10): Sonny.EasyRibbon.Example.Commands, ExternalCommand, StartupCommand, SonnyButton1, SonnyButton12, SonnyButton2, SonnyButton3, SonnyPannel1 (+2 more)
 
 ### Community 9 - "ColumnModel"
 Cohesion: 0.18
@@ -278,12 +295,12 @@ Cohesion: 0.27
 Nodes (7): List, IColumnDataExtractor, List, Task, TearDown, Test, ColumnFromCadInteractorTests
 
 ### Community 11 - "LicenseFileService"
-Cohesion: 0.08
-Nodes (17): Certificate, JsonElement, LicenseData, LicenseDataset, LicenseMeta, DateTime, int, string (+9 more)
+Cohesion: 0.07
+Nodes (20): Certificate, JsonElement, LicenseData, LicenseDataset, LicenseMeta, DateTime, LicenseValidationResult, DateTime (+12 more)
 
 ### Community 12 - "LoginViewModel"
 Cohesion: 0.14
-Nodes (9): ObservableObject, UserInfoResult, IMessageBoxService, Task, UserInfoService, RelayCommand, string, Task (+1 more)
+Nodes (9): ObservableObject, RoutedEventArgs, UserInfoResult, IMessageBoxService, RelayCommand, string, Task, LoginViewModel (+1 more)
 
 ### Community 13 - ".CreateRectangular"
 Cohesion: 0.17
@@ -301,33 +318,33 @@ Nodes (9): ColumnCreationContext, HashSet, List, Task, ColumnFromCadInteractor, 
 Cohesion: 0.29
 Nodes (9): PolyLine, Arc, Curve, Edge, Element, IEnumerable, Line, Options (+1 more)
 
-### Community 17 - "TransactionManager.cs"
-Cohesion: 0.18
-Nodes (5): Sonny.Application.Infrastructure.Revit.Managers.Transactions, Sonny.Application.Domain.Exceptions, Exception, TransactionCommitFailedException, TransactionStatusConverter
+### Community 17 - "Sonny.Application.Domain.Exceptions"
+Cohesion: 0.40
+Nodes (3): Sonny.Application.Domain.Exceptions, Exception, TransactionCommitFailedException
 
 ### Community 18 - "XYZVectorExtensions"
-Cohesion: 0.13
-Nodes (8): Sonny.RevitExtensions, IEnumerable, XYZ, XYZComparisonExtensions, XYZ, XYZVectorExtensions, double, ToleranceConstants
+Cohesion: 0.20
+Nodes (5): Sonny.RevitExtensions, XYZ, XYZVectorExtensions, double, ToleranceConstants
 
 ### Community 19 - "RectangularColumnModel"
 Cohesion: 0.21
 Nodes (8): Point3D, RectangularColumnModel, ImportInstance, List, RectangularColumnExtractor, ImportInstance, List, IRectangularColumnExtractor
 
-### Community 20 - "KeygenAuthService"
-Cohesion: 0.18
-Nodes (7): KeygenRegisterResult, KeygenUserResult, List, UserLicensesResult, RestClient, Task, KeygenAuthService
+### Community 20 - "Sonny.Keygen.Models"
+Cohesion: 0.12
+Nodes (11): Sonny.Keygen.Models, KeygenRegisterResult, KeygenUserResult, DateTime, LicenseInfo, List, UserLicensesResult, RestClient (+3 more)
 
 ### Community 21 - "ElementParameterExtensions"
 Cohesion: 0.22
 Nodes (10): BuiltInParameter, Definition, DefinitionBindingMap, Guid, Element, ElementId, IEnumerable, Parameter (+2 more)
 
-### Community 22 - "ModuleRegistry"
-Cohesion: 0.29
-Nodes (4): Application, List, UIControlledApplication, ModuleRegistry
+### Community 22 - "IApplicationModule"
+Cohesion: 0.17
+Nodes (7): Application, UIControlledApplication, IApplicationModule, IReadOnlyList, List, UIControlledApplication, ModuleRegistry
 
 ### Community 23 - "SonnyRevitTestBase"
-Cohesion: 0.05
-Nodes (31): ControlledApplication, Sonny.Application.Tests, OneTimeSetUp, OneTimeTearDown, RevitApplication, SonnyDocumentTestBase, Document, UIApplication (+23 more)
+Cohesion: 0.27
+Nodes (7): ControlledApplication, OneTimeSetUp, RevitApplication, UIApplication, UIControlledApplication, UIDocument, SonnyRevitTestBase
 
 ### Community 24 - "Sonny.EasyRibbon.Extensions"
 Cohesion: 0.18
@@ -358,15 +375,15 @@ Cohesion: 0.29
 Nodes (4): ICollection, IElementSelector, ICollection, ElementSelector
 
 ### Community 31 - "UnitConverterTests"
-Cohesion: 0.20
+Cohesion: 0.21
 Nodes (5): ForgeTypeId, UnitConverter, SetUp, Test, UnitConverterTests
 
-### Community 32 - "BaseExternalCommand"
-Cohesion: 0.22
-Nodes (9): IExternalCommand, ElementSet, ExternalCommandData, Result, BaseExternalCommand, ElementSet, ExternalCommandData, Result (+1 more)
+### Community 32 - "Sonny.ResourceManager"
+Cohesion: 0.17
+Nodes (6): Sonny.ResourceManager, Sonny.Application.Tests.ResourceManager.UnitTests, EventArgs, CultureInfo, CultureChangedEventArgs, ResourceHelper
 
 ### Community 33 - "BaseViewModel"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (5): ILogger, Window, BaseViewModel, string, MessageService
 
 ### Community 34 - "Sonny.EasyRibbon"
@@ -378,19 +395,19 @@ Cohesion: 0.19
 Nodes (8): Sonny.Application.Domain.Entities.License, DateTime, LicenseStatus, Task, ILicenseValidator, DateTime, Task, KeygenLicenseValidator
 
 ### Community 36 - "Sonny.Keygen.Services"
-Cohesion: 0.10
-Nodes (11): Sonny.Keygen.Services, Sonny.Application.Infrastructure.License, Sonny.Keygen.Models, Sonny.Keygen.UI.Views, Sonny.Keygen.UI.ViewModels, DateTime, LicenseValidationResult, KeygenConfig (+3 more)
+Cohesion: 0.07
+Nodes (14): Sonny.Keygen.Services, Sonny.Application.Infrastructure.License, Sonny.Keygen.Test.Net48, Sonny.Keygen.UI.Views, Sonny.Keygen.UI.ViewModels, Sonny.Keygen.Test, KeygenConfig, string (+6 more)
 
 ### Community 37 - "LicenseService"
 Cohesion: 0.13
 Nodes (13): ApiError, CheckoutAttributes, CheckoutData, CreateLicenseResult, List, RestClient, Task, ApiError (+5 more)
 
 ### Community 38 - "Window"
-Cohesion: 0.18
-Nodes (9): Email, LicenseExpiryDate, LicenseStartDate, LicenseType, LoginCommand, LogoutCommand, RoutedEventArgs, Window (+1 more)
+Cohesion: 0.25
+Nodes (7): Email, LicenseExpiryDate, LicenseStartDate, LicenseType, LoginCommand, LogoutCommand, Window
 
 ### Community 39 - "AutoColumnDimensionViewModel"
-Cohesion: 0.15
+Cohesion: 0.17
 Nodes (9): DimensionTypeModel, List, IDimensionTypeProvider, DimensionType, List, DimensionTypeProvider, double, ObservableCollection (+1 more)
 
 ### Community 40 - ".GetIntersectingElements"
@@ -402,31 +419,31 @@ Cohesion: 0.13
 Nodes (7): Installer, IEnumerable, WixEntity, Generator, IEnumerable, WixEntity, Generator
 
 ### Community 42 - "LanguageCode"
-Cohesion: 0.05
-Nodes (26): Sonny.ResourceManager, EventArgs, GetValueOrDefault, ResourcesInitializer, bool, SonnyResourcesInitializer, LanguageChangeHandler, LanguageCodeConverter (+18 more)
+Cohesion: 0.22
+Nodes (5): bool, SonnyResourcesInitializer, LanguageCode, CultureInfo, LanguageCodeExtensions
 
 ### Community 43 - "SettingsViewModel"
-Cohesion: 0.09
-Nodes (11): AppDisplayUnit, UnitOption, IDisplayUnitProvider, DisplayUnitProvider, RelayCommand, Task, Exception, ObservableCollection (+3 more)
+Cohesion: 0.12
+Nodes (9): AppDisplayUnit, UnitOption, RelayCommand, Task, Exception, ObservableCollection, RelayCommand, SettingsViewModel (+1 more)
 
 ### Community 44 - "What You Must Do When Invoked"
 Cohesion: 0.07
 Nodes (26): For /graphify add and --watch, For /graphify query, For the commit hook and native CLAUDE.md integration, For --update and --cluster-only, /graphify, Honesty Rules, Interpreter guard for subcommands, Part A - Structural extraction for code files (+18 more)
 
-### Community 45 - "SettingsServiceLanguageTests"
-Cohesion: 0.26
-Nodes (5): SetUp, string, TearDown, Test, SettingsServiceLanguageTests
+### Community 45 - "SettingsService"
+Cohesion: 0.15
+Nodes (10): SettingsData, Func, string, SettingsData, SettingsService, SetUp, string, TearDown (+2 more)
 
 ### Community 46 - "LoginOrchestrator"
-Cohesion: 0.21
-Nodes (7): ActivateMachineResult, LoginOrchestrationResult, Task, LoginOrchestrator, RestClient, Task, MachineService
+Cohesion: 0.42
+Nodes (3): LoginOrchestrationResult, Task, LoginOrchestrator
 
 ### Community 47 - "Quantity Survey Panel"
 Cohesion: 0.13
 Nodes (16): Auto DIM Button, AutoCAD to Revit Button, Beam Rebar Button, Column/Wall Rebar Button, Concrete Column/Wall Button, Export Quantity Button, Formwork Area Button, Load Family Button (+8 more)
 
 ### Community 48 - "AuthService"
-Cohesion: 0.22
+Cohesion: 0.20
 Nodes (7): Auth0Client, ClaimsPrincipal, LoginResult, LogoutResult, Task, AuthService, TokenData
 
 ### Community 49 - "Sonny.ResourceManager.csproj"
@@ -441,12 +458,8 @@ Nodes (10): Sonny.RevitExtensions.Extensions.GeometryObjects.GeometryElements, G
 Cohesion: 0.31
 Nodes (7): BrowserOptions, BrowserResult, CancellationToken, IBrowser, string, Task, CustomWebViewBrowser
 
-### Community 52 - ".TryAutoLoginAsync"
-Cohesion: 0.31
-Nodes (5): AutoLoginResult, DateTime, LicenseInfo, Task, AutoLoginService
-
 ### Community 53 - "IMessageService"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (7): IMessageService, IResourceHelper, ResourceHelper, ILogger, CommonServices, ILogger, ICommonServices
 
 ### Community 54 - ".GetAllElements"
@@ -458,40 +471,40 @@ Cohesion: 0.07
 Nodes (26): Sonny.RevitExtensions.Extensions.GeometryObjects.Faces, Arc, Curve, Edge, Face, IEnumerable, Line, XYZ (+18 more)
 
 ### Community 56 - "Sonny.Application.Domain.Entities.ColumnFromCad.Models"
-Cohesion: 0.13
-Nodes (13): Sonny.Application.UnitTests.UseCases.ColumnFromCad, Sonny.Application.Domain.Entities.ColumnFromCad.Services, Sonny.Application.UnitTests.Domain.ColumnFromCad, Sonny.Application.UseCases.ColumnFromCad.Implements, Sonny.Application.Domain.Entities.ColumnFromCad.Models, Sonny.Application.Infrastructure.Features.ColumnFromCad.Services, Sonny.Application.Domain.Entities.ColumnFromCad.Contexts, Sonny.Application.Infrastructure.Features.ColumnFromCad.Strategies (+5 more)
+Cohesion: 0.12
+Nodes (13): Sonny.Application.UnitTests.UseCases.ColumnFromCad, Sonny.Application.Domain.Entities.ColumnFromCad.Services, Sonny.Application.UnitTests.Domain.ColumnFromCad, Sonny.Application.UseCases.ColumnFromCad.Implements, Sonny.Application.Domain.Entities.ColumnFromCad.Models, Sonny.Application.Infrastructure.Features.ColumnFromCad.Services, Sonny.Application.Domain.Entities.ColumnFromCad.Contexts, Sonny.Application.Domain.Entities.ColumnFromCad (+5 more)
 
-### Community 57 - "Sonny.Keygen.Test.Net48/MainWindow.xaml.cs"
-Cohesion: 0.22
-Nodes (5): Sonny.Keygen.Test.Net48, Application, App, Window, MainWindow
+### Community 57 - "ResourceRegistry"
+Cohesion: 0.20
+Nodes (6): GetValueOrDefault, ResourceConfig, Dictionary, IEnumerable, ResourceRegistry, TryGetValue
 
 ### Community 58 - "Sonny.Application.csproj"
 Cohesion: 0.15
 Nodes (12): Serilog.Sinks.Console (6.0.0), Serilog.Sinks.Debug (3.0.0), Serilog.Sinks.File (6.0.0), net48, net8.0-windows, ILRepack (2.0.41), Microsoft.Extensions.DependencyInjection (9.0.3), Nice3point.Revit.Api.AdWindows ($(RevitVersion).*) (+4 more)
 
-### Community 59 - "ColumnFromCadCommand.cs"
-Cohesion: 0.29
-Nodes (5): Sonny.Application.Presentation.ColumnFromCad.Views, ElementSet, ExternalCommandData, Result, ColumnFromCadCommand
+### Community 59 - "AppDisplayUnit"
+Cohesion: 0.25
+Nodes (4): AppDisplayUnit, IDisplayUnitProvider, IUnitConverter, DisplayUnitProvider
 
-### Community 60 - "LanguageCodeExtensionsTests"
-Cohesion: 0.08
-Nodes (11): Sonny.Application.Tests.Utils, Sonny.Application.UseCases.Settings.Models, Sonny.Application.Tests.ResourceManager.UnitTests, Test, CultureChangedEventArgsTests, Test, LanguageCodeExtensionsTests, Test (+3 more)
+### Community 60 - "LanguageOptionTests"
+Cohesion: 0.16
+Nodes (6): Sonny.Application.Tests.Utils, Sonny.Application.UseCases.Settings.Models, Test, LanguageOptionTests, EnumHelper, LanguageOption
 
-### Community 61 - "Sonny.Application.UseCases.Services"
-Cohesion: 0.33
-Nodes (3): Sonny.Application.UseCases.Services, ILicenseCheckService, LicenseCheckService
+### Community 61 - "Host.cs"
+Cohesion: 0.14
+Nodes (8): Sonny.Application.Infrastructure, Sonny.Application.UseCases, Sonny.Application.UseCases.Services, Sonny.Application.Presentation, IServiceCollection, ServiceRegistration, ILicenseCheckService, LicenseCheckService
 
-### Community 62 - "SonnyModule"
-Cohesion: 0.38
-Nodes (4): ExternalApplication, UIControlledApplication, SonnyModule, SonnyApp
+### Community 62 - "SonnyApp.cs"
+Cohesion: 0.19
+Nodes (7): Sonny.Application, Sonny.EasyRibbon, Sonny.Application.Modules, ExternalApplication, UIControlledApplication, SonnyModule, SonnyApp
 
 ### Community 64 - "XYZGeometryExtensions"
-Cohesion: 0.18
-Nodes (5): IEnumerable, XYZ, XYZGeometryExtensions, XYZ, XYZUtilityExtensions
+Cohesion: 0.26
+Nodes (3): IEnumerable, XYZ, XYZGeometryExtensions
 
-### Community 66 - "ViewWrapperBase"
-Cohesion: 0.05
-Nodes (39): BoundingBoxXYZ, FamilyInstance, Grid, ColumnGeometryReader, DimensionType, List, PlanarFace, XYZ (+31 more)
+### Community 66 - "PlanarFaceExtensions"
+Cohesion: 0.32
+Nodes (5): Sonny.RevitExtensions.Extensions.GeometryObjects.Faces.PlanarFaces, IEnumerable, PlanarFace, XYZ, PlanarFaceExtensions
 
 ### Community 67 - ".IsBuiltInCategory"
 Cohesion: 0.40
@@ -502,22 +515,22 @@ Cohesion: 0.17
 Nodes (11): net48, net8.0-windows, Microsoft.Extensions.DependencyInjection (9.0.3), Newtonsoft.Json (13.0.3), Nice3point.Revit.Api.RevitAPI ($(RevitVersion).*), Nice3point.Revit.Api.RevitAPIUI ($(RevitVersion).*), Nice3point.Revit.Build.Tasks (3.0.1), Nice3point.Revit.Extensions ($(RevitVersion).*) (+3 more)
 
 ### Community 69 - "Point3D"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (32): Point3D, DimensionType, List, PlanarFace, XYZ, DimensionPlanExecutor, XYZ, Point3DConverter (+24 more)
 
 ### Community 70 - "ElementQuery"
 Cohesion: 0.20
 Nodes (8): FilteredElementCollector, IEnumerable, IEnumerator, Document, ElementId, Type, View, ElementQuery
 
-### Community 71 - "Sonny.sln"
-Cohesion: 0.12
-Nodes (12): Build, MoreLinq (3.4.2), Build, net48, net8.0-windows, Nice3point.Revit.Api.AdWindows ($(RevitVersion).*), Nice3point.Revit.Api.RevitAPI ($(RevitVersion).*), Nice3point.Revit.Api.RevitAPIUI ($(RevitVersion).*) (+4 more)
+### Community 71 - "Sonny.RevitExtensions.csproj"
+Cohesion: 0.17
+Nodes (10): MoreLinq (3.4.2), net48, net8.0-windows, Nice3point.Revit.Api.AdWindows ($(RevitVersion).*), Nice3point.Revit.Api.RevitAPI ($(RevitVersion).*), Nice3point.Revit.Api.RevitAPIUI ($(RevitVersion).*), Nice3point.Revit.Build.Tasks (3.0.1), Nice3point.Revit.Extensions ($(RevitVersion).*) (+2 more)
 
 ### Community 72 - ".GetPlanarFaces"
 Cohesion: 0.25
 Nodes (7): CylindricalFace, Face, IEnumerable, PlanarFace, Solid, XYZ, SolidFaceExtensions
 
-### Community 73 - "Sonny.Application.UnitTests.csproj"
+### Community 73 - "Sonny.sln"
 Cohesion: 0.11
 Nodes (16): coverlet.collector (6.0.2), NUnit3TestAdapter (4.6.0), NUnit.Analyzers (4.4.0), net48, net8.0-windows, Microsoft.NET.Sdk, net8.0-windows, Microsoft.NET.Test.Sdk (17.12.0) (+8 more)
 
@@ -529,37 +542,33 @@ Nodes (3): Element, IEnumerable, ElementParameterExtensions
 Cohesion: 0.18
 Nodes (10): net48, net8.0-windows, CommunityToolkit.Mvvm (8.4.0), Microsoft.Extensions.DependencyInjection (9.0.3), Newtonsoft.Json (13.0.3), Nice3point.Revit.Api.AdWindows ($(RevitVersion).*), Nice3point.Revit.Build.Tasks (3.0.1), Nice3point.Revit.Toolkit ($(RevitVersion).*) (+2 more)
 
-### Community 76 - "Sonny.Application.Domain"
-Cohesion: 0.50
-Nodes (3): Sonny.Application.Domain, double, Constraint
+### Community 76 - "IRevitDocument"
+Cohesion: 0.18
+Nodes (10): Document, UIApplication, UIDocument, View, RevitDocument, Document, UIApplication, UIDocument (+2 more)
 
 ### Community 77 - ".GetCylindricalFaces"
 Cohesion: 0.29
 Nodes (8): CylindricalFace, Element, Face, IEnumerable, Options, PlanarFace, Solid, ElementFaceExtensions
 
-### Community 78 - "SonnyTab.cs"
+### Community 78 - "ViewWrapperBase"
+Cohesion: 0.27
+Nodes (7): BoundingBoxXYZ, XYZ, bool, Element, List, View, ViewWrapperBase
+
+### Community 79 - ".DimensionByDirection"
 Cohesion: 0.22
-Nodes (8): AutoColumnDimensionButton, ColumnFromCadButton, ColumnFromCadPanel, DimensionPanel, LicenseButton, SettingsButton, SettingsPanel, SonnyTab
+Nodes (7): Grid, DimensionType, List, PlanarFace, XYZ, Line, GridWrapperBase
 
-### Community 79 - "Window"
-Cohesion: 0.20
-Nodes (9): LanguageOptions, SaveCommand, SelectedLanguageOption, SelectedUnitOption, UnitOptions, ThisWindow, Window, CancelCommand (+1 more)
-
-### Community 80 - "KeygenConfigBuilder"
-Cohesion: 0.07
-Nodes (16): Application, Sonny.Application.UIStyle, Sonny.Keygen.Test, IServiceProvider, object, Host, Application, UIStyleManager (+8 more)
-
-### Community 81 - "SonnyPannel2"
-Cohesion: 0.29
+### Community 81 - "SonnyTab2.cs"
+Cohesion: 0.25
 Nodes (7): SonnyButton1, SonnyButton2, SonnyButton3, SonnyButton4, SonnyPannel2, SonnySpitButton2, SonnyTab2
 
 ### Community 82 - "TypeSelectionFilter"
 Cohesion: 0.20
 Nodes (7): Sonny.Application.Infrastructure.Revit.SelectionFilters, ISelectionFilter, Element, List, Reference, XYZ, TypeSelectionFilter
 
-### Community 83 - "MachineFingerprintService"
-Cohesion: 0.22
-Nodes (5): HardwareInfo, object, string, MachineFingerprintService, SerialNumber
+### Community 83 - ".TryAutoLoginAsync"
+Cohesion: 0.17
+Nodes (8): HardwareInfo, AutoLoginResult, Task, AutoLoginService, object, string, MachineFingerprintService, SerialNumber
 
 ### Community 84 - "Sonny.Application.Tests.csproj"
 Cohesion: 0.20
@@ -582,8 +591,8 @@ Cohesion: 0.50
 Nodes (3): Action, Func, ImmediateRevitTaskRunner
 
 ### Community 90 - "Sonny.Application.Domain.Entities"
-Cohesion: 0.13
-Nodes (9): Sonny.Application.UnitTests.UseCases.AutoColumnDimension, Sonny.Application.UseCases.AutoColumnDimension.Models, Sonny.Application.UseCases, Sonny.Application.Domain.Entities, Sonny.Application.Tests.Features.AutoColumnDimension.IntegrationTests, Sonny.Application.UseCases.AutoColumnDimension.Services, Sonny.Application.UseCases.AutoColumnDimension.Implements, IServiceCollection (+1 more)
+Cohesion: 0.23
+Nodes (5): Sonny.Application.UnitTests.UseCases.AutoColumnDimension, Sonny.Application.UseCases.AutoColumnDimension.Models, Sonny.Application.Domain.Entities, Sonny.Application.UseCases.AutoColumnDimension.Services, Sonny.Application.UseCases.AutoColumnDimension.Implements
 
 ### Community 91 - "Window"
 Cohesion: 0.22
@@ -601,6 +610,10 @@ Nodes (7): CircularColumnModel, ImportInstance, List, CircularColumnExtractor, I
 Cohesion: 0.22
 Nodes (6): ImportInstance, UIDocument, CadLinkSelector, ImportInstance, UIDocument, ICadLinkSelector
 
+### Community 96 - ".LoadResource"
+Cohesion: 0.28
+Nodes (3): Dictionary, ResourceLoader, ResourcePathBuilder
+
 ### Community 97 - "Sonny Tab (Revit ribbon tab)"
 Cohesion: 0.33
 Nodes (9): Declarative Tab/Panel/Button attribute layout, Sonny Panel 1, Sonny Panel 2, Sonny Panel 4, PulldownButton (Sonny Pulldown Button Data 1 / 4), PushButton element (Sonny Button 1-1..2-4, 4-1, 4-2), Sonny.EasyRibbon Ribbon Demo Screenshot, Sonny Tab (Revit ribbon tab) (+1 more)
@@ -610,16 +623,24 @@ Cohesion: 0.33
 Nodes (3): Application, UIControlledApplication, ExampleModule
 
 ### Community 99 - "XYZDistanceExtensions"
-Cohesion: 0.31
+Cohesion: 0.36
 Nodes (4): IEnumerable, Line, XYZ, XYZDistanceExtensions
+
+### Community 100 - "ElementWrapperBase"
+Cohesion: 0.22
+Nodes (7): Dimension, DimensionWrapperBase, Dictionary, Element, ElementWrapperBase, WallWrapperBase, Wall
+
+### Community 101 - "Host"
+Cohesion: 0.32
+Nodes (4): IServiceProvider, object, Host, UnhandledExceptionEventArgs
 
 ### Community 102 - "LoggerConfiguration"
 Cohesion: 0.29
 Nodes (5): Sonny.Application.Config.Logging, Logger, IServiceCollection, string, LoggerConfiguration
 
-### Community 103 - "AppDisplayUnit"
-Cohesion: 0.12
-Nodes (10): SettingsData, AppDisplayUnit, AppLanguageCode, Func, ISettingsService, IUnitConverter, Func, string (+2 more)
+### Community 103 - "AppLanguageCode"
+Cohesion: 0.16
+Nodes (5): AppLanguageCode, Func, ISettingsService, LanguageChangeHandler, LanguageCodeConverter
 
 ### Community 106 - "graphify reference: extra exports and benchmark"
 Cohesion: 0.22
@@ -638,12 +659,16 @@ Cohesion: 0.38
 Nodes (4): Sonny.RevitExtensions.EqualityComparers, IEqualityComparer, XYZ, ParallelXyzEqualityComparer
 
 ### Community 112 - "IRevitTaskRunner"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (8): Action, Func, Task, IRevitTaskRunner, Action, Func, Task, RevitTaskRunner
 
-### Community 114 - "SonnyPannel1"
-Cohesion: 0.33
-Nodes (6): SonnyButton1, SonnyButton12, SonnyButton2, SonnyButton3, SonnyPannel1, SonnySpitButton1
+### Community 113 - "UIStyleManager"
+Cohesion: 0.43
+Nodes (3): Sonny.Application.UIStyle, Application, UIStyleManager
+
+### Community 114 - "AutoColumnDimensionIntegrationTest"
+Cohesion: 0.29
+Nodes (5): SonnyDocumentTestBase, string, AutoColumnDimensionIntegrationTest, string, ColumnFromCadIntegrationTest
 
 ### Community 116 - ".AddStackedItemsMixed"
 Cohesion: 0.29
@@ -653,9 +678,9 @@ Nodes (5): IList, List, RibbonItem, RibbonPanel, RibbonPanelExtension
 Cohesion: 0.33
 Nodes (4): Category, BuiltInCategory, Document, CategoryExtensions
 
-### Community 119 - "SonnyPulldownButton4"
-Cohesion: 0.29
-Nodes (7): SonnyButton4_1, SonnyButton4_2, SonnyButton4_3, SonnyButton4_4, SonnyButton4_5, SonnyPulldownButton4, SonnyStackedButton4
+### Community 119 - "SonnyTab4.cs"
+Cohesion: 0.20
+Nodes (9): SonnyButton4_1, SonnyButton4_2, SonnyButton4_3, SonnyButton4_4, SonnyButton4_5, SonnyPannel4, SonnyPulldownButton4, SonnyStackedButton4 (+1 more)
 
 ### Community 120 - "Revit R Gear Processor"
 Cohesion: 0.40
@@ -681,6 +706,14 @@ Nodes (9): IDisposable, ITransactionGroupManager, ITransactionManager, IEnumerab
 Cohesion: 0.33
 Nodes (4): Curve, CurveLoop, IEnumerable, CurveLoopExtensions
 
+### Community 126 - ".DimensionByDirection"
+Cohesion: 0.29
+Nodes (6): DimensionCreator, DimensionType, List, PlanarFace, XYZ, IDimensionCreator
+
+### Community 127 - ".AutoColumnDimension_IntegrationTest_2F"
+Cohesion: 0.33
+Nodes (3): Test, Document, View
+
 ### Community 128 - "LinqExtensions"
 Cohesion: 0.40
 Nodes (3): Func, IEnumerable, LinqExtensions
@@ -702,8 +735,12 @@ Cohesion: 0.40
 Nodes (4): net48, WixSharp.bin (1.26.0), WixSharp.wix.bin (3.14.1), Microsoft.NET.Sdk
 
 ### Community 133 - "TransactionGroupManager"
-Cohesion: 0.11
-Nodes (9): DomainTransactionStatus, bool, TransactionGroupManager, bool, IFailuresPreprocessor, TransactionManager, Transaction, TransactionGroup (+1 more)
+Cohesion: 0.10
+Nodes (10): DomainTransactionStatus, bool, TransactionGroupManager, bool, IFailuresPreprocessor, TransactionManager, TransactionStatusConverter, Transaction (+2 more)
+
+### Community 134 - "ActivateMachineResult"
+Cohesion: 0.29
+Nodes (4): ActivateMachineResult, RestClient, Task, MachineService
 
 ### Community 135 - "Sonny.RevitExtensions/install/Installer.csproj"
 Cohesion: 0.40
@@ -726,8 +763,8 @@ Cohesion: 0.67
 Nodes (4): Column Glyph (top/bottom caps + shaft), AutoColumnDimension Revit Feature, ColumnDimension Feature Icon, Vertical Double-Headed Dimension Arrow
 
 ### Community 140 - "Sonny.RevitExtensions.Extensions"
-Cohesion: 0.15
-Nodes (8): Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements, Sonny.Application.Infrastructure.Features.AutoColumnDimension.Services, Sonny.RevitExtensions.Extensions, Sonny.RevitExtensions.Extensions.GeometryObjects.Faces.PlanarFaces, Sonny.RevitExtensions.RevitWrapper, Sonny.RevitExtensions.Extensions.Elements, Sonny.RevitExtensions.Extensions.GeometryObjects.Solids, Sonny.RevitExtensions.Extensions.XYZs
+Cohesion: 0.11
+Nodes (14): Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements, Sonny.Application.Infrastructure.Features.AutoColumnDimension.Services, Sonny.RevitExtensions.Extensions, Sonny.Application.Domain, Sonny.RevitExtensions.RevitWrapper, Sonny.RevitExtensions.Extensions.Elements, Sonny.RevitExtensions.Extensions.GeometryObjects.Solids, double (+6 more)
 
 ### Community 141 - "Border"
 Cohesion: 0.50
@@ -737,20 +774,40 @@ Nodes (3): Border, ResourceDictionary, Border
 Cohesion: 0.50
 Nodes (3): $schema, Solution, Verbosity
 
+### Community 143 - "XYZComparisonExtensions"
+Cohesion: 0.48
+Nodes (3): IEnumerable, XYZ, XYZComparisonExtensions
+
+### Community 171 - "App"
+Cohesion: 0.33
+Nodes (4): Application, Application, App, StartupEventArgs
+
+### Community 172 - "SonnyDocumentTestBase"
+Cohesion: 0.33
+Nodes (4): Sonny.Application.Tests, Document, UIDocument, SonnyDocumentTestBase
+
+### Community 173 - "FamilyInstanceWrapperBase"
+Cohesion: 0.33
+Nodes (6): FamilyInstance, double, List, XYZ, FamilyInstanceWrapperBase, Transform
+
 ### Community 175 - ".GetIntersectingElements"
 Cohesion: 0.25
 Nodes (7): Document, Element, ElementId, ICollection, List, View, ElementIntersectExtensions
+
+### Community 176 - ".GetXyzes"
+Cohesion: 0.33
+Nodes (4): IEnumerable, Solid, XYZ, SolidPointExtensions
 
 ### Community 181 - "ColumnCreationStrategy"
 Cohesion: 0.09
 Nodes (16): double, ColumnSymbolSizingPolicy, Family, FamilySymbol, CircularColumnCreationStrategy, Element, FamilySymbol, Parameter (+8 more)
 
-### Community 182 - "Sonny.EasyRibbon.Modules"
-Cohesion: 0.22
-Nodes (5): Sonny.Application.Ribbon, Sonny.EasyRibbon.MasterExample, Sonny.EasyRibbon, Sonny.Application.Modules, Sonny.EasyRibbon.Modules
+### Community 182 - "Sonny.EasyRibbon.Example"
+Cohesion: 0.33
+Nodes (3): Sonny.EasyRibbon.Example, Sonny.EasyRibbon.MasterExample, Sonny.EasyRibbon.Modules
 
 ### Community 183 - "FailurePreprocessorType"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (18): Sonny.Application.Infrastructure.Revit.FailuresPreprocessors, IFailuresPreprocessor, FailurePreprocessorType, FailureProcessingResult, FailuresAccessor, SuppressWarningsPreprocessor, FailureProcessingResult, FailuresAccessor (+10 more)
 
 ### Community 184 - "Architecture decision records"
@@ -777,13 +834,9 @@ Nodes (4): Answer, Outcome, Q: UIDocument lifetime va IUIDocumentProvider hoat d
 Cohesion: 0.40
 Nodes (4): Answer, Outcome, Q: Trace call flow cua AutoColumnDimensionCommand tu command den interactor, Source Nodes
 
-### Community 192 - "IProgressReporter"
-Cohesion: 0.12
-Nodes (7): IProgressReporter, ProgressReporter, ProgressBar, Window, string, ProgressView, ProgressBar
-
-### Community 195 - ".GetXyzs"
-Cohesion: 0.33
-Nodes (5): Element, IEnumerable, Options, XYZ, ElementPointExtensions
+### Community 192 - "Window"
+Cohesion: 0.06
+Nodes (20): LanguageOptions, SaveCommand, SelectedLanguageOption, SelectedUnitOption, UnitOptions, IProgressReporter, ProgressReporter, ThisWindow (+12 more)
 
 ### Community 198 - "graphify reference: add a URL and watch a folder"
 Cohesion: 0.50
@@ -798,48 +851,44 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ### Community 202 - "Sonny.Application.Presentation/ServiceRegistration.cs"
-Cohesion: 0.12
-Nodes (13): Sonny.Application.Presentation.AutoColumnDimension.Views, Sonny.Application.Presentation.Extensions, Sonny.Application.Presentation.AutoColumnDimension.ViewModels, Sonny.Application.Presentation.Views, Sonny.Application.Presentation.Implements, Sonny.Application.Presentation.ColumnFromCad.ViewModels, Sonny.Application.Presentation.Settings.ViewModels, AutoColumnDimensionView (+5 more)
+Cohesion: 0.10
+Nodes (15): Sonny.Application.Presentation.AutoColumnDimension.Views, Sonny.Application.Presentation.Extensions, Sonny.Application.Presentation.AutoColumnDimension.ViewModels, Sonny.Application.Presentation.Views, Sonny.Application.Domain.Entities.Settings.Models, Sonny.Application.Presentation.Implements, Sonny.Application.Presentation.ColumnFromCad.ViewModels, Sonny.Application.Presentation.ColumnFromCad.Views (+7 more)
 
-### Community 214 - "Sonny.RevitExtensions.Extensions.GeometryObjects.Curves"
-Cohesion: 0.13
-Nodes (9): Sonny.RevitExtensions.Extensions.GeometryObjects.Curves, Curve, IEnumerable, XYZ, CurvePointExtensions, IEnumerable, Solid, XYZ (+1 more)
+### Community 214 - "Sonny.RevitExtensions.Extensions.XYZs"
+Cohesion: 0.17
+Nodes (6): Sonny.RevitExtensions.Extensions.GeometryObjects.Curves, Sonny.RevitExtensions.Extensions.XYZs, Curve, IEnumerable, XYZ, CurvePointExtensions
 
 ### Community 217 - "PulldownButtonData1"
-Cohesion: 0.29
-Nodes (7): PulldownButtonData1, SonnyButton1, SonnyButton2, SonnyButton3, SonnyButton4, SonnyButton5, SonnyButton6
+Cohesion: 0.20
+Nodes (9): PulldownButtonData1, SonnyButton1, SonnyButton2, SonnyButton3, SonnyButton4, SonnyButton5, SonnyButton6, SonnyPannel1 (+1 more)
 
-### Community 218 - "Sonny.Application.Commands"
-Cohesion: 0.13
-Nodes (11): Sonny.Application.Commands, Sonny.Application.Presentation.Settings.Views, Sonny.Application.Bases, ElementSet, ExternalCommandData, Result, LoginCommand, ElementSet (+3 more)
-
-### Community 219 - "IApplicationModule"
-Cohesion: 0.40
-Nodes (3): UIControlledApplication, IApplicationModule, IReadOnlyList
+### Community 218 - "BaseExternalCommand"
+Cohesion: 0.05
+Nodes (33): Sonny.Application.Commands, Sonny.Application.Ribbon, Sonny.Application.Presentation.Settings.Views, Sonny.Application.Bases, IExternalCommand, ElementSet, ExternalCommandData, Result (+25 more)
 
 ## Ambiguous Edges - Review These
 - `Sonny.Application.Presentation` → `Sonny.Application.Infrastructure`  [AMBIGUOUS]
   CLAUDE.md · relation: references
 
 ## Knowledge Gaps
-- **375 isolated node(s):** `$schema`, `Solution`, `Verbosity`, `Build`, `net48` (+370 more)
+- **373 isolated node(s):** `Phương án đã loại`, `Consequences`, `When to write one`, `What qualifies here`, `What does not belong` (+368 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **32 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `Sonny.Application.Presentation` and `Sonny.Application.Infrastructure`?**
   _Edge tagged AMBIGUOUS (relation: references) - confidence is low._
-- **Why does `ColumnCreationStrategy` connect `ColumnCreationStrategy` to `ColumnModel`, `SonnyRevitTestBase`, `Point3D`, `ColumnCreationContext`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
-- **What connects `$schema`, `Solution`, `Verbosity` to the rest of the system?**
-  _375 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Phương án đã loại`, `Consequences`, `When to write one` to the rest of the system?**
+  _373 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `AutoColumnDimensionInteractor (documented)` be split into smaller, more focused modules?**
   _Cohesion score 0.05297532656023222 - nodes in this community are weakly interconnected._
 - **Should `ColumnFromCadViewModel` be split into smaller, more focused modules?**
-  _Cohesion score 0.057329462989840346 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.058823529411764705 - nodes in this community are weakly interconnected._
 - **Should `DimensionProcessor` be split into smaller, more focused modules?**
   _Cohesion score 0.05019607843137255 - nodes in this community are weakly interconnected._
 - **Should `Clean Architecture` be split into smaller, more focused modules?**
   _Cohesion score 0.06025369978858351 - nodes in this community are weakly interconnected._
+- **Should `Sonny.Application.Domain.Services` be split into smaller, more focused modules?**
+  _Cohesion score 0.12162162162162163 - nodes in this community are weakly interconnected._
