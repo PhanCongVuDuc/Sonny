@@ -2,10 +2,13 @@ using NUnit.Framework ;
 using Sonny.Application.Domain.Entities.Settings ;
 using Sonny.Application.Infrastructure.Revit.Implements ;
 
-namespace Sonny.Application.Tests.Core.UnitTests.Services ;
+namespace Sonny.Application.Tests.Core.RevitApiTests ;
 
 /// <summary>
-///     Unit tests for UnitConverter
+///     Unit tests for UnitConverter.
+///     Not Revit-free despite testing a single class: UnitConverter maps AppDisplayUnit through
+///     ForgeTypeId/UnitTypeId and converts with UnitUtils, so these need the Revit API and belong
+///     in this assembly rather than in Sonny.Application.UnitTests. See ADR 0002.
 /// </summary>
 [TestFixture]
 public class UnitConverterTests
