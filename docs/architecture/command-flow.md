@@ -113,11 +113,12 @@ Five edits, in this order:
    carrying `[Transaction(TransactionMode.Manual)]`. Body is resolve-and-show, nothing else.
 3. **View + ViewModel** — under `source/Sonny.Application.Presentation/<Feature>/`. Register both in
    `Presentation/ServiceRegistration.cs`.
-4. **Interactor** — interface in `Sonny.Application.UseCases`, implementation in the same project unless
-   it genuinely needs Revit types, in which case the implementation goes to `Infrastructure` (see the
-   deviation note in `CLAUDE.md`). Register in the owning layer's `ServiceRegistration.cs`.
-   **Prefer keeping it in `UseCases`** — that project references no Revit package and no Revit type, so
-   an interactor there is unit-testable without Revit.
+4. **Interactor** — interface and implementation in `Sonny.Application.UseCases`. That project references
+   no Revit package and no Revit type, so the interactor is unit-testable without Revit. When the feature
+   needs the Revit API, put the mechanism behind ports the interactor owns (DTO in, plan out — see
+   [ADR 0001](../adr/0001-decision-logic-lives-in-usecases.md); `IColumnGeometryReader` /
+   `IDimensionPlanExecutor` are the reference pair) and implement them in `Infrastructure`. Register each
+   piece in the owning layer's `ServiceRegistration.cs`.
 5. **Strings** — add keys to both `<Feature>.en.xaml` and `<Feature>.vi.xaml` under
    `source/Sonny.Application/Resources/Languages/<Feature>/`, then a `RegisterResource` call in
    `SonnyResourcesInitializer`. A missing key in one language is a runtime hole, not a compile error.
@@ -140,9 +141,9 @@ The rule that follows: **never cache `UIDocument`, `Document`, or `ActiveView` i
 `IRevitDocument` and read the property at the point of use.
 
 This matters because several consumers are registered singleton — `ColumnDataExtractor`,
-`ElementSelector`, `ColumnCreationStrategyFactory`, `AutoColumnDimensionInteractor` — and keep their
-instance for the whole Revit session. A cached document there means every command after the first operates
-on the wrong document, silently.
+`ElementSelector`, `ColumnCreationStrategyFactory`, `ColumnGeometryReader`, `DimensionPlanExecutor` — and
+keep their instance for the whole Revit session. A cached document there means every command after the
+first operates on the wrong document, silently.
 
 `GetUIDocument()` throws `InvalidOperationException` when the provider was never set, which is what you
 get if you call into a service outside a command context. In tests, call `SetUIDocument` yourself in

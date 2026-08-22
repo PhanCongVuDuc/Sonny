@@ -139,6 +139,13 @@ Two model shapes come back, distinguished by the CAD geometry: `RectangularColum
 `RotationAngle`) and `CircularColumnModel` (carries a diameter). The `IsModelByHatch` setting switches
 extraction between hatch regions and boundary lines.
 
+Since ADR 0001 the geometric decisions are Domain code, unit-testable without Revit: shape recognition
+(4-curve loop / 5-coordinate polyline = rectangle; equidistant tessellation points = circle) lives in
+`ColumnShapeDetector`, the quadrant-dependent rotation rule in `RectangularColumnModel.FromCorners`, and
+the symbol match/round/minimum-size/naming rules in `ColumnSymbolSizingPolicy`. The Infrastructure
+extractors, `ColumnModelFactory` and the creation strategies only read CAD geometry, convert to `Point3D`
+and apply those decisions.
+
 Each inner transaction carries `FailurePreprocessorType.SuppressWarnings` — Revit warnings during column
 placement are swallowed by design. The progress window (`IProgressReporter`) opens before the loop and
 closes in a `finally`, so it survives an exception escaping the group.
@@ -169,16 +176,21 @@ them**. Treat the `.rvt` as part of the test contract. Note the expected-angle l
 a `HashSet<double>` with exact equality, so this test is sensitive to floating-point drift in the
 extraction path.
 
-**Gaps.** These need no Revit document — the interactor is Revit-free, so they belong in
-`Sonny.Application.UnitTests` with the eight collaborators mocked:
+Also covered, without Revit (`Sonny.Application.UnitTests`, `Debug R25`, seconds):
 
-- `CreateColumns` without `ExtractColumnData` → asserts `InvalidOperationException`. The order dependency
-  is the feature's main trap and nothing guards it today.
-- Extraction returns zero → asserts `MessageNoColumnsFound` and that no transaction group was opened.
-- Strategy returns null for 2 of 5 columns → asserts the run completes, reports 3, and that the 2 drops
-  produce no message. This is the silent-skip behaviour, pinned.
-- Every column throws → asserts `MessageNoColumnsCreated` as a warning, and that `Assimilate` still ran.
-- `_extractedColumns` does not leak between two consecutive `Execute` calls.
+- `ColumnFromCadInteractorTests` — the five characterization pins: `CreateColumns` before
+  `ExtractColumnData` throws `InvalidOperationException`; zero extraction shows `MessageNoColumnsFound`
+  with no transaction group opened; strategy-null columns are dropped silently while the rest are
+  reported; every-column-throws warns `MessageNoColumnsCreated` and still runs `Assimilate`;
+  `_extractedColumns` does not leak between two consecutive `Execute` calls.
+- `RectangularColumnModelFromCornersTests` — the quadrant rotation rule, per quadrant.
+- `ColumnShapeDetectorTests` — the rectangle counts, the circle equidistance test with its preserved
+  quirks (3-point input still throws; collinear fit points still fail loudly).
+- `ColumnSymbolSizingPolicyTests` — symbol matching tolerance, rounding, 1mm minimum, type names.
+
+```powershell
+dotnet test source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.csproj -c "Debug R25"
+```
 
 Not unit-testable without Revit: the offset conversion. `IUnitConverter` is implemented by
 `UnitConverter` in `Infrastructure`, which calls `UnitUtils.Convert` with `ForgeTypeId`/`UnitTypeId` —
@@ -188,5 +200,7 @@ Revit API types. That test stays in `Sonny.Application.Tests`.
 
 - [command-flow.md](../architecture/command-flow.md) — the pipeline above the ViewModel, and the
   transaction-shape comparison against `AutoColumnDimension`
-- Symbols for `codegraph explore`: `ColumnFromCadInteractor ColumnDataExtractor
-  ColumnCreationStrategyFactory ColumnCreationContext ColumnFromCadSettings`
+- [ADR 0001](../adr/0001-decision-logic-lives-in-usecases.md) — the decision/mechanism split behind
+  `ColumnShapeDetector`, `RectangularColumnModel.FromCorners` and `ColumnSymbolSizingPolicy`
+- Symbols for `codegraph explore`: `ColumnFromCadInteractor ColumnDataExtractor ColumnShapeDetector
+  ColumnSymbolSizingPolicy ColumnCreationStrategyFactory ColumnCreationContext ColumnFromCadSettings`

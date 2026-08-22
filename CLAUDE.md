@@ -93,13 +93,12 @@ Layers, innermost first (see `.cursor/rules/cleanarchitecture.mdc` for the full 
 
 Support projects: `Sonny.ResourceManager` (localization engine), `Sonny.Application.UIStyle` (WPF theme).
 
-Known, deliberate deviation: `Infrastructure` references `UseCases` so it can implement input ports, and
-`AutoColumnDimensionInteractor` lives in Infrastructure while `IAutoColumnDimensionInteractor` lives in UseCases (the
-feature needs the Revit API directly). `ColumnFromCadInteractor` is the pure form — keep new interactors in UseCases
-unless they genuinely need Revit types.
+Known, deliberate deviation: `Infrastructure` references `UseCases` so it can implement input ports. Both
+interactors live in `UseCases` and touch no Revit type (since ADR 0001 — `AutoColumnDimensionInteractor`
+reads geometry through `IColumnGeometryReader` and executes through `IDimensionPlanExecutor`, both
+implemented in Infrastructure). Keep new interactors in UseCases; when a feature needs the Revit API, put
+the mechanism behind ports with a plain-DTO boundary instead of moving the interactor down.
 
-`source/Sonny.Application.Features/` is orphaned: no `.csproj`, not in the solution, superseded by
-`Infrastructure/Features/ColumnFromCad`. Don't edit it.
 
 ### Composition root
 

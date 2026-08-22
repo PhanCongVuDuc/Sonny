@@ -15,8 +15,8 @@ what calls what. Use both.
 | [features/ColumnFromCad.md](features/ColumnFromCad.md) | Working on creating Revit columns from a CAD link |
 | [adr/](adr/) | Why a hard-to-reverse decision was made the way it was |
 
-Structural questions — "what implements `IGridFinder`", "what does `ServiceRegistration` touch" — go to the
-graph instead:
+Structural questions — "what implements `IDimensionCreator`", "what does `ServiceRegistration` touch" — go
+to the graph instead:
 
 ```powershell
 graphify query "<question>"          # architecture, docs, .xaml
