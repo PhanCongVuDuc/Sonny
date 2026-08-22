@@ -46,6 +46,14 @@ Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
 Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests` use NUnit + NSubstitute and need no Revit document.
 
+Revit-free unit tests live in `source/Sonny.Application.UnitTests` (NUnit 4 + NSubstitute, references
+Domain + UseCases + ResourceManager only, full R21–R26 matrix — net48 for R21–R24, net8.0-windows for
+R25/R26 — finishes in seconds without launching Revit):
+
+```powershell
+dotnet test source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.csproj -c "Debug R25"
+```
+
 `Nice3point.Revit.Build.Tasks` deploys the add-in to the local Revit add-ins folder on build (`DeployRevitAddin`), so a
 successful build is enough to try the tool in Revit.
 

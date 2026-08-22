@@ -50,10 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Revit References -->
-    <PackageReference Include="Nice3point.Revit.Build.Tasks" Version="3.0.1"/>
-    <PackageReference Include="Nice3point.Revit.Toolkit" Version="$(RevitVersion).*"/>
-
     <!-- Localization -->
     <PackageReference Include="WPFLocalizeExtension" Version="3.9.0"/>
 
