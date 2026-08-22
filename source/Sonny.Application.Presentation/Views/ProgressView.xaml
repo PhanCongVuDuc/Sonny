@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Creating Columns from AutoCAD"
-        Height="100"
+        Height="120"
         Width="500"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner"
@@ -18,6 +18,12 @@
                          Value="0"
                          Height="20"
                          Margin="0,0,0,10" />
+            <Button x:Name="CancelButton"
+                    Content="{DynamicResource ButtonCancel}"
+                    HorizontalAlignment="Right"
+                    MinWidth="80"
+                    Visibility="Collapsed"
+                    Click="CancelButton_Click" />
         </StackPanel>
     </Grid>
 </Window>

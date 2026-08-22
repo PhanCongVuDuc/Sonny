@@ -9,7 +9,15 @@ public interface IProgressReporter
     ///     Shows the progress window with the specified title
     /// </summary>
     /// <param name="title">Title to display on progress window</param>
-    void Show(string title) ;
+    /// <param name="allowCancel">Shows a Cancel button that raises <see cref="IsCancelRequested" /></param>
+    void Show(string title,
+        bool allowCancel = false) ;
+
+    /// <summary>
+    ///     Whether the user pressed Cancel on the progress window. Callers poll this between work
+    ///     items and decide their own rollback policy — the reporter never aborts anything itself
+    /// </summary>
+    bool IsCancelRequested { get ; }
 
     /// <summary>
     ///     Updates the progress indicator
