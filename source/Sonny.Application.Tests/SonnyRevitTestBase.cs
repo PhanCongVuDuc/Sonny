@@ -159,9 +159,45 @@ public abstract class SonnyRevitTestBase
             return testFilePath ;
         }
 
+        // The ricaun adapter's ATTACH mode (reusing an open Revit) copies only the assemblies,
+        // not the Resources subfolder — fall back to the source project's copy in that case
+        var sourceFilePath = GetSourceRevitFilePath(fileName!,
+            subDirectory) ;
+        if (sourceFilePath != null) {
+            Log($"✓ Found test file in source project: {sourceFilePath}") ;
+            return sourceFilePath ;
+        }
+
         Log($"⚠ Test file not found at: {testFilePath}") ;
         Log("  Will create new document instead.") ;
         return null ;
+    }
+
+    /// <summary>
+    ///     Resolves a test file inside the source project folder. The compile-time path of this
+    ///     file is the anchor because the assembly location is a shadow copy
+    /// </summary>
+    private static string? GetSourceRevitFilePath(string fileName,
+        string subDirectory,
+        [System.Runtime.CompilerServices.CallerFilePath] string callerFilePath = "")
+    {
+        var directory = new DirectoryInfo(Path.GetDirectoryName(callerFilePath)!) ;
+        while (directory != null
+               && ! File.Exists(Path.Combine(directory.FullName,
+                   "Sonny.Application.Tests.csproj"))) {
+            directory = directory.Parent ;
+        }
+
+        if (directory == null) {
+            return null ;
+        }
+
+        var candidate = Path.Combine(directory.FullName,
+            subDirectory.Replace('/',
+                Path.DirectorySeparatorChar),
+            fileName) ;
+
+        return File.Exists(candidate) ? candidate : null ;
     }
 
     #endregion

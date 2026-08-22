@@ -37,10 +37,20 @@ The Nuke `Compile` target only globs `Release*` configurations and **skips any p
 tests are never built or run by CI. To touch Debug output you must build it yourself.
 
 ```powershell
-# Tests launch a real Revit process (ricaun.RevitTest.TestAdapter); Revit of the matching year must be installed
-dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23"
-dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23" --filter "FullyQualifiedName~ColumnFromCad_CreateColumns_Test"
+# Tests launch a real Revit process (ricaun.RevitTest.TestAdapter); Revit of the matching year must be installed.
+# ALWAYS run them through scripts/loop.ps1 (a PreToolUse hook blocks raw `dotnet test` against this project):
+powershell -ExecutionPolicy Bypass -File scripts\loop.ps1                     # dev loop: reuses the open Revit
+powershell -ExecutionPolicy Bypass -File scripts\loop.ps1 -Filter AutoJoin    # name filter
+powershell -ExecutionPolicy Bypass -File scripts\loop.ps1 -Final              # final run: fresh Revit, closed after
 ```
+
+loopCommand: powershell -ExecutionPolicy Bypass -File scripts\loop.ps1
+
+**Before running or writing any Revit-hosted test, read
+[`docs/architecture/revit-test-environment.md`](docs/architecture/revit-test-environment.md)** — it holds the
+paid-for traps (test-assembly callbacks poison commits, documents must open in `OnSetup`, the Always Load trust
+dialog, hidden view categories) and the verdict rules. Automation lives in `scripts/` — **neither knowledge graph
+indexes `.ps1` files**, so open that folder yourself instead of trusting graph results.
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).

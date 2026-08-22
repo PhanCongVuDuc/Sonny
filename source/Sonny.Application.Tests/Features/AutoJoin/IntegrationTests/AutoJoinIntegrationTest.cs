@@ -1,7 +1,6 @@
 using System.Collections.Generic ;
 using System.Linq ;
 using Autodesk.Revit.DB ;
-using NSubstitute ;
 using NUnit.Framework ;
 using Serilog ;
 using Sonny.Application.Domain.Entities.AutoJoin.Models ;
@@ -38,10 +37,10 @@ public class AutoJoinIntegrationTest : SonnyDocumentTestBase
             .SetUIDocument(UIDocument!) ;
         ActivateFixtureView() ;
 
-        // Real scope reader / pair executor / transactions; mocked dialogs and progress so the
-        // run never blocks the test process (IsCancelRequested defaults to false)
-        var progressReporter = Substitute.For<IProgressReporter>() ;
-        var messageService = Substitute.For<IMessageService>() ;
+        // Real scope reader / pair executor / transactions; hand-written fakes for dialogs and
+        // progress so the run never blocks — see TestDoubles.cs for why NOT NSubstitute here
+        var progressReporter = new FakeProgressReporter() ;
+        var messageService = new FakeMessageService() ;
         _interactor = new AutoJoinInteractor(Host.GetService<IAutoJoinScopeReader>(),
             Host.GetService<IAutoJoinPairExecutor>(),
             Host.GetService<IFailingElementIdsTracker>(),
