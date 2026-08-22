@@ -57,6 +57,24 @@ public class SonnyTab
     }
 
     /// <summary>
+    ///     Panel for geometry join tools
+    /// </summary>
+    [Panel("Join Tools")]
+    public class JoinPanel
+    {
+        /// <summary>
+        ///     Button for auto join feature
+        /// </summary>
+        [Button("Auto Join",
+            typeof( AutoJoinCommand ),
+            Image = "/Sonny.Application;component/Resources/Icons/AutoJoinCommand16.png",
+            LargeImage = "/Sonny.Application;component/Resources/Icons/AutoJoinCommand32.png",
+            ToolTip = "Automatically join intersecting elements",
+            LongDescription = "Joins intersecting elements by priority rules, with the cut order following each rule")]
+        public class AutoJoinButton ;
+    }
+
+    /// <summary>
     ///     Panel for column creation tools
     /// </summary>
     [Panel("Model from CAD")]

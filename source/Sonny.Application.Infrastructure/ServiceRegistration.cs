@@ -3,6 +3,8 @@ using Sonny.Application.Domain.Entities.ColumnFromCad.Services ;
 using Sonny.Application.Domain.Services ;
 using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements ;
 using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Services ;
+using Sonny.Application.Infrastructure.Features.AutoJoin.Implements ;
+using Sonny.Application.Infrastructure.Features.AutoJoin.Services ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Implements ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Services ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Strategies ;
@@ -13,6 +15,7 @@ using Sonny.Application.Infrastructure.Revit.Managers.Transactions ;
 using Sonny.Application.Infrastructure.Revit.Services ;
 using Sonny.Application.Infrastructure.Settings.Implements ;
 using Sonny.Application.UseCases.AutoColumnDimension.Services ;
+using Sonny.Application.UseCases.AutoJoin.Services ;
 using Sonny.Application.UseCases.ColumnFromCad.Services ;
 using Sonny.Keygen.Services ;
 
@@ -34,6 +37,7 @@ public static class ServiceRegistration
         services.AddLicenseServices() ;
         services.AddColumnFromCadServices() ;
         services.AddAutoColumnDimensionServices() ;
+        services.AddAutoJoinServices() ;
     }
 
     /// <summary>
@@ -56,6 +60,11 @@ public static class ServiceRegistration
 
         services.AddSingleton<ITransactionManagerFactory, TransactionManagerFactory>() ;
         services.AddSingleton<IFailurePreprocessorFactory, FailurePreprocessorFactory>() ;
+
+        // Singleton on purpose: the failure preprocessors (created by the factory above) and the
+        // interactor that reads the ids after commit must share the same instance. Holds only
+        // numeric ids and is Clear()-ed at the start of every run.
+        services.AddSingleton<IFailingElementIdsTracker, FailingElementIdsTracker>() ;
         services.AddSingleton<IPoint3DConverter, Point3DConverter>() ;
         services.AddSingleton<IUnitConverter, UnitConverter>() ;
         services.AddSingleton<IElementSelector, ElementSelector>() ;
@@ -119,5 +128,20 @@ public static class ServiceRegistration
         // the view, so they are safe as singletons (see the UIDocument lifetime rule)
         services.AddSingleton<IColumnGeometryReader, ColumnGeometryReader>() ;
         services.AddSingleton<IDimensionPlanExecutor, DimensionPlanExecutor>() ;
+    }
+
+    /// <summary>
+    ///     Adds the Revit adapters for the AutoJoin feature: the scope reader and pair executor
+    ///     behind the UseCases ports, and the pre-window environment check
+    /// </summary>
+    private static void AddAutoJoinServices(this IServiceCollection services)
+    {
+        // Stateless, reads through IRevitDocument on each call — safe as a singleton
+        services.AddSingleton<IAutoJoinEnvironmentChecker, AutoJoinEnvironmentChecker>() ;
+
+        // Transient: the pair executor snapshots the current anchor's solid during a run, and
+        // the reader follows the same per-run lifetime as the interactor that owns them
+        services.AddTransient<IAutoJoinScopeReader, AutoJoinScopeReader>() ;
+        services.AddTransient<IAutoJoinPairExecutor, AutoJoinPairExecutor>() ;
     }
 }

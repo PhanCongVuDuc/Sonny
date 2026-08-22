@@ -14,6 +14,7 @@ what calls what. Use both.
 | [architecture/test-safety-net.md](architecture/test-safety-net.md) | Before moving, renaming or deleting any type — which tests bind to implementation details, and the retarget rule |
 | [features/AutoColumnDimension.md](features/AutoColumnDimension.md) | Working on auto-dimensioning columns against grids |
 | [features/ColumnFromCad.md](features/ColumnFromCad.md) | Working on creating Revit columns from a CAD link |
+| [features/AutoJoin.md](features/AutoJoin.md) | Working on rule-based joining/unjoining of intersecting elements (ported from AlphaBIM — full of deliberate quirks, read before "fixing" anything) |
 | [adr/](adr/) | Why a hard-to-reverse decision was made the way it was |
 
 Structural questions — "what implements `IDimensionCreator`", "what does `ServiceRegistration` touch" — go

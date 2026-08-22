@@ -44,6 +44,9 @@ dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "De
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
+The AutoJoin fixture (`Test_V2023_AutoJoin.rvt`) is different: it is *generated* by `AutoJoinFixtureBuilder` (delete the
+file and run that one test on `Debug R23` to redraw it), and its tests find elements by Comments-parameter tags instead
+of `UniqueId`s.
 Everything left in this project needs the Revit process, including `Core/RevitApiTests` — `UnitConverter`
 maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not Revit-free despite testing one
 plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.

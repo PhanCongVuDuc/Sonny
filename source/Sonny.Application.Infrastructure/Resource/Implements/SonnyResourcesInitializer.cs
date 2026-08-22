@@ -48,6 +48,11 @@ public static class SonnyResourcesInitializer
         manager.RegisterResource("Sonny.Application",
             "Resources/Languages/ColumnFromCad/ColumnFromCad",
             languageCode) ;
+
+        // Register AutoJoin resource
+        manager.RegisterResource("Sonny.Application",
+            "Resources/Languages/AutoJoin/AutoJoin",
+            languageCode) ;
     }
 
     /// <summary>

@@ -103,6 +103,12 @@ protected override Result ExecuteInternal(ExternalCommandData commandData,
 No business logic, no Revit API calls, no transactions. If you find yourself adding any of those to a
 command, it belongs in an interactor instead.
 
+One sanctioned variant: a command may run an **environment gate** before resolving the View — a check
+that must reject the user *before* they fill in a dialog. `AutoJoinCommand` does this
+(`IAutoJoinEnvironmentChecker`: family document, unsupported view type → message + `Result.Cancelled`).
+The gate is still resolve-and-call — the decision logic lives in an Infrastructure service, not in the
+command body.
+
 ## Adding a new tool
 
 Five edits, in this order:

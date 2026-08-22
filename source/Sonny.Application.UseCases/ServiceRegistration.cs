@@ -1,6 +1,8 @@
 using Microsoft.Extensions.DependencyInjection ;
 using Sonny.Application.UseCases.AutoColumnDimension.Implements ;
 using Sonny.Application.UseCases.AutoColumnDimension.Services ;
+using Sonny.Application.UseCases.AutoJoin.Implements ;
+using Sonny.Application.UseCases.AutoJoin.Services ;
 using Sonny.Application.UseCases.ColumnFromCad.Implements ;
 using Sonny.Application.UseCases.ColumnFromCad.Services ;
 using Sonny.Application.UseCases.Services ;
@@ -27,5 +29,9 @@ public static class ServiceRegistration
         // Singleton like its old Infrastructure registration: stateless between runs, reads
         // document state only through its ports on each call and never caches it.
         services.AddSingleton<IAutoColumnDimensionInteractor, AutoColumnDimensionInteractor>() ;
+
+        // Transient: the pair executor it drives holds per-run anchor state, so each run needs
+        // a fresh object graph.
+        services.AddTransient<IAutoJoinInteractor, AutoJoinInteractor>() ;
     }
 }

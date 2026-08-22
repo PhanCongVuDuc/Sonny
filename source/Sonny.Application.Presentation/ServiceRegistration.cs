@@ -5,6 +5,8 @@ using Microsoft.Extensions.DependencyInjection ;
 using Sonny.Application.Domain.Services ;
 using Sonny.Application.Presentation.AutoColumnDimension.ViewModels ;
 using Sonny.Application.Presentation.AutoColumnDimension.Views ;
+using Sonny.Application.Presentation.AutoJoin.ViewModels ;
+using Sonny.Application.Presentation.AutoJoin.Views ;
 using Sonny.Application.Presentation.ColumnFromCad.ViewModels ;
 using Sonny.Application.Presentation.ColumnFromCad.Views ;
 using Sonny.Application.Presentation.Implements ;
@@ -43,6 +45,9 @@ public static class ServiceRegistration
 
         services.AddTransient<ColumnFromCadViewModel>() ;
         services.AddTransient<ColumnFromCadView>() ;
+
+        services.AddTransient<AutoJoinViewModel>() ;
+        services.AddTransient<AutoJoinView>() ;
 
         // Settings services
         services.AddTransient<SettingsViewModel>() ;
