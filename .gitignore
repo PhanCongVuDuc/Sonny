@@ -87,14 +87,11 @@ __pycache__/
 Thumbs.db
 desktop.ini
 
-#graphify: graph.json, wiki/ and manifest.json are committed on purpose (team map).
-# Git already versions the graph, so the dated snapshots and .backup-* dirs graphify
-# leaves behind are redundant, and .graphify_* are pipeline intermediates / local paths.
-graphify-out/cost.json
-graphify-out/20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
-graphify-out/.backup-*/
-graphify-out/.graphify_*
-# graphify-out/cache/    -- optional: commit for speed, skip to keep repo small
+#graphify local index (rebuilt from source with `graphify update .`, never commit).
+# The whole directory is machine-local: dated snapshots, .backup-* dirs, pipeline
+# intermediates (.graphify_*), learned memory/ and reflections/, plus the generated
+# graph.json / wiki/ / manifest.json. Regenerating is cheaper than merging it.
+graphify-out/
 
 #CodeGraph local index (rebuilt from source, never commit)
 .codegraph/
