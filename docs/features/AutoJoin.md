@@ -257,6 +257,9 @@ dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "De
 
 ## Related
 
+- **Bug đang mở: [AJ-001](../bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md)** — hai kẻ cắt
+  chồng vùng cắt: Revit lặng lẽ gỡ join sau tại commit, tool vẫn báo thành công
+
 - [command-flow.md](../architecture/command-flow.md) — pipeline `BaseExternalCommand`, UIDocument
   lifetime; AutoJoin thêm một biến thể: command có gate môi trường trước resolve-and-show
 - [AutoColumnDimension.md](AutoColumnDimension.md) — feature mẫu cho ports ADR 0001 mà AutoJoin noi theo

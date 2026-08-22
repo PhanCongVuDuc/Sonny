@@ -16,6 +16,7 @@ what calls what. Use both.
 | [features/ColumnFromCad.md](features/ColumnFromCad.md) | Working on creating Revit columns from a CAD link |
 | [features/AutoJoin.md](features/AutoJoin.md) | Working on rule-based joining/unjoining of intersecting elements (ported from AlphaBIM — full of deliberate quirks, read before "fixing" anything) |
 | [adr/](adr/) | Why a hard-to-reverse decision was made the way it was |
+| [bugs/](bugs/) | Known-but-unfixed defects — one file per bug, index in its README. A feature doc links its open bugs from `## Related` |
 
 Structural questions — "what implements `IDimensionCreator`", "what does `ServiceRegistration` touch" — go
 to the graph instead:
@@ -40,7 +41,7 @@ Every feature document uses the same five sections, in this order. `ColumnFromCa
 | `## Flow` | **diagram** | One `sequenceDiagram` — the cross-layer call path, ViewModel → runner → interactor → API |
 | `## Behaviour` | **explanation** | Only what the code does not state plainly, plus one `flowchart TD` per phase with real branching |
 | `## What a test should prove` | reference | What is pinned today, the exact command to run it, and the gaps |
-| `## Related` | — | Sibling docs, ADRs, and a bag of symbol names to hand to `codegraph explore` |
+| `## Related` | — | Sibling docs, ADRs, a one-line link per **open bug** in [bugs/](bugs/), and a bag of symbol names to hand to `codegraph explore` |
 
 Keeping `Contract` (reference) and `Behaviour` (explanation) apart is deliberate — they answer different
 questions and mixing them makes both harder to trust. The intended edit surface is `Contract`.
