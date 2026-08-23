@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Window Title -->
+    <system:String x:Key="FramingFromCadWindowTitle">Model Framing from AutoCAD</system:String>
+
+    <!-- GroupBox Headers -->
+    <system:String x:Key="GroupBoxFramingFamily">Framing Family</system:String>
+    <system:String x:Key="GroupBoxSections">Sections</system:String>
+    <system:String x:Key="GroupBoxPlacement">Placement</system:String>
+
+    <!-- Labels -->
+    <system:String x:Key="LabelSelectBeamLayer">Layer of Beam:</system:String>
+    <system:String x:Key="LabelFramingFamily">Beam Family:</system:String>
+    <system:String x:Key="LabelReferenceLevel">Reference Level:</system:String>
+    <system:String x:Key="LabelZOffset">z Offset:</system:String>
+    <system:String x:Key="LabelAllSections">All Sections:</system:String>
+    <system:String x:Key="LabelCreateForSingleLine">Create for Single Line?</system:String>
+    <system:String x:Key="LabelDisallowJoin">Disallow Join</system:String>
+
+    <!-- Hints and tooltips -->
+    <system:String x:Key="HintAllSections">Sections of the beams to create, separated by ";" — for example: 200x300; 300x700; 400x600. An entry that is not two positive numbers is skipped.</system:String>
+    <system:String x:Key="ToolTipAllSections">The sections of beams that will be created, separated by ";"&#x0a;For example: 200x300; 300x700; 400x600</system:String>
+    <system:String x:Key="ToolTipZOffset">Vertical offset applied to every created beam, in the project's display unit</system:String>
+    <system:String x:Key="ToolTipCreateForSingleLine">Use the first resolved section to create a beam along each stroke left over after pairing</system:String>
+    <system:String x:Key="ToolTipDisallowJoin">Newly created beams will be set to Disallow Join at both ends</system:String>
+
+    <!-- Validation -->
+    <system:String x:Key="ValidationPleaseSelectFramingFamily">Please select a beam family.</system:String>
+    <system:String x:Key="ValidationPleaseSelectReferenceLevel">Please select a reference level.</system:String>
+
+    <!-- Transactions -->
+    <system:String x:Key="TransactionCreateFramings">Model Framing from AutoCAD</system:String>
+    <system:String x:Key="TransactionAdjustFramingJustification">Adjust Framing Justification</system:String>
+
+    <!-- Progress -->
+    <system:String x:Key="MessageCreatingFramings">Creating beams from AutoCAD…</system:String>
+
+    <!-- Results -->
+    <system:String x:Key="MessageSuccessfullyCreated">You have created {0} beams!</system:String>
+    <system:String x:Key="MessageNoFramingsCreated">No beams were created. Check the selected layer and the section list.</system:String>
+    <system:String x:Key="MessageCancelled">Cancelled. No beams were created.</system:String>
+
+    <!-- Errors -->
+    <system:String x:Key="MessageNoFramingFamiliesFound">There is no beam family in the project. Please load a structural framing family before running this tool.</system:String>
+    <system:String x:Key="MessageParameterNotFound">The beam family has no type parameter named "{0}" or "{1}". Pick the parameters that carry the section dimensions and run again.</system:String>
+    <system:String x:Key="MessageCadLinkNotFound">The selected CAD link could not be found in the model.</system:String>
+    <system:String x:Key="MessageFramingFamilyNotFound">The selected beam family could not be found in the model.</system:String>
+    <system:String x:Key="MessageFramingFamilyHasNoTypes">The selected beam family has no types.</system:String>
+    <system:String x:Key="MessageReferenceLevelNotFound">The selected reference level could not be found in the model.</system:String>
+    <system:String x:Key="MessageNoSymbolResolvedForSingleLines">No beam section could be resolved for single strokes, because no paired beam was created.</system:String>
+
+</ResourceDictionary>

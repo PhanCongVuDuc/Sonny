@@ -90,5 +90,17 @@ public class SonnyTab
             ToolTip = "Create columns from AutoCAD",
             LongDescription = "Model columns from AutoCAD CAD link by selecting layers and column families")]
         public class ColumnFromCadButton ;
+
+        /// <summary>
+        ///     Button for framing from CAD feature
+        /// </summary>
+        [Button("Framing from CAD",
+            typeof( FramingFromCadCommand ),
+            Image = "/Sonny.Application;component/Resources/Icons/FramingFromCadCommand16.png",
+            LargeImage = "/Sonny.Application;component/Resources/Icons/FramingFromCadCommand32.png",
+            ToolTip = "Create structural framing from AutoCAD",
+            LongDescription =
+                "Model beams from an AutoCAD CAD link by pairing parallel strokes that sit one beam width apart")]
+        public class FramingFromCadButton ;
     }
 }

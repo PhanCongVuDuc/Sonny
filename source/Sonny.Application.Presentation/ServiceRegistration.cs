@@ -1,4 +1,4 @@
-// Licensed to the.NET Foundation under one or more agreements.
+﻿// Licensed to the.NET Foundation under one or more agreements.
 // The.NET Foundation licenses this file to you under the MIT license.
 
 using Microsoft.Extensions.DependencyInjection ;
@@ -9,6 +9,8 @@ using Sonny.Application.Presentation.AutoJoin.ViewModels ;
 using Sonny.Application.Presentation.AutoJoin.Views ;
 using Sonny.Application.Presentation.ColumnFromCad.ViewModels ;
 using Sonny.Application.Presentation.ColumnFromCad.Views ;
+using Sonny.Application.Presentation.FramingFromCad.ViewModels ;
+using Sonny.Application.Presentation.FramingFromCad.Views ;
 using Sonny.Application.Presentation.Implements ;
 using Sonny.Application.Presentation.Services ;
 using Sonny.Application.Presentation.Settings.ViewModels ;
@@ -45,6 +47,9 @@ public static class ServiceRegistration
 
         services.AddTransient<ColumnFromCadViewModel>() ;
         services.AddTransient<ColumnFromCadView>() ;
+
+        services.AddTransient<FramingFromCadViewModel>() ;
+        services.AddTransient<FramingFromCadView>() ;
 
         services.AddTransient<AutoJoinViewModel>() ;
         services.AddTransient<AutoJoinView>() ;

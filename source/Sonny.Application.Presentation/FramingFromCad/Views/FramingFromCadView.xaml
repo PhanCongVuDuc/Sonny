@@ -1,0 +1,165 @@
+<Window x:Class="Sonny.Application.Presentation.FramingFromCad.Views.FramingFromCadView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Sonny.Application.Presentation.FramingFromCad.ViewModels"
+        mc:Ignorable="d"
+        Title="{DynamicResource FramingFromCadWindowTitle}"
+        Height="560"
+        Width="500"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen"
+        d:DataContext="{d:DesignInstance {x:Type viewModels:FramingFromCadViewModel}, IsDesignTimeCreatable=True}">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Layer Selection -->
+                <GroupBox Header="{DynamicResource GroupBoxLayerSelection}" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource LabelSelectBeamLayer}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AllLayerNames}"
+                                  SelectedItem="{Binding SelectedLayer}"
+                                  Margin="5,5,0,5" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Framing Family Selection -->
+                <GroupBox Header="{DynamicResource GroupBoxFramingFamily}" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource LabelFramingFamily}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AllFramingFamilies}"
+                                  SelectedItem="{Binding SelectedFramingFamily}"
+                                  DisplayMemberPath="Name"
+                                  Margin="5,5,0,5" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource LabelWidthParameter}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding AllFramingTypeParameters}"
+                                  SelectedItem="{Binding WidthParameter}"
+                                  Margin="5,5,0,5" />
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="{DynamicResource LabelHeightParameter}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding AllFramingTypeParameters}"
+                                  SelectedItem="{Binding HeightParameter}"
+                                  Margin="5,5,0,5" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Sections -->
+                <GroupBox Header="{DynamicResource GroupBoxSections}" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource LabelAllSections}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <TextBox Grid.Row="0" Grid.Column="1"
+                                 Text="{Binding AllSectionsText}"
+                                 ToolTip="{DynamicResource ToolTipAllSections}"
+                                 Margin="5,5,0,5" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                   Text="{DynamicResource HintAllSections}"
+                                   TextWrapping="Wrap"
+                                   Opacity="0.7"
+                                   Margin="0,0,0,5" />
+                    </Grid>
+                </GroupBox>
+
+                <!-- Placement -->
+                <GroupBox Header="{DynamicResource GroupBoxPlacement}" Margin="0,0,0,10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MinWidth="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource LabelReferenceLevel}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AllLevels}"
+                                  SelectedItem="{Binding ReferenceLevel}"
+                                  DisplayMemberPath="Name"
+                                  Margin="5,5,0,5" />
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource LabelZOffset}"
+                                   VerticalAlignment="Center" Margin="0,5" />
+                        <TextBox Grid.Row="1" Grid.Column="1"
+                                 Text="{Binding ZOffsetDisplay}"
+                                 ToolTip="{DynamicResource ToolTipZOffset}"
+                                 Margin="5,5,0,5" />
+
+                        <CheckBox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                  Content="{DynamicResource LabelCreateForSingleLine}"
+                                  IsChecked="{Binding IsCreateForSingleLine}"
+                                  ToolTip="{DynamicResource ToolTipCreateForSingleLine}"
+                                  Margin="0,5" />
+
+                        <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                  Content="{DynamicResource LabelDisallowJoin}"
+                                  IsChecked="{Binding IsDisallowJoin}"
+                                  ToolTip="{DynamicResource ToolTipDisallowJoin}"
+                                  Margin="0,5" />
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+            <Button Content="{DynamicResource ButtonOK}"
+                    Width="80"
+                    Height="30"
+                    Margin="0,0,10,0"
+                    Command="{Binding ExecuteCommand}" />
+            <Button Content="{DynamicResource ButtonCancel}"
+                    Width="80"
+                    Height="30"
+                    Command="{Binding CancelCommand}" />
+        </StackPanel>
+    </Grid>
+</Window>
