@@ -79,8 +79,18 @@ trước** — kể cả family tối giản cho fixture.
 ## Máy này có gì / thiếu gì
 
 - Revit 2021–2026 đã cài; test Revit thật chạy trên **2023** (`Debug R23`).
-- **Không có thư viện family chuẩn** (`C:\ProgramData\Autodesk\RVT 2023\Libraries` chỉ có bộ Precast —
-  không có M_Concrete-Rectangular*). Family templates (`.rft`) thì đầy đủ.
+- **Thư viện family chuẩn trên đĩa bị lược** — `C:\ProgramData\Autodesk\RVT 2023\Libraries\English` chỉ có
+  `Route Analysis` + `Structural Precast` (29 `.rfa`), không có `M_Concrete-Rectangular*`. Family templates
+  (`.rft`) thì đầy đủ.
+  **Nhưng câu đó KHÔNG nói gì về family đã nạp trong file fixture** — và đó mới là chỗ cần tìm trước.
+  `PlaceHolder_V2023.rvt` (file nền của mọi fixture generated) đã nạp **142 family**, trong đó có
+  `M_Concrete-Rectangular Beam` với đúng hai type parameter `b`/`h` và hai type `300 x 600mm`, `400 x 800mm`,
+  cùng `M_Concrete-Rectangular-Column`, `M_Footing-Rectangular`, `UB-Universal Beams`, `M_HSS Square`.
+  Nên **đừng author family từ `.rft` trước khi mở file nền ra xem** — AutoJoin phải tự dựng family hộp vì cần
+  khối đặc kích thước tuỳ ý, không phải vì project thiếu family.
+  Và **cấm dùng `grep` trên `.rvt` để kiểm tra**: `.rvt` là OLE compound nén, tên family không nằm dạng
+  plaintext, nên 0 hit **không** chứng minh là không có. Muốn biết trong file có gì thì viết một probe test
+  đọc-only (kế thừa `SonnyDocumentTestBase`, dump ra file text) và chạy qua `loop.ps1` — mất ~1 phút.
 - Journal của Revit (`%LOCALAPPDATA%\Autodesk\Revit\Autodesk Revit 2023\Journals`) là nơi chẩn đoán khi
   test treo/timeout — dialog đang chặn được ghi ở đó (`TaskDialog "..."`).
 - Log Serilog của add-in: `%LOCALAPPDATA%\Sonny\Logs\sonny-*.log`.

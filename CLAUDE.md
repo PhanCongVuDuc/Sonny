@@ -55,9 +55,14 @@ trusting graph results.
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
-The AutoJoin fixture (`Test_V2023_AutoJoin.rvt`) is different: it is *generated* by `AutoJoinFixtureBuilder` (delete the
-file and run that one test on `Debug R23` to redraw it), and its tests find elements by Comments-parameter tags instead
-of `UniqueId`s.
+Two fixtures are different: they are *generated*, so deleting the file and running the one builder test on `Debug R23`
+redraws it, and their tests locate elements without pinning `UniqueId`s.
+`Test_V2023_AutoJoin.rvt` comes from `AutoJoinFixtureBuilder` and its tests find elements by Comments-parameter tags.
+`Test_V2023_FramingFromCad.rvt` comes from `FramingFromCadFixtureBuilder`, which imports the project owner's
+own Revit-exported `Resources/RevitFiles/Dwgs/Test_V2023_FramingFromCad.dwg` and self-verifies every layer stroke
+count and pair count with the feature's own helpers before saving; its tests find the CAD link, family and level
+by name. Expected counts live in `FramingFromCadFixtureFacts` and were **measured**, not designed — several look
+wrong and are not, so read that file's comments before "correcting" one.
 Everything left in this project needs the Revit process, including `Core/RevitApiTests` — `UnitConverter`
 maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not Revit-free despite testing one
 plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.

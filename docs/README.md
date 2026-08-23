@@ -15,6 +15,7 @@ what calls what. Use both.
 | [features/AutoColumnDimension.md](features/AutoColumnDimension.md) | Working on auto-dimensioning columns against grids |
 | [features/ColumnFromCad.md](features/ColumnFromCad.md) | Working on creating Revit columns from a CAD link |
 | [features/AutoJoin.md](features/AutoJoin.md) | Working on rule-based joining/unjoining of intersecting elements (ported from AlphaBIM — full of deliberate quirks, read before "fixing" anything) |
+| [features/FramingFromCad.md](features/FramingFromCad.md) | Working on creating Revit structural framing from a CAD link (two kept bugs and two opposite justification rules, read before "fixing" anything) |
 | [adr/](adr/) | Why a hard-to-reverse decision was made the way it was |
 | [bugs/](bugs/) | Known-but-unfixed defects — one file per bug, index in its README. A feature doc links its open bugs from `## Related` |
 
