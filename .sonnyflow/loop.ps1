@@ -1,11 +1,11 @@
 # The single gate for running Sonny.Application.Tests — this is the `loopCommand` CLAUDE.md declares.
 # Rules it implements: sonny-flow rules/revit-loop.md (reload first, restart last; verdict contract).
 #
-#   scripts\loop.ps1                  dev loop: builds with RevitTestKeepOpen=true so the test DLL
-#                                     carries NUnit.Open=false/Close=false -> ricaun reuses the open
-#                                     Revit and reloads the freshly built (repacked) test DLL
-#   scripts\loop.ps1 -Filter AutoJoin name filter (FullyQualifiedName~)
-#   scripts\loop.ps1 -Final           acceptance run: default metadata -> fresh Revit, closed after
+#   .sonnyflow\loop.ps1                  dev loop: builds with RevitTestKeepOpen=true so the test DLL
+#                                        carries NUnit.Open=false/Close=false -> ricaun reuses the
+#                                        open Revit and reloads the freshly built (repacked) test DLL
+#   .sonnyflow\loop.ps1 -Filter AutoJoin name filter (FullyQualifiedName~)
+#   .sonnyflow\loop.ps1 -Final           acceptance run: default metadata -> fresh Revit, closed after
 #
 # Exit codes (the verdict contract — 2 is NOT a pass):
 #   0  GREEN, at least one test really ran
@@ -43,7 +43,7 @@ $revitRunning = [bool](Get-Process Revit -ErrorAction SilentlyContinue)
 if ($Final -or -not $revitRunning) {
     Start-Process powershell -WindowStyle Hidden -ArgumentList @(
         '-NoProfile', '-ExecutionPolicy', 'Bypass',
-        '-File', (Join-Path $PSScriptRoot 'Watch-AlwaysLoad.ps1'),
+        '-File', (Join-Path $PSScriptRoot 'watch-always-load.ps1'),
         '-TimeoutSeconds', '240'
     ) | Out-Null
     Write-Host "[revit-loop] cold start expected - Always Load watcher armed" -ForegroundColor Cyan

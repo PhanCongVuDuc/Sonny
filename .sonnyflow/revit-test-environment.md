@@ -6,16 +6,20 @@ không có điều nào suy ra được từ code.
 
 ## Chạy test thế nào
 
-**Mọi lần chạy `Sonny.Application.Tests` đi qua một cửa duy nhất: `scripts/loop.ps1`** (chính là
+**Mọi lần chạy `Sonny.Application.Tests` đi qua một cửa duy nhất: `.sonnyflow/loop.ps1`** (chính là
 `loopCommand` khai trong `CLAUDE.md`). Nó build, lo dialog trust, chạy test, và trả verdict theo luật
 `rules/revit-loop.md` của sonny-flow: exit **0** = GREEN · **1** = RED/build hỏng · **2** = không thấy
 test nào (không phải pass!).
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\loop.ps1                     # vòng lặp dev: giữ Revit mở
-powershell -ExecutionPolicy Bypass -File scripts\loop.ps1 -Filter AutoJoin    # lọc theo tên
-powershell -ExecutionPolicy Bypass -File scripts\loop.ps1 -Final              # chạy chốt: mở Revit mới, đóng khi xong
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1                     # vòng lặp dev: giữ Revit mở
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Filter AutoJoin    # lọc theo tên
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Final              # chạy chốt: mở Revit mới, đóng khi xong
 ```
+
+**"Đủ bộ" trước khi kết thúc một task = HAI project test, chạy theo thứ tự rẻ-trước:**
+① `Sonny.Application.UnitTests` (`dotnet test ... -c "Debug R25"` — vài giây, không Revit, fail sớm) →
+② `Sonny.Application.Tests` qua `loop.ps1 -Final`. Test hẹp xanh mà bộ rộng đỏ là hồi quy.
 
 Chế độ mặc định (dev) build với `-p:RevitTestKeepOpen=true` → DLL test mang metadata
 `NUnit.Open=false / NUnit.Close=false` → ricaun **tái dùng Revit đang mở** và nạp DLL test mới nhờ
@@ -30,14 +34,15 @@ KHÔNG copy `Resources\` nên helper fixture có fallback `[CallerFilePath]` v�
 trong test chạy Revit** — Castle proxy trúng bản assembly nạp đầu → InvalidCastException; dùng fake
 tay trong `TestDoubles.cs`.
 
-Một hook PreToolUse (`.claude/hooks/revit-test-guard.ps1`) chặn lệnh `dotnet test` gõ thẳng vào
+Một hook PreToolUse (`.sonnyflow/hooks/revit-test-guard.ps1`, đăng ký trong `.claude/settings.json`)
+chặn lệnh `dotnet test` gõ thẳng vào
 `Sonny.Application.Tests` và chỉ về `loop.ps1` — thoát hiểm bằng biến môi trường `SONNY_DIRECT_TEST=1`
 khi thật sự cần chạy trần (CI).
 
 ## Trust "Always Load" — theo HASH của DLL
 
 Revit trust add-in unsigned theo hash: **mỗi lần rebuild add-in là dialog quay lại** ở cold start, và
-một run headless sẽ treo tới timeout 10 phút. `scripts/Watch-AlwaysLoad.ps1` tự click nút (PostMessage
+một run headless sẽ treo tới timeout 10 phút. `.sonnyflow/watch-always-load.ps1` tự click nút (PostMessage
 vào HWND của nút — UIA InvokePattern không có, click chuột vật lý fail khi khoá màn hình) rồi **thoát
 ngay** — để nó poll UIA trong lúc test chạy chỉ tổ nhiễu. `loop.ps1` tự khởi động watcher khi cold start.
 
@@ -80,13 +85,18 @@ trước** — kể cả family tối giản cho fixture.
   test treo/timeout — dialog đang chặn được ghi ở đó (`TaskDialog "..."`).
 - Log Serilog của add-in: `%LOCALAPPDATA%\Sonny\Logs\sonny-*.log`.
 
-## `scripts/` — vô hình với knowledge graph
+## Automation — vô hình với knowledge graph
 
-Cả graphify lẫn codegraph **không index file `.ps1`**, nên đừng trông chờ hai graph dẫn tới thư mục này:
+Cả graphify lẫn codegraph **không index file `.ps1`** (và thường bỏ qua dotfolder), nên đừng trông chờ
+hai graph dẫn tới đây — phải tự mở xem:
 
-| Script | Việc |
-|---|---|
-| `loop.ps1` | Cửa duy nhất chạy test Revit — build + trust + test + verdict 0/1/2 |
-| `Watch-AlwaysLoad.ps1` | Tự click dialog trust, thoát sau cú click đầu |
-| `Deploy-SonnyAddin.ps1` | Build + deploy add-in cho (các) năm Revit — từ chối khi Revit đang mở |
-| `Install-SonnyAddinManifests.ps1` | Đảm bảo manifest .addin cho các bản đã deploy |
+| Ở đâu | Script | Việc |
+|---|---|---|
+| `.sonnyflow/` | `loop.ps1` | Cửa duy nhất chạy test Revit — build + trust + test + verdict 0/1/2 |
+| `.sonnyflow/` | `watch-always-load.ps1` | Tự click dialog trust, thoát sau cú click đầu |
+| `.sonnyflow/hooks/` | `revit-test-guard.ps1` | Hook chặn `dotnet test` trần (đăng ký ở `.claude/settings.json`) |
+| `scripts/` | `Deploy-SonnyAddin.ps1` | Build + deploy add-in cho (các) năm Revit — từ chối khi Revit đang mở |
+| `scripts/` | `Install-SonnyAddinManifests.ps1` | Đảm bảo manifest .addin cho các bản đã deploy |
+
+Ranh giới: `.sonnyflow/` = cơ khí của sonny-flow (do `/sonny-flow:setup` lắp); `scripts/` = automation
+chung của repo, không thuộc flow.

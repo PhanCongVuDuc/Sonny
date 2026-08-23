@@ -264,7 +264,7 @@ dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "De
   lifetime; AutoJoin thêm một biến thể: command có gate môi trường trước resolve-and-show
 - [AutoColumnDimension.md](AutoColumnDimension.md) — feature mẫu cho ports ADR 0001 mà AutoJoin noi theo
 - [ADR 0001](../adr/0001-decision-logic-lives-in-usecases.md) — vì sao interactor nằm UseCases sau ports
-- [retro sonny-flow của feature này](../retro/AutoJoin-sonny-flow-retro.md) — ghi chú cải thiện skill
+- [retro sonny-flow của feature này](../../.sonnyflow/retro/AutoJoin-retro.md) — ghi chú cải thiện skill
 - Nguồn gốc AlphaBIM: `AlphaStructure/03.StructuralSolutions/18.JoinElements` (repo AlphaBIMSolution)
 - Symbols for `codegraph explore`: `AutoJoinInteractor IAutoJoinScopeReader IAutoJoinPairExecutor
   AutoJoinScopeReader AutoJoinPairExecutor AutoJoinSeedMapper AutoJoinViewModel AutoJoinCommand

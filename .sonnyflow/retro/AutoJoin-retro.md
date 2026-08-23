@@ -107,7 +107,7 @@ Việc "điều khiển Revit vẽ fixture rồi autotest trên đó" thành cô
 ### 9. Đề xuất đưa vào chính skill: retro là output bắt buộc của mỗi lần chạy flow
 
 Mỗi lần chạy xong `/sonny-flow:*` cho một feature, bước cuối (doc) nên **bắt buộc tạo/cập nhật một file
-retro** tại vị trí cố định `docs/retro/<Feature>-sonny-flow-retro.md`, nội dung tối thiểu: (a) chỗ nào
+retro** tại vị trí cố định `.sonnyflow/retro/<Feature>-retro.md`, nội dung tối thiểu: (a) chỗ nào
 flow chạy mượt, (b) chỗ nào phải tự xoay ngoài kịch bản — kèm đề xuất sửa skill cụ thể (sửa file nào,
 thêm câu gì), (c) bài học kỹ thuật trả giá bằng nhiều vòng chạy. File này chính là backlog để nâng cấp
 skill; không có nó thì bài học chết theo phiên chat. (File này của AutoJoin là ví dụ mẫu.)

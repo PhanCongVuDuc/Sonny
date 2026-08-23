@@ -12,7 +12,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .claude/hooks/revit-test-guard.ps1"
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File .sonnyflow/hooks/revit-test-guard.ps1"
           }
         ]
       },

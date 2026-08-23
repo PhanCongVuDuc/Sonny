@@ -9,7 +9,7 @@
 # Exits after the FIRST successful click on purpose: keeping the UIA polling alive while tests run
 # is useless noise. Start it right before a test run that follows a rebuild:
 #
-#   powershell -NoProfile -ExecutionPolicy Bypass -File scripts\Watch-AlwaysLoad.ps1 -TimeoutSeconds 180
+#   powershell -NoProfile -ExecutionPolicy Bypass -File .sonnyflow\watch-always-load.ps1 -TimeoutSeconds 180
 param([int]$TimeoutSeconds = 180)
 
 Add-Type @"
