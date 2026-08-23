@@ -377,7 +377,7 @@ Not covered yet:
   but a different transaction shape and a different type-naming convention; know which one you are copying
 - [command-flow.md](../architecture/command-flow.md) — the pipeline above the ViewModel and the UIDocument
   lifetime rule
-- [test-safety-net.md](../architecture/test-safety-net.md) — what the tests above bind to before you move a type
+- [test-safety-net.md](../../.sonnyflow/test-safety-net.md) — what the tests above bind to before you move a type
 - [ADR 0001](../adr/0001-decision-logic-lives-in-usecases.md) — why `BeamSectionListParser` and
   `FramingSymbolSizingPolicy` are Domain code
 - [ADR 0003](../adr/0003-pure-revit-helpers-live-in-revitextensions.md) — why `GetLinesOnLayer` and

@@ -68,7 +68,7 @@ maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not R
 plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.
 
 Before moving, renaming or deleting a type, read
-[`docs/architecture/test-safety-net.md`](docs/architecture/test-safety-net.md) — it inventories which
+[`.sonnyflow/test-safety-net.md`](.sonnyflow/test-safety-net.md) — it inventories which
 tests bind to implementation details (hand-constructed interactors, direct method pairs, exact-equality
 floats) and the rule for retargeting them. Update it in the same change that moves the type.
 
@@ -180,17 +180,19 @@ trigger `PublishRelease.yml`. Commit messages are prefixed `Add:` / `Fix:` / `Up
 
 ## Feature workflow — docs are the deliverable
 
-A non-trivial feature runs through the `sonny-flow` plugin, in two commands with a human gate between them:
+A non-trivial feature runs through the `sonny-flow` plugin. One command starts or resumes the whole flow;
+the per-step commands exist for running a single step by hand:
 
 ```
-/sonny-flow:spec <Feature>     orient (docs → graphify → codegraph) → ## Spec + ## Contract → ## Plan
-                               ── stops here for approval
-/sonny-flow:build <Feature>    implement + tests → dotnet test → ## Behaviour + diagrams
+/sonny-flow:feature <Feature>   orient → grill → spec+contract → plan ─HUMAN GATE→ implement → verify → doc
+                                (re-typing the command after the plan gate IS the approval)
 ```
 
 Everything lands in one file, `docs/features/<Feature>.md`, which starts as spec-plus-plan and ends as
-permanent behaviour documentation. **The file is the progress tracker** — an unchecked `- [ ]` under
-`## Plan` means the feature is not done. There is no separate artifact directory and no JSON schema.
+permanent behaviour documentation. **The file is the progress tracker**: a `## Flow-state` checklist at the
+top ticks every step (template in sonny-flow's `rules/gates.md`), and an unchecked `- [ ]` — in `## Plan`
+or in `## Flow-state` — means the feature is not done. There is no separate artifact directory and no JSON
+schema.
 
 Three rules that hold whether or not the plugin is driving:
 

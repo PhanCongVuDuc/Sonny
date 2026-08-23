@@ -46,27 +46,34 @@ một run headless sẽ treo tới timeout 10 phút. `.sonnyflow/watch-always-lo
 vào HWND của nút — UIA InvokePattern không có, click chuột vật lý fail khi khoá màn hình) rồi **thoát
 ngay** — để nó poll UIA trong lúc test chạy chỉ tổ nhiễu. `loop.ps1` tự khởi động watcher khi cold start.
 
-## Bốn quy tắc vàng khi viết test/builder chạy trong Revit
+## Luật khi viết test/builder chạy trong Revit
 
-1. **Cấm đưa cho Revit callback định nghĩa trong test assembly.** `IFailuresPreprocessor` gắn vào
-   `Transaction.Commit(options)` làm MỌI commit trả `RolledBack` không một failure message;
-   `IFamilyLoadOptions` làm `LoadFamily` trả false. Nguyên nhân: DLL test bị ricaun shadow-copy nên
-   callback native→managed resolve fail, lỗi bị nuốt. Thay thế: `Commit()` trần; load family
-   **in-memory** (`familyDocument.LoadFamily(document, options)` — riêng đường này chạy được);
-   preprocessor chỉ dùng loại đã có trong assembly Sonny thật (qua `ITransactionManagerFactory`).
-2. **Document phải được mở ở `OnSetup`** (một sự kiện API riêng), không mở-rồi-commit trong cùng test
-   method — Revit chưa dọn xong trạng thái post-open thì mọi commit bị hủy ngầm ("attempt to modify
-   wrong element during regeneration"). Khuôn `SonnyDocumentTestBase` là điều kiện đúng đắn, không phải
-   tiện nghi.
-3. **`DocumentFilePath` bị base class đọc HAI lần** — getter có side effect (vd copy file) phải cache
-   (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
-4. **File nền sinh từ template kết cấu ẩn category kiến trúc ở view mới** (Columns, Ceilings, Roofs)
-   → mọi collector view-scoped lặng lẽ trả rỗng. Builder fixture phải `SetCategoryHidden(false)`
-   tường minh cho từng category dùng đến.
+Danh sách mở — trả giá xong bài nào thì thêm bài đó, mỗi bài một gạch đầu dòng: **hiện tượng → nguyên
+nhân → cách đúng**.
+
+- **Cấm đưa cho Revit callback định nghĩa trong test assembly.** `IFailuresPreprocessor` gắn vào
+  `Transaction.Commit(options)` làm MỌI commit trả `RolledBack` không một failure message;
+  `IFamilyLoadOptions` làm `LoadFamily` trả false. Nguyên nhân: DLL test bị ricaun shadow-copy nên
+  callback native→managed resolve fail, lỗi bị nuốt. Cách đúng: `Commit()` trần; load family
+  **in-memory** (`familyDocument.LoadFamily(document, options)` — riêng đường này chạy được);
+  preprocessor chỉ dùng loại đã có trong assembly Sonny thật (qua `ITransactionManagerFactory`).
+- **Document phải được mở ở `OnSetup`** (một sự kiện API riêng), không mở-rồi-commit trong cùng test
+  method — Revit chưa dọn xong trạng thái post-open thì mọi commit bị hủy ngầm ("attempt to modify
+  wrong element during regeneration"). Khuôn `SonnyDocumentTestBase` là điều kiện đúng đắn, không phải
+  tiện nghi.
+- **Test viết `void`, đừng viết `async Task`.** NUnit chạy test `async` dưới synchronization context
+  riêng — continuation sau `await` đầu tiên rời khỏi Revit API thread, transaction kế tiếp chết với
+  *"Cannot modify the document... changes are temporarily disabled"*. Cách đúng: test `void`, block
+  bằng `.GetAwaiter().GetResult()`, task runner chạy inline (fake trong `TestDoubles.cs`).
+- **`DocumentFilePath` bị base class đọc HAI lần** — getter có side effect (vd copy file) phải cache
+  (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
+- **File nền sinh từ template kết cấu ẩn category kiến trúc ở view mới** (Columns, Ceilings, Roofs)
+  → mọi collector view-scoped lặng lẽ trả rỗng. Builder fixture phải `SetCategoryHidden(false)`
+  tường minh cho từng category dùng đến.
 
 Và một hành vi Revit cần biết khi dựng case join: **hai kẻ cắt chồng vùng cắt trên cùng một element →
 Revit lặng lẽ gỡ join sau tại commit** ("joined but do not intersect"), không log, không failing id —
-xem [AJ-001](../bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md).
+xem [AJ-001](../docs/bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md).
 
 ## Fixture tự sinh
 
