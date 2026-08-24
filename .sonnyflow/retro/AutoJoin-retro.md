@@ -1,7 +1,12 @@
 # Retro — chạy sonny-flow cho feature AutoJoin (2026-08-22)
 
-Ghi chú trong lúc chạy trọn flow `/sonny-flow:feature AutoJoin` (port từ AlphaBIM), để anh và tôi review
+Ghi chú trong lúc chạy trọn flow `/sonny-flow:feature AutoJoin`, để anh và tôi review
 lại xem cái gì đáng bổ sung vào skill. Mỗi mục: chuyện gì xảy ra → đề xuất.
+
+**Status: cả 10 mục còn `chờ xét`** — luật status ở [`README.md`](README.md) của folder này. File này viết
+trước khi có cơ chế status (2026-08-23), nên chưa mục nào được duyệt qua `lessons/`. Mục 9 (retro là output
+bắt buộc) thực chất **đã được nhận** ở lượt FramingFromCad — xem tổng kết cuối
+[FramingFromCad-retro.md](FramingFromCad-retro.md) — nhưng để nguyên ở đây làm lịch sử.
 
 ## Những chỗ flow chạy tốt
 

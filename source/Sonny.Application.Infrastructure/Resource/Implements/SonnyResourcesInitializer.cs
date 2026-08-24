@@ -49,6 +49,11 @@ public static class SonnyResourcesInitializer
             "Resources/Languages/ColumnFromCad/ColumnFromCad",
             languageCode) ;
 
+        // Register FramingFromCad resource
+        manager.RegisterResource("Sonny.Application",
+            "Resources/Languages/FramingFromCad/FramingFromCad",
+            languageCode) ;
+
         // Register AutoJoin resource
         manager.RegisterResource("Sonny.Application",
             "Resources/Languages/AutoJoin/AutoJoin",

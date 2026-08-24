@@ -46,27 +46,18 @@ một run headless sẽ treo tới timeout 10 phút. `.sonnyflow/watch-always-lo
 vào HWND của nút — UIA InvokePattern không có, click chuột vật lý fail khi khoá màn hình) rồi **thoát
 ngay** — để nó poll UIA trong lúc test chạy chỉ tổ nhiễu. `loop.ps1` tự khởi động watcher khi cold start.
 
-## Bốn quy tắc vàng khi viết test/builder chạy trong Revit
+## Luật khi viết test/builder chạy trong Revit
 
-1. **Cấm đưa cho Revit callback định nghĩa trong test assembly.** `IFailuresPreprocessor` gắn vào
-   `Transaction.Commit(options)` làm MỌI commit trả `RolledBack` không một failure message;
-   `IFamilyLoadOptions` làm `LoadFamily` trả false. Nguyên nhân: DLL test bị ricaun shadow-copy nên
-   callback native→managed resolve fail, lỗi bị nuốt. Thay thế: `Commit()` trần; load family
-   **in-memory** (`familyDocument.LoadFamily(document, options)` — riêng đường này chạy được);
-   preprocessor chỉ dùng loại đã có trong assembly Sonny thật (qua `ITransactionManagerFactory`).
-2. **Document phải được mở ở `OnSetup`** (một sự kiện API riêng), không mở-rồi-commit trong cùng test
-   method — Revit chưa dọn xong trạng thái post-open thì mọi commit bị hủy ngầm ("attempt to modify
-   wrong element during regeneration"). Khuôn `SonnyDocumentTestBase` là điều kiện đúng đắn, không phải
-   tiện nghi.
-3. **`DocumentFilePath` bị base class đọc HAI lần** — getter có side effect (vd copy file) phải cache
-   (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
-4. **File nền sinh từ template kết cấu ẩn category kiến trúc ở view mới** (Columns, Ceilings, Roofs)
-   → mọi collector view-scoped lặng lẽ trả rỗng. Builder fixture phải `SetCategoryHidden(false)`
-   tường minh cho từng category dùng đến.
+**Luật tổng quát — đúng cho mọi project ricaun — nằm ở `rules/revit-test.md` của sonny-flow** (callback
+trong test assembly, document mở ở `OnSetup`, test `void` không `async`, category ẩn theo template,
+journal để chẩn đoán). Đọc nó trước. Dưới đây chỉ còn phần **riêng của Sonny**:
 
-Và một hành vi Revit cần biết khi dựng case join: **hai kẻ cắt chồng vùng cắt trên cùng một element →
-Revit lặng lẽ gỡ join sau tại commit** ("joined but do not intersect"), không log, không failing id —
-xem [AJ-001](../bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md).
+- **`DocumentFilePath` bị `SonnyRevitTestBase` đọc HAI lần** — getter có side effect (vd copy file)
+  phải cache (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
+- Fake viết tay dùng chung nằm ở `TestDoubles.cs` (progress, message, task runner chạy inline).
+- Bug đã ghi sổ của Sonny liên quan đến dựng case join:
+  [AJ-001](../../docs/bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md) — bài học tổng quát của nó
+  (mỗi kẻ cắt một vùng tách biệt) nằm trong `rules/revit-fixture.md`.
 
 ## Fixture tự sinh
 
@@ -79,8 +70,18 @@ trước** — kể cả family tối giản cho fixture.
 ## Máy này có gì / thiếu gì
 
 - Revit 2021–2026 đã cài; test Revit thật chạy trên **2023** (`Debug R23`).
-- **Không có thư viện family chuẩn** (`C:\ProgramData\Autodesk\RVT 2023\Libraries` chỉ có bộ Precast —
-  không có M_Concrete-Rectangular*). Family templates (`.rft`) thì đầy đủ.
+- **Thư viện family chuẩn trên đĩa bị lược** — `C:\ProgramData\Autodesk\RVT 2023\Libraries\English` chỉ có
+  `Route Analysis` + `Structural Precast` (29 `.rfa`), không có `M_Concrete-Rectangular*`. Family templates
+  (`.rft`) thì đầy đủ.
+  **Nhưng câu đó KHÔNG nói gì về family đã nạp trong file fixture** — và đó mới là chỗ cần tìm trước.
+  `PlaceHolder_V2023.rvt` (file nền của mọi fixture generated) đã nạp **142 family**, trong đó có
+  `M_Concrete-Rectangular Beam` với đúng hai type parameter `b`/`h` và hai type `300 x 600mm`, `400 x 800mm`,
+  cùng `M_Concrete-Rectangular-Column`, `M_Footing-Rectangular`, `UB-Universal Beams`, `M_HSS Square`.
+  Nên **đừng author family từ `.rft` trước khi mở file nền ra xem** — AutoJoin phải tự dựng family hộp vì cần
+  khối đặc kích thước tuỳ ý, không phải vì project thiếu family.
+  Và **cấm dùng `grep` trên `.rvt` để kiểm tra**: `.rvt` là OLE compound nén, tên family không nằm dạng
+  plaintext, nên 0 hit **không** chứng minh là không có. Muốn biết trong file có gì thì viết một probe test
+  đọc-only (kế thừa `SonnyDocumentTestBase`, dump ra file text) và chạy qua `loop.ps1` — mất ~1 phút.
 - Journal của Revit (`%LOCALAPPDATA%\Autodesk\Revit\Autodesk Revit 2023\Journals`) là nơi chẩn đoán khi
   test treo/timeout — dialog đang chặn được ghi ở đó (`TaskDialog "..."`).
 - Log Serilog của add-in: `%LOCALAPPDATA%\Sonny\Logs\sonny-*.log`.

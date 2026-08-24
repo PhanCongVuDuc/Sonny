@@ -23,7 +23,7 @@ the folder name would move it and watch it fail.
 constructor with no seam, so the nine tests drove the developer's real settings file — order-coupled with
 each other and destructive to whatever language the developer had picked — while asserting little beyond
 getter/setter round-tripping. The coverage it never really provided is recorded as a gap in
-[`test-safety-net.md`](../architecture/test-safety-net.md).
+[`test-safety-net.md`](../../.sonnyflow/lessons/test-safety-net.md).
 
 ## Phương án đã loại
 
@@ -47,7 +47,7 @@ location, which is the wrong direction of causation.
 `NUnit.Framework.Legacy.ClassicAssert`. Every fixture that crosses this boundary must be rewritten to the
 constraint model — `Assert.That(actual, Is.EqualTo(expected))`. That is a mechanical retarget with the
 expected values untouched, and it is the kind of implementation-detail rebinding that
-[`test-safety-net.md`](../architecture/test-safety-net.md) allows on condition it is recorded here.
+[`test-safety-net.md`](../../.sonnyflow/lessons/test-safety-net.md) allows on condition it is recorded here.
 
 **NUnit 4's analyzers reject assertions NUnit 3 tolerated.** `LanguageOptionTests.Properties_ShouldBeReadOnly`
 asserted that an `AppLanguageCode` is not null. An enum never is, so the assert could not fail; NUnit 4

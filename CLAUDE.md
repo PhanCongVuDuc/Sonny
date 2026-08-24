@@ -47,23 +47,28 @@ powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Final             
 loopCommand: powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1
 
 **Everything sonny-flow wires into this repo lives in [`.sonnyflow/`](.sonnyflow/README.md)** — the loop scripts,
-the dotnet-test guard hook, retro notes, and **`revit-test-environment.md`, which you MUST read before running or
-writing any Revit-hosted test** (it holds the paid-for traps: test-assembly callbacks poison commits, documents
+the dotnet-test guard hook, the retro queue, and **`lessons/test-environment.md`, which you MUST read before running
+or writing any Revit-hosted test** (it holds the paid-for traps: test-assembly callbacks poison commits, documents
 must open in `OnSetup`, the Always Load trust dialog, hidden view categories — and the verdict rules). Neither
 knowledge graph indexes `.ps1` files or dotfolders, so open `.sonnyflow/` and `scripts/` yourself instead of
 trusting graph results.
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
-The AutoJoin fixture (`Test_V2023_AutoJoin.rvt`) is different: it is *generated* by `AutoJoinFixtureBuilder` (delete the
-file and run that one test on `Debug R23` to redraw it), and its tests find elements by Comments-parameter tags instead
-of `UniqueId`s.
+Two fixtures are different: they are *generated*, so deleting the file and running the one builder test on `Debug R23`
+redraws it, and their tests locate elements without pinning `UniqueId`s.
+`Test_V2023_AutoJoin.rvt` comes from `AutoJoinFixtureBuilder` and its tests find elements by Comments-parameter tags.
+`Test_V2023_FramingFromCad.rvt` comes from `FramingFromCadFixtureBuilder`, which imports the project owner's
+own Revit-exported `Resources/RevitFiles/Dwgs/Test_V2023_FramingFromCad.dwg` and self-verifies every layer stroke
+count and pair count with the feature's own helpers before saving; its tests find the CAD link, family and level
+by name. Expected counts live in `FramingFromCadFixtureFacts` and were **measured**, not designed — several look
+wrong and are not, so read that file's comments before "correcting" one.
 Everything left in this project needs the Revit process, including `Core/RevitApiTests` — `UnitConverter`
 maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not Revit-free despite testing one
 plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.
 
 Before moving, renaming or deleting a type, read
-[`docs/architecture/test-safety-net.md`](docs/architecture/test-safety-net.md) — it inventories which
+[`.sonnyflow/lessons/test-safety-net.md`](.sonnyflow/lessons/test-safety-net.md) — it inventories which
 tests bind to implementation details (hand-constructed interactors, direct method pairs, exact-equality
 floats) and the rule for retargeting them. Update it in the same change that moves the type.
 
@@ -175,17 +180,19 @@ trigger `PublishRelease.yml`. Commit messages are prefixed `Add:` / `Fix:` / `Up
 
 ## Feature workflow — docs are the deliverable
 
-A non-trivial feature runs through the `sonny-flow` plugin, in two commands with a human gate between them:
+A non-trivial feature runs through the `sonny-flow` plugin. One command starts or resumes the whole flow;
+the per-step commands exist for running a single step by hand:
 
 ```
-/sonny-flow:spec <Feature>     orient (docs → graphify → codegraph) → ## Spec + ## Contract → ## Plan
-                               ── stops here for approval
-/sonny-flow:build <Feature>    implement + tests → dotnet test → ## Behaviour + diagrams
+/sonny-flow:feature <Feature>   orient → grill → spec+contract → plan ─HUMAN GATE→ implement → verify → doc
+                                (re-typing the command after the plan gate IS the approval)
 ```
 
 Everything lands in one file, `docs/features/<Feature>.md`, which starts as spec-plus-plan and ends as
-permanent behaviour documentation. **The file is the progress tracker** — an unchecked `- [ ]` under
-`## Plan` means the feature is not done. There is no separate artifact directory and no JSON schema.
+permanent behaviour documentation. **The file is the progress tracker**: a `## Flow-state` checklist at the
+top ticks every step (template in sonny-flow's `rules/gates.md`), and an unchecked `- [ ]` — in `## Plan`
+or in `## Flow-state` — means the feature is not done. There is no separate artifact directory and no JSON
+schema.
 
 Three rules that hold whether or not the plugin is driving:
 

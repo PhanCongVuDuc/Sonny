@@ -1,4 +1,6 @@
+using System ;
 using System.Collections.Generic ;
+using System.Threading.Tasks ;
 using Sonny.Application.Domain.Services ;
 
 namespace Sonny.Application.Tests ;
@@ -28,6 +30,23 @@ public class FakeProgressReporter : IProgressReporter
 
     public void Close()
     {
+    }
+}
+
+/// <summary>
+///     IRevitTaskRunner that runs the work inline instead of marshalling it through Revit.Async.
+///     An integration test is already ON the Revit API thread, and the real runner needs an external
+///     event that never fires here — it would deadlock
+/// </summary>
+public class ImmediateRevitTaskRunner : IRevitTaskRunner
+{
+    public Task<TResult> RunAsync<TResult>(Func<TResult> function) => Task.FromResult(function()) ;
+
+    public Task RunAsync(Action action)
+    {
+        action() ;
+
+        return Task.CompletedTask ;
     }
 }
 
