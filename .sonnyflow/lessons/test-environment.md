@@ -56,7 +56,7 @@ journal để chẩn đoán). Đọc nó trước. Dưới đây chỉ còn ph�
   phải cache (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
 - Fake viết tay dùng chung nằm ở `TestDoubles.cs` (progress, message, task runner chạy inline).
 - Bug đã ghi sổ của Sonny liên quan đến dựng case join:
-  [AJ-001](../docs/bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md) — bài học tổng quát của nó
+  [AJ-001](../../docs/bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md) — bài học tổng quát của nó
   (mỗi kẻ cắt một vùng tách biệt) nằm trong `rules/revit-fixture.md`.
 
 ## Fixture tự sinh

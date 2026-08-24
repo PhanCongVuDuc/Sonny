@@ -6,6 +6,9 @@ task → verify → doc. Mỗi mục: chuyện gì xảy ra → đề xuất c�
 **Ghi trễ.** File này lẽ ra là output bắt buộc của bước `doc` (mục 3 trong `commands/doc.md`); tôi kết thúc
 phiên mà không viết, chủ dự án phải nhắc. Xem mục 6 — đó là lỗi flow chứ không phải lỗi trí nhớ.
 
+**Status từng bài học** — luật ở [`README.md`](README.md) của folder này. Mục ~~gạch ngang~~ là đã ra khỏi
+hàng đợi (`đã nhận` hoặc `không nhận`); mục còn nguyên là `chờ xét`. Tổng kết cuối file.
+
 ## Những chỗ flow chạy tốt
 
 - **Grill trước spec, lần nữa, là chỗ đắt giá nhất.** Ba vòng grill bắt được 2 bug thật trong code gốc
@@ -24,7 +27,9 @@ phiên mà không viết, chủ dự án phải nhắc. Xem mục 6 — đó là
 
 ## Những chỗ nên cải thiện skill
 
-### 1. `revit-fixture.md` cần một bước "mở file nền ra xem đã có gì" TRƯỚC luật hỏi-về-family
+### ~~1. `revit-fixture.md` cần một bước "mở file nền ra xem đã có gì" TRƯỚC luật hỏi-về-family~~
+
+> **đã nhận** (2026-08-23) → `sonny-flow/rules/revit-fixture.md`, mục "Mở file nền ra xem TRƯỚC khi hỏi về family"
 
 Chuyện xảy ra: luật cứng "đụng family phải hỏi" làm tôi hỏi user ngay — kèm ba phương án tạo family từ
 `.rft`. Nhưng `PlaceHolder_V2023.rvt` **đã nạp sẵn** `M_Concrete-Rectangular Beam` với đúng `b`/`h` và hai
@@ -39,7 +44,10 @@ lại lấy nó làm căn cứ củng cố kết luận sai.
 > `loopCommand` (~1 phút). Chỉ hỏi user khi probe cho thấy thật sự thiếu. **Cấm dùng `grep` trên `.rvt`/
 > `.rfa` làm căn cứ** — định dạng nén, 0 hit không phải "không có".
 
-### 2. `orient` nên có mục "helper đã có trong submodule làm gì, và có dùng lại được không"
+### ~~2. `orient` nên có mục "helper đã có trong submodule làm gì, và có dùng lại được không"~~
+
+> **đã nhận một nửa** (2026-08-23) → câu G0 số 3 của `sonny-flow/commands/orient.md` ("đọc thân hàm, đừng tin tên").
+> Nửa còn lại — mục riêng trong `CLAUDE.md` của Sonny về dùng lại helper submodule — **chờ xét**.
 
 Chuyện xảy ra: `Sonny.RevitExtensions` đã có `RemoveDuplicateCurves`, trông đúng hệt bước khử trùng của
 bản gốc. Dùng lại thì **sai**: với hai nét trùng khít nó xoá **cả hai** (mỗi nét đều contained trong nét
@@ -51,7 +59,9 @@ chứ không chỉ tên — semantics gần giống nhưng lệch ở biên là 
 skill: đây là lần thứ hai submodule gây bẫy (lần trước là ambiguous với Nice3point, mục 2 của AutoJoin
 retro) → đáng có một mục riêng trong `CLAUDE.md` về việc dùng lại helper submodule.
 
-### 3. `revit-test-environment.md` cần luật "ghi chú nói *thiếu* thì chỉ tin đúng phạm vi nó nói"
+### ~~3. `revit-test-environment.md` cần luật "ghi chú nói *thiếu* thì chỉ tin đúng phạm vi nó nói"~~
+
+> **đã nhận** (2026-08-23) → `sonny-flow/commands/orient.md` (cách đọc file môi trường) + `lessons/test-environment.md`
 
 Chuyện xảy ra: dòng "không có thư viện family chuẩn (`Libraries` chỉ có bộ Precast)" **đúng sự thật**, nhưng
 tôi suy rộng thành "không có family dầm nào dùng được". Ghi chú nói về **đĩa**, không nói gì về **file
@@ -60,7 +70,9 @@ fixture**. Đã bù nửa còn thiếu vào chính file đó trong phiên này.
 Đề xuất: `commands/orient.md` thêm một câu về cách đọc file môi trường: *"các dòng 'máy này thiếu X' là ảnh
 chụp một phạm vi hẹp; đừng suy rộng thành 'X không có ở đâu cả' mà không kiểm."*
 
-### 4. Plan nên bắt buộc nêu thứ tự commit khi task đụng submodule
+### ~~4. Plan nên bắt buộc nêu thứ tự commit khi task đụng submodule~~
+
+> **đã nhận** (2026-08-23) → luật thứ 5 trong `sonny-flow/commands/plan.md`
 
 Chuyện xảy ra: plan xếp task 3 = "push submodule + bump" ngay sau hai task viết helper, tức là **commit
 helper trước khi có gì kiểm chứng nó**. Tôi tự đảo thứ tự (làm hết, verify bằng integration test, rồi mới
@@ -69,7 +81,9 @@ commit + bump) và ghi chú lại — đúng nhưng là tôi tự quyết ngoài
 Đề xuất: `commands/plan.md` thêm luật: *"task ghi/commit vào repo khác (submodule) phải đặt **sau** task
 kiểm chứng nó, không đặt cạnh task viết code."*
 
-### 5. `feature-spec` nên yêu cầu ghi rõ "test: không có tại chỗ — pin bằng task N"
+### ~~5. `feature-spec` nên yêu cầu ghi rõ "test: không có tại chỗ — pin bằng task N"~~
+
+> **đã nhận** (2026-08-23) → cú pháp `test: pinned-by #N` trong `plan.md` + điều kiện G4 trong `rules/gates.md`
 
 Chuyện xảy ra: task 1–2 (helper trong submodule) ghi `test: không có tại chỗ; pin bằng integration test task
 21`. Đúng tinh thần luật "ghi *không có* là một thông tin", nhưng nó là một *dependency* giữa hai task mà
@@ -78,7 +92,9 @@ plan không có cách biểu diễn — nếu task 21 bị cắt thì hai helper
 Đề xuất: cho phép cú pháp `test: pinned-by #21` trong plan, và gate G4 kiểm: mọi task `pinned-by #N` thì #N
 phải `[x]`.
 
-### 6. Retro là output bắt buộc nhưng KHÔNG có gate nào kiểm nó
+### ~~6. Retro là output bắt buộc nhưng KHÔNG có gate nào kiểm nó~~
+
+> **đã nhận** (2026-08-23) → `## Flow-state` với ô 6a–6f trong `rules/gates.md`; G6 giờ kiểm cả retro, ADR review và graph
 
 Chuyện xảy ra: `commands/doc.md` mục 3 ghi rõ "output bắt buộc, không phải tuỳ hứng". Tôi vẫn kết thúc phiên
 mà không viết, và **Gate G6 không bắt được** — G6 chỉ kiểm: hết `## Decisions`/`## Spec`/`## Plan`, hết
@@ -203,3 +219,24 @@ save. Đây là quy trình nên đưa vào `rules/revit-fixture.md` như bước
   cặp của tiết diện sau). Nên có đường fix tách `consumed` khỏi pool ghép cặp, **không đổi một dầm nào** ở
   phần ghép cặp. Nếu chỉ ghi "hành vi lạ, chưa fix" thì mất luôn insight này.
 - Có nên khôi phục một fixture tối giản thứ hai để test lại đường PolyLine/Arc?
+
+---
+
+## Tổng kết status (2026-08-23)
+
+**Đã nhận — 8 bài**: mục 1 · 2 (một nửa) · 3 · 4 · 5 · 6 · async-mất-API-context (mục 7a) → `rules/revit-test.md`
+· fixture-tự-soạn-quá-sạch (mục 10) → `rules/revit-fixture.md`.
+
+**Chờ xét — 5 bài**, nêu rõ để không phải đọc lại cả file:
+
+1. Nửa còn lại của mục 2 — mục riêng trong `CLAUDE.md` của Sonny về **dùng lại helper submodule** (đây là
+   lần thứ hai submodule gây bẫy: lần trước ambiguous với Nice3point).
+2. Mục 7b — `Document.Import` có hai overload dễ nhầm (3 tham số nhận `AXMImportOptions`, bản DWG/DXF là 4
+   tham số `out ElementId`). Chưa có nhà.
+3. Mục 7c — `init` accessor không build trên `net48`; bài học "DTO dùng `set`, build R23 sớm". Chưa có nhà.
+4. Mục 7d — `-Final` fail nếu còn Revit sót giữ khoá thư mục Addins (MSB3021/MSB3027); phải đóng Revit
+   trước, và theo guard phải kiểm document đang mở trước khi đóng. Chưa có nhà.
+5. Mục 11 đề xuất `loop.ps1` trả **exit 2** thay vì exit 1 khi 0 test thực sự chạy — đây là sửa **code**
+   `loop.ps1`, không phải sửa tài liệu, nên cần quyết riêng.
+
+**Không nhận — 0 bài.**

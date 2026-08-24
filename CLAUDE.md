@@ -47,8 +47,8 @@ powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Final             
 loopCommand: powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1
 
 **Everything sonny-flow wires into this repo lives in [`.sonnyflow/`](.sonnyflow/README.md)** — the loop scripts,
-the dotnet-test guard hook, retro notes, and **`revit-test-environment.md`, which you MUST read before running or
-writing any Revit-hosted test** (it holds the paid-for traps: test-assembly callbacks poison commits, documents
+the dotnet-test guard hook, the retro queue, and **`lessons/test-environment.md`, which you MUST read before running
+or writing any Revit-hosted test** (it holds the paid-for traps: test-assembly callbacks poison commits, documents
 must open in `OnSetup`, the Always Load trust dialog, hidden view categories — and the verdict rules). Neither
 knowledge graph indexes `.ps1` files or dotfolders, so open `.sonnyflow/` and `scripts/` yourself instead of
 trusting graph results.
@@ -68,7 +68,7 @@ maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not R
 plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.
 
 Before moving, renaming or deleting a type, read
-[`.sonnyflow/test-safety-net.md`](.sonnyflow/test-safety-net.md) — it inventories which
+[`.sonnyflow/lessons/test-safety-net.md`](.sonnyflow/lessons/test-safety-net.md) — it inventories which
 tests bind to implementation details (hand-constructed interactors, direct method pairs, exact-equality
 floats) and the rule for retargeting them. Update it in the same change that moves the type.
 

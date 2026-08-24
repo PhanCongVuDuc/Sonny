@@ -225,7 +225,7 @@ dotnet test source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.cspro
 
 Giòn ở đâu: tất cả dùng quy ước resource-key passthrough (`GetString` trả về key) và bind vào 2 port —
 đổi signature port là compile-fail hàng loạt (retarget wiring được, assertion không được đổi — xem
-[test-safety-net.md](../../.sonnyflow/test-safety-net.md)).
+[test-safety-net.md](../../.sonnyflow/lessons/test-safety-net.md)).
 
 Đang khoá (Revit thật, mở fixture `Test_V2023_AutoJoin.rvt`):
 
