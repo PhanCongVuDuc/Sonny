@@ -11,7 +11,13 @@
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <Configurations>Debug R21;Debug R22;Debug R23;Debug R24;Debug R25;Debug R26</Configurations>
     <Configurations>$(Configurations);Release R21;Release R22;Release R23;Release R24;Release R25;Release R26</Configurations>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!--
+      GenerateAssemblyInfo must stay ON: the NUnit.* AssemblyAttribute items below are emitted by
+      that target. With it off, the compiled DLL carries no AssemblyMetadataAttribute at all, the
+      ricaun TestAdapter silently falls back to defaults (Open=false, Close=false) and Revit is
+      reused and never closed after the run.
+    -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
@@ -83,28 +89,67 @@
 
   <!-- Force Revit Version and Settings for TestAdapter -->
   <!-- According to ricaun.RevitTest.TestAdapter README -->
+  <!--
+    NUnit.Open/NUnit.Close default to true (fresh Revit per run, closed after - the clean mode for
+    acceptance runs and CI). scripts/loop.ps1 builds with -p:RevitTestKeepOpen=true for the dev
+    inner loop: the DLL then carries Open=false/Close=false so the adapter reuses the running Revit,
+    and the RepackForRevitReload target below merges the product assemblies into the test DLL so
+    changed product code reloads with it (a bare ProjectReference would keep binding to the copy
+    Revit loaded first - see sonny-flow rules/revit-loop.md).
+  -->
+  <PropertyGroup>
+    <RevitTestKeepOpen Condition="'$(RevitTestKeepOpen)' == ''">false</RevitTestKeepOpen>
+    <RevitTestOpenNew>true</RevitTestOpenNew>
+    <RevitTestCloseAfter>true</RevitTestCloseAfter>
+    <RevitTestOpenNew Condition="'$(RevitTestKeepOpen)' == 'true'">false</RevitTestOpenNew>
+    <RevitTestCloseAfter Condition="'$(RevitTestKeepOpen)' == 'true'">false</RevitTestCloseAfter>
+  </PropertyGroup>
   <ItemGroup>
     <!-- Force specific Revit version -->
     <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
       <_Parameter1>NUnit.Version</_Parameter1>
       <_Parameter2>$(RevitVersion)</_Parameter2>
     </AssemblyAttribute>
-    <!-- Force to open new Revit process (recommended for testing) -->
     <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
       <_Parameter1>NUnit.Open</_Parameter1>
-      <_Parameter2>true</_Parameter2>
+      <_Parameter2>$(RevitTestOpenNew)</_Parameter2>
     </AssemblyAttribute>
     <!-- Enable logging: 1 (Normal) or 2 (Debug) -->
     <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
       <_Parameter1>NUnit.Verbosity</_Parameter1>
       <_Parameter2>2</_Parameter2>
     </AssemblyAttribute>
-    <!-- Force to close Revit after test finish -->
     <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
       <_Parameter1>NUnit.Close</_Parameter1>
-      <_Parameter2>true</_Parameter2>
+      <_Parameter2>$(RevitTestCloseAfter)</_Parameter2>
     </AssemblyAttribute>
   </ItemGroup>
+
+  <!-- Merge repo assemblies into the test DLL for the dev loop, so a rebuilt test DLL carries the
+       new product code into the already-running Revit (net48 cannot unload the old copies). -->
+  <ItemGroup>
+    <PackageReference Include="ILRepack" Version="2.0.41" GeneratePathProperty="true"/>
+  </ItemGroup>
+  <Target Name="RepackForRevitReload" AfterTargets="Build" Condition="'$(RevitTestKeepOpen)' == 'true'">
+    <ItemGroup>
+      <RepackInput Include="$(TargetDir)Sonny.*.dll" Exclude="$(TargetDir)$(TargetFileName)"/>
+      <RepackInput Include="$(TargetDir)Revit.Async.dll" Condition="Exists('$(TargetDir)Revit.Async.dll')"/>
+      <!-- Also merge Nice3point: other installed add-ins (AlphaBIM, PentaOcean) ship OLDER copies
+           and simple-name resolution can bind our repacked code to theirs (MissingMethodException
+           on ToElementId(Int64)); merging pins the version the repo compiled against -->
+      <RepackInput Include="$(TargetDir)Nice3point.Revit.Extensions.dll" Condition="Exists('$(TargetDir)Nice3point.Revit.Extensions.dll')"/>
+      <RepackInput Include="$(TargetDir)Nice3point.Revit.Toolkit.dll" Condition="Exists('$(TargetDir)Nice3point.Revit.Toolkit.dll')"/>
+      <RepackLibDir Include="@(ReferencePath->'%(RootDir)%(Directory)'->Distinct())"/>
+    </ItemGroup>
+    <PropertyGroup>
+      <!-- trailing dot keeps a path ending in \ from escaping its closing quote -->
+      <RepackLibArgs>@(RepackLibDir->'/lib:"%(Identity)."', ' ')</RepackLibArgs>
+      <RepackInputArgs>@(RepackInput->'"%(FullPath)"', ' ')</RepackInputArgs>
+    </PropertyGroup>
+    <Exec Command="&quot;$(PkgILRepack)\tools\ILRepack.exe&quot; /out:&quot;$(TargetDir)$(TargetFileName)&quot; /lib:&quot;$(TargetDir).&quot; $(RepackLibArgs) &quot;$(TargetDir)$(TargetFileName)&quot; $(RepackInputArgs)"/>
+    <!-- remove the merged loose copies so nothing can bind to them by accident -->
+    <Delete Files="@(RepackInput)"/>
+  </Target>
 
   <!-- Copy test Revit files to output -->
   <ItemGroup>

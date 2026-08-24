@@ -1,0 +1,132 @@
+<Window x:Class="Sonny.Application.Presentation.AutoJoin.Views.AutoJoinView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModels="clr-namespace:Sonny.Application.Presentation.AutoJoin.ViewModels"
+        mc:Ignorable="d"
+        x:Name="ThisWindow"
+        Title="{DynamicResource AutoJoinWindowTitle}"
+        Height="560" Width="660"
+        WindowStartupLocation="CenterOwner"
+        d:DataContext="{d:DesignInstance {x:Type viewModels:AutoJoinViewModel}, IsDesignTimeCreatable=True}">
+    <DockPanel Margin="12" LastChildFill="True">
+
+        <!-- Bottom row: warnings checkbox + OK -->
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,8,0,0" LastChildFill="False">
+            <CheckBox Content="{DynamicResource AutoJoinAllowWarnings}"
+                      DockPanel.Dock="Left"
+                      VerticalAlignment="Center"
+                      IsChecked="{Binding IsAcceptWarning}" />
+            <Button Content="{DynamicResource ButtonOK}"
+                    DockPanel.Dock="Right"
+                    MinWidth="100"
+                    Command="{Binding RunCommand}" />
+        </DockPanel>
+
+        <!-- Mode checkboxes + rule table buttons -->
+        <Grid DockPanel.Dock="Bottom" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <CheckBox Content="{DynamicResource AutoJoinUnjoin}"
+                          ToolTip="{DynamicResource AutoJoinUnjoinTooltip}"
+                          VerticalAlignment="Center"
+                          IsChecked="{Binding IsUnjoin}"
+                          IsEnabled="{Binding IsEnabledScope}" />
+                <CheckBox Content="{DynamicResource AutoJoinCutSelected}"
+                          ToolTip="{DynamicResource AutoJoinCutSelectedTooltip}"
+                          VerticalAlignment="Center"
+                          Margin="12,0,0,0"
+                          IsChecked="{Binding IsCutSelectedElements}" />
+                <CheckBox Content="{DynamicResource AutoJoinCutOther}"
+                          ToolTip="{DynamicResource AutoJoinCutOtherTooltip}"
+                          VerticalAlignment="Center"
+                          Margin="12,0,0,0"
+                          IsChecked="{Binding IsCutOtherElements}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Content="{DynamicResource ButtonAdd}"
+                        ToolTip="{DynamicResource AutoJoinNewRuleTooltip}"
+                        MinWidth="60"
+                        Command="{Binding NewRuleCommand}" />
+                <Button Content="{DynamicResource ButtonDelete}"
+                        ToolTip="{DynamicResource AutoJoinRemoveRuleTooltip}"
+                        MinWidth="60"
+                        Margin="6,0,0,0"
+                        Command="{Binding DeleteRulesCommand}"
+                        CommandParameter="{Binding SelectedItems, ElementName=RulesGrid}" />
+                <Button Content="{DynamicResource ButtonSave}"
+                        ToolTip="{DynamicResource AutoJoinSaveRuleTooltip}"
+                        MinWidth="60"
+                        Margin="6,0,0,0"
+                        Command="{Binding SaveRulesToFileCommand}" />
+                <Button Content="{DynamicResource AutoJoinLoad}"
+                        ToolTip="{DynamicResource AutoJoinLoadRuleTooltip}"
+                        MinWidth="60"
+                        Margin="6,0,0,0"
+                        Command="{Binding LoadRulesFromFileCommand}" />
+            </StackPanel>
+        </Grid>
+
+        <!-- Rule table -->
+        <DataGrid x:Name="RulesGrid"
+                  ItemsSource="{Binding AllRules}"
+                  IsEnabled="{Binding IsEnabledScope}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  SelectionMode="Extended"
+                  HeadersVisibility="Column">
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{DynamicResource AutoJoinHeaderPriority}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding DataContext.AllPriorityCategories, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                SelectedItem="{Binding PriorityCategory, UpdateSourceTrigger=PropertyChanged}"
+                                BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{DynamicResource AutoJoinHeaderJoinWith}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox
+                                ItemsSource="{Binding DataContext.AllCutCategories, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                SelectedItem="{Binding JoinWithCategory, UpdateSourceTrigger=PropertyChanged}"
+                                BorderThickness="0" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="90" MinWidth="70">
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="{DynamicResource AutoJoinHeaderReverse}" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsReverse, UpdateSourceTrigger=PropertyChanged}"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </DockPanel>
+</Window>

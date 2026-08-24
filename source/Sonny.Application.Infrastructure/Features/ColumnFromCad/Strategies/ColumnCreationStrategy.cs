@@ -16,7 +16,6 @@ public abstract class ColumnCreationStrategy(
     IRevitDocument revitDocument,
     IPoint3DConverter point3DConverter) : IColumnCreationStrategy
 {
-    protected const double Tolerance = 0.001 ;
     protected readonly ColumnCreationContext ColumnCreationContext = columnCreationContext ;
     protected readonly ColumnModel ColumnModel = columnModel ;
     protected readonly IRevitDocument RevitDocument = revitDocument ;

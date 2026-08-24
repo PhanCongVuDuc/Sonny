@@ -57,6 +57,24 @@ public class SonnyTab
     }
 
     /// <summary>
+    ///     Panel for geometry join tools
+    /// </summary>
+    [Panel("Join Tools")]
+    public class JoinPanel
+    {
+        /// <summary>
+        ///     Button for auto join feature
+        /// </summary>
+        [Button("Auto Join",
+            typeof( AutoJoinCommand ),
+            Image = "/Sonny.Application;component/Resources/Icons/AutoJoinCommand16.png",
+            LargeImage = "/Sonny.Application;component/Resources/Icons/AutoJoinCommand32.png",
+            ToolTip = "Automatically join intersecting elements",
+            LongDescription = "Joins intersecting elements by priority rules, with the cut order following each rule")]
+        public class AutoJoinButton ;
+    }
+
+    /// <summary>
     ///     Panel for column creation tools
     /// </summary>
     [Panel("Model from CAD")]
@@ -72,5 +90,17 @@ public class SonnyTab
             ToolTip = "Create columns from AutoCAD",
             LongDescription = "Model columns from AutoCAD CAD link by selecting layers and column families")]
         public class ColumnFromCadButton ;
+
+        /// <summary>
+        ///     Button for framing from CAD feature
+        /// </summary>
+        [Button("Framing from CAD",
+            typeof( FramingFromCadCommand ),
+            Image = "/Sonny.Application;component/Resources/Icons/FramingFromCadCommand16.png",
+            LargeImage = "/Sonny.Application;component/Resources/Icons/FramingFromCadCommand32.png",
+            ToolTip = "Create structural framing from AutoCAD",
+            LongDescription =
+                "Model beams from an AutoCAD CAD link by pairing parallel strokes that sit one beam width apart")]
+        public class FramingFromCadButton ;
     }
 }

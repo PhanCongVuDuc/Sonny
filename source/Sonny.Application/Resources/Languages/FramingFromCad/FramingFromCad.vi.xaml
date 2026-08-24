@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Window Title -->
+    <system:String x:Key="FramingFromCadWindowTitle">Tự động dựng Dầm từ bản vẽ AutoCAD</system:String>
+
+    <!-- GroupBox Headers -->
+    <system:String x:Key="GroupBoxFramingFamily">Family Dầm</system:String>
+    <system:String x:Key="GroupBoxSections">Tiết diện</system:String>
+    <system:String x:Key="GroupBoxPlacement">Vị trí đặt</system:String>
+
+    <!-- Labels -->
+    <system:String x:Key="LabelSelectBeamLayer">Layer của nét Dầm:</system:String>
+    <system:String x:Key="LabelFramingFamily">Family Dầm:</system:String>
+    <system:String x:Key="LabelReferenceLevel">Level đặt Dầm:</system:String>
+    <system:String x:Key="LabelZOffset">z Offset:</system:String>
+    <system:String x:Key="LabelAllSections">Các tiết diện:</system:String>
+    <system:String x:Key="LabelCreateForSingleLine">Tạo Dầm cho từng đường thẳng?</system:String>
+    <system:String x:Key="LabelDisallowJoin">Disallow Join</system:String>
+
+    <!-- Hints and tooltips -->
+    <system:String x:Key="HintAllSections">Các tiết diện Dầm sẽ được tạo, cách nhau bởi dấu ";" — ví dụ: 200x300; 300x700; 400x600. Entry không phải hai số dương sẽ bị bỏ qua.</system:String>
+    <system:String x:Key="ToolTipAllSections">Nhập các tiết diện Dầm sẽ được tạo, cách nhau bởi dấu ";"&#x0a;Ví dụ: 200x300; 300x700; 400x600</system:String>
+    <system:String x:Key="ToolTipZOffset">Độ dời cao độ áp cho mọi Dầm được tạo, theo đơn vị hiển thị của dự án</system:String>
+    <system:String x:Key="ToolTipCreateForSingleLine">Dùng tiết diện đầu tiên đã dựng được để tạo Dầm cho từng nét lẻ còn lại sau khi ghép cặp</system:String>
+    <system:String x:Key="ToolTipDisallowJoin">Các Dầm mới được tạo ra sẽ bị Disallow Join ở 2 đầu dầm</system:String>
+
+    <!-- Validation -->
+    <system:String x:Key="ValidationPleaseSelectFramingFamily">Vui lòng chọn Family Dầm.</system:String>
+    <system:String x:Key="ValidationPleaseSelectReferenceLevel">Vui lòng chọn Level đặt Dầm.</system:String>
+
+    <!-- Transactions -->
+    <system:String x:Key="TransactionCreateFramings">Dựng Dầm từ AutoCAD</system:String>
+    <system:String x:Key="TransactionAdjustFramingJustification">Chỉnh Justification của Dầm</system:String>
+
+    <!-- Progress -->
+    <system:String x:Key="MessageCreatingFramings">Đang dựng Dầm từ AutoCAD…</system:String>
+
+    <!-- Results -->
+    <system:String x:Key="MessageSuccessfullyCreated">Bạn đã tạo {0} Dầm!</system:String>
+    <system:String x:Key="MessageNoFramingsCreated">Không có Dầm nào được tạo. Kiểm tra lại layer đã chọn và danh sách tiết diện.</system:String>
+    <system:String x:Key="MessageCancelled">Đã huỷ. Không có Dầm nào được tạo.</system:String>
+
+    <!-- Errors -->
+    <system:String x:Key="MessageNoFramingFamiliesFound">Không có Family Dầm trong dự án. Vui lòng load Family Dầm vào dự án rồi chạy lại lệnh.</system:String>
+    <system:String x:Key="MessageParameterNotFound">Family Dầm không có type parameter tên "{0}" hoặc "{1}". Hãy chọn đúng hai parameter mang kích thước tiết diện rồi chạy lại.</system:String>
+    <system:String x:Key="MessageCadLinkNotFound">Không tìm thấy CAD link đã chọn trong model.</system:String>
+    <system:String x:Key="MessageFramingFamilyNotFound">Không tìm thấy Family Dầm đã chọn trong model.</system:String>
+    <system:String x:Key="MessageFramingFamilyHasNoTypes">Family Dầm đã chọn không có type nào.</system:String>
+    <system:String x:Key="MessageReferenceLevelNotFound">Không tìm thấy Level đặt Dầm đã chọn trong model.</system:String>
+    <system:String x:Key="MessageNoSymbolResolvedForSingleLines">Không xác định được tiết diện cho nét lẻ, vì chưa có Dầm cặp nào được tạo.</system:String>
+
+</ResourceDictionary>

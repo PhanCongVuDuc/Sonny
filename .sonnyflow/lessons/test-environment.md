@@ -1,0 +1,103 @@
+# Revit test environment — máy này, host ricaun, và các bẫy đã trả giá
+
+Đọc file này **trước khi chạy hoặc viết bất kỳ test nào trong `Sonny.Application.Tests`**. Mọi điều ở
+đây đều được trả giá bằng nhiều vòng chạy Revit thật khi dựng bộ integration test AutoJoin (2026-08-22);
+không có điều nào suy ra được từ code.
+
+## Chạy test thế nào
+
+**Mọi lần chạy `Sonny.Application.Tests` đi qua một cửa duy nhất: `.sonnyflow/loop.ps1`** (chính là
+`loopCommand` khai trong `CLAUDE.md`). Nó build, lo dialog trust, chạy test, và trả verdict theo luật
+`rules/revit-loop.md` của sonny-flow: exit **0** = GREEN · **1** = RED/build hỏng · **2** = không thấy
+test nào (không phải pass!).
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1                     # vòng lặp dev: giữ Revit mở
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Filter AutoJoin    # lọc theo tên
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Final              # chạy chốt: mở Revit mới, đóng khi xong
+```
+
+**"Đủ bộ" trước khi kết thúc một task = HAI project test, chạy theo thứ tự rẻ-trước:**
+① `Sonny.Application.UnitTests` (`dotnet test ... -c "Debug R25"` — vài giây, không Revit, fail sớm) →
+② `Sonny.Application.Tests` qua `loop.ps1 -Final`. Test hẹp xanh mà bộ rộng đỏ là hồi quy.
+
+Chế độ mặc định (dev) build với `-p:RevitTestKeepOpen=true` → DLL test mang metadata
+`NUnit.Open=false / NUnit.Close=false` → ricaun **tái dùng Revit đang mở** và nạp DLL test mới nhờ
+shadow-copy; target `RepackForRevitReload` merge các assembly repo (+ Nice3point) vào DLL test nên
+**code sản phẩm cũng reload theo** — đã xác nhận 5 vòng sửa-code-chạy-lại trong một Revit (2026-08-22),
+mỗi vòng ~30 giây. Không ai sửa tay csproj; hết cờ là trở về mặc định mở-đóng sạch.
+
+Bốn điều kiện bắt buộc của chế độ attach (vỡ cái nào là đỏ cái đó — chi tiết trong
+`rules/revit-loop.md` của sonny-flow): build dev phải kèm `-p:DeployRevitAddin=false` (Revit khoá
+Addins) · merge cả `Nice3point.Revit.*` (add-in khác ship bản cũ → MissingMethodException) · attach
+KHÔNG copy `Resources\` nên helper fixture có fallback `[CallerFilePath]` về source · **cấm NSubstitute
+trong test chạy Revit** — Castle proxy trúng bản assembly nạp đầu → InvalidCastException; dùng fake
+tay trong `TestDoubles.cs`.
+
+Một hook PreToolUse (`.sonnyflow/hooks/revit-test-guard.ps1`, đăng ký trong `.claude/settings.json`)
+chặn lệnh `dotnet test` gõ thẳng vào
+`Sonny.Application.Tests` và chỉ về `loop.ps1` — thoát hiểm bằng biến môi trường `SONNY_DIRECT_TEST=1`
+khi thật sự cần chạy trần (CI).
+
+## Trust "Always Load" — theo HASH của DLL
+
+Revit trust add-in unsigned theo hash: **mỗi lần rebuild add-in là dialog quay lại** ở cold start, và
+một run headless sẽ treo tới timeout 10 phút. `.sonnyflow/watch-always-load.ps1` tự click nút (PostMessage
+vào HWND của nút — UIA InvokePattern không có, click chuột vật lý fail khi khoá màn hình) rồi **thoát
+ngay** — để nó poll UIA trong lúc test chạy chỉ tổ nhiễu. `loop.ps1` tự khởi động watcher khi cold start.
+
+## Luật khi viết test/builder chạy trong Revit
+
+**Luật tổng quát — đúng cho mọi project ricaun — nằm ở `rules/revit-test.md` của sonny-flow** (callback
+trong test assembly, document mở ở `OnSetup`, test `void` không `async`, category ẩn theo template,
+journal để chẩn đoán). Đọc nó trước. Dưới đây chỉ còn phần **riêng của Sonny**:
+
+- **`DocumentFilePath` bị `SonnyRevitTestBase` đọc HAI lần** — getter có side effect (vd copy file)
+  phải cache (`??=`), không thì lần đọc thứ hai rẽ nhánh khác và mở nhầm file.
+- Fake viết tay dùng chung nằm ở `TestDoubles.cs` (progress, message, task runner chạy inline).
+- Bug đã ghi sổ của Sonny liên quan đến dựng case join:
+  [AJ-001](../../docs/bugs/AJ-001-overlapping-cut-regions-silently-unjoined.md) — bài học tổng quát của nó
+  (mỗi kẻ cắt một vùng tách biệt) nằm trong `rules/revit-fixture.md`.
+
+## Fixture tự sinh
+
+`Test_V2023_AutoJoin.rvt` là fixture **generated**: xóa file rồi chạy
+`AutoJoinFixtureBuilder` (Debug R23) để vẽ lại. Pattern đầy đủ (station cách ly, tag Comments,
+self-verify hình học trước khi save, fixture ở version Revit thấp nhất) nằm trong rule
+`revit-fixture.md` của skill sonny-flow. **Luật cứng: mọi việc tạo/load/sửa family phải hỏi chủ dự án
+trước** — kể cả family tối giản cho fixture.
+
+## Máy này có gì / thiếu gì
+
+- Revit 2021–2026 đã cài; test Revit thật chạy trên **2023** (`Debug R23`).
+- **Thư viện family chuẩn trên đĩa bị lược** — `C:\ProgramData\Autodesk\RVT 2023\Libraries\English` chỉ có
+  `Route Analysis` + `Structural Precast` (29 `.rfa`), không có `M_Concrete-Rectangular*`. Family templates
+  (`.rft`) thì đầy đủ.
+  **Nhưng câu đó KHÔNG nói gì về family đã nạp trong file fixture** — và đó mới là chỗ cần tìm trước.
+  `PlaceHolder_V2023.rvt` (file nền của mọi fixture generated) đã nạp **142 family**, trong đó có
+  `M_Concrete-Rectangular Beam` với đúng hai type parameter `b`/`h` và hai type `300 x 600mm`, `400 x 800mm`,
+  cùng `M_Concrete-Rectangular-Column`, `M_Footing-Rectangular`, `UB-Universal Beams`, `M_HSS Square`.
+  Nên **đừng author family từ `.rft` trước khi mở file nền ra xem** — AutoJoin phải tự dựng family hộp vì cần
+  khối đặc kích thước tuỳ ý, không phải vì project thiếu family.
+  Và **cấm dùng `grep` trên `.rvt` để kiểm tra**: `.rvt` là OLE compound nén, tên family không nằm dạng
+  plaintext, nên 0 hit **không** chứng minh là không có. Muốn biết trong file có gì thì viết một probe test
+  đọc-only (kế thừa `SonnyDocumentTestBase`, dump ra file text) và chạy qua `loop.ps1` — mất ~1 phút.
+- Journal của Revit (`%LOCALAPPDATA%\Autodesk\Revit\Autodesk Revit 2023\Journals`) là nơi chẩn đoán khi
+  test treo/timeout — dialog đang chặn được ghi ở đó (`TaskDialog "..."`).
+- Log Serilog của add-in: `%LOCALAPPDATA%\Sonny\Logs\sonny-*.log`.
+
+## Automation — vô hình với knowledge graph
+
+Cả graphify lẫn codegraph **không index file `.ps1`** (và thường bỏ qua dotfolder), nên đừng trông chờ
+hai graph dẫn tới đây — phải tự mở xem:
+
+| Ở đâu | Script | Việc |
+|---|---|---|
+| `.sonnyflow/` | `loop.ps1` | Cửa duy nhất chạy test Revit — build + trust + test + verdict 0/1/2 |
+| `.sonnyflow/` | `watch-always-load.ps1` | Tự click dialog trust, thoát sau cú click đầu |
+| `.sonnyflow/hooks/` | `revit-test-guard.ps1` | Hook chặn `dotnet test` trần (đăng ký ở `.claude/settings.json`) |
+| `scripts/` | `Deploy-SonnyAddin.ps1` | Build + deploy add-in cho (các) năm Revit — từ chối khi Revit đang mở |
+| `scripts/` | `Install-SonnyAddinManifests.ps1` | Đảm bảo manifest .addin cho các bản đã deploy |
+
+Ranh giới: `.sonnyflow/` = cơ khí của sonny-flow (do `/sonny-flow:setup` lắp); `scripts/` = automation
+chung của repo, không thuộc flow.

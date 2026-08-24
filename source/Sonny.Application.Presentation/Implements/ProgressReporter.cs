@@ -15,21 +15,30 @@ public class ProgressReporter : IProgressReporter
     ///     Shows the progress window with the specified title
     /// </summary>
     /// <param name="title">Title to display on progress window</param>
-    public void Show(string title)
+    /// <param name="allowCancel">Shows a Cancel button that raises <see cref="IsCancelRequested" /></param>
+    public void Show(string title,
+        bool allowCancel = false)
     {
         if (Dispatcher.CurrentDispatcher.CheckAccess()) {
-            _progressView = new ProgressView(title) ;
+            _progressView = new ProgressView(title,
+                allowCancel) ;
             _progressView.Show() ;
         }
         else {
             Dispatcher.CurrentDispatcher.Invoke(() =>
                 {
-                    _progressView = new ProgressView(title) ;
+                    _progressView = new ProgressView(title,
+                        allowCancel) ;
                     _progressView.Show() ;
                 },
                 DispatcherPriority.Normal) ;
         }
     }
+
+    /// <summary>
+    ///     Whether the user pressed Cancel on the progress window
+    /// </summary>
+    public bool IsCancelRequested => _progressView?.IsCancelRequested ?? false ;
 
     /// <summary>
     ///     Updates the progress indicator

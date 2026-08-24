@@ -4,7 +4,7 @@ using Sonny.Application.Infrastructure.Revit.Services ;
 
 namespace Sonny.Application.Infrastructure.Revit.Implements ;
 
-public class FailurePreprocessorFactory : IFailurePreprocessorFactory
+public class FailurePreprocessorFactory(IFailingElementIdsTracker failingElementIdsTracker) : IFailurePreprocessorFactory
 {
     public IFailuresPreprocessor? CreateComposite(IEnumerable<FailurePreprocessorType> types)
     {
@@ -34,6 +34,8 @@ public class FailurePreprocessorFactory : IFailurePreprocessorFactory
         {
             FailurePreprocessorType.None => null,
             FailurePreprocessorType.SuppressWarnings => CreateSuppressWarningsPreprocessor(),
+            FailurePreprocessorType.ResolveAllFailures => new ResolveAllFailuresPreprocessor(failingElementIdsTracker),
+            FailurePreprocessorType.DeleteWarningsResolveErrors => new DeleteWarningsResolveErrorsPreprocessor(),
             _ => null
         } ;
 

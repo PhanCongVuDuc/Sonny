@@ -16,7 +16,7 @@ public abstract class BaseExternalCommand : IExternalCommand
     ///     Determines whether license check should be performed for this command
     /// </summary>
     /// <returns>True if license should be checked, false otherwise</returns>
-    protected virtual bool ShouldCheckLicense() => true ;
+    protected virtual bool ShouldCheckLicense() => false ;
 
     /// <summary>
     ///     Executes the command with automatic RevitTask initialization

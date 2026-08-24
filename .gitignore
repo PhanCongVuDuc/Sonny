@@ -107,3 +107,6 @@ ACTIVE_GOAL_STATE.md
 
 #Claude Code agent worktrees (full repo clones, ~1GB)
 .claude/worktrees/
+
+# Revit auto-backup files (Test_V2023_AutoJoin.0001.rvt ...)
+*.[0-9][0-9][0-9][0-9].rvt

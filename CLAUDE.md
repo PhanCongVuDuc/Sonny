@@ -37,14 +37,48 @@ The Nuke `Compile` target only globs `Release*` configurations and **skips any p
 tests are never built or run by CI. To touch Debug output you must build it yourself.
 
 ```powershell
-# Tests launch a real Revit process (ricaun.RevitTest.TestAdapter); Revit of the matching year must be installed
-dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23"
-dotnet test source/Sonny.Application.Tests/Sonny.Application.Tests.csproj -c "Debug R23" --filter "FullyQualifiedName~ColumnFromCad_CreateColumns_Test"
+# Tests launch a real Revit process (ricaun.RevitTest.TestAdapter); Revit of the matching year must be installed.
+# ALWAYS run them through .sonnyflow/loop.ps1 (a PreToolUse hook blocks raw `dotnet test` against this project):
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1                     # dev loop: reuses the open Revit
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Filter AutoJoin    # name filter
+powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1 -Final              # final run: fresh Revit, closed after
 ```
+
+loopCommand: powershell -ExecutionPolicy Bypass -File .sonnyflow\loop.ps1
+
+**Everything sonny-flow wires into this repo lives in [`.sonnyflow/`](.sonnyflow/README.md)** — the loop scripts,
+the dotnet-test guard hook, the retro queue, and **`lessons/test-environment.md`, which you MUST read before running
+or writing any Revit-hosted test** (it holds the paid-for traps: test-assembly callbacks poison commits, documents
+must open in `OnSetup`, the Always Load trust dialog, hidden view categories — and the verdict rules). Neither
+knowledge graph indexes `.ps1` files or dotfolders, so open `.sonnyflow/` and `scripts/` yourself instead of
+trusting graph results.
 
 Integration tests under `Features/**/IntegrationTests` open `.rvt` fixtures from `Resources/RevitFiles` and assert exact
 element counts against hard-coded `UniqueId`s — they are pinned to those specific documents (mostly `Test_V2023_*.rvt`).
-Unit tests under `Core/UnitTests` and `ResourceManager/UnitTests` use NUnit + NSubstitute and need no Revit document.
+Two fixtures are different: they are *generated*, so deleting the file and running the one builder test on `Debug R23`
+redraws it, and their tests locate elements without pinning `UniqueId`s.
+`Test_V2023_AutoJoin.rvt` comes from `AutoJoinFixtureBuilder` and its tests find elements by Comments-parameter tags.
+`Test_V2023_FramingFromCad.rvt` comes from `FramingFromCadFixtureBuilder`, which imports the project owner's
+own Revit-exported `Resources/RevitFiles/Dwgs/Test_V2023_FramingFromCad.dwg` and self-verifies every layer stroke
+count and pair count with the feature's own helpers before saving; its tests find the CAD link, family and level
+by name. Expected counts live in `FramingFromCadFixtureFacts` and were **measured**, not designed — several look
+wrong and are not, so read that file's comments before "correcting" one.
+Everything left in this project needs the Revit process, including `Core/RevitApiTests` — `UnitConverter`
+maps `AppDisplayUnit` through `ForgeTypeId`/`UnitTypeId`, so its tests are not Revit-free despite testing one
+plain class. Tests that genuinely need nothing from Revit belong in `Sonny.Application.UnitTests` below.
+
+Before moving, renaming or deleting a type, read
+[`.sonnyflow/lessons/test-safety-net.md`](.sonnyflow/lessons/test-safety-net.md) — it inventories which
+tests bind to implementation details (hand-constructed interactors, direct method pairs, exact-equality
+floats) and the rule for retargeting them. Update it in the same change that moves the type.
+
+Revit-free unit tests live in `source/Sonny.Application.UnitTests` (NUnit 4 + NSubstitute, references
+Domain + UseCases + ResourceManager only, full R21–R26 matrix — net48 for R21–R24, net8.0-windows for
+R25/R26 — finishes in seconds without launching Revit):
+
+```powershell
+dotnet test source/Sonny.Application.UnitTests/Sonny.Application.UnitTests.csproj -c "Debug R25"
+```
 
 `Nice3point.Revit.Build.Tasks` deploys the add-in to the local Revit add-ins folder on build (`DeployRevitAddin`), so a
 successful build is enough to try the tool in Revit.
@@ -85,13 +119,12 @@ Layers, innermost first (see `.cursor/rules/cleanarchitecture.mdc` for the full 
 
 Support projects: `Sonny.ResourceManager` (localization engine), `Sonny.Application.UIStyle` (WPF theme).
 
-Known, deliberate deviation: `Infrastructure` references `UseCases` so it can implement input ports, and
-`AutoColumnDimensionInteractor` lives in Infrastructure while `IAutoColumnDimensionInteractor` lives in UseCases (the
-feature needs the Revit API directly). `ColumnFromCadInteractor` is the pure form — keep new interactors in UseCases
-unless they genuinely need Revit types.
+Known, deliberate deviation: `Infrastructure` references `UseCases` so it can implement input ports. Both
+interactors live in `UseCases` and touch no Revit type (since ADR 0001 — `AutoColumnDimensionInteractor`
+reads geometry through `IColumnGeometryReader` and executes through `IDimensionPlanExecutor`, both
+implemented in Infrastructure). Keep new interactors in UseCases; when a feature needs the Revit API, put
+the mechanism behind ports with a plain-DTO boundary instead of moving the interactor down.
 
-`source/Sonny.Application.Features/` is orphaned: no `.csproj`, not in the solution, superseded by
-`Infrastructure/Features/ColumnFromCad`. Don't edit it.
 
 ### Composition root
 
@@ -147,17 +180,19 @@ trigger `PublishRelease.yml`. Commit messages are prefixed `Add:` / `Fix:` / `Up
 
 ## Feature workflow — docs are the deliverable
 
-A non-trivial feature runs through the `sonny-flow` plugin, in two commands with a human gate between them:
+A non-trivial feature runs through the `sonny-flow` plugin. One command starts or resumes the whole flow;
+the per-step commands exist for running a single step by hand:
 
 ```
-/sonny-flow:spec <Feature>     orient (docs → graphify → codegraph) → ## Spec + ## Contract → ## Plan
-                               ── stops here for approval
-/sonny-flow:build <Feature>    implement + tests → dotnet test → ## Behaviour + diagrams
+/sonny-flow:feature <Feature>   orient → grill → spec+contract → plan ─HUMAN GATE→ implement → verify → doc
+                                (re-typing the command after the plan gate IS the approval)
 ```
 
 Everything lands in one file, `docs/features/<Feature>.md`, which starts as spec-plus-plan and ends as
-permanent behaviour documentation. **The file is the progress tracker** — an unchecked `- [ ]` under
-`## Plan` means the feature is not done. There is no separate artifact directory and no JSON schema.
+permanent behaviour documentation. **The file is the progress tracker**: a `## Flow-state` checklist at the
+top ticks every step (template in sonny-flow's `rules/gates.md`), and an unchecked `- [ ]` — in `## Plan`
+or in `## Flow-state` — means the feature is not done. There is no separate artifact directory and no JSON
+schema.
 
 Three rules that hold whether or not the plugin is driving:
 

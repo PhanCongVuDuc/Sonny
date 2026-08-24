@@ -13,5 +13,17 @@ public enum FailurePreprocessorType
     /// <summary>
     ///     Suppress warnings preprocessor
     /// </summary>
-    SuppressWarnings
+    SuppressWarnings,
+
+    /// <summary>
+    ///     Resolves every failure (warnings included) and records the element ids of
+    ///     error-severity failures into <see cref="IFailingElementIdsTracker" />
+    /// </summary>
+    ResolveAllFailures,
+
+    /// <summary>
+    ///     Deletes warnings from the failure dialog, resolves errors, and rolls back on
+    ///     document corruption. Does not record failing element ids (ported behaviour)
+    /// </summary>
+    DeleteWarningsResolveErrors
 }

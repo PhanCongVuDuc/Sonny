@@ -1,11 +1,15 @@
-using Microsoft.Extensions.DependencyInjection ;
+﻿using Microsoft.Extensions.DependencyInjection ;
 using Sonny.Application.Domain.Entities.ColumnFromCad.Services ;
+using Sonny.Application.Domain.Entities.FramingFromCad.Services ;
 using Sonny.Application.Domain.Services ;
 using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Implements ;
 using Sonny.Application.Infrastructure.Features.AutoColumnDimension.Services ;
+using Sonny.Application.Infrastructure.Features.AutoJoin.Implements ;
+using Sonny.Application.Infrastructure.Features.AutoJoin.Services ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Implements ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Services ;
 using Sonny.Application.Infrastructure.Features.ColumnFromCad.Strategies ;
+using Sonny.Application.Infrastructure.Features.FramingFromCad.Implements ;
 using Sonny.Application.Infrastructure.License ;
 using Sonny.Application.Infrastructure.Resource.Implements ;
 using Sonny.Application.Infrastructure.Revit.Implements ;
@@ -13,7 +17,9 @@ using Sonny.Application.Infrastructure.Revit.Managers.Transactions ;
 using Sonny.Application.Infrastructure.Revit.Services ;
 using Sonny.Application.Infrastructure.Settings.Implements ;
 using Sonny.Application.UseCases.AutoColumnDimension.Services ;
+using Sonny.Application.UseCases.AutoJoin.Services ;
 using Sonny.Application.UseCases.ColumnFromCad.Services ;
+using Sonny.Application.UseCases.FramingFromCad.Services ;
 using Sonny.Keygen.Services ;
 
 namespace Sonny.Application.Infrastructure ;
@@ -33,7 +39,9 @@ public static class ServiceRegistration
         services.AddResourceServices() ;
         services.AddLicenseServices() ;
         services.AddColumnFromCadServices() ;
+        services.AddFramingFromCadServices() ;
         services.AddAutoColumnDimensionServices() ;
+        services.AddAutoJoinServices() ;
     }
 
     /// <summary>
@@ -48,13 +56,19 @@ public static class ServiceRegistration
         // Deliberately not a singleton: it owns no data worth sharing, and a fresh instance per
         // resolve means any per-run state added here later is cleared instead of leaking between runs.
         // Caveat: that only holds for consumers resolved per run. Singleton consumers
-        // (ColumnDataExtractor, ElementSelector, ColumnCreationStrategyFactory, AutoColumnDimensionInteractor)
-        // resolve this once and keep that instance for the whole Revit session, so RevitDocument itself
-        // must read through the provider on every call and never cache the UIDocument.
+        // (ColumnDataExtractor, ElementSelector, ColumnCreationStrategyFactory, ColumnGeometryReader,
+        // DimensionPlanExecutor) resolve this once and keep that instance for the whole Revit session,
+        // so RevitDocument itself must read through the provider on every call and never cache the
+        // UIDocument.
         services.AddTransient<IRevitDocument, RevitDocument>() ;
 
         services.AddSingleton<ITransactionManagerFactory, TransactionManagerFactory>() ;
         services.AddSingleton<IFailurePreprocessorFactory, FailurePreprocessorFactory>() ;
+
+        // Singleton on purpose: the failure preprocessors (created by the factory above) and the
+        // interactor that reads the ids after commit must share the same instance. Holds only
+        // numeric ids and is Clear()-ed at the start of every run.
+        services.AddSingleton<IFailingElementIdsTracker, FailingElementIdsTracker>() ;
         services.AddSingleton<IPoint3DConverter, Point3DConverter>() ;
         services.AddSingleton<IUnitConverter, UnitConverter>() ;
         services.AddSingleton<IElementSelector, ElementSelector>() ;
@@ -107,13 +121,50 @@ public static class ServiceRegistration
     }
 
     /// <summary>
-    ///     Adds the grid and dimension services for the AutoColumnDimension feature
+    ///     Adds the Revit adapters for the FramingFromCad feature: the CAD stroke reader, the beam
+    ///     placer and the justification pass behind the Domain ports
+    /// </summary>
+    private static void AddFramingFromCadServices(this IServiceCollection services)
+    {
+        // Singleton: stateless between runs, reads the document through IRevitDocument on each call
+        services.AddSingleton<IFramingDataExtractor, FramingDataExtractor>() ;
+        services.AddSingleton<IBeamJustificationAdjuster, BeamJustificationAdjuster>() ;
+
+        // Transient: BeamCreator remembers the family's symbols as of run start, the symbol resolved
+        // per section, and the first symbol resolved overall. Sharing one across runs would build
+        // single-stroke beams at the previous run's size
+        services.AddTransient<IBeamCreator, BeamCreator>() ;
+
+        // Transient: carries the selections of a single FramingFromCad run
+        services.AddTransient<IFramingFromCadContext, FramingFromCadContext>() ;
+    }
+
+    /// <summary>
+    ///     Adds the Revit adapters for the AutoColumnDimension feature: the geometry reader and
+    ///     plan executor behind the UseCases ports, and the dimension creator they drive
     /// </summary>
     private static void AddAutoColumnDimensionServices(this IServiceCollection services)
     {
-        services.AddSingleton<IGridFinder, GridFinder>() ;
         services.AddSingleton<IDimensionCreator, DimensionCreator>() ;
-        services.AddSingleton<IAutoColumnDimension, AutoColumnDimension>() ;
-        services.AddSingleton<IAutoColumnDimensionInteractor, AutoColumnDimensionInteractor>() ;
+
+        // Stateless adapters: they read through IRevitDocument on every call and never cache
+        // the view, so they are safe as singletons (see the UIDocument lifetime rule)
+        services.AddSingleton<IColumnGeometryReader, ColumnGeometryReader>() ;
+        services.AddSingleton<IDimensionPlanExecutor, DimensionPlanExecutor>() ;
+    }
+
+    /// <summary>
+    ///     Adds the Revit adapters for the AutoJoin feature: the scope reader and pair executor
+    ///     behind the UseCases ports, and the pre-window environment check
+    /// </summary>
+    private static void AddAutoJoinServices(this IServiceCollection services)
+    {
+        // Stateless, reads through IRevitDocument on each call — safe as a singleton
+        services.AddSingleton<IAutoJoinEnvironmentChecker, AutoJoinEnvironmentChecker>() ;
+
+        // Transient: the pair executor snapshots the current anchor's solid during a run, and
+        // the reader follows the same per-run lifetime as the interactor that owns them
+        services.AddTransient<IAutoJoinScopeReader, AutoJoinScopeReader>() ;
+        services.AddTransient<IAutoJoinPairExecutor, AutoJoinPairExecutor>() ;
     }
 }
