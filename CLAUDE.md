@@ -186,7 +186,15 @@ the per-step commands exist for running a single step by hand:
 ```
 /sonny-flow:feature <Feature>   orient → grill → spec+contract → plan ─HUMAN GATE→ implement → verify → doc
                                 (re-typing the command after the plan gate IS the approval)
+/sonny-flow:bug <package|code>  a bug reported from outside: read the whole package — screen recording
+                                included, via /watch — ─HUMAN GATE on the symptom→ diagnose to file:line
+                                → write docs/bugs/<CODE>.md and STOP. Diagnosis, never a fix.
 ```
+
+Known defects live in [`docs/bugs/`](docs/bugs/README.md) — a ledger with its own lifecycle, separate from
+feature docs (which get overwritten). **Silent fixes are forbidden**: a bug found outside the current task
+is written up without asking, but fixing it is a task with a spec. `not-a-bug` verdicts stay in the same
+folder, because the expensive moment is the *second* time someone reports the same thing.
 
 Everything lands in one file, `docs/features/<Feature>.md`, which starts as spec-plus-plan and ends as
 permanent behaviour documentation. **The file is the progress tracker**: a `## Flow-state` checklist at the

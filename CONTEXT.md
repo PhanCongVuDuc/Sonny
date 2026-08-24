@@ -11,3 +11,5 @@ Thuật ngữ dùng thống nhất trong docs, code và commit message. Tên cod
 | **grid candidate** | DTO thuần đại diện một grid trong view (`UniqueId`, direction, origin) để decision core chọn grid mà không thấy `GridWrapperBase`. |
 | **characterization test** | Test khoá hành vi *hiện tại* trước khi refactor, kể cả hành vi trông như bug (silent skip, failed-count arithmetic). |
 | **pure form** | Kiểu interactor chuẩn: nằm ở UseCases, không Revit type, mock được end-to-end — `ColumnFromCadInteractor` là mẫu. |
+| **bug intake** | Gói người dùng gửi khi báo bug — video, file `.rvt`, mô tả — và việc đọc hết gói đó (kể cả video) để chốt *hiện tượng* trước khi chẩn đoán. Gói sống ngoài repo; file bug chỉ trỏ đường dẫn. |
+| **probe** | Test đọc-only viết ra để **đo** thực tế, không để khoá hành vi: mở một `.rvt` xem nó chứa gì, dump số liệu, tái hiện một exception thật. Là bằng chứng cho chẩn đoán, không phải lưới an toàn — nên không commit, khác **characterization test** ở trên. |
