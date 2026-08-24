@@ -1,0 +1,41 @@
+---
+description: knowledge graph context — graphify and codegraph
+alwaysApply: true
+---
+
+This project has two knowledge graphs with different blind spots: **graphify** (`graphify-out/`) and **codegraph**
+(`.codegraph/`). Ask both before exploring with Read/Grep/Glob/Bash — measured over 10 real questions on this repo,
+codegraph alone answered 5, graphify alone 3, both together 9.
+
+**graphify** — the only one that sees `.md` docs and `.xaml` files:
+- `graphify query "<question>"` — scoped subgraph for any codebase or architecture question
+- `graphify affected "<X>" --depth 2` — what directly touches X
+- `graphify explain "<X>"` — X plus its neighbours, both directions
+
+**codegraph** — the only one that returns verbatim line-numbered source, and it auto-syncs ~1s after a save. In
+Cursor it is CLI-only (its MCP server is wired into Claude Code, not here):
+- `codegraph node "<Type.Member>"` — one symbol's source + caller trail
+- `codegraph explore "<Name1 Name2 Name3>"` — several symbols' source + call paths
+- `codegraph impact "<Symbol>"` — everything a change reaches
+
+**Give codegraph a bag of symbol names, never an English question.** Asking *"where is IColumnDataExtractor
+registered in dependency injection?"* returned unrelated files, while `"AddColumnFromCadServices
+IColumnDataExtractor ServiceRegistration"` landed on the exact registration line. Use graphify to find the names,
+then hand those names to codegraph.
+
+When the two disagree: trust **codegraph** for what the code says, exact line numbers, and the full blast radius of
+a change (`impact` is transitive; `graphify affected` stops at `--depth 2`). Trust **graphify** for `.xaml`
+bindings, localization resource keys, architectural intent, and anything under `docs/` — codegraph indexes none of
+those. If both point at the same place, you are done; do not verify further.
+
+Two traps: `codegraph affected` reports "no test files affected" for feature code because the integration tests
+bind to `.rvt` fixtures and `UniqueId`s rather than an import chain — never use it to pick which tests to run. And
+`graphify path` routes around `Host.GetService<T>()` through shared namespace imports and returns a path that is
+not the real call flow; read `docs/architecture/command-flow.md` instead.
+
+Use Read/Grep/Glob directly once a graph has oriented you and you need to modify or debug specific lines, or for
+anything neither graph indexes. After editing code files run `graphify update .` (AST-only, no API cost) —
+codegraph needs nothing, it syncs itself.
+
+`graphify-out/wiki/index.md` is the map for broad navigation; read `GRAPH_REPORT.md` only for a full architecture
+review. Full routing rules live in `CLAUDE.md` → "Knowledge graphs".

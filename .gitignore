@@ -86,3 +86,24 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+#graphify local index (rebuilt from source with `graphify update .`, never commit).
+# The whole directory is machine-local: dated snapshots, .backup-* dirs, pipeline
+# intermediates (.graphify_*), learned memory/ and reflections/, plus the generated
+# graph.json / wiki/ / manifest.json. Regenerating is cheaper than merging it.
+graphify-out/
+
+#CodeGraph local index (rebuilt from source, never commit)
+.codegraph/
+
+#LoopX local control-plane state (never commit)
+.loopx/
+.codex/goals/
+.local/
+ACTIVE_GOAL_STATE.md
+
+#Machine-specific absolute paths to the loopx MCP venv
+.mcp.json
+
+#Claude Code agent worktrees (full repo clones, ~1GB)
+.claude/worktrees/
