@@ -14,3 +14,7 @@
 	path = source/Sonny.Keygen
 	url = https://github.com/PhanCongVuDuc/Sonny.Keygen
 	branch = master
+[submodule "source/Sonny.ResourceManager"]
+	path = source/Sonny.ResourceManager
+	url = https://github.com/PhanCongVuDuc/Sonny.ResourceManager.git
+	branch = main
