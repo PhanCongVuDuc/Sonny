@@ -52,9 +52,6 @@
   <ItemGroup>
     <!-- Localization -->
     <PackageReference Include="WPFLocalizeExtension" Version="3.9.0"/>
-
-    <!-- IOC -->
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3"/>
   </ItemGroup>
 
 </Project>
